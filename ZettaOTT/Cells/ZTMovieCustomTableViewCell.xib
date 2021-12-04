@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFUIDisplay-Regular.otf">
+            <string>SFUIDisplay-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ZTMovieCustomTableViewCell" id="KGk-i7-Jjw" customClass="ZTMovieCustomTableViewCell" customModule="ZettaOTT" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_help" translatesAutoresizingMaskIntoConstraints="NO" id="x4a-Km-DRX" customClass="ZTImageViewCornerRadius" customModule="ZettaOTT" customModuleProvider="target">
+                        <rect key="frame" x="16" y="10" width="40" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="BMi-G0-uOT"/>
+                            <constraint firstAttribute="width" constant="40" id="H0j-5n-5ER"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="A0V-fS-MMa">
+                        <rect key="frame" x="72" y="18.5" width="238" height="33"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kaadan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Mu-eW-rw8">
+                                <rect key="frame" x="0.0" y="0.0" width="238" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="o89-vH-LNW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="16"/>
+                                <color key="textColor" name="ZTTabbarUnSelectedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tamil, Drama / Action" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e05-8b-ybB">
+                                <rect key="frame" x="0.0" y="20" width="238" height="13"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="11"/>
+                                <color key="textColor" name="ZTAppSeperatorColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <color key="backgroundColor" name="ZTFormBackgroundColor"/>
+                <constraints>
+                    <constraint firstItem="x4a-Km-DRX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Jnf-2K-fqU"/>
+                    <constraint firstAttribute="trailing" secondItem="A0V-fS-MMa" secondAttribute="trailing" constant="10" id="NHb-7r-zFC"/>
+                    <constraint firstItem="A0V-fS-MMa" firstAttribute="leading" secondItem="x4a-Km-DRX" secondAttribute="trailing" constant="16" id="OMC-fo-mAv"/>
+                    <constraint firstItem="x4a-Km-DRX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="OPL-hb-1rj"/>
+                    <constraint firstAttribute="bottom" secondItem="x4a-Km-DRX" secondAttribute="bottom" constant="10" id="Zsd-ul-sh1"/>
+                    <constraint firstItem="A0V-fS-MMa" firstAttribute="centerY" secondItem="x4a-Km-DRX" secondAttribute="centerY" id="rxw-U3-Mvk"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="imgVwThumbnail" destination="x4a-Km-DRX" id="xgz-K4-F0Y"/>
+                <outlet property="lblMovieCategory" destination="e05-8b-ybB" id="H7S-ad-BU0"/>
+                <outlet property="lblMovieTitle" destination="4Mu-eW-rw8" id="od7-sB-4qO"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="113"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_help" width="21" height="23.5"/>
+        <namedColor name="ZTAppSeperatorColor">
+            <color red="0.53333333333333333" green="0.53333333333333333" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="ZTFormBackgroundColor">
+            <color red="0.12941176470588237" green="0.13725490196078433" blue="0.23921568627450981" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ZTTabbarUnSelectedColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFUIDisplay-Bold.ttf">
+            <string>SFUIDisplay-Bold</string>
+        </array>
+        <array key="SFUIDisplay-Medium.otf">
+            <string>SFUIDisplay-Medium</string>
+        </array>
+        <array key="SFUIDisplay-Regular.otf">
+            <string>SFUIDisplay-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="ZTProfileHeader" id="U6b-Vx-4bR" customClass="ZTProfileHeader" customModule="ZettaOTT" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="396"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DVI-Wf-Hyc">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_top_bg" translatesAutoresizingMaskIntoConstraints="NO" id="tG3-jL-Cun">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="tG3-jL-Cun" secondAttribute="bottom" id="Fcg-bz-nJ1"/>
+                        <constraint firstAttribute="height" constant="190" id="N2F-YG-PhI"/>
+                        <constraint firstItem="tG3-jL-Cun" firstAttribute="top" secondItem="DVI-Wf-Hyc" secondAttribute="top" id="Qvv-lv-Cjg"/>
+                        <constraint firstAttribute="trailing" secondItem="tG3-jL-Cun" secondAttribute="trailing" id="Xcr-eD-EkE"/>
+                        <constraint firstItem="tG3-jL-Cun" firstAttribute="leading" secondItem="DVI-Wf-Hyc" secondAttribute="leading" id="mXU-dk-ome"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mIj-WM-v3z">
+                    <rect key="frame" x="0.0" y="190" width="375" height="190"/>
+                    <color key="backgroundColor" name="ZTFormBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="190" id="Nsc-7K-h44"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XvN-81-hfC">
+                    <rect key="frame" x="133" y="143.5" width="109" height="109"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummy_profile" translatesAutoresizingMaskIntoConstraints="NO" id="Cyo-xi-Kk7" customClass="ZTCircularImageView" customModule="ZettaOTT" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="109" height="109"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Cyo-xi-Kk7" firstAttribute="leading" secondItem="XvN-81-hfC" secondAttribute="leading" id="7TY-Rz-Oai"/>
+                        <constraint firstAttribute="bottom" secondItem="Cyo-xi-Kk7" secondAttribute="bottom" id="GpW-id-BkW"/>
+                        <constraint firstAttribute="trailing" secondItem="Cyo-xi-Kk7" secondAttribute="trailing" id="PxC-nA-33A"/>
+                        <constraint firstAttribute="width" constant="109" id="RnU-lC-Hiu"/>
+                        <constraint firstAttribute="height" constant="109" id="TzI-yi-l58"/>
+                        <constraint firstItem="Cyo-xi-Kk7" firstAttribute="top" secondItem="XvN-81-hfC" secondAttribute="top" id="xv4-Fu-h9J"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Vkf-PP-apr">
+                    <rect key="frame" x="119" y="262.5" width="137" height="44.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="James William" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o88-hQ-tXW">
+                            <rect key="frame" x="0.0" y="0.0" width="137" height="23.5"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="23.5" id="M5j-MZ-BEe"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="20"/>
+                            <color key="textColor" name="ZTTabbarUnSelectedColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="markdoe@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jn-uU-eqc">
+                            <rect key="frame" x="0.0" y="28.5" width="137" height="16"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="16" id="Qhj-ep-w8D"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="15"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="G1d-lb-Azw">
+                    <rect key="frame" x="10" y="317" width="355" height="63"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oc7-we-7U1">
+                            <rect key="frame" x="0.0" y="0.0" width="118.5" height="63"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_profile_gender" translatesAutoresizingMaskIntoConstraints="NO" id="8ve-zK-CQ4">
+                                    <rect key="frame" x="53" y="10" width="12" height="12"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="12" id="1to-fU-aBY"/>
+                                        <constraint firstAttribute="width" constant="12" id="AUl-9L-NM6"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Male" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T8j-kZ-yhh">
+                                    <rect key="frame" x="45" y="27" width="28" height="16"/>
+                                    <fontDescription key="fontDescription" name="SFUIDisplay-Medium" family="SF UI Display" pointSize="13"/>
+                                    <color key="textColor" name="ZTTabbarUnSelectedColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="T8j-kZ-yhh" firstAttribute="top" secondItem="8ve-zK-CQ4" secondAttribute="bottom" constant="5" id="6xe-jn-4RT"/>
+                                <constraint firstItem="8ve-zK-CQ4" firstAttribute="top" secondItem="Oc7-we-7U1" secondAttribute="top" constant="10" id="9Cx-zl-cIn"/>
+                                <constraint firstItem="8ve-zK-CQ4" firstAttribute="centerX" secondItem="Oc7-we-7U1" secondAttribute="centerX" id="i4j-jj-LpH"/>
+                                <constraint firstItem="T8j-kZ-yhh" firstAttribute="centerX" secondItem="8ve-zK-CQ4" secondAttribute="centerX" id="vBz-lb-pSd"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rcm-PY-Mbb">
+                            <rect key="frame" x="118.5" y="0.0" width="118" height="63"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_profile_call" translatesAutoresizingMaskIntoConstraints="NO" id="QT8-qB-R9s">
+                                    <rect key="frame" x="53" y="10" width="12" height="12"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="12" id="Fmp-pN-6y1"/>
+                                        <constraint firstAttribute="width" constant="12" id="k2Y-Qa-JdB"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+1 12345 67890" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nw8-dM-7YP">
+                                    <rect key="frame" x="11" y="27" width="96.5" height="16"/>
+                                    <fontDescription key="fontDescription" name="SFUIDisplay-Medium" family="SF UI Display" pointSize="13"/>
+                                    <color key="textColor" name="ZTTabbarUnSelectedColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="QT8-qB-R9s" firstAttribute="centerX" secondItem="Rcm-PY-Mbb" secondAttribute="centerX" id="8Sk-wy-Ms1"/>
+                                <constraint firstItem="Nw8-dM-7YP" firstAttribute="centerX" secondItem="QT8-qB-R9s" secondAttribute="centerX" id="Zaz-fR-Z4J"/>
+                                <constraint firstItem="QT8-qB-R9s" firstAttribute="top" secondItem="Rcm-PY-Mbb" secondAttribute="top" constant="10" id="oJ6-72-u3e"/>
+                                <constraint firstItem="Nw8-dM-7YP" firstAttribute="top" secondItem="QT8-qB-R9s" secondAttribute="bottom" constant="5" id="zgZ-KK-yE4"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fHY-Bz-KwV">
+                            <rect key="frame" x="236.5" y="0.0" width="118.5" height="63"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_profile_dob" translatesAutoresizingMaskIntoConstraints="NO" id="ijB-Yb-v2C">
+                                    <rect key="frame" x="53.5" y="10" width="12" height="12"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="12" id="4VW-Xg-p4J"/>
+                                        <constraint firstAttribute="height" constant="12" id="uq2-y6-5uh"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01 Jan 1990" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="372-ZE-GMg">
+                                    <rect key="frame" x="23.5" y="27" width="71.5" height="16"/>
+                                    <fontDescription key="fontDescription" name="SFUIDisplay-Medium" family="SF UI Display" pointSize="13"/>
+                                    <color key="textColor" name="ZTTabbarUnSelectedColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="ijB-Yb-v2C" firstAttribute="top" secondItem="fHY-Bz-KwV" secondAttribute="top" constant="10" id="73y-fq-0D3"/>
+                                <constraint firstItem="372-ZE-GMg" firstAttribute="centerX" secondItem="ijB-Yb-v2C" secondAttribute="centerX" id="PJA-cs-Txq"/>
+                                <constraint firstItem="372-ZE-GMg" firstAttribute="top" secondItem="ijB-Yb-v2C" secondAttribute="bottom" constant="5" id="dM7-ZX-tql"/>
+                                <constraint firstItem="ijB-Yb-v2C" firstAttribute="centerX" secondItem="fHY-Bz-KwV" secondAttribute="centerX" id="lxe-bm-fD7"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="G1d-lb-Azw" firstAttribute="bottom" secondItem="mIj-WM-v3z" secondAttribute="bottom" id="1KV-yu-sFf"/>
+                <constraint firstItem="DVI-Wf-Hyc" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="2A7-YS-CYR"/>
+                <constraint firstAttribute="trailing" secondItem="mIj-WM-v3z" secondAttribute="trailing" id="3Aw-gJ-LTf"/>
+                <constraint firstItem="G1d-lb-Azw" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="10" id="Bgu-Gt-4Q2"/>
+                <constraint firstItem="G1d-lb-Azw" firstAttribute="top" secondItem="Vkf-PP-apr" secondAttribute="bottom" constant="10" id="PdU-Jt-9DX"/>
+                <constraint firstItem="mIj-WM-v3z" firstAttribute="top" secondItem="DVI-Wf-Hyc" secondAttribute="bottom" id="Rw4-Er-cLu"/>
+                <constraint firstItem="XvN-81-hfC" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="SVC-wH-kxr"/>
+                <constraint firstItem="XvN-81-hfC" firstAttribute="centerX" secondItem="U6b-Vx-4bR" secondAttribute="centerX" id="Tvb-Sm-ttR"/>
+                <constraint firstItem="DVI-Wf-Hyc" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="UAa-VO-2sY"/>
+                <constraint firstItem="Vkf-PP-apr" firstAttribute="centerX" secondItem="XvN-81-hfC" secondAttribute="centerX" id="e51-GO-kGG"/>
+                <constraint firstItem="mIj-WM-v3z" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="fo3-nR-PxW"/>
+                <constraint firstAttribute="trailing" secondItem="DVI-Wf-Hyc" secondAttribute="trailing" id="qV1-lv-eOU"/>
+                <constraint firstAttribute="trailing" secondItem="G1d-lb-Azw" secondAttribute="trailing" constant="10" id="sR7-7U-NYR"/>
+                <constraint firstItem="Vkf-PP-apr" firstAttribute="top" secondItem="XvN-81-hfC" secondAttribute="bottom" constant="10" id="vbT-xO-Cn4"/>
+                <constraint firstAttribute="bottom" secondItem="mIj-WM-v3z" secondAttribute="bottom" constant="16" id="zQI-Fh-Br3"/>
+            </constraints>
+            <connections>
+                <outlet property="imgVwProfile" destination="Cyo-xi-Kk7" id="rHy-Pi-u7H"/>
+                <outlet property="lblUserDOB" destination="372-ZE-GMg" id="ruR-H7-QJF"/>
+                <outlet property="lblUserEmail" destination="6jn-uU-eqc" id="pph-S0-hAc"/>
+                <outlet property="lblUserGender" destination="T8j-kZ-yhh" id="aRF-k8-wNt"/>
+                <outlet property="lblUserName" destination="o88-hQ-tXW" id="Ygx-pR-1RL"/>
+                <outlet property="lblUserPhone" destination="Nw8-dM-7YP" id="IdG-MQ-sPG"/>
+                <outlet property="vwDOB" destination="fHY-Bz-KwV" id="7D0-Kj-7nc"/>
+                <outlet property="vwGender" destination="Oc7-we-7U1" id="Nvp-HL-Z0F"/>
+                <outlet property="vwImage" destination="XvN-81-hfC" id="LnE-PC-fHn"/>
+                <outlet property="vwPhone" destination="Rcm-PY-Mbb" id="UqV-cr-3ML"/>
+            </connections>
+            <point key="canvasLocation" x="136.95652173913044" y="182.47767857142856"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="dummy_profile" width="117" height="117"/>
+        <image name="icon_profile_call" width="12" height="12"/>
+        <image name="icon_profile_dob" width="12" height="13"/>
+        <image name="icon_profile_gender" width="12" height="12.5"/>
+        <image name="profile_top_bg" width="375" height="190.5"/>
+        <namedColor name="ZTFormBackgroundColor">
+            <color red="0.12941176470588237" green="0.13725490196078433" blue="0.23921568627450981" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ZTTabbarUnSelectedColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

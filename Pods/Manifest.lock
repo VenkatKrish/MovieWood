@@ -1,0 +1,64 @@
+PODS:
+  - Alamofire (4.9.1)
+  - AppAuth (1.4.0):
+    - AppAuth/Core (= 1.4.0)
+    - AppAuth/ExternalUserAgent (= 1.4.0)
+  - AppAuth/Core (1.4.0)
+  - AppAuth/ExternalUserAgent (1.4.0)
+  - FlagPhoneNumber (0.8.0):
+    - FlagPhoneNumber/libPhoneNumberiOS (= 0.8.0)
+  - FlagPhoneNumber/libPhoneNumberiOS (0.8.0)
+  - GoogleSignIn (6.0.1):
+    - AppAuth (~> 1.4)
+    - GTMAppAuth (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GTMAppAuth (1.2.2):
+    - AppAuth/Core (~> 1.4)
+    - GTMSessionFetcher/Core (~> 1.5)
+  - GTMSessionFetcher/Core (1.6.1)
+  - IQKeyboardManagerSwift (6.5.6)
+  - JVFloatLabeledTextField (1.2.2)
+  - Kingfisher (7.1.1)
+  - TTGSnackbar (1.10.5)
+  - VersaPlayer (3.0.2)
+
+DEPENDENCIES:
+  - Alamofire
+  - FlagPhoneNumber
+  - GoogleSignIn
+  - IQKeyboardManagerSwift
+  - JVFloatLabeledTextField
+  - Kingfisher (~> 7.0)
+  - TTGSnackbar
+  - VersaPlayer
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - AppAuth
+    - FlagPhoneNumber
+    - GoogleSignIn
+    - GTMAppAuth
+    - GTMSessionFetcher
+    - IQKeyboardManagerSwift
+    - JVFloatLabeledTextField
+    - Kingfisher
+    - TTGSnackbar
+    - VersaPlayer
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
+  FlagPhoneNumber: 3712455b95f66cb0f2016fef7d9e34cddf8c7f9a
+  GoogleSignIn: 1b0c4ec33a6fe282f4fa35d8ac64263230ddaf36
+  GTMAppAuth: ad5c2b70b9a8689e1a04033c9369c4915bfcbe89
+  GTMSessionFetcher: 36689134877faeb055b27dfa4ccc9ceaa42e029e
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  JVFloatLabeledTextField: df48598472ee015701d509f43e59492a0d4ca208
+  Kingfisher: f738f9c4a3415823b8e2985d10aa2d6a9f37bc4d
+  TTGSnackbar: 2bd245d2bbf83639483410273fd936af0b7ba2a9
+  VersaPlayer: 0e9a0ea7da786729ffb377dbd17b34641a8265e4
+
+PODFILE CHECKSUM: 0d2a4726e043c2910a9f78bd4b15bf79c7717da4
+
+COCOAPODS: 1.10.0
