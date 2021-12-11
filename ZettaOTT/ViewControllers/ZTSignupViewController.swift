@@ -140,7 +140,6 @@ extension ZTSignupViewController: UITextFieldDelegate{
         var isValidationSuccess = true
         var message = ""
         
-        
         if self.removeWhiteSpace(text: self.txtFldFirstName.text ?? "").count == 0{
             message = ZTValidationMessage.FIRST_NAME_REQUIRED
             isValidationSuccess = false
@@ -162,27 +161,22 @@ extension ZTSignupViewController: UITextFieldDelegate{
             isValidationSuccess = false
             self.txtFldEmail.showError()
         }
+        if self.removeWhiteSpace(text: self.txtFldMobile.text ?? "").count == 0{
+            message = ZTValidationMessage.MOBILE_NUMBER_REQUIRED
+            isValidationSuccess = false
+            self.txtFldMobile.showError()
+        }
+        if self.isPhoneNumberValid == false{
+            message = ZTValidationMessage.INVALID_PHONE_NUMBER
+            isValidationSuccess = false
+            self.txtFldMobile.showError()
+        }
         if self.removeWhiteSpace(text: self.txtFldAge.text ?? "").count == 0{
             message = ZTValidationMessage.AGE_REQUIRED
             isValidationSuccess = false
             self.txtFldAge.showError()
         }
-        if self.removeWhiteSpace(text: self.txtFldAge.text ?? "").count == 0{
-            
-            if !isPhoneNumberValid{
-                message = ZTValidationMessage.MOBILE_NUMBER_REQUIRED
-                isValidationSuccess = false
-                self.txtFldMobile.showError()
-            }
-        }
-        if self.removeWhiteSpace(text: self.txtFldAge.text ?? "").count > 0{
-            
-            if !isPhoneNumberValid{
-                message = ZTValidationMessage.INVALID_PHONE_NUMBER
-                isValidationSuccess = false
-                self.txtFldMobile.showError()
-            }
-        }
+        
         return isValidationSuccess
     }
 }

@@ -6,9 +6,31 @@
 //
 
 import UIKit
-import VersaPlayer
-
+//import VGPlayer
+struct MyConstraint {
+    static func changeMultiplier(_ constraint: NSLayoutConstraint, multiplier: CGFloat) -> NSLayoutConstraint {
+        let newConstraint = NSLayoutConstraint(
+            item: constraint.firstItem!,
+            attribute: constraint.firstAttribute,
+            relatedBy: constraint.relation,
+            toItem: constraint.secondItem,
+            attribute: constraint.secondAttribute,
+            multiplier: multiplier,
+            constant: constraint.constant)
+        
+        newConstraint.priority = constraint.priority
+        
+        NSLayoutConstraint.deactivate([constraint])
+        NSLayoutConstraint.activate([newConstraint])
+        
+        return newConstraint
+    }
+}
 class ZTMovieDetailViewController: UIViewController {
+    var videoPlayerSize : CGFloat = 0.3
+    var videoBannerSize : CGFloat = 0.4
+    var tryingCount = 0
+    var videoUrlVal : URL? = nil
     @IBOutlet weak var imgVwMovieBanner: UIImageView!
     @IBOutlet weak var lblMovieName: UILabel!
     @IBOutlet weak var lblMovieLanguage: UILabel!
@@ -29,13 +51,25 @@ class ZTMovieDetailViewController: UIViewController {
     @IBOutlet weak var vwTrailer: UIView!
     @IBOutlet weak var lblTeaserTitle: UILabel!
     @IBOutlet weak var lblTrailerTitle: UILabel!
-    @IBOutlet weak var videoPlayerView: VersaPlayerView!
-    @IBOutlet weak var controls: VersaPlayerControls!
+    @IBOutlet weak var videoPlayerView: UIView!
+    @IBOutlet weak var playerView: BMPlayer!
+    @IBOutlet weak var btnBack: UIButton!
+    @IBOutlet weak var videoHeightMultiplierHeight: NSLayoutConstraint!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.registerCells()
         self.initialLoad()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        UIApplication.shared.isIdleTimerDisabled = true
+        AppUtility.lockOrientation(.all)
+
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        UIApplication.shared.isIdleTimerDisabled = false
+        AppUtility.lockOrientation(.portrait)
+
     }
     func registerCells(){
         self.collectionGenre.register(UINib(nibName: ZTCellNameOrIdentifier.ZTTypesOfVideosCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: ZTCellNameOrIdentifier.ZTTypesOfVideosCollectionViewCell)
@@ -44,14 +78,21 @@ class ZTMovieDetailViewController: UIViewController {
         
 
     }
+    func multiplierHeightChange(sizeVal:CGFloat){
+        self.videoHeightMultiplierHeight = MyConstraint.changeMultiplier(self.videoHeightMultiplierHeight, multiplier: sizeVal)
+    }
     func initialLoad(){
         self.videoPlayerView.isHidden = true
-
+        self.multiplierHeightChange(sizeVal: self.videoBannerSize)
+        
         if let movieInfo = self.moviewDetails{
             self.lblMovieName.text = movieInfo.movieName
             self.lblMovieLanguage.text = movieInfo.primaryLanguage
-            self.lblMovieDuration.text = movieInfo.primaryLanguage
-
+            if let movieTime = movieInfo.runningTime{
+               let convertToSec = Double(movieTime * 60)
+                let stringVal = convertToSec.asString(style: .short)
+                self.lblMovieDuration.text = stringVal.replacingOccurrences(of: ",", with: "")
+            }
             self.lblMovieDescription.text = movieInfo.movieDescription
             Helper.shared.loadImage(url: movieInfo.moviePoster ?? "", imageView: self.imgVwMovieBanner)
             self.lblRating.text = String(format: "%.1f", movieInfo.avgRating ?? 0)
@@ -59,7 +100,11 @@ class ZTMovieDetailViewController: UIViewController {
             self.lblMovieYear.text = String(format: "%d", Int(movieInfo.yearReleased ?? 0))
             self.collectionCast.reloadData()
             self.collectionGenre.reloadData()
-            
+            if self.moviewDetails?.movieActors?.count ?? 0 > 0{
+                self.stackCast.isHidden = false
+            }else{
+                self.stackCast.isHidden = true
+            }
             self.vwTeaser.isHidden = true
             self.vwTrailer.isHidden = true
             if let teaser = self.moviewDetails?.teaserUrl, teaser.count > 0{
@@ -77,13 +122,22 @@ class ZTMovieDetailViewController: UIViewController {
         self.loadVideo(strUrl: self.moviewDetails?.teaserUrl ?? "")
     }
     func loadVideo(strUrl:String){
-        if let url = URL.init(string: self.moviewDetails?.teaserUrl ?? "") {
-            let item = VersaPlayerItem(url: url)
-            self.videoPlayerView.set(item: item)
+        if let url = URL.init(string: strUrl) {
+            
+        self.playerView.backBlock = { [unowned self] (isFullScreen) in
+                if isFullScreen == true {
+                    return
+                }
+                self.multiplierHeightChange(sizeVal: self.videoBannerSize)
+                self.btnBack.isHidden = false
+                self.videoPlayerView.isHidden = true
+            }
+            
+            let asset = BMPlayerResource(url: url)
+            self.playerView.setVideo(resource: asset)
+            self.multiplierHeightChange(sizeVal: self.videoPlayerSize)
+            self.btnBack.isHidden = true
         }
-        self.videoPlayerView.layer.backgroundColor = UIColor.getColor(colorVal: ZTAppBlackColor).cgColor
-        self.videoPlayerView.use(controls: controls)
-//        self.videoPlayerView.controls?.behaviour.shouldAutohide = true
     }
     @IBAction func btnTrailerPlay(_ sender: Any) {
         
@@ -154,7 +208,7 @@ extension ZTMovieDetailViewController:UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView == self.collectionCast{
-            return CGSize(width: 120, height:  collectionView.frame.size.height)
+            return CGSize(width: 80, height:  collectionView.frame.size.height)
         }else if collectionView == self.collectionGenre{
             let item = self.moviewDetails?.movieGenres?[indexPath.row].genre?.genreName ?? ""
             
@@ -199,6 +253,4 @@ extension ZTMovieDetailViewController:UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 5
     }
-
-    
 }

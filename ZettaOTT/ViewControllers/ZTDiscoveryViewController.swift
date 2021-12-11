@@ -29,7 +29,9 @@ class ZTDiscoveryViewController: UIViewController {
         self.initialLoad()
         // Do any additional setup after loading the view.
     }
-
+    override func viewWillDisappear(_ animated: Bool) {
+        self.view.takeScreenshot()
+    }
     func initialLoad(){
         self.getStreamingNowMovies()
         self.getLatestTamilMovies()
@@ -54,7 +56,6 @@ class ZTDiscoveryViewController: UIViewController {
         
         self.tblHome.dataSource = self
         self.tblHome.delegate = self
-        self.tblHome.reloadData()
         
     }
 

@@ -72,6 +72,14 @@ class ZTAppSession: NSObject {
     func getIsUserLoggedIn()->Bool{
         return self.userDefaults.bool(forKey: "isUserLogin")
     }
+    func setIsSkipLoggedIn(_ value : Bool){
+        self.userDefaults.set(value, forKey: "isSkipLogin")
+        self.saveValue()
+        SwaggerClientAPI.customHeaders = WebServicesHelper().getHeaderDetails()
+    }
+    func getIsSkipLoggedIn()->Bool{
+        return self.userDefaults.bool(forKey: "isSkipLogin")
+    }
     func setAccessToken (_ value: String) {
               
         self.userDefaults.set(value, forKey: "AccessToken")

@@ -8,23 +8,26 @@
 import UIKit
 import IQKeyboardManagerSwift
 import GoogleSignIn
-import FacebookCore
+//import FacebookCore
 
+var zt_minimumLineSpacing : CGFloat = 8
+var zt_minimumInteritemSpacing : CGFloat = 8
+var screenShotImage:UIImage? = nil
 var mainNav : UINavigationController? = nil
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-
+    var orientationLock = UIInterfaceOrientationMask.portrait
     static var current: AppDelegate {
            return UIApplication.shared.delegate as! AppDelegate
        }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        ApplicationDelegate.shared.application(
-                    application,
-                    didFinishLaunchingWithOptions: launchOptions
-                )
+//        ApplicationDelegate.shared.application(
+//                    application,
+//                    didFinishLaunchingWithOptions: launchOptions
+//                )
         SwaggerClientAPI.customHeaders = WebServicesHelper.shared.getHeaderDetails()
 
         self.setUpRoot()
@@ -32,20 +35,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NetworkReachability.shared.checkForReachability()
         return true
     }
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return self.orientationLock
+    }
     func setUpRoot() {
            if let _ = window{
-            if ZTAppSession.sharedInstance.getIsUserLoggedIn(){
-                    Helper.shared.getUserBackground()
-                    Helper.shared.goToHomeScreen()
+               if ZTAppSession.sharedInstance.getIsSkipLoggedIn(){
+                   Helper.shared.goToHomeScreen()
                }else{
-                   let userLoggedIn = ZTAppSession.sharedInstance.getIsUserLoggedIn()
-                   let tokenVal = ZTAppSession.sharedInstance.getAccessToken()
-                   if tokenVal != "" && userLoggedIn == false{
-                       Helper.shared.validateFirstLogin()
-                   }else{
-                       Helper.shared.goToLoginScreen()
-                   }
+                   if ZTAppSession.sharedInstance.getIsUserLoggedIn(){
+                           Helper.shared.getUserBackground()
+                           Helper.shared.goToHomeScreen()
+                      }else{
+                          let userLoggedIn = ZTAppSession.sharedInstance.getIsUserLoggedIn()
+                          let tokenVal = ZTAppSession.sharedInstance.getAccessToken()
+                          if tokenVal != "" && userLoggedIn == false{
+                              Helper.shared.validateFirstLogin()
+                          }else{
+                              Helper.shared.goToLoginScreen()
+                          }
+                      }
                }
+            
                window?.makeKeyAndVisible()
            }
        }
@@ -61,12 +72,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       if handled {
         return true
       }
-        ApplicationDelegate.shared.application(
-            app,
-            open: url,
-            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-            annotation: options[UIApplication.OpenURLOptionsKey.annotation]
-        )
+//        ApplicationDelegate.shared.application(
+//            app,
+//            open: url,
+//            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+//            annotation: options[UIApplication.OpenURLOptionsKey.annotation]
+//        )
       // Handle other custom URL types.
 
       // If not handled by this app, return false.
@@ -88,3 +99,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 }
 
+extension UIWindow {
+    static var isLandscape: Bool {
+        if #available(iOS 13.0, *) {
+            return UIApplication.shared.windows
+                .first?
+                .windowScene?
+                .interfaceOrientation
+                .isLandscape ?? false
+        } else {
+            return UIApplication.shared.statusBarOrientation.isLandscape
+        }
+    }
+}

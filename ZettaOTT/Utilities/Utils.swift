@@ -11,9 +11,10 @@ import UIKit
 var container: UIView = UIView()
 var loadingView: CAShapeLayer = CAShapeLayer()
 var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+let colorRandom = [UIColor.init(netHex: 0xef7b1c), UIColor.init(netHex: 0xfbba0f), UIColor.init(netHex: 0x0a8dd2), UIColor.init(netHex: 0xc63838), UIColor.init(netHex: 0x98ba2f), UIColor.init(netHex: 0x7c52c6), UIColor.init(netHex: 0x49c0a1)]
 //var isOverlayLoading: Bool = false
 let loadingIndicator: ProgressView = {
-    let progress = ProgressView(colors: [UIColor.getColor(colorVal: ZTGradientColor2)], lineWidth: 6)
+    let progress = ProgressView(colors: [UIColor.getColor(colorVal: ZTGradientColor2), UIColor.white], lineWidth: 6)
     progress.translatesAutoresizingMaskIntoConstraints = false
     return progress
 }()
@@ -75,3 +76,4 @@ extension UIColor {
         )
     }
 }
+

@@ -23,12 +23,18 @@ class Helper: NSObject {
     var snackBar : TTGSnackbar? = nil
     var helperDelegate : HelperMethodsDelegate!
     var noRecordsView = NoRecordsView()
-
+    
     class var shared: Helper {
         struct Static {
             static let instance: Helper = Helper()
         }
         return Static.instance
+    }
+    func getRandomColor(indexVal:Int) -> UIColor {
+        let randomIndex = Int(arc4random_uniform(UInt32(colorRandom.count)))
+        print(colorRandom[randomIndex])
+        return colorRandom[indexVal]
+       
     }
     func isKeyPresentInUserDefaults(key: String) -> Bool {
         return ZTAppSession.sharedInstance.userDefaults.object(forKey: key) != nil
@@ -226,7 +232,10 @@ extension Helper{
         if let responseVal = loginModel{
             ZTAppSession.sharedInstance.setLoginInfo(data: responseVal)
             ZTAppSession.sharedInstance.setAccessToken(responseVal.token ?? "")
-            Helper.shared.getUserBackground()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                Helper.shared.getUserBackground()
+            }
             if responseVal.firstLogin?.lowercased() == FirstLogin.FirstLogin_YES.rawValue.lowercased(){
                 ZTAppSession.sharedInstance.setIsUserLoggedIn(false)
                 self.goToSignupScreen(viewController: viewController)
@@ -393,5 +402,33 @@ extension Helper:dataMissingDelegate{
                     view.removeFromSuperview()
                 }
             }
+    }
+}
+extension Double {
+    
+//    10000.asString(style: .positional)  // 2:46:40
+//    10000.asString(style: .abbreviated) // 2h 46m 40s
+//    10000.asString(style: .short)       // 2 hr, 46 min, 40 sec
+//    10000.asString(style: .full)        // 2 hours, 46 minutes, 40 seconds
+//    10000.asString(style: .spellOut)    // two hours, forty-six minutes, forty seconds
+//    10000.asString(style: .brief)       // 2hr 46min 40sec
+    
+  func asString(style: DateComponentsFormatter.UnitsStyle) -> String {
+    let formatter = DateComponentsFormatter()
+    formatter.allowedUnits = [.hour, .minute]
+    formatter.unitsStyle = style
+    return formatter.string(from: self) ?? ""
+  }
+}
+extension UIView {
+    func takeScreenshot() {
+        // Begin context
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, false, UIScreen.main.scale)
+        // Draw view in that context
+        drawHierarchy(in: self.bounds, afterScreenUpdates: true)
+        // And finally, get image
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        screenShotImage = image
+        UIGraphicsEndImageContext()
     }
 }

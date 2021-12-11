@@ -14,12 +14,12 @@ class ZTProfileEditViewController: UIViewController {
     var isPhoneNumberValid: Bool = true
     var listController: FPNCountryListViewController = FPNCountryListViewController(style: .grouped)
     @IBOutlet weak var imgVwProfile: ZTCircularImageView!
-    @IBOutlet weak var txtFieldFirstName: JVFloatLabeledTextField!
-    @IBOutlet weak var txtFieldLastName: JVFloatLabeledTextField!
-    @IBOutlet weak var txtFieldPhone: FPNTextField!
-    @IBOutlet weak var txtFieldEmail: JVFloatLabeledTextField!
-    @IBOutlet weak var txtFieldGender: JVFloatLabeledTextField!
-    @IBOutlet weak var txtFieldDOB: JVFloatLabeledTextField!
+    @IBOutlet weak var txtFieldFirstName: ZTCustomTextField!
+    @IBOutlet weak var txtFieldLastName: ZTCustomTextField!
+    @IBOutlet weak var txtFieldPhone: ZTPhoneCustomTextField!
+    @IBOutlet weak var txtFieldEmail: ZTCustomTextField!
+    @IBOutlet weak var txtFieldGender: ZTCustomTextField!
+    @IBOutlet weak var txtFieldDOB: ZTCustomTextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +28,7 @@ class ZTProfileEditViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     func initialLoad(){
+        self.setupPhoneTextField()
         if let user = ZTAppSession.sharedInstance.getUserInfo() {
             self.loadProfileDetails(data: user)
         }
@@ -57,9 +58,47 @@ class ZTProfileEditViewController: UIViewController {
     @IBAction func btnChangeProfileImage(_ sender: UIButton) {
     }
     @IBAction func btnSaveAndContinue(_ sender: UIButton) {
+        if isValidationSuccess() == true{
+            let firstName = self.removeWhiteSpace(text: self.txtFieldFirstName.text ?? "")
+            let lastName = self.removeWhiteSpace(text: self.txtFieldLastName.text ?? "")
+            let phoneNum = self.txtFieldPhone.getRawPhoneNumber() ?? "0"
+            let dialCode = self.removeSpecialCharsFromPhoneString(text: self.txtFieldPhone.selectedCountry?.phoneCode ?? "91")
+            let email = self.removeWhiteSpace(text: self.txtFieldEmail.text ?? "")
+
+            let age = self.removeWhiteSpace(text: self.txtFieldDOB.text ?? "-1")
+
+            let gender = self.removeWhiteSpace(text: self.txtFieldGender.text ?? "-1")
+            if let userModel = ZTAppSession.sharedInstance.getUserInfo(){
+                self.updateProfile(firstName: firstName, lastName: lastName, email: email, mobile: phoneNum, dialCode: dialCode, age: Int64(age) ?? -1, userId: Int64(userModel.userId ?? -1), gender:gender)
+            }
+            
+            
+        }
     }
     @IBAction func btnBackTapped(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+    func isValidationSuccess() -> Bool {
+        
+        self.view.endEditing(true)
+        var isValidationSuccess = true
+        var message = ""
+        
+        if self.removeWhiteSpace(text: self.txtFieldEmail.text ?? "").count > 0{
+            if Helper.shared.isValidEmailAddress(strValue: self.removeWhiteSpace(text: self.txtFieldEmail.text ?? "")) == false{
+                message = ZTValidationMessage.INVALID_EMAIL
+                isValidationSuccess = false
+                self.txtFieldEmail.showError()
+            }
+        }
+        if self.removeWhiteSpace(text: self.txtFieldPhone.text ?? "").count > 0{
+            if self.isPhoneNumberValid == false{
+                message = ZTValidationMessage.INVALID_PHONE_NUMBER
+                isValidationSuccess = false
+                self.txtFieldPhone.showError()
+            }
+        }
+        return isValidationSuccess
     }
     /*
     // MARK: - Navigation
@@ -71,6 +110,82 @@ class ZTProfileEditViewController: UIViewController {
     }
     */
 
+}
+extension ZTProfileEditViewController: UITextFieldDelegate{
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let stringVal = NSString(string: textField.text!)
+        let newText = stringVal.replacingCharacters(in: range, with: string)
+        if newText.count >= 1{
+            (textField as? ZTCustomTextField)?.removeError()
+        }
+        
+        if textField == self.txtFieldFirstName {
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS_NAME).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            if (string == filtered){
+                return !(newText.count > Validation.FIRST_NAME_MAX)
+            }else{
+                return false
+            }
+        }
+        if textField == self.txtFieldLastName {
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS_NAME).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            if (string == filtered){
+                return !(newText.count > Validation.LAST_NAME_MAX)
+            }else{
+                return false
+            }
+        }
+        if textField == self.txtFieldDOB {
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_PHONENO).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            if (string == filtered){
+                return !(newText.count > Validation.AGE_MAX)
+            }else{
+                return false
+            }
+        }
+        
+        if textField == self.txtFieldPhone{
+                   let cs = NSCharacterSet(charactersIn: ACCEPTABLE_PHONENO).inverted
+                   let filtered = string.components(separatedBy: cs).joined(separator: "")
+            if (string == filtered){
+                return !(newText.count > Validation.PHONENO_MAX)
+            }else{
+                return false
+            }
+        }
+        
+        if textField == txtFieldEmail{
+            return newText.count <= Validation.EMAIL_MAX
+        }
+        if newText.containsEmoji{
+            return false
+        }
+        
+        return true
+        
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField){
+
+        
+    }
 }
 extension ZTProfileEditViewController : FPNTextFieldDelegate{
     func setupPhoneTextField(){
@@ -124,4 +239,33 @@ extension ZTProfileEditViewController : FPNTextFieldDelegate{
              // Do something...
           }
        }
+}
+//API methods
+extension ZTProfileEditViewController{
+    func updateProfile(firstName:String, lastName:String, email:String, mobile:String, dialCode:String, age:Int64, userId:Int64, gender:String){
+        if NetworkReachability.shared.isReachable {
+            let mobileNum = Int64(mobile)
+            self.showActivityIndicator(self.view)
+            let updateUser = UpdateUser(active: nil, address1: nil, address2: nil, age: age, city: nil, country: nil, countryCode: dialCode, deviceToken: nil, district: nil, emailId: email, firstName: firstName, gender: gender, landmark: nil, lastName: lastName, latitude: nil, longitude: nil, mobile: mobileNum, pincode: nil, primeUser: nil, userState: nil, userTimezone: nil)
+            UserControllerAPI.updateUserUsingPUT(user: updateUser, userId: userId) { response, error in
+                
+                self.hideActivityIndicator(self.view)
+                
+                if error != nil{
+                    WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
+                        
+                    }, failureBlock: { (errorMsg) in
+                       
+                    })
+                    return
+                }
+                if let _ = response{
+                    DispatchQueue.main.async {
+                        Helper.shared.showSnackBarAlert(message: ZTValidationMessage.PROFILE_UPDATED, type: .Success, superView: self)
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
+            }
+        }
+    }
 }

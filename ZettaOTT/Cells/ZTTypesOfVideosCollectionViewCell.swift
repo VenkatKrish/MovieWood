@@ -18,7 +18,8 @@ class ZTTypesOfVideosCollectionViewCell: UICollectionViewCell {
     }
     func loadData(data:Genres? = nil, indexPath:IndexPath){
         if let dataVal = data{
-            self.lblTitle.backgroundColor = UIColor.random()
+            
+            self.lblTitle.backgroundColor = Helper.shared.getRandomColor(indexVal: indexPath.row % colorRandom.count)
             self.lblTitle.text = dataVal.genreName ?? ""
             self.lblTitle.font = UIFont.setAppFontRegular(13.0)
         }

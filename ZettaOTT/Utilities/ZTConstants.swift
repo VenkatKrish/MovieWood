@@ -30,7 +30,9 @@ class SwaggerPathTypes {
     static let Swagger_OtherService = "https://cholaott.cinebazzar.com/cholaottservice"
 }
 class SocialAccountInfo {
-    static let Google_ClientId = "460563733667-rb3gu4bomb4ioqqidt3c2b4ddpavbsh8.apps.googleusercontent.com"
+    static let Google_ClientId = "1031917031870-1ook6oe8p2jkov7ssl9f0p64gjkuee4b.apps.googleusercontent.com" //"460563733667-rb3gu4bomb4ioqqidt3c2b4ddpavbsh8.apps.googleusercontent.com"
+    
+    
 }
 class LoginSource{
     static let mobileFlow = "mobile"
@@ -55,6 +57,9 @@ class ZTValidationMessage{
     static let INVALID_PHONE_NUMBER = "Invalid mobile number"
     static let INVALID_EMAIL = "Invalid email"
     static let INVALID_OTP = "Please enter OTP"
+    static let GENDER_REQUIRED = "Gender Required"
+    static let PROFILE_UPDATED = "Profile Updated"
+
 }
 
 class ZTConstants: NSObject {
@@ -78,7 +83,8 @@ class ZTCellNameOrIdentifier{
     static let ZTMovieCustomTableViewCell = "ZTMovieCustomTableViewCell"
     static let ZTMovieInfoGenreCollectionViewCell = "ZTMovieInfoGenreCollectionViewCell"
     static let ZTCrewCollectionViewCell = "ZTCrewCollectionViewCell"
-    static let ZTLanguageTableViewCell = "ZTLanguageTableViewCell"    
+    static let ZTLanguageTableViewCell = "ZTLanguageTableViewCell"
+    static let ZTPagingCollectionReusableView = "ZTPagingCollectionReusableView"
     
 }
 class ZTControllerName{
@@ -102,17 +108,22 @@ class ZTControllerName{
     static let ZTAboutViewController = "ZTAboutViewController"
     static let ZTMyTransactionsViewController = "ZTMyTransactionsViewController"
     static let ZTMoviePlayerViewController = "ZTMoviePlayerViewController"
-
+    
+    static let ZTNowViewController = "ZTNowViewController"
+    static let ZTUpcomingViewController = "ZTUpcomingViewController"
+    static let ZTWebseriesViewController = "ZTWebseriesViewController"
+    static let ZTShortFilmsViewController = "ZTShortFilmsViewController"
     
 }
 class moviesKeyUI {
     static let paging = "Paging"
     static let continue_watching = "Continue Watching"
     static let genres = "Genres"
-    static let zetta_movies_originals = "Zetta movies Originals"
+    static let zetta_movies_originals = "Zetta Movies Originals"
     static let popular_movies = "Popular Movies"
     static let recommended = "Recommended"
     static let latest_tamil_movies = "Latest Tamil Movies"
+    static let latest_web_series = "Latest Web Series"
 
 }
 class ZTStoryBoardName{

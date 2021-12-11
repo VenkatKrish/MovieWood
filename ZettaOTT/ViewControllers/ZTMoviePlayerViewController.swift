@@ -6,12 +6,10 @@
 //
 
 import UIKit
-import VersaPlayer
 
 class ZTMoviePlayerViewController: UIViewController {
 
     var movieModel:Movies? = nil
-    @IBOutlet weak var playerView: VersaPlayerView!
 
     override func viewDidLoad() {
         super.viewDidLoad()

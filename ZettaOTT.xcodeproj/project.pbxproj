@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,90 @@
 		390D14C127062B3F00C51259 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 390D14C027062B3F00C51259 /* Assets.xcassets */; };
 		390D14C427062B3F00C51259 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 390D14C227062B3F00C51259 /* LaunchScreen.storyboard */; };
 		390D14D627062C4600C51259 /* ZTLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390D14D527062C4600C51259 /* ZTLoginViewController.swift */; };
+		3915783127637BCB004F51FF /* NVActivityIndicatorAnimationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391577FC27637BCB004F51FF /* NVActivityIndicatorAnimationDelegate.swift */; };
+		3915783227637BCB004F51FF /* NVActivityIndicatorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391577FE27637BCB004F51FF /* NVActivityIndicatorPresenter.swift */; };
+		3915783327637BCB004F51FF /* NVActivityIndicatorViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391577FF27637BCB004F51FF /* NVActivityIndicatorViewable.swift */; };
+		3915783427637BCB004F51FF /* NVActivityIndicatorShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915780027637BCB004F51FF /* NVActivityIndicatorShape.swift */; };
+		3915783527637BCB004F51FF /* NVActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915780127637BCB004F51FF /* NVActivityIndicatorView.swift */; };
+		3915783627637BCB004F51FF /* NVActivityIndicatorAnimationBallRotate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915780327637BCB004F51FF /* NVActivityIndicatorAnimationBallRotate.swift */; };
+		3915783727637BCB004F51FF /* NVActivityIndicatorAnimationBallGridPulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915780427637BCB004F51FF /* NVActivityIndicatorAnimationBallGridPulse.swift */; };
+		3915783827637BCB004F51FF /* NVActivityIndicatorAnimationBallClipRotate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915780527637BCB004F51FF /* NVActivityIndicatorAnimationBallClipRotate.swift */; };
+		3915783927637BCB004F51FF /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915780627637BCB004F51FF /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift */; };
+		3915783A27637BCB004F51FF /* NVActivityIndicatorAnimationBallTrianglePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915780727637BCB004F51FF /* NVActivityIndicatorAnimationBallTrianglePath.swift */; };
+		3915783B27637BCB004F51FF /* NVActivityIndicatorAnimationBallDoubleBounce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915780827637BCB004F51FF /* NVActivityIndicatorAnimationBallDoubleBounce.swift */; };
+		3915783C27637BCB004F51FF /* NVActivityIndicatorAnimationLineScalePulseOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915780927637BCB004F51FF /* NVActivityIndicatorAnimationLineScalePulseOut.swift */; };
+		3915783D27637BCB004F51FF /* NVActivityIndicatorAnimationLineSpinFadeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915780A27637BCB004F51FF /* NVActivityIndicatorAnimationLineSpinFadeLoader.swift */; };
+		3915783E27637BCB004F51FF /* NVActivityIndicatorAnimationBallZigZagDeflect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915780B27637BCB004F51FF /* NVActivityIndicatorAnimationBallZigZagDeflect.swift */; };
+		3915783F27637BCB004F51FF /* NVActivityIndicatorAnimationBallScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915780C27637BCB004F51FF /* NVActivityIndicatorAnimationBallScale.swift */; };
+		3915784027637BCB004F51FF /* NVActivityIndicatorAnimationBallZigZag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915780D27637BCB004F51FF /* NVActivityIndicatorAnimationBallZigZag.swift */; };
+		3915784127637BCB004F51FF /* NVActivityIndicatorAnimationBallBeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915780E27637BCB004F51FF /* NVActivityIndicatorAnimationBallBeat.swift */; };
+		3915784227637BCB004F51FF /* NVActivityIndicatorAnimationSemiCircleSpin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915780F27637BCB004F51FF /* NVActivityIndicatorAnimationSemiCircleSpin.swift */; };
+		3915784327637BCB004F51FF /* NVActivityIndicatorAnimationBallScaleRipple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915781027637BCB004F51FF /* NVActivityIndicatorAnimationBallScaleRipple.swift */; };
+		3915784427637BCB004F51FF /* NVActivityIndicatorAnimationBallClipRotatePulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915781127637BCB004F51FF /* NVActivityIndicatorAnimationBallClipRotatePulse.swift */; };
+		3915784527637BCB004F51FF /* NVActivityIndicatorAnimationSquareSpin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915781227637BCB004F51FF /* NVActivityIndicatorAnimationSquareSpin.swift */; };
+		3915784627637BCB004F51FF /* NVActivityIndicatorAnimationBallRotateChase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915781327637BCB004F51FF /* NVActivityIndicatorAnimationBallRotateChase.swift */; };
+		3915784727637BCB004F51FF /* NVActivityIndicatorAnimationBallPulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915781427637BCB004F51FF /* NVActivityIndicatorAnimationBallPulse.swift */; };
+		3915784827637BCB004F51FF /* NVActivityIndicatorAnimationBlank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915781527637BCB004F51FF /* NVActivityIndicatorAnimationBlank.swift */; };
+		3915784927637BCB004F51FF /* NVActivityIndicatorAnimationCircleStrokeSpin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915781627637BCB004F51FF /* NVActivityIndicatorAnimationCircleStrokeSpin.swift */; };
+		3915784A27637BCB004F51FF /* NVActivityIndicatorAnimationAudioEqualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915781727637BCB004F51FF /* NVActivityIndicatorAnimationAudioEqualizer.swift */; };
+		3915784B27637BCB004F51FF /* NVActivityIndicatorAnimationTriangleSkewSpin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915781827637BCB004F51FF /* NVActivityIndicatorAnimationTriangleSkewSpin.swift */; };
+		3915784C27637BCB004F51FF /* NVActivityIndicatorAnimationBallGridBeat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915781927637BCB004F51FF /* NVActivityIndicatorAnimationBallGridBeat.swift */; };
+		3915784D27637BCB004F51FF /* NVActivityIndicatorAnimationBallScaleMultiple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915781A27637BCB004F51FF /* NVActivityIndicatorAnimationBallScaleMultiple.swift */; };
+		3915784E27637BCB004F51FF /* NVActivityIndicatorAnimationLineScale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915781B27637BCB004F51FF /* NVActivityIndicatorAnimationLineScale.swift */; };
+		3915784F27637BCB004F51FF /* NVActivityIndicatorAnimationBallScaleRippleMultiple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915781C27637BCB004F51FF /* NVActivityIndicatorAnimationBallScaleRippleMultiple.swift */; };
+		3915785027637BCB004F51FF /* NVActivityIndicatorAnimationPacman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915781D27637BCB004F51FF /* NVActivityIndicatorAnimationPacman.swift */; };
+		3915785127637BCB004F51FF /* NVActivityIndicatorAnimationBallPulseSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915781E27637BCB004F51FF /* NVActivityIndicatorAnimationBallPulseSync.swift */; };
+		3915785227637BCB004F51FF /* NVActivityIndicatorAnimationCubeTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915781F27637BCB004F51FF /* NVActivityIndicatorAnimationCubeTransition.swift */; };
+		3915785327637BCB004F51FF /* NVActivityIndicatorAnimationBallSpinFadeLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915782027637BCB004F51FF /* NVActivityIndicatorAnimationBallSpinFadeLoader.swift */; };
+		3915785427637BCB004F51FF /* NVActivityIndicatorAnimationLineScaleParty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915782127637BCB004F51FF /* NVActivityIndicatorAnimationLineScaleParty.swift */; };
+		3915785527637BCB004F51FF /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915782227637BCB004F51FF /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift */; };
+		3915785627637BCB004F51FF /* NVActivityIndicatorAnimationBallPulseRise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915782327637BCB004F51FF /* NVActivityIndicatorAnimationBallPulseRise.swift */; };
+		3915785727637BCB004F51FF /* NVActivityIndicatorAnimationOrbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915782427637BCB004F51FF /* NVActivityIndicatorAnimationOrbit.swift */; };
+		3915785827637BCB004F51FF /* BMPlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915782627637BCB004F51FF /* BMPlayerItem.swift */; };
+		3915785927637BCB004F51FF /* BMPlayerProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915782727637BCB004F51FF /* BMPlayerProtocols.swift */; };
+		3915785A27637BCB004F51FF /* BMPlayerClearityChooseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915782827637BCB004F51FF /* BMPlayerClearityChooseButton.swift */; };
+		3915785B27637BCB004F51FF /* BMPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915782A27637BCB004F51FF /* BMPlayerManager.swift */; };
+		3915785C27637BCB004F51FF /* BMTimeSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915782B27637BCB004F51FF /* BMTimeSlider.swift */; };
+		3915785D27637BCB004F51FF /* BMSubtitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915782C27637BCB004F51FF /* BMSubtitles.swift */; };
+		3915785E27637BCB004F51FF /* BMPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915782D27637BCB004F51FF /* BMPlayer.swift */; };
+		3915785F27637BCB004F51FF /* BMPlayerLayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915782E27637BCB004F51FF /* BMPlayerLayerView.swift */; };
+		3915786027637BCB004F51FF /* BMPlayerControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915782F27637BCB004F51FF /* BMPlayerControlView.swift */; };
+		3915788827637D0A004F51FF /* ConstraintMultiplierTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915786427637D09004F51FF /* ConstraintMultiplierTarget.swift */; };
+		3915788927637D0A004F51FF /* LayoutConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915786527637D09004F51FF /* LayoutConstraintItem.swift */; };
+		3915788A27637D0A004F51FF /* ConstraintDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915786627637D09004F51FF /* ConstraintDescription.swift */; };
+		3915788B27637D0A004F51FF /* ConstraintMakerPriortizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915786727637D09004F51FF /* ConstraintMakerPriortizable.swift */; };
+		3915788C27637D0A004F51FF /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915786827637D09004F51FF /* ConstraintAttributes.swift */; };
+		3915788D27637D0A004F51FF /* ConstraintViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915786927637D09004F51FF /* ConstraintViewDSL.swift */; };
+		3915788E27637D0A004F51FF /* ConstraintPriorityTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915786A27637D09004F51FF /* ConstraintPriorityTarget.swift */; };
+		3915788F27637D0A004F51FF /* ConstraintInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915786B27637D09004F51FF /* ConstraintInsets.swift */; };
+		3915789027637D0A004F51FF /* ConstraintMakerFinalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915786C27637D09004F51FF /* ConstraintMakerFinalizable.swift */; };
+		3915789127637D0A004F51FF /* ConstraintDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915786D27637D09004F51FF /* ConstraintDSL.swift */; };
+		3915789227637D0A004F51FF /* ConstraintMakerExtendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915786E27637D09004F51FF /* ConstraintMakerExtendable.swift */; };
+		3915789327637D0A004F51FF /* ConstraintPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915786F27637D09004F51FF /* ConstraintPriority.swift */; };
+		3915789427637D0A004F51FF /* ConstraintInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915787027637D09004F51FF /* ConstraintInsetTarget.swift */; };
+		3915789527637D0A004F51FF /* ConstraintDirectionalInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915787127637D0A004F51FF /* ConstraintDirectionalInsetTarget.swift */; };
+		3915789627637D0A004F51FF /* ConstraintConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915787227637D0A004F51FF /* ConstraintConfig.swift */; };
+		3915789727637D0A004F51FF /* UILayoutSupport+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915787327637D0A004F51FF /* UILayoutSupport+Extensions.swift */; };
+		3915789827637D0A004F51FF /* ConstraintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915787427637D0A004F51FF /* ConstraintView.swift */; };
+		3915789927637D0A004F51FF /* ConstraintLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915787527637D0A004F51FF /* ConstraintLayoutGuide.swift */; };
+		3915789A27637D0A004F51FF /* ConstraintLayoutSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915787627637D0A004F51FF /* ConstraintLayoutSupport.swift */; };
+		3915789B27637D0A004F51FF /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915787727637D0A004F51FF /* Typealiases.swift */; };
+		3915789C27637D0A004F51FF /* ConstraintConstantTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915787827637D0A004F51FF /* ConstraintConstantTarget.swift */; };
+		3915789D27637D0A004F51FF /* ConstraintOffsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915787927637D0A004F51FF /* ConstraintOffsetTarget.swift */; };
+		3915789E27637D0A004F51FF /* ConstraintMakerEditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915787A27637D0A004F51FF /* ConstraintMakerEditable.swift */; };
+		3915789F27637D0A004F51FF /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915787B27637D0A004F51FF /* ConstraintMaker.swift */; };
+		391578A027637D0A004F51FF /* ConstraintRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915787C27637D0A004F51FF /* ConstraintRelation.swift */; };
+		391578A127637D0A004F51FF /* ConstraintLayoutGuideDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915787D27637D0A004F51FF /* ConstraintLayoutGuideDSL.swift */; };
+		391578A227637D0A004F51FF /* ConstraintView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915787E27637D0A004F51FF /* ConstraintView+Extensions.swift */; };
+		391578A327637D0A004F51FF /* ConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915787F27637D0A004F51FF /* ConstraintItem.swift */; };
+		391578A427637D0A004F51FF /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915788027637D0A004F51FF /* Constraint.swift */; };
+		391578A527637D0A004F51FF /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915788127637D0A004F51FF /* Debugging.swift */; };
+		391578A627637D0A004F51FF /* ConstraintRelatableTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915788227637D0A004F51FF /* ConstraintRelatableTarget.swift */; };
+		391578A727637D0A004F51FF /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915788327637D0A004F51FF /* LayoutConstraint.swift */; };
+		391578A827637D0A004F51FF /* ConstraintLayoutGuide+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915788427637D0A004F51FF /* ConstraintLayoutGuide+Extensions.swift */; };
+		391578A927637D0A004F51FF /* ConstraintDirectionalInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915788527637D0A004F51FF /* ConstraintDirectionalInsets.swift */; };
+		391578AA27637D0A004F51FF /* ConstraintLayoutSupportDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915788627637D0A004F51FF /* ConstraintLayoutSupportDSL.swift */; };
+		391578AB27637D0A004F51FF /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3915788727637D0A004F51FF /* ConstraintMakerRelatable.swift */; };
 		391CA8E62753FBF500CBCC4E /* StrokeColorAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391CA8E12753FBF500CBCC4E /* StrokeColorAnimation.swift */; };
 		391CA8E72753FBF500CBCC4E /* RotationAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391CA8E22753FBF500CBCC4E /* RotationAnimation.swift */; };
 		391CA8E82753FBF500CBCC4E /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391CA8E32753FBF500CBCC4E /* ProgressView.swift */; };
@@ -68,6 +152,10 @@
 		3964A5E72710834500726487 /* ZTContinueWatchingCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3964A5E52710834500726487 /* ZTContinueWatchingCollectionCell.xib */; };
 		398A8833273E7E7C00C3EC90 /* UserImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398A8830273E7E7C00C3EC90 /* UserImage.swift */; };
 		398A8834273E7E7C00C3EC90 /* AppUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398A8831273E7E7C00C3EC90 /* AppUserModel.swift */; };
+		398FBA19275DF746005E78E3 /* ZTUpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398FBA18275DF746005E78E3 /* ZTUpcomingViewController.swift */; };
+		398FBA1B275DF754005E78E3 /* ZTWebseriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398FBA1A275DF754005E78E3 /* ZTWebseriesViewController.swift */; };
+		398FBA1D275DF766005E78E3 /* ZTShortFilmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398FBA1C275DF766005E78E3 /* ZTShortFilmsViewController.swift */; };
+		398FBA1F275DFB2F005E78E3 /* ZTNowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398FBA1E275DFB2F005E78E3 /* ZTNowViewController.swift */; };
 		3995EA2827071CF100E3FB19 /* ZTThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3995EA2527071CF100E3FB19 /* ZTThemeManager.swift */; };
 		3995EA2927071CF100E3FB19 /* ZTCustomUIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3995EA2627071CF100E3FB19 /* ZTCustomUIComponents.swift */; };
 		3995EA3C2707244300E3FB19 /* SFUIDisplay-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3995EA35270722D600E3FB19 /* SFUIDisplay-Black.otf */; };
@@ -99,6 +187,8 @@
 		39B474A727568580006AE63B /* ZTLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B474A627568580006AE63B /* ZTLanguageViewController.swift */; };
 		39B86D1F275BDDE10000D2CF /* ZTLanguageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B86D1D275BDDE10000D2CF /* ZTLanguageTableViewCell.swift */; };
 		39B86D20275BDDE10000D2CF /* ZTLanguageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B86D1E275BDDE10000D2CF /* ZTLanguageTableViewCell.xib */; };
+		39C769A3275E49E0009C9D13 /* ZTPagingCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C769A1275E49E0009C9D13 /* ZTPagingCollectionReusableView.swift */; };
+		39C769A4275E49E0009C9D13 /* ZTPagingCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39C769A2275E49E0009C9D13 /* ZTPagingCollectionReusableView.xib */; };
 		39E711C927330F830067016A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E711C827330F830067016A /* Utils.swift */; };
 		39E711CC273312120067016A /* WebServicesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E711CB273312120067016A /* WebServicesHelper.swift */; };
 		39E711CF273312650067016A /* ZTAppSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E711CE273312650067016A /* ZTAppSession.swift */; };
@@ -242,10 +332,6 @@
 		39EBD3E2273C576F00BEE73A /* ZTPublicAPIWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EBD3E1273C576F00BEE73A /* ZTPublicAPIWrapper.swift */; };
 		39EBD3E5273C577E00BEE73A /* ZTPrivateAPIWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EBD3E4273C577E00BEE73A /* ZTPrivateAPIWrapper.swift */; };
 		39EBD3E8273C584D00BEE73A /* ZTCommonAPIWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39EBD3E7273C584D00BEE73A /* ZTCommonAPIWrapper.swift */; };
-		39F63FEF273D1A6800549A25 /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 39F63FEE273D1A6800549A25 /* FacebookShare */; };
-		39F63FF1273D1A6800549A25 /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 39F63FF0273D1A6800549A25 /* FacebookCore */; };
-		39F63FF3273D1A6800549A25 /* FacebookGamingServices in Frameworks */ = {isa = PBXBuildFile; productRef = 39F63FF2273D1A6800549A25 /* FacebookGamingServices */; };
-		39F63FF5273D1A6800549A25 /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 39F63FF4273D1A6800549A25 /* FacebookLogin */; };
 		39F63FFC273D3EA300549A25 /* LoginSuccessModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F63FFB273D3EA300549A25 /* LoginSuccessModel.swift */; };
 		39F64000273D51A600549A25 /* CommonRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F63FFF273D51A600549A25 /* CommonRequest.swift */; };
 		39F64006273D7D6200549A25 /* OTPFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F64004273D7D6200549A25 /* OTPFieldView.swift */; };
@@ -264,6 +350,90 @@
 		390D14C327062B3F00C51259 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		390D14C527062B3F00C51259 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		390D14D527062C4600C51259 /* ZTLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTLoginViewController.swift; sourceTree = "<group>"; };
+		391577FC27637BCB004F51FF /* NVActivityIndicatorAnimationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationDelegate.swift; sourceTree = "<group>"; };
+		391577FE27637BCB004F51FF /* NVActivityIndicatorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorPresenter.swift; sourceTree = "<group>"; };
+		391577FF27637BCB004F51FF /* NVActivityIndicatorViewable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorViewable.swift; sourceTree = "<group>"; };
+		3915780027637BCB004F51FF /* NVActivityIndicatorShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorShape.swift; sourceTree = "<group>"; };
+		3915780127637BCB004F51FF /* NVActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorView.swift; sourceTree = "<group>"; };
+		3915780327637BCB004F51FF /* NVActivityIndicatorAnimationBallRotate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallRotate.swift; sourceTree = "<group>"; };
+		3915780427637BCB004F51FF /* NVActivityIndicatorAnimationBallGridPulse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallGridPulse.swift; sourceTree = "<group>"; };
+		3915780527637BCB004F51FF /* NVActivityIndicatorAnimationBallClipRotate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallClipRotate.swift; sourceTree = "<group>"; };
+		3915780627637BCB004F51FF /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallClipRotateMultiple.swift; sourceTree = "<group>"; };
+		3915780727637BCB004F51FF /* NVActivityIndicatorAnimationBallTrianglePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallTrianglePath.swift; sourceTree = "<group>"; };
+		3915780827637BCB004F51FF /* NVActivityIndicatorAnimationBallDoubleBounce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallDoubleBounce.swift; sourceTree = "<group>"; };
+		3915780927637BCB004F51FF /* NVActivityIndicatorAnimationLineScalePulseOut.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationLineScalePulseOut.swift; sourceTree = "<group>"; };
+		3915780A27637BCB004F51FF /* NVActivityIndicatorAnimationLineSpinFadeLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationLineSpinFadeLoader.swift; sourceTree = "<group>"; };
+		3915780B27637BCB004F51FF /* NVActivityIndicatorAnimationBallZigZagDeflect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallZigZagDeflect.swift; sourceTree = "<group>"; };
+		3915780C27637BCB004F51FF /* NVActivityIndicatorAnimationBallScale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallScale.swift; sourceTree = "<group>"; };
+		3915780D27637BCB004F51FF /* NVActivityIndicatorAnimationBallZigZag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallZigZag.swift; sourceTree = "<group>"; };
+		3915780E27637BCB004F51FF /* NVActivityIndicatorAnimationBallBeat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallBeat.swift; sourceTree = "<group>"; };
+		3915780F27637BCB004F51FF /* NVActivityIndicatorAnimationSemiCircleSpin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationSemiCircleSpin.swift; sourceTree = "<group>"; };
+		3915781027637BCB004F51FF /* NVActivityIndicatorAnimationBallScaleRipple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallScaleRipple.swift; sourceTree = "<group>"; };
+		3915781127637BCB004F51FF /* NVActivityIndicatorAnimationBallClipRotatePulse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallClipRotatePulse.swift; sourceTree = "<group>"; };
+		3915781227637BCB004F51FF /* NVActivityIndicatorAnimationSquareSpin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationSquareSpin.swift; sourceTree = "<group>"; };
+		3915781327637BCB004F51FF /* NVActivityIndicatorAnimationBallRotateChase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallRotateChase.swift; sourceTree = "<group>"; };
+		3915781427637BCB004F51FF /* NVActivityIndicatorAnimationBallPulse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallPulse.swift; sourceTree = "<group>"; };
+		3915781527637BCB004F51FF /* NVActivityIndicatorAnimationBlank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBlank.swift; sourceTree = "<group>"; };
+		3915781627637BCB004F51FF /* NVActivityIndicatorAnimationCircleStrokeSpin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationCircleStrokeSpin.swift; sourceTree = "<group>"; };
+		3915781727637BCB004F51FF /* NVActivityIndicatorAnimationAudioEqualizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationAudioEqualizer.swift; sourceTree = "<group>"; };
+		3915781827637BCB004F51FF /* NVActivityIndicatorAnimationTriangleSkewSpin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationTriangleSkewSpin.swift; sourceTree = "<group>"; };
+		3915781927637BCB004F51FF /* NVActivityIndicatorAnimationBallGridBeat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallGridBeat.swift; sourceTree = "<group>"; };
+		3915781A27637BCB004F51FF /* NVActivityIndicatorAnimationBallScaleMultiple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallScaleMultiple.swift; sourceTree = "<group>"; };
+		3915781B27637BCB004F51FF /* NVActivityIndicatorAnimationLineScale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationLineScale.swift; sourceTree = "<group>"; };
+		3915781C27637BCB004F51FF /* NVActivityIndicatorAnimationBallScaleRippleMultiple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallScaleRippleMultiple.swift; sourceTree = "<group>"; };
+		3915781D27637BCB004F51FF /* NVActivityIndicatorAnimationPacman.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationPacman.swift; sourceTree = "<group>"; };
+		3915781E27637BCB004F51FF /* NVActivityIndicatorAnimationBallPulseSync.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallPulseSync.swift; sourceTree = "<group>"; };
+		3915781F27637BCB004F51FF /* NVActivityIndicatorAnimationCubeTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationCubeTransition.swift; sourceTree = "<group>"; };
+		3915782027637BCB004F51FF /* NVActivityIndicatorAnimationBallSpinFadeLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallSpinFadeLoader.swift; sourceTree = "<group>"; };
+		3915782127637BCB004F51FF /* NVActivityIndicatorAnimationLineScaleParty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationLineScaleParty.swift; sourceTree = "<group>"; };
+		3915782227637BCB004F51FF /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationLineScalePulseOutRapid.swift; sourceTree = "<group>"; };
+		3915782327637BCB004F51FF /* NVActivityIndicatorAnimationBallPulseRise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationBallPulseRise.swift; sourceTree = "<group>"; };
+		3915782427637BCB004F51FF /* NVActivityIndicatorAnimationOrbit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NVActivityIndicatorAnimationOrbit.swift; sourceTree = "<group>"; };
+		3915782627637BCB004F51FF /* BMPlayerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMPlayerItem.swift; sourceTree = "<group>"; };
+		3915782727637BCB004F51FF /* BMPlayerProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMPlayerProtocols.swift; sourceTree = "<group>"; };
+		3915782827637BCB004F51FF /* BMPlayerClearityChooseButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMPlayerClearityChooseButton.swift; sourceTree = "<group>"; };
+		3915782A27637BCB004F51FF /* BMPlayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMPlayerManager.swift; sourceTree = "<group>"; };
+		3915782B27637BCB004F51FF /* BMTimeSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMTimeSlider.swift; sourceTree = "<group>"; };
+		3915782C27637BCB004F51FF /* BMSubtitles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMSubtitles.swift; sourceTree = "<group>"; };
+		3915782D27637BCB004F51FF /* BMPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMPlayer.swift; sourceTree = "<group>"; };
+		3915782E27637BCB004F51FF /* BMPlayerLayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMPlayerLayerView.swift; sourceTree = "<group>"; };
+		3915782F27637BCB004F51FF /* BMPlayerControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BMPlayerControlView.swift; sourceTree = "<group>"; };
+		3915786427637D09004F51FF /* ConstraintMultiplierTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMultiplierTarget.swift; sourceTree = "<group>"; };
+		3915786527637D09004F51FF /* LayoutConstraintItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstraintItem.swift; sourceTree = "<group>"; };
+		3915786627637D09004F51FF /* ConstraintDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDescription.swift; sourceTree = "<group>"; };
+		3915786727637D09004F51FF /* ConstraintMakerPriortizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerPriortizable.swift; sourceTree = "<group>"; };
+		3915786827637D09004F51FF /* ConstraintAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintAttributes.swift; sourceTree = "<group>"; };
+		3915786927637D09004F51FF /* ConstraintViewDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintViewDSL.swift; sourceTree = "<group>"; };
+		3915786A27637D09004F51FF /* ConstraintPriorityTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintPriorityTarget.swift; sourceTree = "<group>"; };
+		3915786B27637D09004F51FF /* ConstraintInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintInsets.swift; sourceTree = "<group>"; };
+		3915786C27637D09004F51FF /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
+		3915786D27637D09004F51FF /* ConstraintDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDSL.swift; sourceTree = "<group>"; };
+		3915786E27637D09004F51FF /* ConstraintMakerExtendable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerExtendable.swift; sourceTree = "<group>"; };
+		3915786F27637D09004F51FF /* ConstraintPriority.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintPriority.swift; sourceTree = "<group>"; };
+		3915787027637D09004F51FF /* ConstraintInsetTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintInsetTarget.swift; sourceTree = "<group>"; };
+		3915787127637D0A004F51FF /* ConstraintDirectionalInsetTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDirectionalInsetTarget.swift; sourceTree = "<group>"; };
+		3915787227637D0A004F51FF /* ConstraintConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintConfig.swift; sourceTree = "<group>"; };
+		3915787327637D0A004F51FF /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
+		3915787427637D0A004F51FF /* ConstraintView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintView.swift; sourceTree = "<group>"; };
+		3915787527637D0A004F51FF /* ConstraintLayoutGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutGuide.swift; sourceTree = "<group>"; };
+		3915787627637D0A004F51FF /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
+		3915787727637D0A004F51FF /* Typealiases.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
+		3915787827637D0A004F51FF /* ConstraintConstantTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintConstantTarget.swift; sourceTree = "<group>"; };
+		3915787927637D0A004F51FF /* ConstraintOffsetTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintOffsetTarget.swift; sourceTree = "<group>"; };
+		3915787A27637D0A004F51FF /* ConstraintMakerEditable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerEditable.swift; sourceTree = "<group>"; };
+		3915787B27637D0A004F51FF /* ConstraintMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMaker.swift; sourceTree = "<group>"; };
+		3915787C27637D0A004F51FF /* ConstraintRelation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintRelation.swift; sourceTree = "<group>"; };
+		3915787D27637D0A004F51FF /* ConstraintLayoutGuideDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutGuideDSL.swift; sourceTree = "<group>"; };
+		3915787E27637D0A004F51FF /* ConstraintView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConstraintView+Extensions.swift"; sourceTree = "<group>"; };
+		3915787F27637D0A004F51FF /* ConstraintItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintItem.swift; sourceTree = "<group>"; };
+		3915788027637D0A004F51FF /* Constraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
+		3915788127637D0A004F51FF /* Debugging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debugging.swift; sourceTree = "<group>"; };
+		3915788227637D0A004F51FF /* ConstraintRelatableTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintRelatableTarget.swift; sourceTree = "<group>"; };
+		3915788327637D0A004F51FF /* LayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutConstraint.swift; sourceTree = "<group>"; };
+		3915788427637D0A004F51FF /* ConstraintLayoutGuide+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ConstraintLayoutGuide+Extensions.swift"; sourceTree = "<group>"; };
+		3915788527637D0A004F51FF /* ConstraintDirectionalInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintDirectionalInsets.swift; sourceTree = "<group>"; };
+		3915788627637D0A004F51FF /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
+		3915788727637D0A004F51FF /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
 		391CA8E12753FBF500CBCC4E /* StrokeColorAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrokeColorAnimation.swift; sourceTree = "<group>"; };
 		391CA8E22753FBF500CBCC4E /* RotationAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotationAnimation.swift; sourceTree = "<group>"; };
 		391CA8E32753FBF500CBCC4E /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
@@ -318,6 +488,10 @@
 		3964A5E52710834500726487 /* ZTContinueWatchingCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTContinueWatchingCollectionCell.xib; sourceTree = "<group>"; };
 		398A8830273E7E7C00C3EC90 /* UserImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserImage.swift; sourceTree = "<group>"; };
 		398A8831273E7E7C00C3EC90 /* AppUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUserModel.swift; sourceTree = "<group>"; };
+		398FBA18275DF746005E78E3 /* ZTUpcomingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTUpcomingViewController.swift; sourceTree = "<group>"; };
+		398FBA1A275DF754005E78E3 /* ZTWebseriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTWebseriesViewController.swift; sourceTree = "<group>"; };
+		398FBA1C275DF766005E78E3 /* ZTShortFilmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTShortFilmsViewController.swift; sourceTree = "<group>"; };
+		398FBA1E275DFB2F005E78E3 /* ZTNowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTNowViewController.swift; sourceTree = "<group>"; };
 		3995EA2527071CF100E3FB19 /* ZTThemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZTThemeManager.swift; sourceTree = "<group>"; };
 		3995EA2627071CF100E3FB19 /* ZTCustomUIComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZTCustomUIComponents.swift; sourceTree = "<group>"; };
 		3995EA33270722D600E3FB19 /* SFUIDisplay-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Thin.otf"; sourceTree = "<group>"; };
@@ -349,6 +523,8 @@
 		39B474A627568580006AE63B /* ZTLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTLanguageViewController.swift; sourceTree = "<group>"; };
 		39B86D1D275BDDE10000D2CF /* ZTLanguageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTLanguageTableViewCell.swift; sourceTree = "<group>"; };
 		39B86D1E275BDDE10000D2CF /* ZTLanguageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTLanguageTableViewCell.xib; sourceTree = "<group>"; };
+		39C769A1275E49E0009C9D13 /* ZTPagingCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTPagingCollectionReusableView.swift; sourceTree = "<group>"; };
+		39C769A2275E49E0009C9D13 /* ZTPagingCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTPagingCollectionReusableView.xib; sourceTree = "<group>"; };
 		39E711C827330F830067016A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		39E711CB273312120067016A /* WebServicesHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServicesHelper.swift; sourceTree = "<group>"; };
 		39E711CE273312650067016A /* ZTAppSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTAppSession.swift; sourceTree = "<group>"; };
@@ -505,11 +681,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39F63FF5273D1A6800549A25 /* FacebookLogin in Frameworks */,
-				39F63FEF273D1A6800549A25 /* FacebookShare in Frameworks */,
-				39F63FF1273D1A6800549A25 /* FacebookCore in Frameworks */,
 				17ADEE173845E94EF2A01635 /* Pods_ZettaOTT.framework in Frameworks */,
-				39F63FF3273D1A6800549A25 /* FacebookGamingServices in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +790,8 @@
 				3957BC3027512069002AC22D /* ZTUserReviewTableViewCell.xib */,
 				39B86D1D275BDDE10000D2CF /* ZTLanguageTableViewCell.swift */,
 				39B86D1E275BDDE10000D2CF /* ZTLanguageTableViewCell.xib */,
+				39C769A1275E49E0009C9D13 /* ZTPagingCollectionReusableView.swift */,
+				39C769A2275E49E0009C9D13 /* ZTPagingCollectionReusableView.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -652,6 +826,10 @@
 				3957BC4127515CE4002AC22D /* ZTTickerConfirmationViewController.swift */,
 				39B474A627568580006AE63B /* ZTLanguageViewController.swift */,
 				39E7B5BC2757BEB700A76BC5 /* ZTMoviePlayerViewController.swift */,
+				398FBA18275DF746005E78E3 /* ZTUpcomingViewController.swift */,
+				398FBA1A275DF754005E78E3 /* ZTWebseriesViewController.swift */,
+				398FBA1C275DF766005E78E3 /* ZTShortFilmsViewController.swift */,
+				398FBA1E275DFB2F005E78E3 /* ZTNowViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -666,6 +844,8 @@
 		390D14D327062C1F00C51259 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				3915786227637D09004F51FF /* SnapKit */,
+				391577F827637BCB004F51FF /* BMPlayer */,
 				391CA8E02753FBF500CBCC4E /* ProgressView */,
 				3957BC3727514769002AC22D /* CosmosDistrib.swift */,
 				3930C344274D3456009D8F7A /* DynamicHeightCollectionView.swift */,
@@ -694,6 +874,168 @@
 			children = (
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		391577F827637BCB004F51FF /* BMPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				391577F927637BCB004F51FF /* NVActivityIndicatorView */,
+				3915782527637BCB004F51FF /* Source */,
+			);
+			path = BMPlayer;
+			sourceTree = "<group>";
+		};
+		391577F927637BCB004F51FF /* NVActivityIndicatorView */ = {
+			isa = PBXGroup;
+			children = (
+				391577FA27637BCB004F51FF /* Source */,
+			);
+			path = NVActivityIndicatorView;
+			sourceTree = "<group>";
+		};
+		391577FA27637BCB004F51FF /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				391577FB27637BCB004F51FF /* NVActivityIndicatorView */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		391577FB27637BCB004F51FF /* NVActivityIndicatorView */ = {
+			isa = PBXGroup;
+			children = (
+				391577FC27637BCB004F51FF /* NVActivityIndicatorAnimationDelegate.swift */,
+				391577FD27637BCB004F51FF /* Presenter */,
+				3915780027637BCB004F51FF /* NVActivityIndicatorShape.swift */,
+				3915780127637BCB004F51FF /* NVActivityIndicatorView.swift */,
+				3915780227637BCB004F51FF /* Animations */,
+			);
+			path = NVActivityIndicatorView;
+			sourceTree = "<group>";
+		};
+		391577FD27637BCB004F51FF /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				391577FE27637BCB004F51FF /* NVActivityIndicatorPresenter.swift */,
+				391577FF27637BCB004F51FF /* NVActivityIndicatorViewable.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		3915780227637BCB004F51FF /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				3915780327637BCB004F51FF /* NVActivityIndicatorAnimationBallRotate.swift */,
+				3915780427637BCB004F51FF /* NVActivityIndicatorAnimationBallGridPulse.swift */,
+				3915780527637BCB004F51FF /* NVActivityIndicatorAnimationBallClipRotate.swift */,
+				3915780627637BCB004F51FF /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift */,
+				3915780727637BCB004F51FF /* NVActivityIndicatorAnimationBallTrianglePath.swift */,
+				3915780827637BCB004F51FF /* NVActivityIndicatorAnimationBallDoubleBounce.swift */,
+				3915780927637BCB004F51FF /* NVActivityIndicatorAnimationLineScalePulseOut.swift */,
+				3915780A27637BCB004F51FF /* NVActivityIndicatorAnimationLineSpinFadeLoader.swift */,
+				3915780B27637BCB004F51FF /* NVActivityIndicatorAnimationBallZigZagDeflect.swift */,
+				3915780C27637BCB004F51FF /* NVActivityIndicatorAnimationBallScale.swift */,
+				3915780D27637BCB004F51FF /* NVActivityIndicatorAnimationBallZigZag.swift */,
+				3915780E27637BCB004F51FF /* NVActivityIndicatorAnimationBallBeat.swift */,
+				3915780F27637BCB004F51FF /* NVActivityIndicatorAnimationSemiCircleSpin.swift */,
+				3915781027637BCB004F51FF /* NVActivityIndicatorAnimationBallScaleRipple.swift */,
+				3915781127637BCB004F51FF /* NVActivityIndicatorAnimationBallClipRotatePulse.swift */,
+				3915781227637BCB004F51FF /* NVActivityIndicatorAnimationSquareSpin.swift */,
+				3915781327637BCB004F51FF /* NVActivityIndicatorAnimationBallRotateChase.swift */,
+				3915781427637BCB004F51FF /* NVActivityIndicatorAnimationBallPulse.swift */,
+				3915781527637BCB004F51FF /* NVActivityIndicatorAnimationBlank.swift */,
+				3915781627637BCB004F51FF /* NVActivityIndicatorAnimationCircleStrokeSpin.swift */,
+				3915781727637BCB004F51FF /* NVActivityIndicatorAnimationAudioEqualizer.swift */,
+				3915781827637BCB004F51FF /* NVActivityIndicatorAnimationTriangleSkewSpin.swift */,
+				3915781927637BCB004F51FF /* NVActivityIndicatorAnimationBallGridBeat.swift */,
+				3915781A27637BCB004F51FF /* NVActivityIndicatorAnimationBallScaleMultiple.swift */,
+				3915781B27637BCB004F51FF /* NVActivityIndicatorAnimationLineScale.swift */,
+				3915781C27637BCB004F51FF /* NVActivityIndicatorAnimationBallScaleRippleMultiple.swift */,
+				3915781D27637BCB004F51FF /* NVActivityIndicatorAnimationPacman.swift */,
+				3915781E27637BCB004F51FF /* NVActivityIndicatorAnimationBallPulseSync.swift */,
+				3915781F27637BCB004F51FF /* NVActivityIndicatorAnimationCubeTransition.swift */,
+				3915782027637BCB004F51FF /* NVActivityIndicatorAnimationBallSpinFadeLoader.swift */,
+				3915782127637BCB004F51FF /* NVActivityIndicatorAnimationLineScaleParty.swift */,
+				3915782227637BCB004F51FF /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift */,
+				3915782327637BCB004F51FF /* NVActivityIndicatorAnimationBallPulseRise.swift */,
+				3915782427637BCB004F51FF /* NVActivityIndicatorAnimationOrbit.swift */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		3915782527637BCB004F51FF /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				3915782627637BCB004F51FF /* BMPlayerItem.swift */,
+				3915782727637BCB004F51FF /* BMPlayerProtocols.swift */,
+				3915782827637BCB004F51FF /* BMPlayerClearityChooseButton.swift */,
+				3915782927637BCB004F51FF /* Default */,
+				3915782B27637BCB004F51FF /* BMTimeSlider.swift */,
+				3915782C27637BCB004F51FF /* BMSubtitles.swift */,
+				3915782D27637BCB004F51FF /* BMPlayer.swift */,
+				3915782E27637BCB004F51FF /* BMPlayerLayerView.swift */,
+				3915782F27637BCB004F51FF /* BMPlayerControlView.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		3915782927637BCB004F51FF /* Default */ = {
+			isa = PBXGroup;
+			children = (
+				3915782A27637BCB004F51FF /* BMPlayerManager.swift */,
+			);
+			path = Default;
+			sourceTree = "<group>";
+		};
+		3915786227637D09004F51FF /* SnapKit */ = {
+			isa = PBXGroup;
+			children = (
+				3915786327637D09004F51FF /* Source */,
+			);
+			path = SnapKit;
+			sourceTree = "<group>";
+		};
+		3915786327637D09004F51FF /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				3915786427637D09004F51FF /* ConstraintMultiplierTarget.swift */,
+				3915786527637D09004F51FF /* LayoutConstraintItem.swift */,
+				3915786627637D09004F51FF /* ConstraintDescription.swift */,
+				3915786727637D09004F51FF /* ConstraintMakerPriortizable.swift */,
+				3915786827637D09004F51FF /* ConstraintAttributes.swift */,
+				3915786927637D09004F51FF /* ConstraintViewDSL.swift */,
+				3915786A27637D09004F51FF /* ConstraintPriorityTarget.swift */,
+				3915786B27637D09004F51FF /* ConstraintInsets.swift */,
+				3915786C27637D09004F51FF /* ConstraintMakerFinalizable.swift */,
+				3915786D27637D09004F51FF /* ConstraintDSL.swift */,
+				3915786E27637D09004F51FF /* ConstraintMakerExtendable.swift */,
+				3915786F27637D09004F51FF /* ConstraintPriority.swift */,
+				3915787027637D09004F51FF /* ConstraintInsetTarget.swift */,
+				3915787127637D0A004F51FF /* ConstraintDirectionalInsetTarget.swift */,
+				3915787227637D0A004F51FF /* ConstraintConfig.swift */,
+				3915787327637D0A004F51FF /* UILayoutSupport+Extensions.swift */,
+				3915787427637D0A004F51FF /* ConstraintView.swift */,
+				3915787527637D0A004F51FF /* ConstraintLayoutGuide.swift */,
+				3915787627637D0A004F51FF /* ConstraintLayoutSupport.swift */,
+				3915787727637D0A004F51FF /* Typealiases.swift */,
+				3915787827637D0A004F51FF /* ConstraintConstantTarget.swift */,
+				3915787927637D0A004F51FF /* ConstraintOffsetTarget.swift */,
+				3915787A27637D0A004F51FF /* ConstraintMakerEditable.swift */,
+				3915787B27637D0A004F51FF /* ConstraintMaker.swift */,
+				3915787C27637D0A004F51FF /* ConstraintRelation.swift */,
+				3915787D27637D0A004F51FF /* ConstraintLayoutGuideDSL.swift */,
+				3915787E27637D0A004F51FF /* ConstraintView+Extensions.swift */,
+				3915787F27637D0A004F51FF /* ConstraintItem.swift */,
+				3915788027637D0A004F51FF /* Constraint.swift */,
+				3915788127637D0A004F51FF /* Debugging.swift */,
+				3915788227637D0A004F51FF /* ConstraintRelatableTarget.swift */,
+				3915788327637D0A004F51FF /* LayoutConstraint.swift */,
+				3915788427637D0A004F51FF /* ConstraintLayoutGuide+Extensions.swift */,
+				3915788527637D0A004F51FF /* ConstraintDirectionalInsets.swift */,
+				3915788627637D0A004F51FF /* ConstraintLayoutSupportDSL.swift */,
+				3915788727637D0A004F51FF /* ConstraintMakerRelatable.swift */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 		391CA8E02753FBF500CBCC4E /* ProgressView */ = {
@@ -913,10 +1255,6 @@
 			);
 			name = ZettaOTT;
 			packageProductDependencies = (
-				39F63FEE273D1A6800549A25 /* FacebookShare */,
-				39F63FF0273D1A6800549A25 /* FacebookCore */,
-				39F63FF2273D1A6800549A25 /* FacebookGamingServices */,
-				39F63FF4273D1A6800549A25 /* FacebookLogin */,
 			);
 			productName = ZettaOTT;
 			productReference = 390D14B427062B3C00C51259 /* ZettaOTT.app */;
@@ -946,7 +1284,6 @@
 			);
 			mainGroup = 390D14AB27062B3C00C51259;
 			packageReferences = (
-				39F63FED273D1A6800549A25 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = 390D14B527062B3C00C51259 /* Products */;
 			projectDirPath = "";
@@ -983,6 +1320,7 @@
 				393F17D32712008A005713E1 /* ZTProfileFooter.xib in Resources */,
 				39A42B92270EDF70002C100D /* ZTPortraitVideoCollectionViewCell.xib in Resources */,
 				3995EA432707244300E3FB19 /* SFUIDisplay-Thin.otf in Resources */,
+				39C769A4275E49E0009C9D13 /* ZTPagingCollectionReusableView.xib in Resources */,
 				39A42BB2270F350F002C100D /* ZTTypesOfVideosCollectionViewCell.xib in Resources */,
 				39B86D20275BDDE10000D2CF /* ZTLanguageTableViewCell.xib in Resources */,
 				3995EA442707244300E3FB19 /* SFUIDisplay-Ultralight.otf in Resources */,
@@ -1045,51 +1383,82 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3915783627637BCB004F51FF /* NVActivityIndicatorAnimationBallRotate.swift in Sources */,
 				39EBD367273C003800BEE73A /* Notifications.swift in Sources */,
+				391578A527637D0A004F51FF /* Debugging.swift in Sources */,
 				39A42B62270ECAF8002C100D /* ZTMainMenuViewController.swift in Sources */,
 				39EBD28B273BFDA100BEE73A /* CodableHelper.swift in Sources */,
+				391578A727637D0A004F51FF /* LayoutConstraint.swift in Sources */,
+				3915784D27637BCB004F51FF /* NVActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,
 				393A5CF5270D748E00F7695D /* ZTVerificationViewController.swift in Sources */,
 				39E7B5BD2757BEB700A76BC5 /* ZTMoviePlayerViewController.swift in Sources */,
+				3915784327637BCB004F51FF /* NVActivityIndicatorAnimationBallScaleRipple.swift in Sources */,
+				3915784B27637BCB004F51FF /* NVActivityIndicatorAnimationTriangleSkewSpin.swift in Sources */,
 				39EBD3B5273C007C00BEE73A /* ChartsControllerAPI.swift in Sources */,
+				3915783E27637BCB004F51FF /* NVActivityIndicatorAnimationBallZigZagDeflect.swift in Sources */,
 				39EBD387273C003800BEE73A /* PageOrders.swift in Sources */,
 				39E711CC273312120067016A /* WebServicesHelper.swift in Sources */,
+				3915789327637D0A004F51FF /* ConstraintPriority.swift in Sources */,
 				39EBD35D273C003800BEE73A /* Pages.swift in Sources */,
+				398FBA19275DF746005E78E3 /* ZTUpcomingViewController.swift in Sources */,
+				3915788D27637D0A004F51FF /* ConstraintViewDSL.swift in Sources */,
 				3957BC2627510800002AC22D /* ZTPaymentsViewController.swift in Sources */,
 				39EBD37E273C003800BEE73A /* PageAds.swift in Sources */,
 				39EBD3B9273C007C00BEE73A /* MovieSeasonControllerAPI.swift in Sources */,
 				39EBD3E8273C584D00BEE73A /* ZTCommonAPIWrapper.swift in Sources */,
 				39EBD3C0273C007C00BEE73A /* BasicErrorControllerAPI.swift in Sources */,
+				3915783927637BCB004F51FF /* NVActivityIndicatorAnimationBallClipRotateMultiple.swift in Sources */,
 				39EBD36B273C003800BEE73A /* Actors.swift in Sources */,
 				3964A53427105CA000726487 /* ZTVideoTypeTableViewCell.swift in Sources */,
 				39EBD36C273C003800BEE73A /* MovieCoupons.swift in Sources */,
+				3915784827637BCB004F51FF /* NVActivityIndicatorAnimationBlank.swift in Sources */,
 				39EBD342273C003800BEE73A /* PageSubsGroups.swift in Sources */,
+				3915789F27637D0A004F51FF /* ConstraintMaker.swift in Sources */,
 				39EBD389273C003800BEE73A /* ToggleFeaturedMovieRequest.swift in Sources */,
 				39EBD356273C003800BEE73A /* PageRegions.swift in Sources */,
 				39EBD3BB273C007C00BEE73A /* NotificationControllerAPI.swift in Sources */,
+				3915788B27637D0A004F51FF /* ConstraintMakerPriortizable.swift in Sources */,
+				3915783427637BCB004F51FF /* NVActivityIndicatorShape.swift in Sources */,
 				39EBD3B6273C007C00BEE73A /* PageControllerAPI.swift in Sources */,
+				3915783C27637BCB004F51FF /* NVActivityIndicatorAnimationLineScalePulseOut.swift in Sources */,
 				39EBD3C9273C007C00BEE73A /* MovieContentControllerAPI.swift in Sources */,
 				3995EA2927071CF100E3FB19 /* ZTCustomUIComponents.swift in Sources */,
+				3915783A27637BCB004F51FF /* NVActivityIndicatorAnimationBallTrianglePath.swift in Sources */,
 				39EBD3D4273C007C00BEE73A /* SettingsControllerAPI.swift in Sources */,
+				3915784727637BCB004F51FF /* NVActivityIndicatorAnimationBallPulse.swift in Sources */,
+				3915785327637BCB004F51FF /* NVActivityIndicatorAnimationBallSpinFadeLoader.swift in Sources */,
+				3915785727637BCB004F51FF /* NVActivityIndicatorAnimationOrbit.swift in Sources */,
 				39F63FFC273D3EA300549A25 /* LoginSuccessModel.swift in Sources */,
+				3915784227637BCB004F51FF /* NVActivityIndicatorAnimationSemiCircleSpin.swift in Sources */,
+				3915788927637D0A004F51FF /* LayoutConstraintItem.swift in Sources */,
 				39EBD340273C003800BEE73A /* Regions.swift in Sources */,
 				39EBD3C1273C007C00BEE73A /* MovieControllerAPI.swift in Sources */,
 				39EBD353273C003800BEE73A /* PageSettings.swift in Sources */,
+				39C769A3275E49E0009C9D13 /* ZTPagingCollectionReusableView.swift in Sources */,
+				3915785927637BCB004F51FF /* BMPlayerProtocols.swift in Sources */,
 				39EBD382273C003800BEE73A /* PaymentRequest.swift in Sources */,
 				3930C33D274D2AC3009D8F7A /* ZTMovieInfo2ViewController.swift in Sources */,
 				39EBD375273C003800BEE73A /* ModelAndView.swift in Sources */,
 				39EBD360273C003800BEE73A /* PageMovieSeasons.swift in Sources */,
+				3915784F27637BCB004F51FF /* NVActivityIndicatorAnimationBallScaleRippleMultiple.swift in Sources */,
 				39EBD33B273C003800BEE73A /* MovieSongs.swift in Sources */,
+				391578A927637D0A004F51FF /* ConstraintDirectionalInsets.swift in Sources */,
 				39EBD364273C003800BEE73A /* PasswordChangeRequest.swift in Sources */,
+				3915783F27637BCB004F51FF /* NVActivityIndicatorAnimationBallScale.swift in Sources */,
 				39A42B5C270ECABF002C100D /* ZTUploadMovieViewController.swift in Sources */,
 				39EBD388273C003800BEE73A /* PageMovieActors.swift in Sources */,
+				3915785D27637BCB004F51FF /* BMSubtitles.swift in Sources */,
 				39A42BA0270EE7F6002C100D /* ZTHomeTableViewCell.swift in Sources */,
+				3915788A27637D0A004F51FF /* ConstraintDescription.swift in Sources */,
 				39EBD34A273C003800BEE73A /* PageMovies.swift in Sources */,
 				39EBD36A273C003800BEE73A /* RegisterByPhone.swift in Sources */,
 				393789EE274FFDC6009FB5A3 /* ZTChooseAPlanViewController.swift in Sources */,
 				39EBD373273C003800BEE73A /* Settings.swift in Sources */,
 				39EBD3CB273C007C00BEE73A /* LanguageControllerAPI.swift in Sources */,
+				391578A227637D0A004F51FF /* ConstraintView+Extensions.swift in Sources */,
 				3964A5CF2710823F00726487 /* ZTReachability.swift in Sources */,
 				39EBD337273C003800BEE73A /* PageMovieRegions.swift in Sources */,
+				3915784427637BCB004F51FF /* NVActivityIndicatorAnimationBallClipRotatePulse.swift in Sources */,
 				39EBD35A273C003800BEE73A /* PageUsers.swift in Sources */,
 				39E711CF273312650067016A /* ZTAppSession.swift in Sources */,
 				39EBD378273C003800BEE73A /* NotificationGroups.swift in Sources */,
@@ -1098,16 +1467,21 @@
 				398A8833273E7E7C00C3EC90 /* UserImage.swift in Sources */,
 				39EBD35F273C003800BEE73A /* Pageable.swift in Sources */,
 				39EBD334273C003800BEE73A /* MCollections.swift in Sources */,
+				3915789727637D0A004F51FF /* UILayoutSupport+Extensions.swift in Sources */,
 				39EBD3B2273C007C00BEE73A /* RoleControllerAPI.swift in Sources */,
+				3915783727637BCB004F51FF /* NVActivityIndicatorAnimationBallGridPulse.swift in Sources */,
 				39EBD338273C003800BEE73A /* PagePages.swift in Sources */,
 				3957BC3627512561002AC22D /* ZTWriteAReviewViewController.swift in Sources */,
 				39EBD369273C003800BEE73A /* RegisterByEmail.swift in Sources */,
 				39EBD352273C003800BEE73A /* PageDailyRates.swift in Sources */,
 				39EBD33C273C003800BEE73A /* Subtitles.swift in Sources */,
 				3931BD592742D1C200540E8C /* ZTCrewCollectionViewCell.swift in Sources */,
+				398FBA1F275DFB2F005E78E3 /* ZTNowViewController.swift in Sources */,
+				3915784A27637BCB004F51FF /* NVActivityIndicatorAnimationAudioEqualizer.swift in Sources */,
 				39EBD3B7273C007C00BEE73A /* UserControllerAPI.swift in Sources */,
 				39B86D1F275BDDE10000D2CF /* ZTLanguageTableViewCell.swift in Sources */,
 				3957BC2B27511CAE002AC22D /* ZTMyTransactionsTableViewCell.swift in Sources */,
+				391578A327637D0A004F51FF /* ConstraintItem.swift in Sources */,
 				39F64000273D51A600549A25 /* CommonRequest.swift in Sources */,
 				3957BC3127512069002AC22D /* ZTUserReviewTableViewCell.swift in Sources */,
 				39EBD2D5273BFDA100BEE73A /* Extensions.swift in Sources */,
@@ -1116,8 +1490,11 @@
 				39EBD351273C003800BEE73A /* QuickDashboard.swift in Sources */,
 				39EBD3E5273C577E00BEE73A /* ZTPrivateAPIWrapper.swift in Sources */,
 				3957BC40275153B2002AC22D /* ZTAboutViewController.swift in Sources */,
+				3915788E27637D0A004F51FF /* ConstraintPriorityTarget.swift in Sources */,
 				39A42B53270ECA48002C100D /* ZTTabbarViewController.swift in Sources */,
+				3915784027637BCB004F51FF /* NVActivityIndicatorAnimationBallZigZag.swift in Sources */,
 				39EBD371273C003800BEE73A /* Sort.swift in Sources */,
+				3915785027637BCB004F51FF /* NVActivityIndicatorAnimationPacman.swift in Sources */,
 				39EBD3C3273C007C00BEE73A /* MovieLanguageControllerAPI.swift in Sources */,
 				39EBD34C273C003800BEE73A /* SubsGroups.swift in Sources */,
 				39EBD333273C003800BEE73A /* PageSubscriptions.swift in Sources */,
@@ -1131,29 +1508,44 @@
 				39EBD3CE273C007C00BEE73A /* GenreControllerAPI.swift in Sources */,
 				391CA8E72753FBF500CBCC4E /* RotationAnimation.swift in Sources */,
 				39EBD2D8273BFDA100BEE73A /* Configuration.swift in Sources */,
+				3915784E27637BCB004F51FF /* NVActivityIndicatorAnimationLineScale.swift in Sources */,
 				398A8834273E7E7C00C3EC90 /* AppUserModel.swift in Sources */,
 				39EBD3B8273C007C00BEE73A /* MCollectionControllerAPI.swift in Sources */,
+				3915786027637BCB004F51FF /* BMPlayerControlView.swift in Sources */,
 				39EBD3C2273C007C00BEE73A /* NotifyGroupControllerAPI.swift in Sources */,
+				3915785A27637BCB004F51FF /* BMPlayerClearityChooseButton.swift in Sources */,
+				3915789B27637D0A004F51FF /* Typealiases.swift in Sources */,
+				3915789E27637D0A004F51FF /* ConstraintMakerEditable.swift in Sources */,
+				391578A127637D0A004F51FF /* ConstraintLayoutGuideDSL.swift in Sources */,
 				39EBD36E273C003800BEE73A /* MovieCouponValidateRequest.swift in Sources */,
 				390D14B827062B3C00C51259 /* AppDelegate.swift in Sources */,
 				39EBD3D0273C007C00BEE73A /* MovieSongControllerAPI.swift in Sources */,
 				39EBD361273C003800BEE73A /* NotificationTemplate.swift in Sources */,
+				391578AB27637D0A004F51FF /* ConstraintMakerRelatable.swift in Sources */,
 				39F64006273D7D6200549A25 /* OTPFieldView.swift in Sources */,
 				39EBD357273C003800BEE73A /* MoviePaymentStatus.swift in Sources */,
 				3930C33F274D2AD3009D8F7A /* ZTMovieInfo3ViewController.swift in Sources */,
+				3915784127637BCB004F51FF /* NVActivityIndicatorAnimationBallBeat.swift in Sources */,
 				390D14D627062C4600C51259 /* ZTLoginViewController.swift in Sources */,
+				3915789227637D0A004F51FF /* ConstraintMakerExtendable.swift in Sources */,
 				39EBD354273C003800BEE73A /* MovieSeasons.swift in Sources */,
+				398FBA1D275DF766005E78E3 /* ZTShortFilmsViewController.swift in Sources */,
+				3915788827637D0A004F51FF /* ConstraintMultiplierTarget.swift in Sources */,
 				39EBD33D273C003800BEE73A /* LoginRequest.swift in Sources */,
 				39EBD377273C003800BEE73A /* PageMovieCoupons.swift in Sources */,
 				39EBD358273C003800BEE73A /* PageMovieGenres.swift in Sources */,
 				39F6400B273D8E5200549A25 /* LKPageControl.swift in Sources */,
 				39EBD343273C003800BEE73A /* MovieRegions.swift in Sources */,
 				39EBD3D5273C007C00BEE73A /* SubscriptionControllerAPI.swift in Sources */,
+				391578A627637D0A004F51FF /* ConstraintRelatableTarget.swift in Sources */,
 				39EBD3D3273C007C00BEE73A /* MovieRegionControllerAPI.swift in Sources */,
 				39EBD3CC273C007C00BEE73A /* MovieActorControllerAPI.swift in Sources */,
 				39EBD3D1273C007C00BEE73A /* MovieCouponControllerAPI.swift in Sources */,
 				39EBD3BE273C007C00BEE73A /* MoviePlayControllerAPI.swift in Sources */,
 				3937DE2A2712D8B4009F0E2C /* ZTMovieCustomTableViewCell.swift in Sources */,
+				3915789A27637D0A004F51FF /* ConstraintLayoutSupport.swift in Sources */,
+				3915783527637BCB004F51FF /* NVActivityIndicatorView.swift in Sources */,
+				391578A427637D0A004F51FF /* Constraint.swift in Sources */,
 				39EBD3D2273C007C00BEE73A /* MovieCollectionControllerAPI.swift in Sources */,
 				3930C346274D3456009D8F7A /* DynamicHeightCollectionView.swift in Sources */,
 				3957BC3C27514E77002AC22D /* ZTSettingsViewController.swift in Sources */,
@@ -1165,23 +1557,35 @@
 				39EBD268273BFDA000BEE73A /* JSONValue.swift in Sources */,
 				39A42BBE270F4951002C100D /* ZTVideoHeaderTableViewCell.swift in Sources */,
 				39EBD363273C003800BEE73A /* Orders.swift in Sources */,
+				3915789D27637D0A004F51FF /* ConstraintOffsetTarget.swift in Sources */,
+				391578A027637D0A004F51FF /* ConstraintRelation.swift in Sources */,
+				3915789C27637D0A004F51FF /* ConstraintConstantTarget.swift in Sources */,
 				3957BC382751476A002AC22D /* CosmosDistrib.swift in Sources */,
 				39EBD370273C003800BEE73A /* InputStream.swift in Sources */,
 				39E711C927330F830067016A /* Utils.swift in Sources */,
+				3915783D27637BCB004F51FF /* NVActivityIndicatorAnimationLineSpinFadeLoader.swift in Sources */,
+				3915784627637BCB004F51FF /* NVActivityIndicatorAnimationBallRotateChase.swift in Sources */,
 				39EBD36D273C003800BEE73A /* PageMovieLanguages.swift in Sources */,
 				39EBD374273C003800BEE73A /* MovieContent.swift in Sources */,
 				39EBD35B273C003800BEE73A /* MovieActors.swift in Sources */,
+				3915785E27637BCB004F51FF /* BMPlayer.swift in Sources */,
 				39EBD339273C003800BEE73A /* Users.swift in Sources */,
+				398FBA1B275DF754005E78E3 /* ZTWebseriesViewController.swift in Sources */,
 				39EBD368273C003800BEE73A /* MoviePlays.swift in Sources */,
+				391578AA27637D0A004F51FF /* ConstraintLayoutSupportDSL.swift in Sources */,
+				3915785F27637BCB004F51FF /* BMPlayerLayerView.swift in Sources */,
 				39EBD266273BFDA000BEE73A /* APIHelper.swift in Sources */,
 				39EBD3E2273C576F00BEE73A /* ZTPublicAPIWrapper.swift in Sources */,
+				3915789927637D0A004F51FF /* ConstraintLayoutGuide.swift in Sources */,
 				3964A5E62710834500726487 /* ZTContinueWatchingCollectionCell.swift in Sources */,
 				39EBD359273C003800BEE73A /* Blob.swift in Sources */,
 				39EBD2D7273BFDA100BEE73A /* Models.swift in Sources */,
 				39EBD37B273C003800BEE73A /* PageChannels.swift in Sources */,
 				39EBD28C273BFDA100BEE73A /* JSONEncodableEncoding.swift in Sources */,
 				39A42BB3270F350F002C100D /* ZTTypesOfVideosCollectionViewCell.swift in Sources */,
+				3915789827637D0A004F51FF /* ConstraintView.swift in Sources */,
 				391CA8EA2753FBF500CBCC4E /* ProgressShapeLayer.swift in Sources */,
+				3915785427637BCB004F51FF /* NVActivityIndicatorAnimationLineScaleParty.swift in Sources */,
 				3937DE2E2712DA8A009F0E2C /* ZTMovieSearchViewController.swift in Sources */,
 				39EBD3C5273C007C00BEE73A /* OtpResourceControllerAPI.swift in Sources */,
 				3930C33B274D2AAF009D8F7A /* ZTMovieInfo1ViewController.swift in Sources */,
@@ -1190,6 +1594,7 @@
 				39EBD37D273C003800BEE73A /* Movies.swift in Sources */,
 				39EBD267273BFDA000BEE73A /* AlamofireImplementations.swift in Sources */,
 				39EBD3D6273C007C00BEE73A /* DashboardControllerAPI.swift in Sources */,
+				3915784927637BCB004F51FF /* NVActivityIndicatorAnimationCircleStrokeSpin.swift in Sources */,
 				39EBD346273C003800BEE73A /* Channels.swift in Sources */,
 				39EBD35C273C003800BEE73A /* UserDetailUpdate.swift in Sources */,
 				39EBD3BF273C007C00BEE73A /* SubsGroupControllerAPI.swift in Sources */,
@@ -1199,35 +1604,50 @@
 				39A42B56270ECA65002C100D /* ZTHomeViewController.swift in Sources */,
 				3957BC3E275153A3002AC22D /* ZTHelpAndSupportViewController.swift in Sources */,
 				39EBD380273C003800BEE73A /* Languages.swift in Sources */,
+				3915783B27637BCB004F51FF /* NVActivityIndicatorAnimationBallDoubleBounce.swift in Sources */,
 				39EBD3C4273C007C00BEE73A /* CouponControllerAPI.swift in Sources */,
+				3915784527637BCB004F51FF /* NVActivityIndicatorAnimationSquareSpin.swift in Sources */,
 				39EBD372273C003800BEE73A /* Ads.swift in Sources */,
 				391CA8E82753FBF500CBCC4E /* ProgressView.swift in Sources */,
+				3915785127637BCB004F51FF /* NVActivityIndicatorAnimationBallPulseSync.swift in Sources */,
+				3915783127637BCB004F51FF /* NVActivityIndicatorAnimationDelegate.swift in Sources */,
+				3915783327637BCB004F51FF /* NVActivityIndicatorViewable.swift in Sources */,
 				39EBD34F273C003800BEE73A /* MovieReviews.swift in Sources */,
+				3915788C27637D0A004F51FF /* ConstraintAttributes.swift in Sources */,
 				39EBD384273C003800BEE73A /* MovieGenres.swift in Sources */,
 				393F17BE2711E4E2005713E1 /* ZTProfileTopTableViewCell.swift in Sources */,
 				39EBD379273C003800BEE73A /* Charts.swift in Sources */,
 				391CA8E92753FBF500CBCC4E /* StrokeAnimation.swift in Sources */,
 				39EBD33A273C003800BEE73A /* PageActors.swift in Sources */,
+				3915785527637BCB004F51FF /* NVActivityIndicatorAnimationLineScalePulseOutRapid.swift in Sources */,
+				3915785C27637BCB004F51FF /* BMTimeSlider.swift in Sources */,
+				3915784C27637BCB004F51FF /* NVActivityIndicatorAnimationBallGridBeat.swift in Sources */,
 				3957BC4227515CE5002AC22D /* ZTTickerConfirmationViewController.swift in Sources */,
 				39EBD344273C003800BEE73A /* PageRoles.swift in Sources */,
 				39EBD349273C003800BEE73A /* MovieLanguages.swift in Sources */,
+				3915785827637BCB004F51FF /* BMPlayerItem.swift in Sources */,
 				3964A5E12710832B00726487 /* ZTContinueWatchingCell.swift in Sources */,
 				393F17D22712008A005713E1 /* ZTProfileFooter.swift in Sources */,
+				3915785627637BCB004F51FF /* NVActivityIndicatorAnimationBallPulseRise.swift in Sources */,
 				39EBD3B3273C007C00BEE73A /* AdControllerAPI.swift in Sources */,
 				39EBD336273C003800BEE73A /* View.swift in Sources */,
 				39EBD28D273BFDA100BEE73A /* APIs.swift in Sources */,
 				39EBD33E273C003800BEE73A /* UpdateUser.swift in Sources */,
+				3915789527637D0A004F51FF /* ConstraintDirectionalInsetTarget.swift in Sources */,
 				39EBD345273C003800BEE73A /* DailyRates.swift in Sources */,
 				39EBD34B273C003800BEE73A /* UsernameRequest.swift in Sources */,
 				39EBD3CD273C007C00BEE73A /* ActorControllerAPI.swift in Sources */,
 				39EBD3CF273C007C00BEE73A /* MovieGenreControllerAPI.swift in Sources */,
+				3915788F27637D0A004F51FF /* ConstraintInsets.swift in Sources */,
 				39EBD347273C003800BEE73A /* Favourites.swift in Sources */,
 				39A42B7D270EDD7C002C100D /* CustomStruct.swift in Sources */,
 				391CA8E62753FBF500CBCC4E /* StrokeColorAnimation.swift in Sources */,
 				39EBD35E273C003800BEE73A /* PageMovieReviews.swift in Sources */,
+				3915785227637BCB004F51FF /* NVActivityIndicatorAnimationCubeTransition.swift in Sources */,
 				39EBD3B4273C007C00BEE73A /* NotifyTemplateControllerAPI.swift in Sources */,
 				39EBD3CA273C007C00BEE73A /* OrderControllerAPI.swift in Sources */,
 				3995EA4B2707293A00E3FB19 /* ZTConstants.swift in Sources */,
+				3915789627637D0A004F51FF /* ConstraintConfig.swift in Sources */,
 				39EBD33F273C003800BEE73A /* TokenRequest.swift in Sources */,
 				39EBD3C8273C007C00BEE73A /* FavouriteControllerAPI.swift in Sources */,
 				39EBD362273C003800BEE73A /* PageMovieCollections.swift in Sources */,
@@ -1236,14 +1656,20 @@
 				39EBD335273C003800BEE73A /* Genres.swift in Sources */,
 				39A42B5F270ECACC002C100D /* ZTProfileViewController.swift in Sources */,
 				39EBD3C7273C007C00BEE73A /* RegionControllerAPI.swift in Sources */,
+				3915789127637D0A004F51FF /* ConstraintDSL.swift in Sources */,
+				3915783227637BCB004F51FF /* NVActivityIndicatorPresenter.swift in Sources */,
 				39EBD34D273C003800BEE73A /* Roles.swift in Sources */,
 				3957BC3A275148C6002AC22D /* ZTProfileEditViewController.swift in Sources */,
 				393F17C32711ECF3005713E1 /* ZTVideoTileCollectionViewCell.swift in Sources */,
 				39EBD37A273C003800BEE73A /* PhoneRequest.swift in Sources */,
 				39EBD386273C003800BEE73A /* Subscriptions.swift in Sources */,
 				39EBD376273C003800BEE73A /* EmailRequest.swift in Sources */,
+				3915789027637D0A004F51FF /* ConstraintMakerFinalizable.swift in Sources */,
 				39EBD3BD273C007C00BEE73A /* DailyRateControllerAPI.swift in Sources */,
+				3915783827637BCB004F51FF /* NVActivityIndicatorAnimationBallClipRotate.swift in Sources */,
 				39EBD350273C003800BEE73A /* ResponseEntity.swift in Sources */,
+				3915789427637D0A004F51FF /* ConstraintInsetTarget.swift in Sources */,
+				391578A827637D0A004F51FF /* ConstraintLayoutGuide+Extensions.swift in Sources */,
 				3964A53A2710678900726487 /* ZTPagingTableViewCell.swift in Sources */,
 				39EBD37F273C003800BEE73A /* MovieCollections.swift in Sources */,
 				39EBD381273C003800BEE73A /* PageCoupons.swift in Sources */,
@@ -1253,6 +1679,7 @@
 				390D14BA27062B3C00C51259 /* SceneDelegate.swift in Sources */,
 				3995EA2827071CF100E3FB19 /* ZTThemeManager.swift in Sources */,
 				39EBD3C6273C007C00BEE73A /* MovieReviewControllerAPI.swift in Sources */,
+				3915785B27637BCB004F51FF /* BMPlayerManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1400,16 +1827,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q44DU46W5U;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 974JZY6YLE;
 				INFOPLIST_FILE = ZettaOTT/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.augusta.ZettaOTT;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zetta.ottapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = ZettaDev;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1421,16 +1850,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q44DU46W5U;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 974JZY6YLE;
 				INFOPLIST_FILE = ZettaOTT/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.augusta.ZettaOTT;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zetta.ottapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = ZettaAppStore;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1458,40 +1889,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		39F63FED273D1A6800549A25 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 12.1.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		39F63FEE273D1A6800549A25 /* FacebookShare */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 39F63FED273D1A6800549A25 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookShare;
-		};
-		39F63FF0273D1A6800549A25 /* FacebookCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 39F63FED273D1A6800549A25 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookCore;
-		};
-		39F63FF2273D1A6800549A25 /* FacebookGamingServices */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 39F63FED273D1A6800549A25 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookGamingServices;
-		};
-		39F63FF4273D1A6800549A25 /* FacebookLogin */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 39F63FED273D1A6800549A25 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
-			productName = FacebookLogin;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 390D14AC27062B3C00C51259 /* Project object */;
 }

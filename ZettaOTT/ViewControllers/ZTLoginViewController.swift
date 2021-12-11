@@ -8,15 +8,16 @@
 import UIKit  //6806200
 import FlagPhoneNumber
 import GoogleSignIn
-import FacebookLogin
+//import FacebookLogin
 import JVFloatLabeledTextField
 
 class ZTLoginViewController: UIViewController {
     @IBOutlet weak var termsLabel: UILabel!
     @IBOutlet weak var txtFieldFlag: FPNTextField!
     @IBOutlet weak var txtFieldEmail: JVFloatLabeledTextField!
-    @IBOutlet weak var vwEmail: UIView!
-    
+    @IBOutlet weak var vwEmail: ZTLoginCornerRadiusView!
+    @IBOutlet weak var vwPhone: ZTLoginCornerRadiusView!
+
     
 
     var isOtherCountry : Bool = false
@@ -26,6 +27,11 @@ class ZTLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.vwEmail.isHidden = true
+        self.vwPhone.layer.borderColor = UIColor.getColor(colorVal: ZTAppSeperatorColor).cgColor
+        self.vwPhone.layer.borderWidth = 1.0
+        self.vwEmail.layer.borderColor = UIColor.getColor(colorVal: ZTAppSeperatorColor).cgColor
+        self.vwEmail.layer.borderWidth = 1.0
+
         self.setTapHereLabel()
         self.setupPhoneTextField()
         // Do any additional setup after loading the view.
@@ -47,39 +53,40 @@ class ZTLoginViewController: UIViewController {
     @IBAction func btnSkipLogin(_ sender: Any) {
         ZTAppSession.sharedInstance.setIsUserLoggedIn(false)
         ZTAppSession.sharedInstance.setAccessToken("")
+        ZTAppSession.sharedInstance.setIsSkipLoggedIn(true)
         Helper.shared.goToHomeScreen()
     }
     @IBAction func btnLoginWithFBTapped(_ sender: Any) {
-        let loginManager = LoginManager()
-        if let _ = AccessToken.current {
-            Profile.loadCurrentProfile { (profile, error) in
-                if let profileVal = profile{
-                    self.loginDetails(firstName: profileVal.firstName ?? "", loginSource: LoginSource.fbFlow, password: profileVal.userID, username: profileVal.email ?? "")
-                }
-            }
-        } else {
-            
-            loginManager.logIn(permissions: ["public_profile", "email"], from: self) { [weak self] (result, error) in
-                
-                // Check for error
-                guard error == nil else {
-                    // Error occurred
-                    print(error!.localizedDescription)
-                    return
-                }
-                
-                // Check for cancel
-                guard let result = result, !result.isCancelled else {
-                    print("User cancelled login")
-                    return
-                }
-                Profile.loadCurrentProfile { (profile, error) in
-                    if let profileVal = profile{
-                        self?.loginDetails(firstName: profileVal.firstName ?? "", loginSource: LoginSource.fbFlow, password: profileVal.userID, username: profileVal.email ?? "")
-                    }
-                }
-            }
-        }
+//        let loginManager = LoginManager()
+//        if let _ = AccessToken.current {
+//            Profile.loadCurrentProfile { (profile, error) in
+//                if let profileVal = profile{
+//                    self.loginDetails(firstName: profileVal.firstName ?? "", loginSource: LoginSource.fbFlow, password: profileVal.userID, username: profileVal.email ?? "")
+//                }
+//            }
+//        } else {
+//
+//            loginManager.logIn(permissions: ["public_profile", "email"], from: self) { [weak self] (result, error) in
+//
+//                // Check for error
+//                guard error == nil else {
+//                    // Error occurred
+//                    print(error!.localizedDescription)
+//                    return
+//                }
+//
+//                // Check for cancel
+//                guard let result = result, !result.isCancelled else {
+//                    print("User cancelled login")
+//                    return
+//                }
+//                Profile.loadCurrentProfile { (profile, error) in
+//                    if let profileVal = profile{
+//                        self?.loginDetails(firstName: profileVal.firstName ?? "", loginSource: LoginSource.fbFlow, password: profileVal.userID, username: profileVal.email ?? "")
+//                    }
+//                }
+//            }
+//        }
     }
     func loginDetails(firstName:String, loginSource:String, password:String, username:String){
         self.loginWithSocialAccount(firstName: firstName, loginSource: loginSource, password: password, username: username)

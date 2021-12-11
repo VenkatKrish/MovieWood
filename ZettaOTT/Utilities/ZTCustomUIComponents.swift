@@ -43,7 +43,7 @@ class ZTImageViewCornerRadius: UIImageView {
         }
         func setup() {
             self.layer.cornerRadius = 5
-            self.layer.masksToBounds = true
+            self.clipsToBounds = true
         }
 }
 class ZTCornerRadiusView: UIButton {
@@ -61,6 +61,24 @@ class ZTCornerRadiusView: UIButton {
         }
         func setup() {
             self.layer.cornerRadius = 5
+            self.layer.masksToBounds = true
+        }
+}
+class ZTLoginCornerRadiusView: UIButton {
+        required init?(coder aDecoder: NSCoder) {
+            super.init(coder: aDecoder)
+            setup()
+        }
+        override init(frame: CGRect) {
+            super.init(frame: frame)
+            setup()
+        }
+        
+        override func layoutSubviews() {
+            super.layoutSubviews()
+        }
+        func setup() {
+            self.layer.cornerRadius = 10
             self.layer.masksToBounds = true
         }
 }

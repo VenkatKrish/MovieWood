@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "menubar_discover.png",
+      "filename" : "menu_discover.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "menubar_discover-1.png",
+      "filename" : "menu_discover-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "menubar_discover-2.png",
+      "filename" : "menu_discover-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -8,11 +8,20 @@
 import UIKit
 
 class ZTMainMenuViewController: UIViewController {
+    @IBOutlet weak var imgVw: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        self.imgVw.image = nil
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            if let screenImgVal = screenShotImage{
+                self.imgVw.image = screenImgVal
+            }
+        }
     }
     
     @IBAction func menuTapped(_ sender: UIButton) {
@@ -41,6 +50,12 @@ class ZTMainMenuViewController: UIViewController {
             break
         case 7: // Privacy Policy
             Helper.shared.goToAbout(viewController: self, typeKey: WebViewStrings.privacy.rawValue, titleValStr: WebViewStrings.title_privacy.rawValue)
+            break
+        case 8:
+            ZTAppSession.sharedInstance.setAccessToken("")
+            ZTAppSession.sharedInstance.setIsUserLoggedIn(false)
+            ZTAppSession.sharedInstance.removeAllInstance()
+            Helper.shared.goToLoginScreen()
             break
         default:
             break

@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "menubar_submitmovie.png",
+      "filename" : "menu_submit.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "menubar_submitmovie-1.png",
+      "filename" : "menu_submit-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "menubar_submitmovie-2.png",
+      "filename" : "menu_submit-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

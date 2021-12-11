@@ -61,6 +61,11 @@ class ZTMoviesListCategoryViewController: UIViewController {
     }
     func registerCells(){
         
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = zt_minimumLineSpacing
+        layout.minimumInteritemSpacing = zt_minimumInteritemSpacing
+        self.movieListCollection.collectionViewLayout = layout
+        
         self.movieListCollection.register(UINib(nibName: ZTCellNameOrIdentifier.ZTVideoTileCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: ZTCellNameOrIdentifier.ZTVideoTileCollectionViewCell)
         
         
@@ -102,22 +107,12 @@ extension ZTMoviesListCategoryViewController:UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-        return CGSize(width: self.collectionWidth, height: self.collectionHeight)
-       }
-    
-    // inner margin
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    }
-    // minimum line margin
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-    
-    // margin between items
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 5
+       
+                let lay = collectionViewLayout as! UICollectionViewFlowLayout
+               
+                let widthPerItem = collectionView.frame.width / 3 - lay.minimumInteritemSpacing
+               
+                return CGSize(width: widthPerItem, height: widthPerItem + 50)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         

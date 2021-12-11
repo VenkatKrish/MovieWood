@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "landing_bg.png",
+      "filename" : "group_3.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "landing_bg-1.png",
+      "filename" : "group_3-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "landing_bg-2.png",
+      "filename" : "group_3-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
