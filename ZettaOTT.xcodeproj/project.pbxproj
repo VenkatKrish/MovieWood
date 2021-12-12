@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -150,6 +150,9 @@
 		3964A5E22710832B00726487 /* ZTContinueWatchingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3964A5E02710832B00726487 /* ZTContinueWatchingCell.xib */; };
 		3964A5E62710834500726487 /* ZTContinueWatchingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964A5E42710834500726487 /* ZTContinueWatchingCollectionCell.swift */; };
 		3964A5E72710834500726487 /* ZTContinueWatchingCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3964A5E52710834500726487 /* ZTContinueWatchingCollectionCell.xib */; };
+		3966BBC227664EC500D41E9D /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 3966BBC127664EC500D41E9D /* FacebookCore */; };
+		3966BBC427664EC500D41E9D /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 3966BBC327664EC500D41E9D /* FacebookLogin */; };
+		3966BBC627664EC500D41E9D /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 3966BBC527664EC500D41E9D /* FacebookShare */; };
 		398A8833273E7E7C00C3EC90 /* UserImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398A8830273E7E7C00C3EC90 /* UserImage.swift */; };
 		398A8834273E7E7C00C3EC90 /* AppUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398A8831273E7E7C00C3EC90 /* AppUserModel.swift */; };
 		398FBA19275DF746005E78E3 /* ZTUpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398FBA18275DF746005E78E3 /* ZTUpcomingViewController.swift */; };
@@ -682,6 +685,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				17ADEE173845E94EF2A01635 /* Pods_ZettaOTT.framework in Frameworks */,
+				3966BBC227664EC500D41E9D /* FacebookCore in Frameworks */,
+				3966BBC627664EC500D41E9D /* FacebookShare in Frameworks */,
+				3966BBC427664EC500D41E9D /* FacebookLogin in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1255,6 +1261,9 @@
 			);
 			name = ZettaOTT;
 			packageProductDependencies = (
+				3966BBC127664EC500D41E9D /* FacebookCore */,
+				3966BBC327664EC500D41E9D /* FacebookLogin */,
+				3966BBC527664EC500D41E9D /* FacebookShare */,
 			);
 			productName = ZettaOTT;
 			productReference = 390D14B427062B3C00C51259 /* ZettaOTT.app */;
@@ -1284,6 +1293,7 @@
 			);
 			mainGroup = 390D14AB27062B3C00C51259;
 			packageReferences = (
+				3966BBC027664EC500D41E9D /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
 			);
 			productRefGroup = 390D14B527062B3C00C51259 /* Products */;
 			projectDirPath = "";
@@ -1889,6 +1899,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3966BBC027664EC500D41E9D /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/facebook/facebook-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3966BBC127664EC500D41E9D /* FacebookCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3966BBC027664EC500D41E9D /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookCore;
+		};
+		3966BBC327664EC500D41E9D /* FacebookLogin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3966BBC027664EC500D41E9D /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookLogin;
+		};
+		3966BBC527664EC500D41E9D /* FacebookShare */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3966BBC027664EC500D41E9D /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */;
+			productName = FacebookShare;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 390D14AC27062B3C00C51259 /* Project object */;
 }

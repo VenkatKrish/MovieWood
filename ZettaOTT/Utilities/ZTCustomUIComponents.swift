@@ -414,8 +414,8 @@ class ZTPhoneCustomTextField: FPNTextField{
     
     
     func setUp(){
-        self.tintColor = UIColor.getColor(colorVal: ZTTabbarSelectedColor)
-        self.textColor = UIColor.getColor(colorVal: ZTTabbarUnSelectedColor)
+        self.tintColor = UIColor.getColor(colorVal: ZTGradientColor1)
+        self.textColor = UIColor.getColor(colorVal: ZTAppBlackColor)
         self.attributedPlaceholder = NSAttributedString(string: self.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.getColor(colorVal: ZTAppSeperatorColor)])
         self.setBottomBorder(color: UIColor.getColor(colorVal: ZTAppSeperatorColor))
     }
@@ -442,7 +442,7 @@ class ZTPhoneCustomTextField: FPNTextField{
         }
         // Create message
         errorLabel?.text = ""
-        errorLabel?.backgroundColor = UIColor.getColor(colorVal: ZTTabbarSelectedColor)
+        errorLabel?.backgroundColor = UIColor.getColor(colorVal: ZTGradientColor1)
         errorLabel?.numberOfLines = 1
         let width = CGFloat(1.0)
         errorLabel?.frame = CGRect(x: 0, y: self.frame.size.height - width,   width:  self.frame.size.width, height: 1)
@@ -476,8 +476,8 @@ class ZTCustomTextField: JVFloatLabeledTextField{
         return bounds.inset(by: padding)
     }
     func setUp(){
-        self.tintColor = UIColor.getColor(colorVal: ZTTabbarSelectedColor)
-        self.textColor = UIColor.getColor(colorVal: ZTTabbarUnSelectedColor)
+        self.tintColor = UIColor.getColor(colorVal: ZTGradientColor1)
+        self.textColor = UIColor.getColor(colorVal: ZTAppBlackColor)
         self.attributedPlaceholder = NSAttributedString(string: self.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.getColor(colorVal: ZTAppSeperatorColor)])
         self.setBottomBorder(color: UIColor.getColor(colorVal: ZTAppSeperatorColor))
     }
@@ -504,7 +504,7 @@ class ZTCustomTextField: JVFloatLabeledTextField{
         }
         // Create message
         errorLabel?.text = ""
-        errorLabel?.backgroundColor = UIColor.getColor(colorVal: ZTTabbarSelectedColor)
+        errorLabel?.backgroundColor = UIColor.getColor(colorVal: ZTGradientColor1)
         errorLabel?.numberOfLines = 1
         let width = CGFloat(1.0)
         errorLabel?.frame = CGRect(x: 0, y: self.frame.size.height - width,   width:  self.frame.size.width, height: 1)

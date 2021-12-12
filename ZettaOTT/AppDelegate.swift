@@ -8,7 +8,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import GoogleSignIn
-//import FacebookCore
+import FacebookCore
 
 var zt_minimumLineSpacing : CGFloat = 8
 var zt_minimumInteritemSpacing : CGFloat = 8
@@ -24,10 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-//        ApplicationDelegate.shared.application(
-//                    application,
-//                    didFinishLaunchingWithOptions: launchOptions
-//                )
+        ApplicationDelegate.shared.application(
+                    application,
+                    didFinishLaunchingWithOptions: launchOptions
+                )
         SwaggerClientAPI.customHeaders = WebServicesHelper.shared.getHeaderDetails()
 
         self.setUpRoot()
@@ -72,12 +72,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       if handled {
         return true
       }
-//        ApplicationDelegate.shared.application(
-//            app,
-//            open: url,
-//            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-//            annotation: options[UIApplication.OpenURLOptionsKey.annotation]
-//        )
+        ApplicationDelegate.shared.application(
+            app,
+            open: url,
+            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+            annotation: options[UIApplication.OpenURLOptionsKey.annotation]
+        )
       // Handle other custom URL types.
 
       // If not handled by this app, return false.
