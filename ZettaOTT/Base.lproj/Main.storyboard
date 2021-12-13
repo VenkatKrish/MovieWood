@@ -6999,45 +6999,6 @@ Details of transaction are included below</string>
         </scene>
     </scenes>
     <designables>
-        <designable name="0O7-x4-cUy">
-            <size key="intrinsicContentSize" width="125.66666666666667" height="19.666666666666668"/>
-        </designable>
-        <designable name="3mV-Ks-slS">
-            <size key="intrinsicContentSize" width="70" height="19.666666666666668"/>
-        </designable>
-        <designable name="7n3-hD-Wis">
-            <size key="intrinsicContentSize" width="88.333333333333329" height="19.666666666666668"/>
-        </designable>
-        <designable name="C2q-yy-acN">
-            <size key="intrinsicContentSize" width="70" height="19.666666666666668"/>
-        </designable>
-        <designable name="Cld-4y-Cu1">
-            <size key="intrinsicContentSize" width="43" height="19.666666666666668"/>
-        </designable>
-        <designable name="Cma-Gc-Ejj">
-            <size key="intrinsicContentSize" width="146.33333333333334" height="19.666666666666668"/>
-        </designable>
-        <designable name="DpG-h4-Tt2">
-            <size key="intrinsicContentSize" width="30.666666666666668" height="19.666666666666668"/>
-        </designable>
-        <designable name="Elz-Nh-aWc">
-            <size key="intrinsicContentSize" width="175.66666666666666" height="19.666666666666668"/>
-        </designable>
-        <designable name="Grc-Tq-ymU">
-            <size key="intrinsicContentSize" width="78.333333333333329" height="19.666666666666668"/>
-        </designable>
-        <designable name="I6p-8O-X2e">
-            <size key="intrinsicContentSize" width="177" height="19.666666666666668"/>
-        </designable>
-        <designable name="PLU-2u-8Fj">
-            <size key="intrinsicContentSize" width="31" height="19.666666666666668"/>
-        </designable>
-        <designable name="UOC-Yk-1tB">
-            <size key="intrinsicContentSize" width="91.666666666666671" height="19.666666666666668"/>
-        </designable>
-        <designable name="Ucr-Kk-9wU">
-            <size key="intrinsicContentSize" width="99" height="19.666666666666668"/>
-        </designable>
         <designable name="WCB-nb-q3M">
             <size key="intrinsicContentSize" width="129.66666666666666" height="30.666666666666668"/>
         </designable>
@@ -7046,42 +7007,6 @@ Details of transaction are included below</string>
         </designable>
         <designable name="aHf-wu-Y66">
             <size key="intrinsicContentSize" width="99" height="33"/>
-        </designable>
-        <designable name="bqr-bR-V7o">
-            <size key="intrinsicContentSize" width="62" height="19.666666666666668"/>
-        </designable>
-        <designable name="cq4-Ed-QwR">
-            <size key="intrinsicContentSize" width="37.666666666666664" height="19.666666666666668"/>
-        </designable>
-        <designable name="d9k-wD-560">
-            <size key="intrinsicContentSize" width="172.66666666666666" height="19.666666666666668"/>
-        </designable>
-        <designable name="fs8-Tj-L4M">
-            <size key="intrinsicContentSize" width="99" height="19.666666666666668"/>
-        </designable>
-        <designable name="ips-aU-Ut8">
-            <size key="intrinsicContentSize" width="77" height="19.666666666666668"/>
-        </designable>
-        <designable name="jNv-tP-NNY">
-            <size key="intrinsicContentSize" width="46" height="19.666666666666668"/>
-        </designable>
-        <designable name="mFp-Bx-O7w">
-            <size key="intrinsicContentSize" width="184" height="19.666666666666668"/>
-        </designable>
-        <designable name="nTP-GY-6dG">
-            <size key="intrinsicContentSize" width="111.33333333333333" height="19.666666666666668"/>
-        </designable>
-        <designable name="pSW-Ys-6My">
-            <size key="intrinsicContentSize" width="83.333333333333329" height="19.666666666666668"/>
-        </designable>
-        <designable name="vc0-kS-srn">
-            <size key="intrinsicContentSize" width="38.666666666666664" height="19.666666666666668"/>
-        </designable>
-        <designable name="xqv-Xk-kEl">
-            <size key="intrinsicContentSize" width="77.333333333333329" height="19.666666666666668"/>
-        </designable>
-        <designable name="yTa-oK-bFl">
-            <size key="intrinsicContentSize" width="94.666666666666671" height="19.666666666666668"/>
         </designable>
     </designables>
     <resources>
@@ -7157,10 +7082,10 @@ Details of transaction are included below</string>
             <color red="0.82400000095367432" green="0.21600000560283661" blue="0.19599999487400055" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="ZTMovieDetailSubTitle">
-            <color red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.59200000762939453" green="0.59200000762939453" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="ZTTabbarUnSelectedColor">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.074509803921568626" green="0.078431372549019607" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="ZTThemeColorText2">
             <color red="0.99215686274509807" green="0.83137254901960789" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

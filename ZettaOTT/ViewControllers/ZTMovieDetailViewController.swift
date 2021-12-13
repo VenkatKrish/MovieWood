@@ -109,11 +109,11 @@ class ZTMovieDetailViewController: UIViewController {
             self.vwTrailer.isHidden = true
             if let teaser = self.moviewDetails?.teaserUrl, teaser.count > 0{
                 self.vwTeaser.isHidden = false
-                Helper.shared.loadImage(url: self.moviewDetails?.webMoviePoster ?? "", imageView: self.imgVwTeaser)
+                Helper.shared.loadImage(url: self.moviewDetails?.thumbnail ?? "", imageView: self.imgVwTeaser)
             }
             if let trailer = self.moviewDetails?.trailorUrl, trailer.count > 0{
                 self.vwTrailer.isHidden = false
-                Helper.shared.loadImage(url: self.moviewDetails?.webMoviePoster ?? "", imageView: self.imgVwTrailer)
+                Helper.shared.loadImage(url: self.moviewDetails?.thumbnail ?? "", imageView: self.imgVwTrailer)
             }
         }
     }
