@@ -91,16 +91,16 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="900" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UfI-Xz-vpI">
-                        <rect key="frame" x="0.0" y="55" width="375" height="34"/>
+                        <rect key="frame" x="0.0" y="55" width="375" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" priority="800" constant="20" id="f0v-sP-hwH"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iiD-hJ-6mj">
-                        <rect key="frame" x="0.0" y="99" width="375" height="1"/>
+                        <rect key="frame" x="0.0" y="89" width="375" height="1"/>
                         <color key="backgroundColor" name="ZTAppDividersUIColor"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="lwT-gP-S0b"/>
@@ -114,7 +114,7 @@
                 <constraints>
                     <constraint firstItem="l31-S8-GPE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="DOX-D2-lvs"/>
                     <constraint firstAttribute="trailing" secondItem="l31-S8-GPE" secondAttribute="trailing" id="F2i-jQ-Ypk"/>
-                    <constraint firstAttribute="bottom" secondItem="iiD-hJ-6mj" secondAttribute="bottom" id="PAS-0Q-7q5"/>
+                    <constraint firstAttribute="bottom" secondItem="iiD-hJ-6mj" secondAttribute="bottom" constant="10" id="PAS-0Q-7q5"/>
                     <constraint firstItem="iiD-hJ-6mj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ca0-Iw-ih9"/>
                     <constraint firstItem="l31-S8-GPE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="ecn-Yh-ZAA"/>
                     <constraint firstItem="UfI-Xz-vpI" firstAttribute="trailing" secondItem="l31-S8-GPE" secondAttribute="trailing" id="fyu-M4-ilG"/>
@@ -126,19 +126,26 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="imgVwUser" destination="oKQ-Bk-83e" id="qzh-fH-JBz"/>
+                <outlet property="lblDescription" destination="UfI-Xz-vpI" id="ua6-4M-hKn"/>
+                <outlet property="lblReviewDate" destination="gGZ-PO-LwO" id="Hhe-z1-FHF"/>
+                <outlet property="lblReviewsAvg" destination="ECg-bT-Fzl" id="Bjw-99-bnD"/>
+                <outlet property="lblUserName" destination="1ou-HY-vO4" id="Ote-zd-uW5"/>
+            </connections>
             <point key="canvasLocation" x="138.40579710144928" y="143.30357142857142"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="icon_star_black" width="10" height="9.5"/>
         <namedColor name="ZTAppDividersUIColor">
-            <color red="0.32549019607843138" green="0.3411764705882353" blue="0.51372549019607838" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="ZTMovieDetailSubTitle">
-            <color red="0.49411764705882355" green="0.54509803921568623" blue="0.66274509803921566" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.59200000762939453" green="0.59200000762939453" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="ZTTabbarUnSelectedColor">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.074509803921568626" green="0.078431372549019607" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

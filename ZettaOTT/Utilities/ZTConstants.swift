@@ -85,7 +85,7 @@ class ZTCellNameOrIdentifier{
     static let ZTCrewCollectionViewCell = "ZTCrewCollectionViewCell"
     static let ZTLanguageTableViewCell = "ZTLanguageTableViewCell"
     static let ZTPagingCollectionReusableView = "ZTPagingCollectionReusableView"
-    
+    static let ZTUserReviewTableViewCell = "ZTUserReviewTableViewCell"    
 }
 class ZTControllerName{
     static let ZT_TabbarController = "ZTTabbarViewController"
