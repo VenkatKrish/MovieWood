@@ -117,17 +117,17 @@ extension ZTUpcomingViewController: UITableViewDelegate, UITableViewDataSource{
         }else{
             let cell: ZTHomeTableViewCell = tableView.dequeueReusableCell(withIdentifier: ZTCellNameOrIdentifier.ZTHomeTableViewCell, for: indexPath) as! ZTHomeTableViewCell
             if keyVal == moviesKeyUI.recommended {
-                cell.loadPortraintVideos(videosVal: self.upcomingMovies, delegateObj: self)
+                cell.loadPortraintVideos(videosVal: self.upcomingMovies, delegateObj: self, isExclusiveHide: false)
                 return cell
             }
             else if keyVal == moviesKeyUI.popular_movies {
-                cell.loadPortraintVideos(videosVal: self.popularMovies, delegateObj: self)
+                cell.loadPortraintVideos(videosVal: self.popularMovies, delegateObj: self, isExclusiveHide: false)
                 return cell
             }else{
                 if self.movieCollectionsValues?.count ?? 0 > 0{
                     if let filterMovies = self.movieCollectionsValues?
                         .first(where: { $0.name == keyVal }), filterMovies.movieCollections?.count ?? 0 > 0{
-                        cell.loadPortraintVideos(videosVal: filterMovies.movieCollections ?? [], delegateObj: self) // will change the model and array
+                        cell.loadPortraintVideos(videosVal: filterMovies.movieCollections ?? [], delegateObj: self, isExclusiveHide: false) // will change the model and array
                     }
                 }
                 return cell

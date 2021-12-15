@@ -2563,7 +2563,7 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UCI-st-Fn5">
                                                                                         <rect key="frame" x="0.0" y="200" width="338" height="45"/>
                                                                                         <subviews>
-                                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Gender Male" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pSW-Ys-6My" customClass="ZTCustomTextField" customModule="ZettaOTT" customModuleProvider="target">
+                                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Gender" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pSW-Ys-6My" customClass="ZTCustomTextField" customModule="ZettaOTT" customModuleProvider="target">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="164" height="45"/>
                                                                                                 <color key="textColor" name="ZTAppSeperatorColor"/>
                                                                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="15"/>
@@ -4556,10 +4556,10 @@ Share it with the world on Sorted and let it receive the recognition it deserves
         <scene sceneID="mnw-Z9-qWz">
             <objects>
                 <tabBarController storyboardIdentifier="ZTTabbarViewController" id="h9a-2Z-Mbd" customClass="ZTTabbarViewController" customModule="ZettaOTT" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backgroundImage="tabbar_bg" id="t0Z-id-nG0" customClass="CustomTabBar" customModule="ZettaOTT" customModuleProvider="target">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="t0Z-id-nG0" customClass="CustomTabBar" customModule="ZettaOTT" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" name="ZTAppWhiteColor"/>
                         <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="selectedImageTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -4684,7 +4684,7 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="Htt-7o-YDL">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="718"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="723"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zf8-In-hlC">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="337.66666666666669"/>
@@ -5291,7 +5291,7 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tR3-PA-dVt">
                                                         <rect key="frame" x="0.0" y="45" width="390" height="200"/>
                                                         <subviews>
-                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="blk-eb-3E9">
+                                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="blk-eb-3E9">
                                                                 <rect key="frame" x="16" y="0.0" width="374" height="180"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
@@ -5449,7 +5449,7 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                         <viewLayoutGuide key="safeArea" id="0SU-uj-4Yn"/>
                         <color key="backgroundColor" name="ZTFormBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="9TO-NZ-Kc7" firstAttribute="top" secondItem="Htt-7o-YDL" secondAttribute="bottom" constant="5" id="7uQ-dm-2Ms"/>
+                            <constraint firstItem="9TO-NZ-Kc7" firstAttribute="top" secondItem="Htt-7o-YDL" secondAttribute="bottom" id="7uQ-dm-2Ms"/>
                             <constraint firstItem="0SU-uj-4Yn" firstAttribute="trailing" secondItem="9TO-NZ-Kc7" secondAttribute="trailing" id="aDW-V2-6Wv"/>
                             <constraint firstItem="9TO-NZ-Kc7" firstAttribute="leading" secondItem="0SU-uj-4Yn" secondAttribute="leading" id="gn4-L2-BV2"/>
                             <constraint firstItem="0SU-uj-4Yn" firstAttribute="bottom" secondItem="9TO-NZ-Kc7" secondAttribute="bottom" constant="10" id="o8m-JI-ZDD"/>
@@ -6831,11 +6831,86 @@ Details of transaction are included below</string>
         </scene>
     </scenes>
     <designables>
+        <designable name="0O7-x4-cUy">
+            <size key="intrinsicContentSize" width="125.66666666666667" height="19.666666666666668"/>
+        </designable>
+        <designable name="3mV-Ks-slS">
+            <size key="intrinsicContentSize" width="70" height="19.666666666666668"/>
+        </designable>
+        <designable name="7n3-hD-Wis">
+            <size key="intrinsicContentSize" width="88.333333333333329" height="19.666666666666668"/>
+        </designable>
+        <designable name="C2q-yy-acN">
+            <size key="intrinsicContentSize" width="70" height="19.666666666666668"/>
+        </designable>
+        <designable name="Cld-4y-Cu1">
+            <size key="intrinsicContentSize" width="43" height="19.666666666666668"/>
+        </designable>
+        <designable name="Cma-Gc-Ejj">
+            <size key="intrinsicContentSize" width="146.33333333333334" height="19.666666666666668"/>
+        </designable>
+        <designable name="DpG-h4-Tt2">
+            <size key="intrinsicContentSize" width="30.666666666666668" height="19.666666666666668"/>
+        </designable>
+        <designable name="Elz-Nh-aWc">
+            <size key="intrinsicContentSize" width="175.66666666666666" height="19.666666666666668"/>
+        </designable>
+        <designable name="Grc-Tq-ymU">
+            <size key="intrinsicContentSize" width="78.333333333333329" height="19.666666666666668"/>
+        </designable>
+        <designable name="I6p-8O-X2e">
+            <size key="intrinsicContentSize" width="177" height="19.666666666666668"/>
+        </designable>
+        <designable name="PLU-2u-8Fj">
+            <size key="intrinsicContentSize" width="31" height="19.666666666666668"/>
+        </designable>
+        <designable name="UOC-Yk-1tB">
+            <size key="intrinsicContentSize" width="91.666666666666671" height="19.666666666666668"/>
+        </designable>
+        <designable name="Ucr-Kk-9wU">
+            <size key="intrinsicContentSize" width="99" height="19.666666666666668"/>
+        </designable>
         <designable name="Yyi-GV-lJS">
             <size key="intrinsicContentSize" width="120" height="20"/>
         </designable>
         <designable name="aHf-wu-Y66">
             <size key="intrinsicContentSize" width="99" height="33"/>
+        </designable>
+        <designable name="bqr-bR-V7o">
+            <size key="intrinsicContentSize" width="62" height="19.666666666666668"/>
+        </designable>
+        <designable name="cq4-Ed-QwR">
+            <size key="intrinsicContentSize" width="37.666666666666664" height="19.666666666666668"/>
+        </designable>
+        <designable name="d9k-wD-560">
+            <size key="intrinsicContentSize" width="172.66666666666666" height="19.666666666666668"/>
+        </designable>
+        <designable name="fs8-Tj-L4M">
+            <size key="intrinsicContentSize" width="99" height="19.666666666666668"/>
+        </designable>
+        <designable name="ips-aU-Ut8">
+            <size key="intrinsicContentSize" width="77" height="19.666666666666668"/>
+        </designable>
+        <designable name="jNv-tP-NNY">
+            <size key="intrinsicContentSize" width="46" height="19.666666666666668"/>
+        </designable>
+        <designable name="mFp-Bx-O7w">
+            <size key="intrinsicContentSize" width="184" height="19.666666666666668"/>
+        </designable>
+        <designable name="nTP-GY-6dG">
+            <size key="intrinsicContentSize" width="111.33333333333333" height="19.666666666666668"/>
+        </designable>
+        <designable name="pSW-Ys-6My">
+            <size key="intrinsicContentSize" width="48.333333333333336" height="19.666666666666668"/>
+        </designable>
+        <designable name="vc0-kS-srn">
+            <size key="intrinsicContentSize" width="38.666666666666664" height="19.666666666666668"/>
+        </designable>
+        <designable name="xqv-Xk-kEl">
+            <size key="intrinsicContentSize" width="77.333333333333329" height="19.666666666666668"/>
+        </designable>
+        <designable name="yTa-oK-bFl">
+            <size key="intrinsicContentSize" width="94.666666666666671" height="19.666666666666668"/>
         </designable>
     </designables>
     <resources>
@@ -6864,8 +6939,8 @@ Details of transaction are included below</string>
         <image name="icon_tab_1_selected" width="12.333333015441895" height="14.666666984558105"/>
         <image name="icon_tab_2" width="16" height="16"/>
         <image name="icon_tab_2_selected" width="16" height="16"/>
-        <image name="icon_tab_3" width="38.666667938232422" height="38.666667938232422"/>
-        <image name="icon_tab_3_selected" width="38.666667938232422" height="38.666667938232422"/>
+        <image name="icon_tab_3" width="19.333333969116211" height="19.333333969116211"/>
+        <image name="icon_tab_3_selected" width="19.333333969116211" height="19.333333969116211"/>
         <image name="icon_tab_4" width="12" height="15.333333015441895"/>
         <image name="icon_tab_4_selected" width="12" height="15.333333015441895"/>
         <image name="icon_tab_5" width="12.666666984558105" height="16"/>
@@ -6882,7 +6957,6 @@ Details of transaction are included below</string>
         <image name="logo_razorpay" width="105.66666412353516" height="42"/>
         <image name="movie_submit" width="206.66667175292969" height="200.66667175292969"/>
         <image name="multiply.circle" catalog="system" width="128" height="121"/>
-        <image name="tabbar_bg" width="500" height="112.66666412353516"/>
         <image name="ticket_bg" width="457.33334350585938" height="234.66667175292969"/>
         <namedColor name="ZTAppBlackColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -85,7 +85,8 @@ class ZTMovieDetailViewController: UIViewController {
     }
     func registerCells(){
         self.tblReviews.rowHeight = UITableView.automaticDimension
-
+        self.tblReviews.estimatedRowHeight = 100
+        self.tblReviews.isScrollEnabled = false
         self.tblReviews.register(UINib(nibName: ZTCellNameOrIdentifier.ZTUserReviewTableViewCell, bundle: nil), forCellReuseIdentifier: ZTCellNameOrIdentifier.ZTUserReviewTableViewCell)
         self.collectionGenre.register(UINib(nibName: ZTCellNameOrIdentifier.ZTTypesOfVideosCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: ZTCellNameOrIdentifier.ZTTypesOfVideosCollectionViewCell)
        
@@ -235,7 +236,7 @@ extension ZTMovieDetailViewController:UICollectionViewDelegate, UICollectionView
         }else if collectionView == self.collectionRecommended{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZTCellNameOrIdentifier.ZTPortraitVideoCollectionViewCell, for: indexPath) as! ZTPortraitVideoCollectionViewCell
             let modelVal = self.recommendedMovies?[indexPath.row]
-            cell.loadPortraitVideos(data: modelVal)
+            cell.loadPortraitVideos(data: modelVal, isExclusiveHide: false)
             return cell
         }
         else{ // Teaser cell
@@ -292,7 +293,7 @@ extension ZTMovieDetailViewController:UICollectionViewDelegate, UICollectionView
     // minimum line margin
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == self.collectionRecommended{
-            return 1
+            return 10
         }
         return 5
     }
@@ -300,7 +301,7 @@ extension ZTMovieDetailViewController:UICollectionViewDelegate, UICollectionView
     // margin between items
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == self.collectionRecommended{
-            return 1
+            return 10
         }
         return 5
     }
@@ -321,6 +322,7 @@ extension ZTMovieDetailViewController: UITableViewDelegate, UITableViewDataSourc
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ZTUserReviewTableViewCell = tableView.dequeueReusableCell(withIdentifier: ZTCellNameOrIdentifier.ZTUserReviewTableViewCell, for: indexPath) as! ZTUserReviewTableViewCell
+        cell.selectionStyle = .none
         cell.loadReviews(data: self.moviewReviews?[indexPath.row], indexPath: indexPath)
         return cell
     }

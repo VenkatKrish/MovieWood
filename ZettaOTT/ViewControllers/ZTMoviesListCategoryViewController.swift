@@ -190,11 +190,26 @@ extension ZTMoviesListCategoryViewController{
         }
     }
     func refreshUI(){
-        if self.videosList?.count ?? 0 > 0{
-            DispatchQueue.main.async {
-                self.movieListCollection.reloadData()
+        if self.searchKey != ""{
+            if self.videosList?.count ?? 0 > 0{
+                DispatchQueue.main.async {
+                    self.movieListCollection.reloadData()
+                }
             }
-        }else{
+        }else if movieCollectionId != -1{
+            if self.collectionsList?.count ?? 0 > 0{
+                DispatchQueue.main.async {
+                    self.movieListCollection.reloadData()
+                }
+            }
+        }else if genreId != -1{
+            if self.videosList?.count ?? 0 > 0{
+                DispatchQueue.main.async {
+                    self.movieListCollection.reloadData()
+                }
+            }
+        }
+        if self.videosList?.count ?? 0 == 0 && self.collectionsList?.count ?? 0 == 0{
             Helper.shared.showNoView(title: "", description: "", fromView: self.movieListCollection, hideActionBtn: true, imageName: "",fromViewController: self )
         }
     }

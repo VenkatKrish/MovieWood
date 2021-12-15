@@ -16,7 +16,7 @@ class ZTDiscoveryViewController: UIViewController {
     var allTitles = [moviesKeyUI.genres, moviesKeyUI.recommended,
         moviesKeyUI.paging,
         moviesKeyUI.latest_tamil_movies]
-    var pageSize : Int = 5
+    var pageSize : Int = 10
     var pageNumber : Int = 0
     var movieColPageSize : Int = 5
     var movieColPageNumber : Int = 0
@@ -114,17 +114,17 @@ extension ZTDiscoveryViewController: UITableViewDelegate, UITableViewDataSource{
         }else{
             let cell: ZTHomeTableViewCell = tableView.dequeueReusableCell(withIdentifier: ZTCellNameOrIdentifier.ZTHomeTableViewCell, for: indexPath) as! ZTHomeTableViewCell
             if keyVal == moviesKeyUI.recommended {
-                cell.loadPortraintVideos(videosVal: self.recommendedMovies, delegateObj: self)
+                cell.loadPortraintVideos(videosVal: self.recommendedMovies, delegateObj: self, isExclusiveHide: false)
                 return cell
             }
             else if keyVal == moviesKeyUI.latest_tamil_movies {
-                cell.loadPortraintVideos(videosVal: self.latestTamilMovies, delegateObj: self)
+                cell.loadPortraintVideos(videosVal: self.latestTamilMovies, delegateObj: self, isExclusiveHide: false)
                 return cell
             }else{
                 if self.movieCollectionsValues?.count ?? 0 > 0{
                     if let filterMovies = self.movieCollectionsValues?
                         .first(where: { $0.name == keyVal }), filterMovies.movieCollections?.count ?? 0 > 0{
-                        cell.loadPortraintVideos(videosVal: filterMovies.movieCollections ?? [], delegateObj: self) // will change the model and array
+                        cell.loadPortraintVideos(videosVal: filterMovies.movieCollections ?? [], delegateObj: self, isExclusiveHide: false) // will change the model and array
                     }
                 }
                 return cell
@@ -154,8 +154,25 @@ extension ZTDiscoveryViewController: UITableViewDelegate, UITableViewDataSource{
             headerView.lblTitle.text = ""
             headerView.btnMore.isHidden = true
         }else{
-            headerView.lblTitle.text = keyVal
-            headerView.btnMore.isHidden = false
+                headerView.lblTitle.text = keyVal
+                if keyVal == moviesKeyUI.recommended {
+                    if self.recommendedMovies?.count ?? 0 >= self.pageSize{
+                        headerView.btnMore.isHidden = false
+                    }
+                }else if keyVal == moviesKeyUI.latest_tamil_movies{
+                    if self.latestTamilMovies?.count ?? 0 >= self.pageSize{
+                        headerView.btnMore.isHidden = false
+                    }
+                }else{
+                    if self.movieCollectionsValues?.count ?? 0 > 0{
+                        if let filterMovies = self.movieCollectionsValues?
+                            .first(where: { $0.name == keyVal }), filterMovies.movieCollections?.count ?? 0 > 0{
+                            if filterMovies.movieCollections?.count ?? 0 >= self.pageSize{
+                                headerView.btnMore.isHidden = false
+                            }
+                        }
+                    }
+                }
         }
         return headerView
     }

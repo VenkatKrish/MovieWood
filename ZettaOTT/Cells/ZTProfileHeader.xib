@@ -51,7 +51,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XvN-81-hfC">
                     <rect key="frame" x="133" y="143.5" width="109" height="109"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummy_profile" translatesAutoresizingMaskIntoConstraints="NO" id="Cyo-xi-Kk7" customClass="ZTCircularImageView" customModule="ZettaOTT" customModuleProvider="target">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place_holder" translatesAutoresizingMaskIntoConstraints="NO" id="Cyo-xi-Kk7" customClass="ZTCircularImageView" customModule="ZettaOTT" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="109" height="109"/>
                         </imageView>
                     </subviews>
@@ -66,33 +66,30 @@
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Vkf-PP-apr">
-                    <rect key="frame" x="119" y="262.5" width="137" height="44.5"/>
+                    <rect key="frame" x="120.5" y="262.5" width="134.5" height="66.5"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="James William" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o88-hQ-tXW">
-                            <rect key="frame" x="0.0" y="0.0" width="137" height="23.5"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="23.5" id="M5j-MZ-BEe"/>
-                            </constraints>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o88-hQ-tXW">
+                            <rect key="frame" x="0.0" y="0.0" width="134.5" height="45.5"/>
                             <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="20"/>
                             <color key="textColor" name="ZTTabbarUnSelectedColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="markdoe@gmail.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jn-uU-eqc">
-                            <rect key="frame" x="0.0" y="28.5" width="137" height="16"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6jn-uU-eqc">
+                            <rect key="frame" x="0.0" y="50.5" width="134.5" height="16"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="16" id="Qhj-ep-w8D"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="15"/>
-                            <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" name="ZTAppDividersUIColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                 </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="G1d-lb-Azw">
-                    <rect key="frame" x="10" y="317" width="355" height="63"/>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="G1d-lb-Azw">
+                    <rect key="frame" x="10" y="339" width="355" height="41"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oc7-we-7U1">
-                            <rect key="frame" x="0.0" y="0.0" width="118.5" height="63"/>
+                            <rect key="frame" x="0.0" y="0.0" width="118.5" height="41"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_profile_gender" translatesAutoresizingMaskIntoConstraints="NO" id="8ve-zK-CQ4">
                                     <rect key="frame" x="53" y="10" width="12" height="12"/>
@@ -117,7 +114,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rcm-PY-Mbb">
-                            <rect key="frame" x="118.5" y="0.0" width="118" height="63"/>
+                            <rect key="frame" x="118.5" y="0.0" width="118" height="41"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_profile_call" translatesAutoresizingMaskIntoConstraints="NO" id="QT8-qB-R9s">
                                     <rect key="frame" x="53" y="10" width="12" height="12"/>
@@ -142,7 +139,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fHY-Bz-KwV">
-                            <rect key="frame" x="236.5" y="0.0" width="118.5" height="63"/>
+                            <rect key="frame" x="236.5" y="0.0" width="118.5" height="41"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_profile_dob" translatesAutoresizingMaskIntoConstraints="NO" id="ijB-Yb-v2C">
                                     <rect key="frame" x="53.5" y="10" width="12" height="12"/>
@@ -195,8 +192,10 @@
                 <outlet property="lblUserGender" destination="T8j-kZ-yhh" id="aRF-k8-wNt"/>
                 <outlet property="lblUserName" destination="o88-hQ-tXW" id="Ygx-pR-1RL"/>
                 <outlet property="lblUserPhone" destination="Nw8-dM-7YP" id="IdG-MQ-sPG"/>
+                <outlet property="stackOtherDetails" destination="G1d-lb-Azw" id="1m4-qx-l1o"/>
                 <outlet property="vwDOB" destination="fHY-Bz-KwV" id="7D0-Kj-7nc"/>
                 <outlet property="vwGender" destination="Oc7-we-7U1" id="Nvp-HL-Z0F"/>
+                <outlet property="vwHeightConstraint" destination="Nsc-7K-h44" id="KIP-iI-TbN"/>
                 <outlet property="vwImage" destination="XvN-81-hfC" id="LnE-PC-fHn"/>
                 <outlet property="vwPhone" destination="Rcm-PY-Mbb" id="UqV-cr-3ML"/>
             </connections>
@@ -204,11 +203,14 @@
         </collectionReusableView>
     </objects>
     <resources>
-        <image name="dummy_profile" width="117" height="117"/>
-        <image name="icon_profile_call" width="12" height="12"/>
-        <image name="icon_profile_dob" width="12" height="13"/>
-        <image name="icon_profile_gender" width="12" height="12.5"/>
+        <image name="icon_profile_call" width="18" height="18"/>
+        <image name="icon_profile_dob" width="18" height="19.5"/>
+        <image name="icon_profile_gender" width="18" height="19"/>
+        <image name="place_holder" width="123" height="123"/>
         <image name="profile_top_bg" width="562.5" height="286"/>
+        <namedColor name="ZTAppDividersUIColor">
+            <color red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="ZTBackgroundColor">
             <color red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

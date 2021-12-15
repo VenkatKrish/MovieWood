@@ -13,14 +13,14 @@ class ZTNowViewController: UIViewController {
     var streamingNowMovies : [Movies]? = []
     var zettaMovieOriginals : [Movies]? = []
     var continueWatching : [Movies]? = []
-    var popularMovies : [Movies]? = []
+    var webSeriesMovies : [Movies]? = []
     var allGenres : [Genres]? = []
-    var allTitles = [moviesKeyUI.paging, moviesKeyUI.continue_watching, moviesKeyUI.genres, moviesKeyUI.zetta_movies_originals, moviesKeyUI.popular_movies]
+    var allTitles = [moviesKeyUI.paging, moviesKeyUI.continue_watching, moviesKeyUI.genres, moviesKeyUI.zetta_movies_originals, moviesKeyUI.latest_web_series]
     @IBOutlet weak var vwNew: UIView!
     @IBOutlet weak var vwUpcoming: UIView!
     @IBOutlet weak var vwWebseries: UIView!
     @IBOutlet weak var vwShortFilms: UIView!
-    var pageSize : Int = 5
+    var pageSize : Int = 10
     var pageNumber : Int = 0
     
     var movieColPageSize : Int = 5
@@ -46,7 +46,7 @@ class ZTNowViewController: UIViewController {
                 self.getContinueWatching()
             }
             self.getZettMoviesOriginals()
-            self.getPopularMovies()
+            self.getWebSeriesVideos(isSpinnerNeeded: false)
             self.getGenrieList()
             self.movieColPageNumber = 0
             self.getAllCollections(isSpinnerNeeded: true)
@@ -97,8 +97,8 @@ extension ZTNowViewController: UITableViewDelegate, UITableViewDataSource{
             if self.zettaMovieOriginals?.count ?? 0 > 0{
                 return 1
             }
-        }else if keyVal == moviesKeyUI.popular_movies {
-            if self.popularMovies?.count ?? 0 > 0{
+        }else if keyVal == moviesKeyUI.latest_web_series {
+            if self.webSeriesMovies?.count ?? 0 > 0{
                 return 1
             }
         }else{
@@ -126,17 +126,17 @@ extension ZTNowViewController: UITableViewDelegate, UITableViewDataSource{
         }else{
             let cell: ZTHomeTableViewCell = tableView.dequeueReusableCell(withIdentifier: ZTCellNameOrIdentifier.ZTHomeTableViewCell, for: indexPath) as! ZTHomeTableViewCell
             if keyVal == moviesKeyUI.zetta_movies_originals {
-                cell.loadPortraintVideos(videosVal: self.zettaMovieOriginals, delegateObj: self)
+                cell.loadPortraintVideos(videosVal: self.zettaMovieOriginals, delegateObj: self, isExclusiveHide: false)
                 return cell
             }
-            else if keyVal == moviesKeyUI.popular_movies {
-                cell.loadPortraintVideos(videosVal: self.popularMovies, delegateObj: self)
+            else if keyVal == moviesKeyUI.latest_web_series {
+                cell.loadPortraintVideos(videosVal: self.webSeriesMovies, delegateObj: self, isExclusiveHide: false)
                 return cell
             }else{
                 if self.movieCollectionsValues?.count ?? 0 > 0{
                     if let filterMovies = self.movieCollectionsValues?
                         .first(where: { $0.name == keyVal }), filterMovies.movieCollections?.count ?? 0 > 0{
-                        cell.loadPortraintVideos(videosVal: filterMovies.movieCollections ?? [], delegateObj: self) // will change the model and array
+                        cell.loadPortraintVideos(videosVal: filterMovies.movieCollections ?? [], delegateObj: self, isExclusiveHide: false) // will change the model and array
                     }
                 }
                 return cell
@@ -177,14 +177,32 @@ extension ZTNowViewController: UITableViewDelegate, UITableViewDataSource{
             if keyVal == moviesKeyUI.continue_watching {
                 if self.continueWatching?.count ?? 0 > 0{
                     headerView.lblTitle.text = keyVal
-                    headerView.btnMore.isHidden = false
+                    if self.continueWatching?.count ?? 0 >= self.pageSize{
+                        headerView.btnMore.isHidden = false
+                    }
                 }
             }else{
                 headerView.lblTitle.text = keyVal
-                headerView.btnMore.isHidden = false
+                if keyVal == moviesKeyUI.zetta_movies_originals {
+                    if self.zettaMovieOriginals?.count ?? 0 >= self.pageSize{
+                        headerView.btnMore.isHidden = false
+                    }
+                }else if keyVal == moviesKeyUI.latest_web_series{
+                    if self.webSeriesMovies?.count ?? 0 >= self.pageSize{
+                        headerView.btnMore.isHidden = false
+                    }
+                }else{
+                    if self.movieCollectionsValues?.count ?? 0 > 0{
+                        if let filterMovies = self.movieCollectionsValues?
+                            .first(where: { $0.name == keyVal }), filterMovies.movieCollections?.count ?? 0 > 0{
+                            if filterMovies.movieCollections?.count ?? 0 >= self.pageSize{
+                                headerView.btnMore.isHidden = false
+                            }
+                        }
+                    }
+                }
             }
         }
-
         return headerView
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -204,7 +222,7 @@ extension ZTNowViewController{
     @objc func moreBtnTapped(sender: UIButton){
         let keyVal = self.allTitles[sender.tag]
         
-        if keyVal == moviesKeyUI.genres || keyVal == moviesKeyUI.paging || keyVal == moviesKeyUI.continue_watching || keyVal == moviesKeyUI.zetta_movies_originals || keyVal == moviesKeyUI.popular_movies || keyVal == moviesKeyUI.popular_movies{
+        if keyVal == moviesKeyUI.genres || keyVal == moviesKeyUI.paging || keyVal == moviesKeyUI.continue_watching || keyVal == moviesKeyUI.zetta_movies_originals || keyVal == moviesKeyUI.latest_web_series{
             Helper.shared.goToMoviesCategoryListScreen(viewController: self, movieKey: keyVal)
         }else{
             
@@ -335,28 +353,37 @@ extension ZTNowViewController{
             self.isPageEnable = false
         }
     }
-    func getPopularMovies(){
-        if NetworkReachability.shared.isReachable {
-            ZTCommonAPIWrapper.searchMoviesGET(search: MovieSearchTag.movieSearchAvg.rawValue, page: self.pageNumber, size: self.pageSize) { (response, error) in
-                self.popularMovies?.removeAll()
-                self.hideActivityIndicator(self.view)
-                if error != nil{
-                    WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
-                        
-                    }, failureBlock: { (errorMsg) in
-                        
-                    })
-                    return
+    func getWebSeriesVideos(isSpinnerNeeded:Bool){
+            if NetworkReachability.shared.isReachable {
+                if isSpinnerNeeded == true{
+                    self.showActivityIndicator(self.view)
                 }
-                if let responseVal = response{
-                    self.popularMovies?.append(contentsOf: responseVal.content ?? [])
-                    DispatchQueue.main.async {
-                        self.tblHome.reloadData()
+                ZTCommonAPIWrapper.searchMoviesGET(search: MovieSearchTag.webSeries.rawValue, page: self.pageNumber, size: self.pageSize) { (response, error) in
+                    if isSpinnerNeeded == true{
+                        self.hideActivityIndicator(self.view)
+                    }
+                    if self.pageNumber == 0{
+                        self.webSeriesMovies?.removeAll()
+                    }
+                    if error != nil{
+                        WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
+
+                        }, failureBlock: { (errorMsg) in
+
+                        })
+                        return
+                    }
+                    if let responseVal = response, responseVal.content?.count ?? 0 > 0{
+                        
+                        self.webSeriesMovies?.append(contentsOf: responseVal.content ?? [])
+                        DispatchQueue.main.async {
+                            self.tblHome.reloadData()
+                        }
                     }
                 }
             }
         }
-    }
+    
     func getGenrieList(){
         if NetworkReachability.shared.isReachable {
             

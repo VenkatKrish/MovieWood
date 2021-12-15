@@ -103,6 +103,8 @@
 		391CA8E82753FBF500CBCC4E /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391CA8E32753FBF500CBCC4E /* ProgressView.swift */; };
 		391CA8E92753FBF500CBCC4E /* StrokeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391CA8E42753FBF500CBCC4E /* StrokeAnimation.swift */; };
 		391CA8EA2753FBF500CBCC4E /* ProgressShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391CA8E52753FBF500CBCC4E /* ProgressShapeLayer.swift */; };
+		39256B252769FEAF00450888 /* ZTPaymentCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39256B232769FEAF00450888 /* ZTPaymentCardCollectionViewCell.swift */; };
+		39256B262769FEAF00450888 /* ZTPaymentCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39256B242769FEAF00450888 /* ZTPaymentCardCollectionViewCell.xib */; };
 		3930C33B274D2AAF009D8F7A /* ZTMovieInfo1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3930C33A274D2AAF009D8F7A /* ZTMovieInfo1ViewController.swift */; };
 		3930C33D274D2AC3009D8F7A /* ZTMovieInfo2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3930C33C274D2AC3009D8F7A /* ZTMovieInfo2ViewController.swift */; };
 		3930C33F274D2AD3009D8F7A /* ZTMovieInfo3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3930C33E274D2AD3009D8F7A /* ZTMovieInfo3ViewController.swift */; };
@@ -442,6 +444,8 @@
 		391CA8E32753FBF500CBCC4E /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		391CA8E42753FBF500CBCC4E /* StrokeAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrokeAnimation.swift; sourceTree = "<group>"; };
 		391CA8E52753FBF500CBCC4E /* ProgressShapeLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressShapeLayer.swift; sourceTree = "<group>"; };
+		39256B232769FEAF00450888 /* ZTPaymentCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTPaymentCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		39256B242769FEAF00450888 /* ZTPaymentCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTPaymentCardCollectionViewCell.xib; sourceTree = "<group>"; };
 		3930C33A274D2AAF009D8F7A /* ZTMovieInfo1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTMovieInfo1ViewController.swift; sourceTree = "<group>"; };
 		3930C33C274D2AC3009D8F7A /* ZTMovieInfo2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTMovieInfo2ViewController.swift; sourceTree = "<group>"; };
 		3930C33E274D2AD3009D8F7A /* ZTMovieInfo3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTMovieInfo3ViewController.swift; sourceTree = "<group>"; };
@@ -798,6 +802,8 @@
 				39B86D1E275BDDE10000D2CF /* ZTLanguageTableViewCell.xib */,
 				39C769A1275E49E0009C9D13 /* ZTPagingCollectionReusableView.swift */,
 				39C769A2275E49E0009C9D13 /* ZTPagingCollectionReusableView.xib */,
+				39256B232769FEAF00450888 /* ZTPaymentCardCollectionViewCell.swift */,
+				39256B242769FEAF00450888 /* ZTPaymentCardCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1317,6 +1323,7 @@
 				3964A5E72710834500726487 /* ZTContinueWatchingCollectionCell.xib in Resources */,
 				3964A5E22710832B00726487 /* ZTContinueWatchingCell.xib in Resources */,
 				3964A53B2710678900726487 /* ZTPagingTableViewCell.xib in Resources */,
+				39256B262769FEAF00450888 /* ZTPaymentCardCollectionViewCell.xib in Resources */,
 				3937DE2B2712D8B4009F0E2C /* ZTMovieCustomTableViewCell.xib in Resources */,
 				3957BC2C27511CAE002AC22D /* ZTMyTransactionsTableViewCell.xib in Resources */,
 				3995EA3F2707244300E3FB19 /* SFUIDisplay-Light.ttf in Resources */,
@@ -1594,6 +1601,7 @@
 				39EBD28C273BFDA100BEE73A /* JSONEncodableEncoding.swift in Sources */,
 				39A42BB3270F350F002C100D /* ZTTypesOfVideosCollectionViewCell.swift in Sources */,
 				3915789827637D0A004F51FF /* ConstraintView.swift in Sources */,
+				39256B252769FEAF00450888 /* ZTPaymentCardCollectionViewCell.swift in Sources */,
 				391CA8EA2753FBF500CBCC4E /* ProgressShapeLayer.swift in Sources */,
 				3915785427637BCB004F51FF /* NVActivityIndicatorAnimationLineScaleParty.swift in Sources */,
 				3937DE2E2712DA8A009F0E2C /* ZTMovieSearchViewController.swift in Sources */,

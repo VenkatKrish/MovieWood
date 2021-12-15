@@ -119,7 +119,7 @@ class moviesKeyUI {
     static let paging = "Paging"
     static let continue_watching = "Continue Watching"
     static let genres = "Genres"
-    static let zetta_movies_originals = "Zetta Movies Originals"
+    static let zetta_movies_originals = "Moviewood Originals"
     static let popular_movies = "Popular Movies"
     static let recommended = "Recommended"
     static let latest_tamil_movies = "Latest Tamil Movies"

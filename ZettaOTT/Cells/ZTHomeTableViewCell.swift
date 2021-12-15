@@ -14,14 +14,15 @@ class ZTHomeTableViewCell: UITableViewCell {
     var delegate: ZTHomePageDelegate? = nil
     @IBOutlet weak var portraitCollection: UICollectionView!
     var portraintVideos : [Any] = []
-
+    var isExclusiveHide: Bool = false
     override func awakeFromNib() {
         super.awakeFromNib()
         self.portraitCollection.register(UINib(nibName: ZTCellNameOrIdentifier.ZTPortraitVideoCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: ZTCellNameOrIdentifier.ZTPortraitVideoCollectionViewCell)
         // Initialization code
     }
-    func loadPortraintVideos(videosVal:[Any]? = [], delegateObj:ZTHomePageDelegate){
+    func loadPortraintVideos(videosVal:[Any]? = [], delegateObj:ZTHomePageDelegate, isExclusiveHide:Bool){
         self.delegate = delegateObj
+        self.isExclusiveHide = isExclusiveHide
         self.portraintVideos = videosVal ?? []
         self.portraitCollection.dataSource = self
         self.portraitCollection.delegate = self
@@ -65,12 +66,12 @@ extension ZTHomeTableViewCell:  UICollectionViewDataSource, UICollectionViewDele
         let movieInfo = self.portraintVideos[indexPath.row]
         if movieInfo is Movies{
             let modelVal = movieInfo as! Movies
-            cell.loadPortraitVideos(data: modelVal)
+            cell.loadPortraitVideos(data: modelVal, isExclusiveHide: self.isExclusiveHide)
 
         }else{
             let modelVal = movieInfo as! MovieCollections
             if let movieVal = modelVal.movie{
-                cell.loadPortraitVideos(data: movieVal)
+                cell.loadPortraitVideos(data: movieVal, isExclusiveHide: self.isExclusiveHide)
             }
         }
         

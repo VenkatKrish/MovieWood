@@ -180,6 +180,8 @@ extension Helper{
             searchKey =  MovieSearchTag.movieSearchAvg.rawValue
         }else if movieTag == moviesKeyUI.popular_movies{
             searchKey =  MovieSearchTag.movieSearchAvg.rawValue
+        }else if movieTag == moviesKeyUI.latest_web_series{
+            searchKey =  MovieSearchTag.webSeries.rawValue
         }
         return searchKey
     }

@@ -20,6 +20,8 @@ class ZTProfileHeader: UICollectionReusableView {
     @IBOutlet weak var lblUserPhone: UILabel!
     @IBOutlet weak var lblUserDOB: UILabel!
     @IBOutlet weak var vwImage: UIView!
+    @IBOutlet weak var vwHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var stackOtherDetails: UIStackView!
 
     override func awakeFromNib() {
         super.awakeFromNib()
