@@ -43,7 +43,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exclusive ₹50 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2RS-cZ-vyR">
-                                                <rect key="frame" x="23" y="6" width="66" height="12"/>
+                                                <rect key="frame" x="23.5" y="6" width="66" height="12"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="10"/>
                                                 <color key="textColor" name="ZTAppWhiteColor"/>
                                                 <nil key="highlightedColor"/>
@@ -95,6 +95,7 @@
             <size key="customSize" width="133" height="218"/>
             <connections>
                 <outlet property="imgVideoThumbnail" destination="EQb-Rg-rRm" id="4cN-NI-Yxd"/>
+                <outlet property="lblExclusiveText" destination="2RS-cZ-vyR" id="hg4-Zj-NhD"/>
                 <outlet property="vwExclusive" destination="Ocv-0l-gkI" id="r6n-wC-Be0"/>
             </connections>
             <point key="canvasLocation" x="-315.21739130434787" y="87.723214285714278"/>

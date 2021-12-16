@@ -8,14 +8,16 @@
 import UIKit
 
 class ZTWriteAReviewViewController: UIViewController {
+    var moviewDetails : Movies? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
-
+    @IBAction func btnBackTapped(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
+    }
     /*
     // MARK: - Navigation
 

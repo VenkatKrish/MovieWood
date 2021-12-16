@@ -51,11 +51,12 @@ class ZTProfileEditViewController: UIViewController {
                 self.txtFieldPhone.text = String(format: "%@ %d",dataVal.countryCode ?? "", mobile)
             }
             if let userImagePath = dataVal.userImagePath, userImagePath.count > 0{
-                Helper.shared.loadImage(url: userImagePath, imageView: self.imgVwProfile)
+                Helper.shared.loadImage(url: userImagePath, imageView: self.imgVwProfile, placeHolder: ZTDefaultValues.placeholder_profile)
             }
         }
     }
     @IBAction func btnChangeProfileImage(_ sender: UIButton) {
+        
     }
     @IBAction func btnSaveAndContinue(_ sender: UIButton) {
         if isValidationSuccess() == true{

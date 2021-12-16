@@ -43,6 +43,9 @@ class LoginSource{
     
 }
 class ZTDefaultValues{
+    static let Rupee_Symbol = "₹"
+    static let placeholder_profile = "place_holder"
+    static let placeholder_others = "place_holder"
     static let socialGmail = "gmail"
     static let defaultCountryCode = "IN"
     static let imageBaseURL = "https://d13heh6lmag6t5.cloudfront.net"
@@ -63,6 +66,10 @@ class ZTValidationMessage{
 }
 
 class ZTConstants: NSObject {
+    static let BTN_READMORE = "Read More"
+    static let BTN_READLESS = "Read Less"
+    static let BTN_BOOK_NOW = "Book Now"
+    static let BTN_BOOK_PLAY = "Play"
     static let termsLabel = "By signing up, you are agreed with our Terms & Conditions"
     static let termsAndConditionLabel = "Terms & Conditions"
 }
@@ -85,7 +92,9 @@ class ZTCellNameOrIdentifier{
     static let ZTCrewCollectionViewCell = "ZTCrewCollectionViewCell"
     static let ZTLanguageTableViewCell = "ZTLanguageTableViewCell"
     static let ZTPagingCollectionReusableView = "ZTPagingCollectionReusableView"
-    static let ZTUserReviewTableViewCell = "ZTUserReviewTableViewCell"    
+    static let ZTUserReviewTableViewCell = "ZTUserReviewTableViewCell"
+    static let ZTPaymentCardCollectionViewCell = "ZTPaymentCardCollectionViewCell"
+
 }
 class ZTControllerName{
     static let ZT_TabbarController = "ZTTabbarViewController"
@@ -108,11 +117,13 @@ class ZTControllerName{
     static let ZTAboutViewController = "ZTAboutViewController"
     static let ZTMyTransactionsViewController = "ZTMyTransactionsViewController"
     static let ZTMoviePlayerViewController = "ZTMoviePlayerViewController"
-    
     static let ZTNowViewController = "ZTNowViewController"
     static let ZTUpcomingViewController = "ZTUpcomingViewController"
     static let ZTWebseriesViewController = "ZTWebseriesViewController"
     static let ZTShortFilmsViewController = "ZTShortFilmsViewController"
+    static let ZTRatingsReviewsViewController = "ZTRatingsReviewsViewController"
+    static let ZTWriteAReviewViewController = "ZTWriteAReviewViewController"
+
     
 }
 class moviesKeyUI {

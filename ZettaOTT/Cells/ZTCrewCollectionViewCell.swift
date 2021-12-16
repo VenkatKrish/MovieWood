@@ -20,7 +20,7 @@ class ZTCrewCollectionViewCell: UICollectionViewCell {
         if let model = data{
             self.lblName.text = model.actor?.actorName ?? ""
             self.lblDesignation.text = model.actorRole ?? ""
-            Helper.shared.loadImage(url: model.actor?.actorImage ?? "", imageView: self.imgVwProfile)
+            Helper.shared.loadImage(url: model.actor?.actorImage ?? "", imageView: self.imgVwProfile, placeHolder: ZTDefaultValues.placeholder_profile)
         }
         
     }

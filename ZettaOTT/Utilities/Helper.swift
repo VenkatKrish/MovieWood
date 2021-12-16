@@ -43,7 +43,11 @@ class Helper: NSObject {
         let regex = try! NSRegularExpression(pattern: "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$", options: [.caseInsensitive])
         return regex.firstMatch(in: strValue, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, strValue.count)) != nil
     }
-    func loadImage(url:String, imageView:UIImageView){
+    func loadImage(url:String, imageView:UIImageView, placeHolder:String? = nil){
+        var placeholderImage:UIImage? = nil
+        if let placeHolderVal = placeHolder {
+            placeholderImage = UIImage(named: placeHolderVal)
+        }
         let finalUrl = ZTDefaultValues.imageBaseURL + url
         let url = URL(string: finalUrl)
         let processor = DownsamplingImageProcessor(size: imageView.bounds.size)
@@ -51,7 +55,7 @@ class Helper: NSObject {
         imageView.kf.indicatorType = .activity
         imageView.kf.setImage(
             with: url,
-            placeholder: nil,
+            placeholder: placeholderImage,
             options: [
                 .processor(processor),
                 .scaleFactor(UIScreen.main.scale),
@@ -351,12 +355,30 @@ extension Helper{
         initial.titleVal = titleValStr
         viewController.navigationController?.pushViewController(initial, animated: true)
     }
-    func goToMoviePlayer(viewController:UIViewController, movieInfo:Movies? = nil){
-        
+    func goToChoosePlan(viewController:UIViewController, movieInfo:Movies? = nil){
         let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
-        let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTMoviePlayerViewController) as! ZTMoviePlayerViewController
-        initial.movieModel = movieInfo
+        let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTChooseAPlanViewController) as! ZTChooseAPlanViewController
+        initial.moviewDetails = movieInfo
         viewController.navigationController?.pushViewController(initial, animated: true)
+    }
+    func goToPaymentPage(viewController:UIViewController, subscriptionInfo:Subscriptions? = nil, movieInfo:Movies? = nil){
+        let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
+        let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTPaymentsViewController) as! ZTPaymentsViewController
+        initial.subscriptionInfo = subscriptionInfo
+        initial.moviewDetails = movieInfo
+        viewController.navigationController?.pushViewController(initial, animated: true)
+    }
+    func goToRatingsReviews(viewController:UIViewController, movieInfo:Movies? = nil){
+        let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
+        let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTRatingsReviewsViewController) as! ZTRatingsReviewsViewController
+        initial.moviewDetails = movieInfo
+        viewController.navigationController?.pushViewController(initial, animated: true)
+    }
+    func gotoWriteAReview(viewController:UIViewController, movieInfo:Movies? = nil){
+        let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
+        let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTWriteAReviewViewController) as! ZTWriteAReviewViewController
+        initial.moviewDetails = movieInfo
+        viewController.present(initial, animated: false, completion: nil)
     }
 }
 extension Helper:dataMissingDelegate{

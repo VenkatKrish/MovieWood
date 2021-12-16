@@ -49,6 +49,13 @@ enum WebViewStrings : String {
         return self.rawValue
     }
 }
+enum MoviePaymentStatusStruct : String {
+    case paid = "PAID"
+    case none = "NONE"
+    func MoviePaymentStatusStruct() -> String{
+        return self.rawValue
+    }
+}
 
 struct MovieCollectionUI{
     var collectionName : String?

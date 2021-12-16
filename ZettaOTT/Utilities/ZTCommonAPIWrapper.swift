@@ -262,4 +262,62 @@ open class ZTCommonAPIWrapper {
             }
         }
     }
+    /**
+     allSubscription
+     
+     - parameter offset: (query)  (optional)
+     - parameter pageNumber: (query)  (optional)
+     - parameter pageSize: (query)  (optional)
+     - parameter paged: (query)  (optional)
+     - parameter sortSorted: (query)  (optional)
+     - parameter sortUnsorted: (query)  (optional)
+     - parameter unpaged: (query)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func allSubscription(offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, completion: @escaping ((_ data: PageSubscriptions?,_ error: Error?) -> Void)) {
+        if ZTAppSession.sharedInstance.getIsUserLoggedIn() {
+            ZTPrivateAPIWrapper.allSubscriptionPrivate(offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged) { response, error in
+                completion(response, error)
+            }
+        }else{
+            ZTPublicAPIWrapper.allSubscriptionPublic(offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged) { response, error in
+                completion(response, error)
+            }
+        }
+    }
+    /**
+     get
+     
+     - parameter _id: (path) id
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getUsingGET3(_id: Int64, completion: @escaping ((_ data: Subscriptions?,_ error: Error?) -> Void)) {
+        SubscriptionControllerAPI.getUsingGET3(_id: _id) { response, error in
+            completion(response, error)
+        }
+    }
+    /**
+     getMovieVideo
+     
+     - parameter movieId: (query) movieId
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getMovieVideoUsingGET(movieId: Int64, completion: @escaping ((_ data: JSONValue?,_ error: Error?) -> Void)) {
+        MovieControllerAPI.getMovieVideoUsingGET(movieId: movieId) { response, error in
+            completion(response,error)
+        }
+    }
+    
+    /**
+     saveMovieReview
+     
+     - parameter movieId: (path) movieId
+     - parameter movieReview: (body) movieReview
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func saveMovieReviewUsingPOST(movieId: Int64, movieReview: MovieReviews, completion: @escaping ((_ data: JSONValue?,_ error: Error?) -> Void)) {
+        MovieReviewControllerAPI.saveMovieReviewUsingPOST(movieId: movieId, movieReview: movieReview) { response, error in
+            completion(response, error)
+        }
+    }
 }

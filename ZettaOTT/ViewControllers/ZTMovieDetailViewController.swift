@@ -62,9 +62,13 @@ class ZTMovieDetailViewController: UIViewController {
     @IBOutlet weak var btnBack: UIButton!
     @IBOutlet weak var videoHeightMultiplierHeight: NSLayoutConstraint!
     @IBOutlet weak var tblReviews: ZTContentSizedTableView!
+    @IBOutlet weak var btnReadMore: UIButton!
+    @IBOutlet weak var btnBookNow: UIButton!
+
     var recommendedMovies : [Movies]? = []
     var moviewReviews : [MovieReviews]? = []
     @IBOutlet weak var lblTblReviewsCount: UILabel!
+    var readMoreClicked : Bool = false
 
 
     override func viewDidLoad() {
@@ -108,8 +112,13 @@ class ZTMovieDetailViewController: UIViewController {
         
         self.videoPlayerView.isHidden = true
         self.multiplierHeightChange(sizeVal: self.videoBannerSize)
-        
+        self.refreshReadmoreUI()
         if let movieInfo = self.moviewDetails{
+            if let paymentStatus = movieInfo.contactPaymentStatus, paymentStatus == MoviePaymentStatusStruct.paid.rawValue{
+                self.btnBookNow.setTitle(ZTConstants.BTN_BOOK_PLAY, for: .normal)
+            }else{
+                self.btnBookNow.setTitle(ZTConstants.BTN_BOOK_NOW, for: .normal)
+            }
             self.lblMovieName.text = movieInfo.movieName
             self.lblMovieLanguage.text = movieInfo.primaryLanguage
             if let movieTime = movieInfo.runningTime{
@@ -122,7 +131,7 @@ class ZTMovieDetailViewController: UIViewController {
             self.lblRating.text = String(format: "%.1f", movieInfo.avgRating ?? 0)
             self.lblMovieAge.text = String(format: "%d+", Int(movieInfo.ageRating ?? 0))
             self.lblMovieYear.text = String(format: "%d", Int(movieInfo.yearReleased ?? 0))
-            self.lblReviesCount.text = String(format: "%d", Int(movieInfo.overallRank ?? 0))
+            self.lblReviesCount.text = String(format: "%d Reviews", Int(movieInfo.overallRank ?? 0))
             self.collectionCast.reloadData()
             self.collectionGenre.reloadData()
             if self.moviewDetails?.movieActors?.count ?? 0 > 0{
@@ -180,13 +189,32 @@ class ZTMovieDetailViewController: UIViewController {
 
     }
     @IBAction func btnPlayTapped(_ sender: Any) {
-      
+        self.checkMoviePaymentStatus()
     }
     @IBAction func btnBackTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    func checkMoviePaymentStatus(){
+        if let paymentStatus = self.moviewDetails?.contactPaymentStatus, paymentStatus == MoviePaymentStatusStruct.paid.rawValue{
+            getMovieLink()
+        }else{
+            Helper.shared.goToChoosePlan(viewController: self, movieInfo: self.moviewDetails)
+        }
+    }
+    func refreshReadmoreUI(){
+        if self.readMoreClicked == true{
+            self.lblMovieDescription.numberOfLines = 0
+            self.btnReadMore.setTitle(ZTConstants.BTN_READLESS, for: .normal)
+            self.view.setNeedsDisplay()
+        }else{
+            self.lblMovieDescription.numberOfLines = 2
+            self.btnReadMore.setTitle(ZTConstants.BTN_READMORE, for: .normal)
+            self.view.setNeedsDisplay()
+        }
+    }
     @IBAction func btnReadMoreTapped(_ sender: Any) {
-
+        self.readMoreClicked = !self.readMoreClicked
+        self.refreshReadmoreUI()
     }
     @IBAction func btnRateThisMovieTapped(_ sender: Any) {
 
@@ -195,7 +223,7 @@ class ZTMovieDetailViewController: UIViewController {
 
     }
     @IBAction func btnBookNowTapped(_ sender: Any) {
-
+        self.checkMoviePaymentStatus()
     }
     /*
     // MARK: - Navigation
@@ -371,6 +399,27 @@ extension ZTMovieDetailViewController{
                     }
                     DispatchQueue.main.async {
                         self.tblReviews.reloadData()
+                    }
+                }
+            }
+        }
+    }
+    func getMovieLink(){
+        if NetworkReachability.shared.isReachable {
+            
+            ZTCommonAPIWrapper.getMovieVideoUsingGET(movieId: self.moviewDetails?.movieId ?? -1) { response, error in
+                if error != nil{
+                    WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
+                        
+                    }, failureBlock: { (errorMsg) in
+                       
+                    })
+                    return
+                }
+                if let responseVal = response{
+                    debugPrint("response\(responseVal)")
+                    DispatchQueue.main.async {
+                       
                     }
                 }
             }

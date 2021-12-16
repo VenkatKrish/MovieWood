@@ -25,7 +25,7 @@ class ZTUserReviewTableViewCell: UITableViewCell {
             self.lblDescription.text = dataVal.reviewComments ?? ""
             self.lblReviewsAvg.text = dataVal.rating ?? ""
 
-            Helper.shared.loadImage(url: dataVal.user?.userImageName ?? "", imageView: self.imgVwUser)
+            Helper.shared.loadImage(url: dataVal.user?.userImageName ?? "", imageView: self.imgVwUser, placeHolder: ZTDefaultValues.placeholder_profile)
         }
     }
     override func setSelected(_ selected: Bool, animated: Bool) {

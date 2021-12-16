@@ -76,4 +76,87 @@ extension UIColor {
         )
     }
 }
+extension Double {
+    var string1: String {
+        return String(format: "%.1f", self)
+    }
+    var string2: String {
+        return String(format: "%.2f", self)
+    }
+}
+extension UIView {
+    static let kLayerNameGradientBorder = "GradientBorderLayer"
 
+    func gradientBorderLayer() -> CAGradientLayer? {
+            let borderLayers = layer.sublayers?.filter { return $0.name == UIView.kLayerNameGradientBorder }
+            if borderLayers?.count ?? 0 > 1 {
+                fatalError()
+            }
+            return borderLayers?.first as? CAGradientLayer
+        }
+    func applyGradientEffect(isVertical: Bool, colorVal: UIColor) {
+        let colorArray : [UIColor] = [ colorVal.withAlphaComponent(1.0), colorVal.withAlphaComponent(0.7),colorVal.withAlphaComponent(0.3), colorVal.withAlphaComponent(0.8),colorVal.withAlphaComponent(1.0) ]
+        
+        layer.sublayers?.filter({ $0 is CAGradientLayer }).forEach({ $0.removeFromSuperlayer() })
+         
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = colorArray.map({ $0.cgColor })
+        if isVertical {
+            //top to bottom
+            gradientLayer.locations = [0.0, 1.0]
+        } else {
+            //left to right
+            gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+            gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        }
+    
+        backgroundColor = .clear
+        gradientLayer.frame = bounds
+        
+        let existedBorder = gradientBorderLayer()
+        let border = existedBorder ?? CAGradientLayer()
+        border.frame = bounds
+        border.colors = colorArray.map { return $0.cgColor }
+        border.startPoint = CGPoint(x: 0.0, y: 0.0)
+        border.endPoint = CGPoint(x: 1.0, y: 1.0)
+                
+        let mask = CAShapeLayer()
+        mask.path = UIBezierPath(roundedRect: bounds, cornerRadius: 0).cgPath
+        mask.fillColor = UIColor.clear.cgColor
+        mask.strokeColor = UIColor.white.cgColor
+        mask.lineWidth = 10.0
+        border.mask = mask
+        layer.addSublayer(border)
+        layer.insertSublayer(gradientLayer, at: 1)
+        // Specify which corners to round
+        let corners = UIRectCorner(arrayLiteral: [
+            UIRectCorner.topLeft,
+            UIRectCorner.topRight,
+            UIRectCorner.bottomLeft,
+            UIRectCorner.bottomRight
+        ])
+
+        // Determine the size of the rounded corners
+        let cornerRadii = CGSize(
+            width: 10.0,
+            height: 10.0
+        )
+
+        // A mask path is a path used to determine what
+        // parts of a view are drawn. UIBezier path can
+        // be used to create a path where only specific
+        // corners are rounded
+        let maskPath = UIBezierPath(
+            roundedRect: bounds,
+            byRoundingCorners: corners,
+            cornerRadii: cornerRadii
+        )
+
+        // Apply the mask layer to the view
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = maskPath.cgPath
+        maskLayer.frame = bounds
+
+        layer.mask = maskLayer
+    }
+}
