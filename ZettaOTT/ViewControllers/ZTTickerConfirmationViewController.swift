@@ -8,6 +8,8 @@
 import UIKit
 
 class ZTTickerConfirmationViewController: UIViewController {
+    @IBOutlet weak var lblTotalAmount: UILabel!
+    @IBOutlet weak var lblPayType: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()

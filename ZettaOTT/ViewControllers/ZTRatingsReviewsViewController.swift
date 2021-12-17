@@ -23,7 +23,7 @@ class ZTRatingsReviewsViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func btnWriteAReview(_ sender: Any) {
-        
+        Helper.shared.gotoWriteAReview(viewController: self, movieInfo: self.moviewDetails)
     }
     func initialLoad(){
         self.tblReviews.rowHeight = UITableView.automaticDimension

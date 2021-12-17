@@ -31,6 +31,7 @@ class ZTMovieDetailViewController: UIViewController {
     var videoBannerSize : CGFloat = 0.4
     var tryingCount = 0
     var videoUrlVal : URL? = nil
+    @IBOutlet weak var btnMoreReview: UIButton!
     @IBOutlet weak var imgVwMovieBanner: UIImageView!
     @IBOutlet weak var lblMovieName: UILabel!
     @IBOutlet weak var lblMovieLanguage: UILabel!
@@ -155,10 +156,10 @@ class ZTMovieDetailViewController: UIViewController {
         }
     }
     @IBAction func btnWriteAReview(_ sender: Any) {
-        
+        Helper.shared.gotoWriteAReview(viewController: self, movieInfo: self.moviewDetails)
     }
     @IBAction func btnMoreReviews(_ sender: Any) {
-        
+        Helper.shared.goToRatingsReviews(viewController: self, movieInfo: self.moviewDetails)
     }
     @IBAction func btnTeaserPlay(_ sender: Any) {
         self.videoPlayerView.isHidden = false
@@ -217,10 +218,10 @@ class ZTMovieDetailViewController: UIViewController {
         self.refreshReadmoreUI()
     }
     @IBAction func btnRateThisMovieTapped(_ sender: Any) {
-
+        Helper.shared.gotoWriteAReview(viewController: self, movieInfo: self.moviewDetails)
     }
     @IBAction func btnReviewsTapped(_ sender: Any) {
-
+        Helper.shared.goToRatingsReviews(viewController: self, movieInfo: self.moviewDetails)
     }
     @IBAction func btnBookNowTapped(_ sender: Any) {
         self.checkMoviePaymentStatus()
@@ -396,6 +397,11 @@ extension ZTMovieDetailViewController{
                     self.moviewReviews?.append(contentsOf: responseVal.content ?? [])
                     if self.moviewReviews?.count ?? 0 > 0{
                         self.stackReviews.isHidden = false
+                        if self.moviewReviews?.count ?? 0 > 2{
+                            self.btnMoreReview.isHidden = false
+                        }else{
+                            self.btnMoreReview.isHidden = true
+                        }
                     }
                     DispatchQueue.main.async {
                         self.tblReviews.reloadData()

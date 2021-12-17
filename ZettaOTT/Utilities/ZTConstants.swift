@@ -24,6 +24,8 @@ struct Validation {
     static let LAST_NAME_MAX = 30
     static let PHONENO_MAX = 15
     static let AGE_MAX = 3
+    static let REVIEW_LENGTH = 500
+
 }
 class SwaggerPathTypes {
     static let Swagger_AuthService = "https://cholaott.cinebazzar.com/authentication"
@@ -62,6 +64,8 @@ class ZTValidationMessage{
     static let INVALID_OTP = "Please enter OTP"
     static let GENDER_REQUIRED = "Gender Required"
     static let PROFILE_UPDATED = "Profile Updated"
+    static let REVIEW_REQUIRED = "Review Required"
+    static let RATING_REQUIRED = "Rating Required"
 
 }
 

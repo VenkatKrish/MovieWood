@@ -377,6 +377,7 @@ extension Helper{
     func gotoWriteAReview(viewController:UIViewController, movieInfo:Movies? = nil){
         let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
         let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTWriteAReviewViewController) as! ZTWriteAReviewViewController
+        initial.modalPresentationStyle = .overCurrentContext
         initial.moviewDetails = movieInfo
         viewController.present(initial, animated: false, completion: nil)
     }

@@ -20,7 +20,7 @@ let ZTTabbarUnSelectedColor = "ZTTabbarUnSelectedColor"
 let ZTTermsColor = "ZTTermsColor"
 let ZTOTPBorderColor = "ZTOTPBorderColor"
 let ZTAppProfileBorder = "ZTAppProfileBorder"
-
+let ZTReviewPageGreyColor = "ZTReviewPageGreyColor"
 
 class ThemeManager: NSObject {
     
