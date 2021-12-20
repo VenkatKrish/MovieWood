@@ -322,7 +322,7 @@ extension ZTMovieDetailViewController:UICollectionViewDelegate, UICollectionView
     // minimum line margin
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == self.collectionRecommended{
-            return 10
+            return 1
         }
         return 5
     }
@@ -330,7 +330,7 @@ extension ZTMovieDetailViewController:UICollectionViewDelegate, UICollectionView
     // margin between items
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == self.collectionRecommended{
-            return 10
+            return 1
         }
         return 5
     }

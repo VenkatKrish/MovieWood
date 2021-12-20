@@ -30,12 +30,19 @@ class Helper: NSObject {
         }
         return Static.instance
     }
+    func getFormatedDate(dateVal:Date, dateFormat: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = dateFormat
+        let newDate:String = dateFormatter.string(from: dateVal)
+        return newDate
+    }
     func getRandomColor(indexVal:Int) -> UIColor {
         let randomIndex = Int(arc4random_uniform(UInt32(colorRandom.count)))
         print(colorRandom[randomIndex])
         return colorRandom[indexVal]
        
     }
+//    2021-12-20T16:58:46.407Z
     func isKeyPresentInUserDefaults(key: String) -> Bool {
         return ZTAppSession.sharedInstance.userDefaults.object(forKey: key) != nil
     }
@@ -361,11 +368,20 @@ extension Helper{
         initial.moviewDetails = movieInfo
         viewController.navigationController?.pushViewController(initial, animated: true)
     }
-    func goToPaymentPage(viewController:UIViewController, subscriptionInfo:Subscriptions? = nil, movieInfo:Movies? = nil){
+    func goToPaymentPage(viewController:UIViewController, subscriptionInfo:Subscriptions? = nil, movieInfo:Movies? = nil, isSubscription:Bool? = false){
         let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
         let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTPaymentsViewController) as! ZTPaymentsViewController
         initial.subscriptionInfo = subscriptionInfo
         initial.moviewDetails = movieInfo
+        initial.isSubscription = isSubscription ?? false
+        viewController.navigationController?.pushViewController(initial, animated: true)
+    }
+    func goToTicketConfirmationPage(viewController:UIViewController, subscriptionInfo:Subscriptions? = nil, movieInfo:Movies? = nil, isSubscription:Bool){
+        let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
+        let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTTickerConfirmationViewController) as! ZTTickerConfirmationViewController
+        initial.subscriptionInfo = subscriptionInfo
+        initial.moviewDetails = movieInfo
+        initial.isSubscription = isSubscription
         viewController.navigationController?.pushViewController(initial, animated: true)
     }
     func goToRatingsReviews(viewController:UIViewController, movieInfo:Movies? = nil){

@@ -32,7 +32,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9D-v0-2yy" customClass="ZTCornerRadiusView" customModule="ZettaOTT" customModuleProvider="target">
                         <rect key="frame" x="8" y="8" width="359" height="83"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFr-10-ars">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFr-10-ars">
                                 <rect key="frame" x="0.0" y="0.0" width="359" height="83"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xVO-mF-Cr6">
@@ -197,21 +197,31 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="imgVwThumbnail" destination="xVO-mF-Cr6" id="Pvj-mg-012"/>
+                <outlet property="lblMovieDuration" destination="r1p-1D-pGq" id="U27-4l-Had"/>
+                <outlet property="lblMovieLanguage" destination="mxd-Kq-AJz" id="7CP-cT-gR1"/>
+                <outlet property="lblMovieName" destination="VWE-Zm-wGO" id="ytR-Hm-VoC"/>
+                <outlet property="lblMoviePrice" destination="jpE-6T-Avc" id="q9W-af-s1H"/>
+                <outlet property="lblMovieYear" destination="slI-fp-uJe" id="ipL-d7-A7R"/>
+                <outlet property="lblPaymentStatus" destination="9b6-ey-i2T" id="jed-2v-Oms"/>
+                <outlet property="lblTransactionDate" destination="QIS-yP-o9Z" id="dcR-PC-EuU"/>
+            </connections>
             <point key="canvasLocation" x="138.40579710144928" y="142.96875"/>
         </tableViewCell>
     </objects>
     <resources>
         <namedColor name="ZTFormBackgroundColor">
-            <color red="0.12941176470588237" green="0.13725490196078433" blue="0.23921568627450981" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="ZTMovieDetailSubTitle">
-            <color red="0.49411764705882355" green="0.54509803921568623" blue="0.66274509803921566" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.59200000762939453" green="0.59200000762939453" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="ZTSuccessColor">
             <color red="0.49803921568627452" green="0.74509803921568629" blue="0.21176470588235294" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="ZTTabbarUnSelectedColor">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.074509803921568626" green="0.078431372549019607" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

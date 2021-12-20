@@ -129,6 +129,7 @@
 		393F17CE2711F989005713E1 /* ZTProfileHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393F17CC2711F989005713E1 /* ZTProfileHeader.xib */; };
 		393F17D22712008A005713E1 /* ZTProfileFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393F17D02712008A005713E1 /* ZTProfileFooter.swift */; };
 		393F17D32712008A005713E1 /* ZTProfileFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393F17D12712008A005713E1 /* ZTProfileFooter.xib */; };
+		3944E9182771141500B1706A /* OrderConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3944E9172771141500B1706A /* OrderConfirmation.swift */; };
 		3957BC2627510800002AC22D /* ZTPaymentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3957BC2527510800002AC22D /* ZTPaymentsViewController.swift */; };
 		3957BC2B27511CAE002AC22D /* ZTMyTransactionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3957BC2927511CAE002AC22D /* ZTMyTransactionsTableViewCell.swift */; };
 		3957BC2C27511CAE002AC22D /* ZTMyTransactionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3957BC2A27511CAE002AC22D /* ZTMyTransactionsTableViewCell.xib */; };
@@ -157,6 +158,8 @@
 		3966BBC627664EC500D41E9D /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 3966BBC527664EC500D41E9D /* FacebookShare */; };
 		398A8833273E7E7C00C3EC90 /* UserImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398A8830273E7E7C00C3EC90 /* UserImage.swift */; };
 		398A8834273E7E7C00C3EC90 /* AppUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398A8831273E7E7C00C3EC90 /* AppUserModel.swift */; };
+		398EA7BC27709EA600D26712 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398EA7BA27709EA600D26712 /* IAPHelper.swift */; };
+		398EA7BD27709EA600D26712 /* RazeFaceProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398EA7BB27709EA600D26712 /* RazeFaceProducts.swift */; };
 		398FBA19275DF746005E78E3 /* ZTUpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398FBA18275DF746005E78E3 /* ZTUpcomingViewController.swift */; };
 		398FBA1B275DF754005E78E3 /* ZTWebseriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398FBA1A275DF754005E78E3 /* ZTWebseriesViewController.swift */; };
 		398FBA1D275DF766005E78E3 /* ZTShortFilmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398FBA1C275DF766005E78E3 /* ZTShortFilmsViewController.swift */; };
@@ -470,6 +473,7 @@
 		393F17CC2711F989005713E1 /* ZTProfileHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTProfileHeader.xib; sourceTree = "<group>"; };
 		393F17D02712008A005713E1 /* ZTProfileFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTProfileFooter.swift; sourceTree = "<group>"; };
 		393F17D12712008A005713E1 /* ZTProfileFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTProfileFooter.xib; sourceTree = "<group>"; };
+		3944E9172771141500B1706A /* OrderConfirmation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderConfirmation.swift; sourceTree = "<group>"; };
 		3957BC2527510800002AC22D /* ZTPaymentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTPaymentsViewController.swift; sourceTree = "<group>"; };
 		3957BC2927511CAE002AC22D /* ZTMyTransactionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTMyTransactionsTableViewCell.swift; sourceTree = "<group>"; };
 		3957BC2A27511CAE002AC22D /* ZTMyTransactionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTMyTransactionsTableViewCell.xib; sourceTree = "<group>"; };
@@ -495,6 +499,8 @@
 		3964A5E52710834500726487 /* ZTContinueWatchingCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTContinueWatchingCollectionCell.xib; sourceTree = "<group>"; };
 		398A8830273E7E7C00C3EC90 /* UserImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserImage.swift; sourceTree = "<group>"; };
 		398A8831273E7E7C00C3EC90 /* AppUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUserModel.swift; sourceTree = "<group>"; };
+		398EA7BA27709EA600D26712 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
+		398EA7BB27709EA600D26712 /* RazeFaceProducts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RazeFaceProducts.swift; sourceTree = "<group>"; };
 		398FBA18275DF746005E78E3 /* ZTUpcomingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTUpcomingViewController.swift; sourceTree = "<group>"; };
 		398FBA1A275DF754005E78E3 /* ZTWebseriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTWebseriesViewController.swift; sourceTree = "<group>"; };
 		398FBA1C275DF766005E78E3 /* ZTShortFilmsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTShortFilmsViewController.swift; sourceTree = "<group>"; };
@@ -856,6 +862,7 @@
 		390D14D327062C1F00C51259 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				398EA7B927709EA600D26712 /* InAppPurchase */,
 				3915786227637D09004F51FF /* SnapKit */,
 				391577F827637BCB004F51FF /* BMPlayer */,
 				391CA8E02753FBF500CBCC4E /* ProgressView */,
@@ -1062,6 +1069,15 @@
 			path = ProgressView;
 			sourceTree = "<group>";
 		};
+		398EA7B927709EA600D26712 /* InAppPurchase */ = {
+			isa = PBXGroup;
+			children = (
+				398EA7BA27709EA600D26712 /* IAPHelper.swift */,
+				398EA7BB27709EA600D26712 /* RazeFaceProducts.swift */,
+			);
+			path = InAppPurchase;
+			sourceTree = "<group>";
+		};
 		3995EA322707221E00E3FB19 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -1100,6 +1116,7 @@
 		39EBD2DB273C003800BEE73A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3944E9172771141500B1706A /* OrderConfirmation.swift */,
 				398A8831273E7E7C00C3EC90 /* AppUserModel.swift */,
 				398A8830273E7E7C00C3EC90 /* UserImage.swift */,
 				39F63FFB273D3EA300549A25 /* LoginSuccessModel.swift */,
@@ -1518,6 +1535,7 @@
 				39EBD366273C003800BEE73A /* PageGenres.swift in Sources */,
 				39EBD383273C003800BEE73A /* PageMoviePlays.swift in Sources */,
 				39A42BBA270F4754002C100D /* Helper.swift in Sources */,
+				398EA7BD27709EA600D26712 /* RazeFaceProducts.swift in Sources */,
 				39F64007273D7D6200549A25 /* OTPTextField.swift in Sources */,
 				39EBD355273C003800BEE73A /* ChartsDefaultRequest.swift in Sources */,
 				39A42B59270ECA70002C100D /* ZTDiscoveryViewController.swift in Sources */,
@@ -1622,6 +1640,8 @@
 				39A42B56270ECA65002C100D /* ZTHomeViewController.swift in Sources */,
 				3957BC3E275153A3002AC22D /* ZTHelpAndSupportViewController.swift in Sources */,
 				39EBD380273C003800BEE73A /* Languages.swift in Sources */,
+				3944E9182771141500B1706A /* OrderConfirmation.swift in Sources */,
+				398EA7BC27709EA600D26712 /* IAPHelper.swift in Sources */,
 				3915783B27637BCB004F51FF /* NVActivityIndicatorAnimationBallDoubleBounce.swift in Sources */,
 				39EBD3C4273C007C00BEE73A /* CouponControllerAPI.swift in Sources */,
 				3915784527637BCB004F51FF /* NVActivityIndicatorAnimationSquareSpin.swift in Sources */,

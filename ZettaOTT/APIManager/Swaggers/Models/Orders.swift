@@ -11,13 +11,13 @@ import Foundation
 
 public struct Orders: Codable {
 
-    public var bookingEndTime: Date?
-    public var bookingStartTime: Date?
+    public var bookingEndTime: String?
+    public var bookingStartTime: String?
     public var capturedStatus: String?
     public var conversionType: String?
     public var couponCode: String?
     public var createdBy: String?
-    public var createdOn: Date?
+    public var createdOn: String?
     public var discountPercentage: Double?
     public var discountType: String?
     public var discountValue: Double?
@@ -26,11 +26,11 @@ public struct Orders: Codable {
     public var latitude: Double?
     public var longitude: Double?
     public var modifiedBy: String?
-    public var modifiedOn: Date?
+    public var modifiedOn: String?
     public var movieId: Int64?
     public var movieOrderId: Int64?
     public var orderCountry: String?
-    public var orderDate: Date?
+    public var orderDate: String?
     public var orderMovie: Movies?
     public var orderNo: String?
     public var orderQuantity: Int64?
@@ -38,7 +38,7 @@ public struct Orders: Codable {
     public var orderSource: String?
     public var orderType: String?
     public var paidAmount: Double?
-    public var paymentDate: Date?
+    public var paymentDate: String?
     public var paymentMode: String?
     public var paymentStatus: String?
     public var paymentTransactionNo: String?
@@ -53,7 +53,7 @@ public struct Orders: Codable {
     public var userId: Int64?
     public var versionNumber: Int64?
 
-    public init(bookingEndTime: Date?, bookingStartTime: Date?, capturedStatus: String?, conversionType: String?, couponCode: String?, createdBy: String?, createdOn: Date?, discountPercentage: Double?, discountType: String?, discountValue: Double?, functionalCurrencyCode: String?, lastUpdateLogin: String?, latitude: Double?, longitude: Double?, modifiedBy: String?, modifiedOn: Date?, movieId: Int64?, movieOrderId: Int64?, orderCountry: String?, orderDate: Date?, orderMovie: Movies?, orderNo: String?, orderQuantity: Int64?, orderRemarks: String?, orderSource: String?, orderType: String?, paidAmount: Double?, paymentDate: Date?, paymentMode: String?, paymentStatus: String?, paymentTransactionNo: String?, subscriptionId: Int64?, taxPercentage: Double?, totalOrderValue: Double?, totalRoundedValue: Double?, totalTaxValue: Double?, transactionCurrencyCode: String?, unitPrice: Double?, uom: String?, userId: Int64?, versionNumber: Int64?) {
+    public init(bookingEndTime: String?, bookingStartTime: String?, capturedStatus: String?, conversionType: String?, couponCode: String?, createdBy: String?, createdOn: String?, discountPercentage: Double?, discountType: String?, discountValue: Double?, functionalCurrencyCode: String?, lastUpdateLogin: String?, latitude: Double?, longitude: Double?, modifiedBy: String?, modifiedOn: String?, movieId: Int64?, movieOrderId: Int64?, orderCountry: String?, orderDate: String?, orderMovie: Movies?, orderNo: String?, orderQuantity: Int64?, orderRemarks: String?, orderSource: String?, orderType: String?, paidAmount: Double?, paymentDate: String?, paymentMode: String?, paymentStatus: String?, paymentTransactionNo: String?, subscriptionId: Int64?, taxPercentage: Double?, totalOrderValue: Double?, totalRoundedValue: Double?, totalTaxValue: Double?, transactionCurrencyCode: String?, unitPrice: Double?, uom: String?, userId: Int64?, versionNumber: Int64?) {
         self.bookingEndTime = bookingEndTime
         self.bookingStartTime = bookingStartTime
         self.capturedStatus = capturedStatus

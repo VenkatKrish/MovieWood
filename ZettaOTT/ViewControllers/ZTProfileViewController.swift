@@ -33,6 +33,7 @@ class ZTProfileViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = zt_minimumLineSpacing
         layout.minimumInteritemSpacing = zt_minimumInteritemSpacing
+        layout.collectionView?.backgroundColor = UIColor.getColor(colorVal: ZTBackgroundColor)
         self.profileCollection.collectionViewLayout = layout
         self.profileCollection.register(UINib(nibName: ZTCellNameOrIdentifier.ZTProfileHeader, bundle: nil),
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
@@ -118,46 +119,46 @@ extension ZTProfileViewController:UICollectionViewDelegate, UICollectionViewData
 
 extension ZTProfileViewController{
     func getMyWatchLists(isSpinnerNeeded:Bool){
-//        if NetworkReachability.shared.isReachable{
-//            if isSpinnerNeeded == true{
-//                self.showActivityIndicator(self.view)
-//            }
-////            ZTCommonAPIWrapper.getWatchListUsingGET( pageNumber: self.pageNumber, pageSize: self.pageSize, completion: { response, error in
-////                if isSpinnerNeeded == true{
-////                    self.hideActivityIndicator(self.view)
-////                }
-        ///                Helper.shared.removeNoView(fromView: self.profileCollection)
+        /*if NetworkReachability.shared.isReachable{
+            if isSpinnerNeeded == true{
+                self.showActivityIndicator(self.view)
+            }
+            ZTCommonAPIWrapper.getWatchListUsingGET( pageNumber: self.pageNumber, pageSize: self.pageSize, completion: { response, error in
+                if isSpinnerNeeded == true{
+                    self.hideActivityIndicator(self.view)
+                }
+//            Helper.shared.removeNoView(fromView: self.profileCollection)
 
-////                if self.pageNumber == 0{
-////                    self.watchLists?.removeAll()
-////                }
-////                if error != nil{
-////                    WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
-////
-////                    }, failureBlock: { (errorMsg) in
-////
-////                    })
-////                    return
-////                }
-////                if let responseVal = response{
-//                    self.watchLists?.append(contentsOf: responseVal.content ?? [])
-//    if responseVal.last == true{
-//        self.isPageEnable  = false
-//    }
-////                    if self.watchLists?.count ?? 0 > 0{
-////                        DispatchQueue.main.async {
-////                            self.profileCollection.reloadData()
-////                        }
-////                    }else{
-////                        Helper.shared.showNoView(title: "", description: "", fromView: self.profileCollection, hideActionBtn: true, imageName: "",fromViewController: self )
-////                    }
-////
-////                }
-////            })
-////        }else{
-////            self.hideActivityIndicator(self.view)
-////        }
-        if NetworkReachability.shared.isReachable {
+                if self.pageNumber == 0{
+                    self.watchLists?.removeAll()
+                }
+                if error != nil{
+                    WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
+
+                    }, failureBlock: { (errorMsg) in
+
+                    })
+                    return
+                }
+                if let responseVal = response{
+                    self.watchLists?.append(contentsOf: responseVal.content ?? [])
+                    if responseVal.last == true{
+                        self.isPageEnable  = false
+                    }
+                    if self.watchLists?.count ?? 0 > 0{
+                        DispatchQueue.main.async {
+                            self.profileCollection.reloadData()
+                        }
+                    }else{
+                        Helper.shared.showNoView(title: "", description: "", fromView: self.profileCollection, hideActionBtn: true, imageName: "",fromViewController: self )
+                    }
+
+                }
+            })
+        }
+*/
+        
+                if NetworkReachability.shared.isReachable {
             ZTCommonAPIWrapper.searchMoviesGET(search: MovieSearchTag.zettaMovieOriginal.rawValue, page: 0, size: 100) { (response, error) in
                 if self.pageNumber == 0{
                     self.watchLists?.removeAll()
@@ -165,9 +166,9 @@ extension ZTProfileViewController{
                 Helper.shared.removeNoView(fromView: self.profileCollection)
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
-                        
+
                     }, failureBlock: { (errorMsg) in
-                       
+
                     })
                     return
                 }

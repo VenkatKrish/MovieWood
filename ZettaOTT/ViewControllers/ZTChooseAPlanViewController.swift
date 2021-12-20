@@ -25,10 +25,17 @@ class ZTChooseAPlanViewController: UIViewController {
         layout.minimumInteritemSpacing = zt_minimumInteritemSpacing
         self.collectionSubscription.collectionViewLayout = layout
         self.collectionSubscription.register(UINib(nibName: ZTCellNameOrIdentifier.ZTPaymentCardCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: ZTCellNameOrIdentifier.ZTPaymentCardCollectionViewCell)
+        self.loadMovieDetails()
         self.loadSubscription()
+    }
+    func loadMovieDetails(){
+        self.lblExclAmount.text = (self.moviewDetails?.iosTicketPrice ?? 0).getPriceValue()
     }
     @IBAction func btnBackTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func btnProceed(_ sender: Any) {
+        Helper.shared.goToPaymentPage(viewController: self, subscriptionInfo: nil, movieInfo: self.moviewDetails, isSubscription: false)
     }
 
     /*
@@ -92,7 +99,7 @@ extension ZTChooseAPlanViewController:UICollectionViewDelegate, UICollectionView
 //    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let dataVal = self.subscriptions?[indexPath.row]{
-            Helper.shared.goToPaymentPage(viewController: self, subscriptionInfo: dataVal)
+            Helper.shared.goToPaymentPage(viewController: self, subscriptionInfo: dataVal, isSubscription:true)
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {

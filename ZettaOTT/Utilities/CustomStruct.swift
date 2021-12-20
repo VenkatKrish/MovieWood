@@ -51,8 +51,17 @@ enum WebViewStrings : String {
 }
 enum MoviePaymentStatusStruct : String {
     case paid = "PAID"
-    case none = "NONE"
+    case new = "NEW"
+    case cancelled = "CANCELLED"
     func MoviePaymentStatusStruct() -> String{
+        return self.rawValue
+    }
+}
+
+enum TransactionStatusStruct : String {
+    case Success = "Success"
+    case Failure = "Failure"
+    func TransactionStatusStruct() -> String{
         return self.rawValue
     }
 }

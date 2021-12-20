@@ -20,7 +20,7 @@ class ZTPortraitVideoCollectionViewCell: UICollectionViewCell {
     func loadPortraitVideos(data:Movies? = nil, isExclusiveHide:Bool){
         if let dataVal = data{
             self.vwExclusive.isHidden = isExclusiveHide
-            self.lblExclusiveText.text = String(format: "%@ %@%@", dataVal.promoLabel ?? "", ZTDefaultValues.Rupee_Symbol, (dataVal.iosTicketPrice ?? 0).string1)
+            self.lblExclusiveText.text = String(format: "%@ %@", dataVal.promoLabel ?? "", (dataVal.iosTicketPrice ?? 0).getPriceValue())
             
             Helper.shared.loadImage(url: dataVal.image ?? "", imageView: self.imgVideoThumbnail )
         }

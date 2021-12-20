@@ -351,7 +351,7 @@ open class OrderControllerAPI {
      - parameter order: (body) order 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func saveMovieOrderUsingPOST(movieId: Int64, order: Orders, completion: @escaping ((_ data: JSONValue?,_ error: Error?) -> Void)) {
+    open class func saveMovieOrderUsingPOST(movieId: Int64, order: Orders, completion: @escaping ((_ data: OrderConfirmation?,_ error: Error?) -> Void)) {
         saveMovieOrderUsingPOSTWithRequestBuilder(movieId: movieId, order: order).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
@@ -368,7 +368,7 @@ open class OrderControllerAPI {
 
      - returns: RequestBuilder<JSONValue> 
      */
-    open class func saveMovieOrderUsingPOSTWithRequestBuilder(movieId: Int64, order: Orders) -> RequestBuilder<JSONValue> {
+    open class func saveMovieOrderUsingPOSTWithRequestBuilder(movieId: Int64, order: Orders) -> RequestBuilder<OrderConfirmation> {
         var path = "/api/v1/movie/{movieId}/orders"
         let movieIdPreEscape = "\(movieId)"
         let movieIdPostEscape = movieIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -378,7 +378,7 @@ open class OrderControllerAPI {
 
         let url = URLComponents(string: URLString)
 
-        let requestBuilder: RequestBuilder<JSONValue>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<OrderConfirmation>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }

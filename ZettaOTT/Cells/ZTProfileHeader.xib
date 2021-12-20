@@ -32,7 +32,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="375" height="190"/>
                         </imageView>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" name="ZTBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="tG3-jL-Cun" secondAttribute="bottom" id="Fcg-bz-nJ1"/>
                         <constraint firstAttribute="height" constant="190" id="N2F-YG-PhI"/>

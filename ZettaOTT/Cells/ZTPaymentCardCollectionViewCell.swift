@@ -25,7 +25,7 @@ class ZTPaymentCardCollectionViewCell: UICollectionViewCell {
             self.lblPlanName.text = dataVal.name ?? ""
             self.lblPlanDesc.text = dataVal._description ?? ""
             self.lblPlanDuration.text = String(format: "%d %@", duration, dataVal.uom ?? "")
-            self.lblPlanPrice.text = String(format: "%@%@", ZTDefaultValues.Rupee_Symbol, (dataVal.subValue ?? 0).string1)
+            self.lblPlanPrice.text = String(format: "%@", (dataVal.subValue ?? 0).getPriceValue())
             
             self.vwBorder.applyGradientEffect(isVertical: false, colorVal: colorVal)
 

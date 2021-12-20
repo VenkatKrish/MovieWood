@@ -320,4 +320,46 @@ open class ZTCommonAPIWrapper {
             completion(response, error)
         }
     }
+    /**
+     allOrders
+     
+     - parameter offset: (query)  (optional)
+     - parameter pageNumber: (query)  (optional)
+     - parameter pageSize: (query)  (optional)
+     - parameter paged: (query)  (optional)
+     - parameter sortSorted: (query)  (optional)
+     - parameter sortUnsorted: (query)  (optional)
+     - parameter unpaged: (query)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func allOrders(offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, completion: @escaping ((_ data: PageOrders?,_ error: Error?) -> Void)) {
+        OrderControllerAPI.allUsingGET23(offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged) { response, error in
+            completion(response,error)
+        }
+    }
+    /**
+     saveMovieOrder
+     
+     - parameter movieId: (path) movieId
+     - parameter order: (body) order
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func saveMovieOrderUsingPOST(movieId: Int64, order: Orders, completion: @escaping ((_ data: OrderConfirmation?,_ error: Error?) -> Void)) {
+        
+        OrderControllerAPI.saveMovieOrderUsingPOST(movieId: movieId, order: order) { response, error in
+            completion(response, error)
+        }
+    }
+    /**
+     updateOrderPayment
+     
+     - parameter orderId: (path) orderId
+     - parameter paymentRequest: (body) paymentRequest
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func updateOrderPayment(orderId: Int64, paymentRequest: PaymentRequest, completion: @escaping ((_ data: JSONValue?,_ error: Error?) -> Void)) {
+        OrderControllerAPI.updateOrderPaymentUsingPUT(orderId: orderId, paymentRequest: paymentRequest) { response, error in
+            completion(response, error)
+        }
+    }
 }

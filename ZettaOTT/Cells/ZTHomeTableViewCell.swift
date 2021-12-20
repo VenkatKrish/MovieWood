@@ -79,7 +79,7 @@ extension ZTHomeTableViewCell:  UICollectionViewDataSource, UICollectionViewDele
     }
     // minimum line margin
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 1
     }
     // inner margin
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -87,7 +87,7 @@ extension ZTHomeTableViewCell:  UICollectionViewDataSource, UICollectionViewDele
     }
     // margin between items
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 1
     }
     
 }

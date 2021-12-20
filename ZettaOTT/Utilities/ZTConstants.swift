@@ -98,6 +98,7 @@ class ZTCellNameOrIdentifier{
     static let ZTPagingCollectionReusableView = "ZTPagingCollectionReusableView"
     static let ZTUserReviewTableViewCell = "ZTUserReviewTableViewCell"
     static let ZTPaymentCardCollectionViewCell = "ZTPaymentCardCollectionViewCell"
+    static let ZTMyTransactionsTableViewCell = "ZTMyTransactionsTableViewCell"
 
 }
 class ZTControllerName{
@@ -127,7 +128,7 @@ class ZTControllerName{
     static let ZTShortFilmsViewController = "ZTShortFilmsViewController"
     static let ZTRatingsReviewsViewController = "ZTRatingsReviewsViewController"
     static let ZTWriteAReviewViewController = "ZTWriteAReviewViewController"
-
+    static let ZTTickerConfirmationViewController = "ZTTickerConfirmationViewController"
     
 }
 class moviesKeyUI {
@@ -149,5 +150,8 @@ class ZTUserDefaultKeys {
     static let AppUserModel = "AppUserModel"
 
 }
-
+class CustomDateFormatter{
+    static let transactionDate = "dd MM"
+    static let orderRequestDate = "dd-MM-yyyy hh:mm:ss a"
+}
 

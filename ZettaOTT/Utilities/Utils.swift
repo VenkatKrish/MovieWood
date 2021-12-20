@@ -83,6 +83,22 @@ extension Double {
     var string2: String {
         return String(format: "%.2f", self)
     }
+    func roundToDecimal(_ fractionDigits: Int) -> Double {
+        let multiplier = pow(10, Double(fractionDigits))
+        return Darwin.round(self * multiplier) / multiplier
+    }
+    
+    func getPriceValue() -> String{
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 2
+        let usLocale = Locale.current
+        formatter.locale = usLocale
+        formatter.usesGroupingSeparator = false
+        formatter.numberStyle = .currency
+        return formatter.string(from: NSNumber (value:self)) ?? ""
+    }
+
 }
 extension UIView {
     static let kLayerNameGradientBorder = "GradientBorderLayer"

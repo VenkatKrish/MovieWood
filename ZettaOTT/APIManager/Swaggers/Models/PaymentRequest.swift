@@ -13,18 +13,28 @@ public struct PaymentRequest: Codable {
 
     public var orderNo: String?
     public var paidAmount: Double?
-    public var paymentDate: Date?
+    public var paymentDate: String?
     public var paymentMode: String?
     public var paymentStatus: String?
     public var paymentTransactionNo: String?
+    public var totalOrderValue: Double?
+    public var totalRoundedValue: Double?
+    public var transactionCurrencyCode: String?
+    public var unitPrice: Double?
 
-    public init(orderNo: String?, paidAmount: Double?, paymentDate: Date?, paymentMode: String?, paymentStatus: String?, paymentTransactionNo: String?) {
+
+    public init(orderNo: String?, paidAmount: Double?, paymentDate: String?, paymentMode: String?, paymentStatus: String?, paymentTransactionNo: String?, totalOrderValue:Double?,totalRoundedValue:Double?, transactionCurrencyCode:String?, unitPrice:Double? ) {
         self.orderNo = orderNo
         self.paidAmount = paidAmount
         self.paymentDate = paymentDate
         self.paymentMode = paymentMode
         self.paymentStatus = paymentStatus
         self.paymentTransactionNo = paymentTransactionNo
+        self.totalOrderValue = totalOrderValue
+        self.totalRoundedValue = totalRoundedValue
+        self.transactionCurrencyCode = transactionCurrencyCode
+        self.unitPrice = unitPrice
+
     }
 
 
