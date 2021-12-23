@@ -121,7 +121,7 @@ extension ZTNowViewController: UITableViewDelegate, UITableViewDataSource{
             return cell
         }else if keyVal == moviesKeyUI.continue_watching {
             let cell: ZTContinueWatchingCell = tableView.dequeueReusableCell(withIdentifier: ZTCellNameOrIdentifier.ZTContinueWatchingCell, for: indexPath) as! ZTContinueWatchingCell
-            cell.loadContinueWatching(videosVal: self.continueWatching)
+            cell.loadContinueWatching(videosVal: self.continueWatching, delegateObj: self)
             return cell
         }else{
             let cell: ZTHomeTableViewCell = tableView.dequeueReusableCell(withIdentifier: ZTCellNameOrIdentifier.ZTHomeTableViewCell, for: indexPath) as! ZTHomeTableViewCell
@@ -407,7 +407,7 @@ extension ZTNowViewController{
         }
     }
 }
-extension ZTNowViewController : ZTPagingDelegate, ZTHomePageDelegate, ZTSelectedGenresDelegate{
+extension ZTNowViewController : ZTPagingDelegate, ZTHomePageDelegate, ZTSelectedGenresDelegate, ZTContinueWatchingDelegate{
     func selectedVideoModel(movieInfo: Movies, indexVal: Int) {
         Helper.shared.goToMovieDetails(viewController: self, movieInfo: movieInfo)
     }

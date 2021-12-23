@@ -28,7 +28,7 @@ let CommonErrorCode = 10000
 
 class WebServicesHelper: NSObject {
     var selfViewAlertType: String = ""
-    
+    var keyArray = ["error", "message", "token", "password"]
     class var shared: WebServicesHelper {
         struct Static {
             static let instance: WebServicesHelper = WebServicesHelper()

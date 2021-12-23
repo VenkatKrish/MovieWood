@@ -243,7 +243,7 @@ extension ZTDiscoveryViewController{
     }
     func getLatestTamilMovies(){
         if NetworkReachability.shared.isReachable {
-            ZTCommonAPIWrapper.searchMoviesGET(search: MovieSearchTag.zettaMovieOriginal.rawValue, page: self.pageNumber, size: self.pageSize) { (response, error) in
+            ZTCommonAPIWrapper.searchMoviesGET(search: MovieSearchTag.latestTamilMovies.rawValue, page: self.pageNumber, size: self.pageSize) { (response, error) in
                 self.latestTamilMovies?.removeAll()
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in

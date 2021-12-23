@@ -4,8 +4,11 @@
 
 import UIKit
 
+protocol ZTContinueWatchingDelegate{
+    func selectedVideoModel(movieInfo:Movies, indexVal:Int)
+}
 class ZTContinueWatchingCell: UITableViewCell {
-    
+    var delegate: ZTContinueWatchingDelegate? = nil
     @IBOutlet weak var continueCollectionView: UICollectionView!
     var watchLists : [Movies] = []
     
@@ -13,8 +16,8 @@ class ZTContinueWatchingCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    func loadContinueWatching(videosVal:[Movies]? = []){
-
+    func loadContinueWatching(videosVal:[Movies]? = [], delegateObj:ZTContinueWatchingDelegate){
+        self.delegate = delegateObj
         self.continueCollectionView.register(UINib(nibName: ZTCellNameOrIdentifier.ZTContinueWatchingCollectionCell, bundle: nil), forCellWithReuseIdentifier: ZTCellNameOrIdentifier.ZTContinueWatchingCollectionCell)
         
         self.watchLists = videosVal ?? []
@@ -40,7 +43,8 @@ extension ZTContinueWatchingCell:  UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        self.delegate?.selectedVideoModel(movieInfo: self.watchLists[indexPath.row], indexVal: indexPath.row)
+
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZTCellNameOrIdentifier.ZTContinueWatchingCollectionCell, for: indexPath) as! ZTContinueWatchingCollectionCell

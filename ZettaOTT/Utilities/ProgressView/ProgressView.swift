@@ -50,7 +50,7 @@ class ProgressView: UIView {
         trackLayer.lineWidth = lineWidth
         trackLayer.fillColor = nil
         
-        let color = UIColor.getColor(colorVal: ZTGradientColor1)
+        let color = UIColor.getColor(colorVal: ZTAppWhiteColor)
         trackLayer.strokeColor = color.cgColor
         
     }
@@ -93,7 +93,7 @@ class ProgressView: UIView {
                 //* Double(colors.count)
         )
 
-//        shapeLayer.add(colorAnimation, forKey: nil)
+        //shapeLayer.add(colorAnimation, forKey: nil)
         
         shapeLayer.add(animation, forKey: nil)
         
@@ -107,7 +107,7 @@ class ProgressView: UIView {
             direction: .z,
             fromValue: 0,
             toValue: CGFloat.pi * 2,
-            duration: 3,
+            duration: 2,
             repeatCount: .greatestFiniteMagnitude
         )
         

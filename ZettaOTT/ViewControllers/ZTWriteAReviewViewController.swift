@@ -7,8 +7,12 @@
 
 import UIKit
 
+protocol WriteAReviewDelegate{
+    func updateUI()
+}
 class ZTWriteAReviewViewController: UIViewController {
     var moviewDetails : Movies? = nil
+    var delegate : WriteAReviewDelegate? = nil
     @IBOutlet weak var viewRating: CosmosView!
     @IBOutlet weak var lblRatingVal: UILabel!
     @IBOutlet weak var txtVw: UITextView!
@@ -44,7 +48,9 @@ class ZTWriteAReviewViewController: UIViewController {
         
     }
     @IBAction func btnBackTapped(_ sender: Any) {
-        self.dismiss(animated: false, completion: nil)
+        self.dismiss(animated: false, completion: {
+            self.delegate?.updateUI()
+        })
     }
     @IBAction func btnSubmitTapped(_ sender: Any) {
         let ratingComments = self.removeWhiteSpace(text: self.txtVw.text ?? "")
@@ -89,24 +95,28 @@ class ZTWriteAReviewViewController: UIViewController {
 extension ZTWriteAReviewViewController{
     func createMoviewReview(ratingValue:String, ratingComments:String){
         if NetworkReachability.shared.isReachable {
-//            self.showActivityIndicator(self.view)
-//            let movieReviews = MovieReviews(active: nil, createdBy: nil, createdOn: nil, lastUpdateLogin: nil, modifiedBy: nil, modifiedOn: nil, movieId: self.moviewDetails?.movieId ?? -1, movieReviewId: nil, rating: ratingValue, reviewComments: ratingComments, user: nil, userId: self.user?.userId,versionNumber: nil)
-//
-//            ZTCommonAPIWrapper.saveMovieReviewUsingPOST(movieId: self.moviewDetails?.movieId ?? -1, movieReview: movieReviews) { response, error in
-//                self.hideActivityIndicator(self.view)
-//
-//                if error != nil{
-//                    WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
-//
-//                    }, failureBlock: { (errorMsg) in
-//
-//                    })
-//                    return
-//                }
-//                if let responseVal = response{
-//                    self.dismiss(animated: true, completion: nil)
-//                }
-//            }
+            self.showActivityIndicator(self.view)
+            let movieReviews = MovieReviews(active: nil, createdBy: nil, createdOn: nil, lastUpdateLogin: nil, modifiedBy: nil, modifiedOn: nil, movieId: self.moviewDetails?.movieId ?? -1, movieReviewId: nil, rating: ratingValue, reviewComments: ratingComments, user: nil, userId: self.user?.userId,versionNumber: nil)
+
+            ZTCommonAPIWrapper.saveMovieReviewUsingPOST(movieId: self.moviewDetails?.movieId ?? -1, movieReview: movieReviews) { response, error in
+                self.hideActivityIndicator(self.view)
+
+                if error != nil{
+                    WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
+
+                    }, failureBlock: { (errorMsg) in
+
+                    })
+                    return
+                }
+                if let responseVal = response{
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: {
+                            self.delegate?.updateUI()
+                        })
+                    }
+                }
+            }
             
         }
     }

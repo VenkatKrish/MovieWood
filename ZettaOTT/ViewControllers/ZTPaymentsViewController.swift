@@ -23,6 +23,8 @@ class ZTPaymentsViewController: UIViewController {
     @IBOutlet weak var lblSeperator: UILabel!
     var products: [SKProduct] = []
     var appUserModel:AppUserModel? = nil
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initialLoad()
@@ -111,7 +113,7 @@ extension ZTPaymentsViewController{
             
             let endStr = Helper.shared.getFormatedDate(dateVal: bookingEnd, dateFormat: CustomDateFormatter.orderRequestDate)
             
-            let orders = Orders(bookingEndTime: endStr, bookingStartTime: startStr, capturedStatus: nil, conversionType: nil, couponCode: nil, createdBy: nil, createdOn: nil, discountPercentage: nil, discountType: nil, discountValue: nil, functionalCurrencyCode: "INR", lastUpdateLogin: nil, latitude: nil, longitude: nil, modifiedBy: nil, modifiedOn: nil, movieId: self.moviewDetails?.movieId ?? -1, movieOrderId: nil, orderCountry: "IN", orderDate: startStr, orderMovie: nil, orderNo: nil, orderQuantity: 1, orderRemarks: nil, orderSource: nil, orderType: nil, paidAmount: self.moviewDetails?.iosTicketPrice, paymentDate: startStr, paymentMode: "ApplePay", paymentStatus: MoviePaymentStatusStruct.paid.rawValue.uppercased(), paymentTransactionNo: nil, subscriptionId: nil, taxPercentage: nil, totalOrderValue: self.moviewDetails?.iosTicketPrice ?? 0, totalRoundedValue: self.moviewDetails?.iosTicketPrice ?? 0, totalTaxValue: nil, transactionCurrencyCode: "USD", unitPrice: self.moviewDetails?.iosTicketPrice ?? 0, uom: "Nos", userId: Int64(self.appUserModel?.userId ?? -1), versionNumber: nil)
+            let orders = Orders(bookingEndTime: endStr, bookingStartTime: startStr, capturedStatus: nil, conversionType: nil, couponCode: nil, createdBy: nil, createdOn: nil, discountPercentage: nil, discountType: nil, discountValue: nil, functionalCurrencyCode: "INR", lastUpdateLogin: nil, latitude: nil, longitude: nil, modifiedBy: nil, modifiedOn: nil, movieId: self.moviewDetails?.movieId ?? -1, movieOrderId: nil, orderCountry: "IN", orderDate: startStr, orderMovie: nil, orderNo: nil, orderQuantity: 1, orderRemarks: nil, orderSource: nil, orderType: nil, paidAmount: self.moviewDetails?.iosTicketPrice, paymentDate: startStr, paymentMode: "ApplePay", paymentStatus: MoviePaymentStatusStruct.paid.rawValue.uppercased(), paymentTransactionNo: "2070208254", subscriptionId: nil, taxPercentage: nil, totalOrderValue: self.moviewDetails?.iosTicketPrice ?? 0, totalRoundedValue: self.moviewDetails?.iosTicketPrice ?? 0, totalTaxValue: nil, transactionCurrencyCode: "USD", unitPrice: self.moviewDetails?.iosTicketPrice ?? 0, uom: "Nos", userId: Int64(self.appUserModel?.userId ?? -1), versionNumber: nil)
            
             ZTCommonAPIWrapper.saveMovieOrderUsingPOST(movieId: self.moviewDetails?.movieId ?? -1, order: orders) { response, error in
                 self.hideActivityIndicator(self.view)
@@ -134,10 +136,10 @@ extension ZTPaymentsViewController{
         if let orderConfirm = orderDetails{
             if NetworkReachability.shared.isReachable{
                 self.showActivityIndicator(self.view)
-                let paymentRequest = PaymentRequest(orderNo: orderDetails?.orderNo ?? "", paidAmount: orderConfirm.paidAmount ?? 0, paymentDate: orderDetails?.paymentDate ?? "", paymentMode: orderDetails?.paymentMode ?? "", paymentStatus: orderDetails?.paymentStatus ?? "", paymentTransactionNo: orderDetails?.paymentTransactionNo ?? "", totalOrderValue: orderDetails?.totalOrderValue ?? 0, totalRoundedValue: orderDetails?.totalRoundedValue ?? 0, transactionCurrencyCode: orderDetails?.transactionCurrencyCode ?? "", unitPrice: orderDetails?.unitPrice ?? 0)
+                let paymentRequest = PaymentRequest(orderNo: orderDetails?.orderNo ?? "", paidAmount: orderConfirm.paidAmount ?? 0, paymentDate: orderDetails?.paymentDate ?? "", paymentMode: orderDetails?.paymentMode ?? "", paymentStatus: MoviePaymentStatusStruct.paid.rawValue, paymentTransactionNo: orderDetails?.paymentTransactionNo ?? "22323444", totalOrderValue: orderDetails?.totalOrderValue ?? 0, totalRoundedValue: orderDetails?.totalRoundedValue ?? 0, transactionCurrencyCode: orderDetails?.transactionCurrencyCode ?? "", unitPrice: orderDetails?.unitPrice ?? 0)
                 
                 
-                ZTCommonAPIWrapper.updateOrderPayment(orderId: -1, paymentRequest: paymentRequest) { response, error in
+                ZTCommonAPIWrapper.updateOrderPayment(orderId: orderConfirm.movieOrderId ?? -1, paymentRequest: paymentRequest) { response, error in
                     self.hideActivityIndicator(self.view)
                     if error != nil{
                         WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
@@ -148,7 +150,7 @@ extension ZTPaymentsViewController{
                         return
                     }
                     if let responseVal = response{
-                        
+                        Helper.shared.goToTicketConfirmationPage(viewController: self, subscriptionInfo: self.subscriptionInfo, movieInfo: self.moviewDetails, isSubscription: self.isSubscription, orderConfirmPayment: responseVal)
                     }
                 }
             }

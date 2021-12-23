@@ -14,7 +14,7 @@ var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
 let colorRandom = [UIColor.init(netHex: 0xef7b1c), UIColor.init(netHex: 0xfbba0f), UIColor.init(netHex: 0x0a8dd2), UIColor.init(netHex: 0xc63838), UIColor.init(netHex: 0x98ba2f), UIColor.init(netHex: 0x7c52c6), UIColor.init(netHex: 0x49c0a1)]
 //var isOverlayLoading: Bool = false
 let loadingIndicator: ProgressView = {
-    let progress = ProgressView(colors: [UIColor.getColor(colorVal: ZTGradientColor2), UIColor.white], lineWidth: 6)
+    let progress = ProgressView(colors: [UIColor.getColor(colorVal: ZTGradientColor2)], lineWidth: 6)
     progress.translatesAutoresizingMaskIntoConstraints = false
     return progress
 }()
@@ -89,11 +89,12 @@ extension Double {
     }
     
     func getPriceValue() -> String{
+//        return String(format: "%@%.2f", ZTDefaultValues.Rupee_Symbol,self)
         let formatter = NumberFormatter()
         formatter.minimumFractionDigits = 0
         formatter.maximumFractionDigits = 2
-        let usLocale = Locale.current
-        formatter.locale = usLocale
+//        let usLocale = Locale.current
+        formatter.locale = Locale(identifier: "en_IN")//usLocale
         formatter.usesGroupingSeparator = false
         formatter.numberStyle = .currency
         return formatter.string(from: NSNumber (value:self)) ?? ""

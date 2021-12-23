@@ -81,7 +81,7 @@ extension ZTShortFilmsViewController{
     func getWebSeriesVideos(isSpinnerNeeded:Bool){
         
         if NetworkReachability.shared.isReachable {
-            ZTCommonAPIWrapper.searchMoviesGET(search: MovieSearchTag.zettaMovieOriginal.rawValue, page: 0, size: 100) { (response, error) in
+            ZTCommonAPIWrapper.searchMoviesGET(search: MovieSearchTag.shortFilms.rawValue, page: 0, size: 100) { (response, error) in
                 if self.pageNumber == 0{
                     self.webSeriesMovies?.removeAll()
                 }
@@ -107,38 +107,7 @@ extension ZTShortFilmsViewController{
                 }
             }
         }
-        
-//            if NetworkReachability.shared.isReachable {
-//                if isSpinnerNeeded == true{
-//                    self.showActivityIndicator(self.view)
-//                }
-//                ZTCommonAPIWrapper.searchMoviesGET(search: MovieSearchTag.webSeries.rawValue, page: self.pageNumber, size: self.pageSize) { (response, error) in
-//                    if isSpinnerNeeded == true{
-//                        self.hideActivityIndicator(self.view)
-//                    }
-//                    if self.pageNumber == 0{
-//                        self.webSeriesMovies?.removeAll()
-//                    }
-//                    if error != nil{
-//                        WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
-//
-//                        }, failureBlock: { (errorMsg) in
-//
-//                        })
-//                        return
-//                    }
-//                    if let responseVal = response, responseVal.content?.count ?? 0 > 0{
-//                        if responseVal.last == true{
-//                            self.isPageEnable = false
-//                        }
-//                        self.webSeriesMovies?.append(contentsOf: responseVal.content ?? [])
-//                        DispatchQueue.main.async {
-//                            self.profileCollection.reloadData()
-//                        }
-//                    }
-//                }
-//            }
-        }
+    }
 }
 //MARK: Collection View Methods
 

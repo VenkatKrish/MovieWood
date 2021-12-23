@@ -194,7 +194,8 @@ extension ZTSignupViewController : FPNTextFieldDelegate{
         txtFldMobile.flagButtonSize = CGSize(width: 32, height: 32)
         listController.setup(repository: txtFldMobile.countryRepository)
        
-        self.txtFldMobile.setFlag(countryCode: FPNCountryCode(rawValue: currentCountry) ?? .IN)
+        
+        self.txtFldMobile.setFlag(countryCode:.IN)
 
         listController.didSelect = { [weak self] country in
             self?.txtFldMobile.setFlag(countryCode: country.code)

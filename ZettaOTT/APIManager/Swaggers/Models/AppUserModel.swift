@@ -32,7 +32,7 @@ public struct AppUserModel : Codable {
 	let roles : [Roles]?
 	let securityAnswer : String?
 	let securityQuestion : String?
-	let userId : Int?
+	let userId : Int64?
 	let userImage : UserImage?
 	let userImageName : String?
 	let userImagePath : String?
@@ -127,7 +127,7 @@ public struct AppUserModel : Codable {
 		roles = try values.decodeIfPresent([Roles].self, forKey: .roles)
 		securityAnswer = try values.decodeIfPresent(String.self, forKey: .securityAnswer)
 		securityQuestion = try values.decodeIfPresent(String.self, forKey: .securityQuestion)
-		userId = try values.decodeIfPresent(Int.self, forKey: .userId)
+		userId = try values.decodeIfPresent(Int64.self, forKey: .userId)
 		userImage = try values.decodeIfPresent(UserImage.self, forKey: .userImage)
 		userImageName = try values.decodeIfPresent(String.self, forKey: .userImageName)
 		userImagePath = try values.decodeIfPresent(String.self, forKey: .userImagePath)

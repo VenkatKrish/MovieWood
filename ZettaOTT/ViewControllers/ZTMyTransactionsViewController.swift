@@ -29,8 +29,11 @@ class ZTMyTransactionsViewController: UIViewController {
         self.tblTransactions.dataSource = self
         self.tblTransactions.delegate = self
         self.tblTransactions.reloadData()
-        self.getOrders()
-        
+        self.loadOrders()
+    }
+    func loadOrders(){
+        self.pageNumber = 0
+        self.getOrders(isSpinnerNeeded: true)
     }
     @IBAction func btnBackTapped(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)

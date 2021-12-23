@@ -199,7 +199,7 @@ extension ZTLoginViewController : FPNTextFieldDelegate{
         txtFieldFlag.flagButtonSize = CGSize(width: 32, height: 32)
         listController.setup(repository: txtFieldFlag.countryRepository)
        
-        self.txtFieldFlag.setFlag(countryCode: FPNCountryCode(rawValue: currentCountry) ?? .IN)
+        self.txtFieldFlag.setFlag(countryCode:.IN)
 
         listController.didSelect = { [weak self] country in
             

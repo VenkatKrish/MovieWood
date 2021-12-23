@@ -17,15 +17,17 @@ class ZTTickerConfirmationViewController: UIViewController {
     @IBOutlet weak var lblMovieName: UILabel!
     @IBOutlet weak var lblTransactionDate: UILabel!
     @IBOutlet weak var lblBookingDate: UILabel!
+    @IBOutlet weak var lblBookingPrice: UILabel!
     @IBOutlet weak var lblStatus: UILabel!
     var subscriptionInfo:Subscriptions? = nil
     var moviewDetails : Movies? = nil
     var isSubscription: Bool = true
     var appUserModel:AppUserModel? = nil
+    var orderConfirmPayment:OrderConfirmPayment? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.initialLoad()
         // Do any additional setup after loading the view.
     }
     func initialLoad(){
@@ -43,11 +45,32 @@ class ZTTickerConfirmationViewController: UIViewController {
             }
             self.lblMovieAge.text = String(format: "%d+", Int(movieInfo.ageRating ?? 0))
             self.lblMovieYear.text = String(format: "%d", Int(movieInfo.yearReleased ?? 0))
-            self.lblTotalAmount.text = String(format: "%d", (movieInfo.iosTicketPrice ?? 0).getPriceValue())
         }
+        self.lblTotalAmount.text = String(format: "%@", (self.orderConfirmPayment?.paidAmount ?? 0).getPriceValue())
+       
+        self.lblBookingPrice.text = String(format: "%@", (self.orderConfirmPayment?.paidAmount ?? 0).getPriceValue())
+
+        self.lblPayType.text = String(format: "%@", self.orderConfirmPayment?.paymentMode ?? "")
+        self.lblTransactionDate.text = String(format: "%@", self.orderConfirmPayment?.paymentDate ?? "")
+       
+        self.lblBookingDate.text = String(format: "%@", self.orderConfirmPayment?.paymentDate ?? "")
+        
+        if self.orderConfirmPayment?.paymentStatus == MovieOrderStatusStruct.paid.rawValue{
+            self.lblStatus.text = TransactionStatusStruct.Success.rawValue
+            self.lblStatus.textColor = UIColor.getColor(colorVal: ZTSuccessColor)
+        }else{
+            self.lblStatus.text = TransactionStatusStruct.Failure	.rawValue
+            self.lblStatus.textColor = UIColor.getColor(colorVal: ZTFailureColor)
+        }
+
     }
     @IBAction func btnBackTapped(_ sender: UIButton) {
-        self.navigationController?.popToRootViewController(animated: false)
+        for controller in self.navigationController?.viewControllers ?? []{
+            if controller.isKind(of: ZTMovieDetailViewController.self) {
+                self.navigationController!.popToViewController(controller, animated: true)
+                break
+            }
+        }
     }
 
     /*

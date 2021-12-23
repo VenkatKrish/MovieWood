@@ -144,6 +144,7 @@
 		3957BC3E275153A3002AC22D /* ZTHelpAndSupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3957BC3D275153A3002AC22D /* ZTHelpAndSupportViewController.swift */; };
 		3957BC40275153B2002AC22D /* ZTAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3957BC3F275153B2002AC22D /* ZTAboutViewController.swift */; };
 		3957BC4227515CE5002AC22D /* ZTTickerConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3957BC4127515CE4002AC22D /* ZTTickerConfirmationViewController.swift */; };
+		3962BBA9277204670027E3E6 /* OrderConfirmPayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3962BBA8277204660027E3E6 /* OrderConfirmPayment.swift */; };
 		3964A53427105CA000726487 /* ZTVideoTypeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964A53227105CA000726487 /* ZTVideoTypeTableViewCell.swift */; };
 		3964A53527105CA000726487 /* ZTVideoTypeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3964A53327105CA000726487 /* ZTVideoTypeTableViewCell.xib */; };
 		3964A53A2710678900726487 /* ZTPagingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3964A5382710678800726487 /* ZTPagingTableViewCell.swift */; };
@@ -488,6 +489,7 @@
 		3957BC3D275153A3002AC22D /* ZTHelpAndSupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTHelpAndSupportViewController.swift; sourceTree = "<group>"; };
 		3957BC3F275153B2002AC22D /* ZTAboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTAboutViewController.swift; sourceTree = "<group>"; };
 		3957BC4127515CE4002AC22D /* ZTTickerConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTTickerConfirmationViewController.swift; sourceTree = "<group>"; };
+		3962BBA8277204660027E3E6 /* OrderConfirmPayment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderConfirmPayment.swift; sourceTree = "<group>"; };
 		3964A53227105CA000726487 /* ZTVideoTypeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTVideoTypeTableViewCell.swift; sourceTree = "<group>"; };
 		3964A53327105CA000726487 /* ZTVideoTypeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTVideoTypeTableViewCell.xib; sourceTree = "<group>"; };
 		3964A5382710678800726487 /* ZTPagingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTPagingTableViewCell.swift; sourceTree = "<group>"; };
@@ -1116,6 +1118,7 @@
 		39EBD2DB273C003800BEE73A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3962BBA8277204660027E3E6 /* OrderConfirmPayment.swift */,
 				3944E9172771141500B1706A /* OrderConfirmation.swift */,
 				398A8831273E7E7C00C3EC90 /* AppUserModel.swift */,
 				398A8830273E7E7C00C3EC90 /* UserImage.swift */,
@@ -1707,6 +1710,7 @@
 				3915783827637BCB004F51FF /* NVActivityIndicatorAnimationBallClipRotate.swift in Sources */,
 				39EBD350273C003800BEE73A /* ResponseEntity.swift in Sources */,
 				3915789427637D0A004F51FF /* ConstraintInsetTarget.swift in Sources */,
+				3962BBA9277204670027E3E6 /* OrderConfirmPayment.swift in Sources */,
 				391578A827637D0A004F51FF /* ConstraintLayoutGuide+Extensions.swift in Sources */,
 				3964A53A2710678900726487 /* ZTPagingTableViewCell.swift in Sources */,
 				39EBD37F273C003800BEE73A /* MovieCollections.swift in Sources */,
@@ -1867,6 +1871,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 974JZY6YLE;
 				INFOPLIST_FILE = ZettaOTT/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1890,6 +1895,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 974JZY6YLE;
 				INFOPLIST_FILE = ZettaOTT/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

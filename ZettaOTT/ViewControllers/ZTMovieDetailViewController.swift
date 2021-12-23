@@ -65,22 +65,27 @@ class ZTMovieDetailViewController: UIViewController {
     @IBOutlet weak var tblReviews: ZTContentSizedTableView!
     @IBOutlet weak var btnReadMore: UIButton!
     @IBOutlet weak var btnBookNow: UIButton!
-
+    @IBOutlet weak var vwExclusive: UIView!
+    @IBOutlet weak var lblExclusiveText: UILabel!
     var recommendedMovies : [Movies]? = []
     var moviewReviews : [MovieReviews]? = []
     @IBOutlet weak var lblTblReviewsCount: UILabel!
     var readMoreClicked : Bool = false
+    var currentMovieId : Int64 = -1
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.registerCells()
-        self.initialLoad()
+       
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         UIApplication.shared.isIdleTimerDisabled = true
         AppUtility.lockOrientation(.all)
+        self.getMovieDetails()
+
 
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -105,20 +110,18 @@ class ZTMovieDetailViewController: UIViewController {
         self.videoHeightMultiplierHeight = MyConstraint.changeMultiplier(self.videoHeightMultiplierHeight, multiplier: sizeVal)
     }
     func initialLoad(){
-        if ZTAppSession.sharedInstance.getIsUserLoggedIn() == true{
-            self.vwRateThisMoview.isHidden = false
-        }else{
-            self.vwRateThisMoview.isHidden = true
-        }
         
         self.videoPlayerView.isHidden = true
         self.multiplierHeightChange(sizeVal: self.videoBannerSize)
         self.refreshReadmoreUI()
         if let movieInfo = self.moviewDetails{
-            if let paymentStatus = movieInfo.contactPaymentStatus, paymentStatus == MoviePaymentStatusStruct.paid.rawValue{
+            if let paymentStatus = movieInfo.paymentStatus, paymentStatus == MoviePaymentStatusStruct.paid.rawValue{
                 self.btnBookNow.setTitle(ZTConstants.BTN_BOOK_PLAY, for: .normal)
+                self.vwRateThisMoview.isHidden = false                
             }else{
                 self.btnBookNow.setTitle(ZTConstants.BTN_BOOK_NOW, for: .normal)
+                self.vwRateThisMoview.isHidden = true
+
             }
             self.lblMovieName.text = movieInfo.movieName
             self.lblMovieLanguage.text = movieInfo.primaryLanguage
@@ -127,7 +130,8 @@ class ZTMovieDetailViewController: UIViewController {
                 let stringVal = convertToSec.asString(style: .short)
                 self.lblMovieDuration.text = stringVal.replacingOccurrences(of: ",", with: "")
             }
-            self.lblMovieDescription.text = movieInfo.movieDescription
+            self.lblExclusiveText.text = String(format: "%@ %@", movieInfo.promoLabel ?? "", (movieInfo.iosTicketPrice ?? 0).getPriceValue())
+            
             Helper.shared.loadImage(url: movieInfo.moviePoster ?? "", imageView: self.imgVwMovieBanner)
             self.lblRating.text = String(format: "%.1f", movieInfo.avgRating ?? 0)
             self.lblMovieAge.text = String(format: "%d+", Int(movieInfo.ageRating ?? 0))
@@ -357,6 +361,31 @@ extension ZTMovieDetailViewController: UITableViewDelegate, UITableViewDataSourc
     }
 }
 extension ZTMovieDetailViewController{
+    func getMovieDetails(){
+        if NetworkReachability.shared.isReachable {
+            self.showActivityIndicator(self.view)
+            ZTCommonAPIWrapper.getMovieUsingGET(movieId: self.moviewDetails?.movieId ?? -1) { response, error in
+                self.hideActivityIndicator(self.view)
+            if error != nil{
+                WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
+                    
+                }, failureBlock: { (errorMsg) in
+                   
+                })
+                return
+            }
+            if let responseVal = response{
+                self.currentMovieId = self.moviewDetails?.movieId ?? -1
+                self.moviewDetails = nil
+                self.moviewDetails = responseVal
+
+                DispatchQueue.main.async {
+                    self.initialLoad()
+                }
+            }
+        }
+        }
+    }
     func getRecommendedMovies(){
         if NetworkReachability.shared.isReachable {
             ZTCommonAPIWrapper.searchMoviesGET(search: MovieSearchTag.movieSearchAvg.rawValue, page: 0, size: 50) { (response, error) in
@@ -402,6 +431,8 @@ extension ZTMovieDetailViewController{
                         }else{
                             self.btnMoreReview.isHidden = true
                         }
+                    }else{
+                        self.btnMoreReview.isHidden = true
                     }
                     DispatchQueue.main.async {
                         self.tblReviews.reloadData()
@@ -430,5 +461,10 @@ extension ZTMovieDetailViewController{
                 }
             }
         }
+    }
+}
+extension ZTMovieDetailViewController:WriteAReviewDelegate{
+    func updateUI() {
+        self.getMovieDetails()
     }
 }

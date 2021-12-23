@@ -27,12 +27,12 @@ enum StatusCodeObj : Int {
     }
 }
 enum MovieSearchTag : String {
-    case movieSearchAvg = "avgRating>3"
-    case zettaMovieOriginal = "movieType:Movie"
-    case shortFilms = "movieType:Shorts"
-    case webSeries = "movieType:Series"
-    case genresFilter = "movieGenresDSgenreIdLIST="    
-//    case latestTamilMovies = "avgRating>3"
+    case movieSearchAvg = "avgRating>3,active:Y,showInIos:Y"
+    case zettaMovieOriginal = "movieType:Movie,active:Y,showInIos:Y"
+    case shortFilms = "movieType:Shorts,active:Y,showInIos:Y"
+    case webSeries = "movieType:Series,active:Y,showInIos:Y"
+    case genresFilter = "active:Y,showInIos:Y,movieGenresDSgenreIdLIST="
+    case latestTamilMovies = "active:Y,showInIos:Y,primaryLanguage:Tamil"
     func MovieSearchTag() -> String{
         return self.rawValue
     }
@@ -49,7 +49,7 @@ enum WebViewStrings : String {
         return self.rawValue
     }
 }
-enum MoviePaymentStatusStruct : String {
+enum MovieOrderStatusStruct : String {
     case paid = "PAID"
     case new = "NEW"
     case cancelled = "CANCELLED"
@@ -57,9 +57,17 @@ enum MoviePaymentStatusStruct : String {
         return self.rawValue
     }
 }
+enum MoviePaymentStatusStruct : String {
+    case paid = "PAID"
+    case none = "0"
+    func MoviePaymentStatusStruct() -> String{
+        return self.rawValue
+    }
+}
 
 enum TransactionStatusStruct : String {
     case Success = "Success"
+    case New = "New"
     case Failure = "Failure"
     func TransactionStatusStruct() -> String{
         return self.rawValue

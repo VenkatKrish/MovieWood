@@ -473,7 +473,7 @@ open class OrderControllerAPI {
      - parameter paymentRequest: (body) paymentRequest 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func updateOrderPaymentUsingPUT(orderId: Int64, paymentRequest: PaymentRequest, completion: @escaping ((_ data: JSONValue?,_ error: Error?) -> Void)) {
+    open class func updateOrderPaymentUsingPUT(orderId: Int64, paymentRequest: PaymentRequest, completion: @escaping ((_ data: OrderConfirmPayment?,_ error: Error?) -> Void)) {
         updateOrderPaymentUsingPUTWithRequestBuilder(orderId: orderId, paymentRequest: paymentRequest).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
@@ -490,7 +490,7 @@ open class OrderControllerAPI {
 
      - returns: RequestBuilder<JSONValue> 
      */
-    open class func updateOrderPaymentUsingPUTWithRequestBuilder(orderId: Int64, paymentRequest: PaymentRequest) -> RequestBuilder<JSONValue> {
+    open class func updateOrderPaymentUsingPUTWithRequestBuilder(orderId: Int64, paymentRequest: PaymentRequest) -> RequestBuilder<OrderConfirmPayment> {
         var path = "/api/v1/orderpayment/{orderId}"
         let orderIdPreEscape = "\(orderId)"
         let orderIdPostEscape = orderIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -500,7 +500,7 @@ open class OrderControllerAPI {
 
         let url = URLComponents(string: URLString)
 
-        let requestBuilder: RequestBuilder<JSONValue>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<OrderConfirmPayment>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }

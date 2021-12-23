@@ -357,8 +357,19 @@ open class ZTCommonAPIWrapper {
      - parameter paymentRequest: (body) paymentRequest
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func updateOrderPayment(orderId: Int64, paymentRequest: PaymentRequest, completion: @escaping ((_ data: JSONValue?,_ error: Error?) -> Void)) {
+    open class func updateOrderPayment(orderId: Int64, paymentRequest: PaymentRequest, completion: @escaping ((_ data: OrderConfirmPayment?,_ error: Error?) -> Void)) {
         OrderControllerAPI.updateOrderPaymentUsingPUT(orderId: orderId, paymentRequest: paymentRequest) { response, error in
+            completion(response, error)
+        }
+    }
+    /**
+     getMovie
+     
+     - parameter movieId: (path) movieId
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getMovieUsingGET(movieId: Int64, completion: @escaping ((_ data: Movies?,_ error: Error?) -> Void)) {
+        MovieControllerAPI.getMovieUsingGET(movieId: movieId) { response, error in
             completion(response, error)
         }
     }

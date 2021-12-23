@@ -76,8 +76,12 @@ public struct Movies: Codable {
     public var website: String?
     public var yearProduced: Int64?
     public var yearReleased: Int64?
+    public var paymentStatus: String?
+    public var playStatus: String?
 
-    public init(active: String?, ageRating: Int64?, avgRating: Double?, channelId: Int64?, contactEmail: String?, contactName: String?, contactPayment: String?, contactPaymentMethod: String?, contactPaymentPaid: String?, contactPaymentStatus: String?, contactPaymentTransno: String?, contactPhone: String?, contactPlace: String?, contactSignDate: Date?, contactSignature: String?, countryOfProduction: String?, createdBy: String?, createdOn: Date?, featured: String?, image: String?, iosTicketPrice: Double?, lastUpdateLogin: String?, metaDesc: String?, metaKeywords: String?, metaTitle: String?, modifiedBy: String?, modifiedOn: Date?, movieActors: [MovieActors]?, movieDescription: String?, movieGenres: [MovieGenres]?, movieId: Int64?, movieKey: String?, movieName: String?, movieNameEn: String?, moviePoster: String?, movieSongs: [MovieSongs]?, movieType: String?, movieViews: Int64?, overallRank: Int64?, parentId: Int64?, primaryLanguage: String?, promoLabel: String?, releaseDate: Date?, releaseMonth: String?, runningTime: Int64?, showInIos: String?, streamingEndDate: Date?, streamingStartDate: Date?, teaserDuration: Int64?, teaserUrl: String?, teaserViews: Int64?, thumbnail: String?, ticketRate: Double?, trailorDuration: Int64?, trailorUrl: String?, trailorViews: Int64?, usdTicketRate: Double?, versionNumber: Int64?, views: Int64?, webMovieDetail: String?, webMoviePoster: String?, webStreamingNow: String?, website: String?, yearProduced: Int64?, yearReleased: Int64?) {
+    
+    
+    public init(active: String?, ageRating: Int64?, avgRating: Double?, channelId: Int64?, contactEmail: String?, contactName: String?, contactPayment: String?, contactPaymentMethod: String?, contactPaymentPaid: String?, contactPaymentStatus: String?, contactPaymentTransno: String?, contactPhone: String?, contactPlace: String?, contactSignDate: Date?, contactSignature: String?, countryOfProduction: String?, createdBy: String?, createdOn: Date?, featured: String?, image: String?, iosTicketPrice: Double?, lastUpdateLogin: String?, metaDesc: String?, metaKeywords: String?, metaTitle: String?, modifiedBy: String?, modifiedOn: Date?, movieActors: [MovieActors]?, movieDescription: String?, movieGenres: [MovieGenres]?, movieId: Int64?, movieKey: String?, movieName: String?, movieNameEn: String?, moviePoster: String?, movieSongs: [MovieSongs]?, movieType: String?, movieViews: Int64?, overallRank: Int64?, parentId: Int64?, primaryLanguage: String?, promoLabel: String?, releaseDate: Date?, releaseMonth: String?, runningTime: Int64?, showInIos: String?, streamingEndDate: Date?, streamingStartDate: Date?, teaserDuration: Int64?, teaserUrl: String?, teaserViews: Int64?, thumbnail: String?, ticketRate: Double?, trailorDuration: Int64?, trailorUrl: String?, trailorViews: Int64?, usdTicketRate: Double?, versionNumber: Int64?, views: Int64?, webMovieDetail: String?, webMoviePoster: String?, webStreamingNow: String?, website: String?, yearProduced: Int64?, yearReleased: Int64?, paymentStatus: String?, playStatus: String?) {
         self.active = active
         self.ageRating = ageRating
         self.avgRating = avgRating
@@ -143,6 +147,8 @@ public struct Movies: Codable {
         self.website = website
         self.yearProduced = yearProduced
         self.yearReleased = yearReleased
+        self.paymentStatus = paymentStatus
+        self.playStatus = playStatus
     }
 
 

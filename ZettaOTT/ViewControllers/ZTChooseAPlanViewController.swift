@@ -88,7 +88,7 @@ extension ZTChooseAPlanViewController:UICollectionViewDelegate, UICollectionView
         
         let lay = collectionViewLayout as! UICollectionViewFlowLayout
        
-        let widthPerItem = collectionView.frame.width / 2 - lay.minimumInteritemSpacing
+        let widthPerItem = collectionView.frame.width / 2 - (lay.minimumInteritemSpacing * 2)
        
         return CGSize(width: widthPerItem, height: widthPerItem + 90)
     }
@@ -102,13 +102,13 @@ extension ZTChooseAPlanViewController:UICollectionViewDelegate, UICollectionView
             Helper.shared.goToPaymentPage(viewController: self, subscriptionInfo: dataVal, isSubscription:true)
         }
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-
-        return CGSize(width: collectionView.frame.size.width, height:50)
-
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width, height:1)
-        }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+//
+//        return CGSize(width: collectionView.frame.size.width, height:50)
+//
+//    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+//        return CGSize(width: collectionView.frame.size.width, height:1)
+//        }
 }
 

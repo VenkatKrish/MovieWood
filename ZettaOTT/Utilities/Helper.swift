@@ -186,7 +186,7 @@ extension Helper{
         if movieTag == moviesKeyUI.zetta_movies_originals{
             searchKey =   MovieSearchTag.zettaMovieOriginal.rawValue
         }else if movieTag == moviesKeyUI.latest_tamil_movies{
-            searchKey =  MovieSearchTag.movieSearchAvg.rawValue
+            searchKey =  MovieSearchTag.latestTamilMovies.rawValue
         }else if movieTag == moviesKeyUI.recommended{
             searchKey =  MovieSearchTag.movieSearchAvg.rawValue
         }else if movieTag == moviesKeyUI.popular_movies{
@@ -376,12 +376,14 @@ extension Helper{
         initial.isSubscription = isSubscription ?? false
         viewController.navigationController?.pushViewController(initial, animated: true)
     }
-    func goToTicketConfirmationPage(viewController:UIViewController, subscriptionInfo:Subscriptions? = nil, movieInfo:Movies? = nil, isSubscription:Bool){
+    func goToTicketConfirmationPage(viewController:UIViewController, subscriptionInfo:Subscriptions? = nil, movieInfo:Movies? = nil, isSubscription:Bool, orderConfirmPayment:OrderConfirmPayment? = nil){
         let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
         let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTTickerConfirmationViewController) as! ZTTickerConfirmationViewController
         initial.subscriptionInfo = subscriptionInfo
         initial.moviewDetails = movieInfo
         initial.isSubscription = isSubscription
+        initial.orderConfirmPayment = orderConfirmPayment
+
         viewController.navigationController?.pushViewController(initial, animated: true)
     }
     func goToRatingsReviews(viewController:UIViewController, movieInfo:Movies? = nil){
@@ -395,6 +397,7 @@ extension Helper{
         let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTWriteAReviewViewController) as! ZTWriteAReviewViewController
         initial.modalPresentationStyle = .overCurrentContext
         initial.moviewDetails = movieInfo
+        initial.delegate = viewController as! WriteAReviewDelegate
         viewController.present(initial, animated: false, completion: nil)
     }
 }

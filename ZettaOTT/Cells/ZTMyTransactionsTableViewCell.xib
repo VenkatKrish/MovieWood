@@ -41,20 +41,23 @@
                                             <constraint firstAttribute="width" constant="65" id="fFU-uF-4FQ"/>
                                         </constraints>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1uJ-5U-EJv">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1uJ-5U-EJv">
                                         <rect key="frame" x="79" y="8" width="272" height="67"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SV9-9P-QSi">
-                                                <rect key="frame" x="0.0" y="0.0" width="272" height="21"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="272" height="19.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thalaivii" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWE-Zm-wGO">
-                                                        <rect key="frame" x="0.0" y="0.0" width="237" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="217" height="19.5"/>
                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="16"/>
                                                         <color key="textColor" name="ZTTabbarUnSelectedColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Sep" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIS-yP-o9Z">
-                                                        <rect key="frame" x="242" y="0.0" width="30" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10 Sep" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIS-yP-o9Z">
+                                                        <rect key="frame" x="222" y="0.0" width="50" height="19.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="xoa-Ii-05Y"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="10"/>
                                                         <color key="textColor" name="ZTMovieDetailSubTitle"/>
                                                         <nil key="highlightedColor"/>
@@ -72,7 +75,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zt7-ew-io1">
-                                                <rect key="frame" x="0.0" y="26" width="272" height="15"/>
+                                                <rect key="frame" x="0.0" y="24.5" width="272" height="15"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8uS-xL-guv">
                                                         <rect key="frame" x="0.0" y="0.0" width="183" height="15"/>
@@ -138,16 +141,19 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y2W-RU-Hej">
-                                                <rect key="frame" x="0.0" y="46" width="272" height="21"/>
+                                                <rect key="frame" x="0.0" y="44.5" width="272" height="22.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="₹ 94.60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpE-6T-Avc">
-                                                        <rect key="frame" x="0.0" y="0.0" width="59.5" height="21"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="59.5" height="22.5"/>
                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="16"/>
                                                         <color key="textColor" name="ZTTabbarUnSelectedColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Success" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9b6-ey-i2T">
-                                                        <rect key="frame" x="231.5" y="0.0" width="40.5" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Success" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9b6-ey-i2T">
+                                                        <rect key="frame" x="212" y="4.5" width="60" height="13.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="60" id="KLl-vu-j3W"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="11"/>
                                                         <color key="textColor" name="ZTSuccessColor"/>
                                                         <nil key="highlightedColor"/>
@@ -156,10 +162,9 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="jpE-6T-Avc" firstAttribute="leading" secondItem="Y2W-RU-Hej" secondAttribute="leading" id="5h8-9e-MVa"/>
-                                                    <constraint firstAttribute="bottom" secondItem="9b6-ey-i2T" secondAttribute="bottom" id="BXu-9R-t2I"/>
-                                                    <constraint firstAttribute="trailing" secondItem="9b6-ey-i2T" secondAttribute="trailing" id="Ifc-US-jc8"/>
+                                                    <constraint firstItem="9b6-ey-i2T" firstAttribute="centerY" secondItem="Y2W-RU-Hej" secondAttribute="centerY" id="K9H-Ha-R2h"/>
+                                                    <constraint firstAttribute="trailing" secondItem="9b6-ey-i2T" secondAttribute="trailing" id="dek-BB-E3f"/>
                                                     <constraint firstItem="jpE-6T-Avc" firstAttribute="top" secondItem="Y2W-RU-Hej" secondAttribute="top" id="ee2-iK-7gA"/>
-                                                    <constraint firstItem="9b6-ey-i2T" firstAttribute="top" secondItem="Y2W-RU-Hej" secondAttribute="top" id="fdW-wy-sCw"/>
                                                     <constraint firstAttribute="bottom" secondItem="jpE-6T-Avc" secondAttribute="bottom" id="gGb-qh-dKS"/>
                                                 </constraints>
                                             </view>

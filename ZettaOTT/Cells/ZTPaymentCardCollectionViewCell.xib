@@ -25,6 +25,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="157" height="232"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ebF-sx-3sS">
+                        <rect key="frame" x="0.0" y="0.0" width="157" height="232"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zPZ-FM-Ulk">
                         <rect key="frame" x="0.0" y="0.0" width="157" height="232"/>
                         <subviews>
@@ -109,7 +114,7 @@
                 <outlet property="lblPlanDuration" destination="SQk-rj-qKw" id="WlQ-nc-Edh"/>
                 <outlet property="lblPlanName" destination="cQq-ch-9M1" id="vTA-fP-nuF"/>
                 <outlet property="lblPlanPrice" destination="JWc-cX-2Dk" id="n1y-Tx-aA9"/>
-                <outlet property="vwBorder" destination="zPZ-FM-Ulk" id="kUT-7n-6Sq"/>
+                <outlet property="vwBorder" destination="ebF-sx-3sS" id="bSX-OA-Mde"/>
             </connections>
             <point key="canvasLocation" x="206.52173913043481" y="173.4375"/>
         </collectionViewCell>

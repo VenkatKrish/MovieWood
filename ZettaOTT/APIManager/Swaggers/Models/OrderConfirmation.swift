@@ -1,11 +1,11 @@
 import Foundation
 public struct OrderConfirmation : Codable {
-	let movieOrderId : Int?
+	let movieOrderId : Int64?
 	let orderNo : String?
 	let orderType : String?
 	let subscriptionId : String?
-	let movieId : Int?
-	let userId : Int?
+	let movieId : Int64?
+	let userId : Int64?
 	let bookingStartTime : String?
 	let bookingEndTime : String?
 	let unitPrice : Double?
@@ -16,7 +16,7 @@ public struct OrderConfirmation : Codable {
 	let couponCode : String?
 	let discountValue : String?
 	let totalOrderValue : Double?
-	let taxPercentage : Int?
+	let taxPercentage : Double?
 	let totalTaxValue : Double?
 	let totalRoundedValue : Double?
 	let orderDate : String?
@@ -89,12 +89,12 @@ public struct OrderConfirmation : Codable {
 
     public init(from decoder: Decoder) throws {
 		let values = try decoder.container(keyedBy: CodingKeys.self)
-		movieOrderId = try values.decodeIfPresent(Int.self, forKey: .movieOrderId)
+		movieOrderId = try values.decodeIfPresent(Int64.self, forKey: .movieOrderId)
 		orderNo = try values.decodeIfPresent(String.self, forKey: .orderNo)
 		orderType = try values.decodeIfPresent(String.self, forKey: .orderType)
 		subscriptionId = try values.decodeIfPresent(String.self, forKey: .subscriptionId)
-		movieId = try values.decodeIfPresent(Int.self, forKey: .movieId)
-		userId = try values.decodeIfPresent(Int.self, forKey: .userId)
+		movieId = try values.decodeIfPresent(Int64.self, forKey: .movieId)
+		userId = try values.decodeIfPresent(Int64.self, forKey: .userId)
 		bookingStartTime = try values.decodeIfPresent(String.self, forKey: .bookingStartTime)
 		bookingEndTime = try values.decodeIfPresent(String.self, forKey: .bookingEndTime)
 		unitPrice = try values.decodeIfPresent(Double.self, forKey: .unitPrice)
@@ -105,7 +105,7 @@ public struct OrderConfirmation : Codable {
 		couponCode = try values.decodeIfPresent(String.self, forKey: .couponCode)
 		discountValue = try values.decodeIfPresent(String.self, forKey: .discountValue)
 		totalOrderValue = try values.decodeIfPresent(Double.self, forKey: .totalOrderValue)
-		taxPercentage = try values.decodeIfPresent(Int.self, forKey: .taxPercentage)
+		taxPercentage = try values.decodeIfPresent(Double.self, forKey: .taxPercentage)
 		totalTaxValue = try values.decodeIfPresent(Double.self, forKey: .totalTaxValue)
 		totalRoundedValue = try values.decodeIfPresent(Double.self, forKey: .totalRoundedValue)
 		orderDate = try values.decodeIfPresent(String.self, forKey: .orderDate)

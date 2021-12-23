@@ -797,7 +797,7 @@ verification code we’ve sent on given number</string>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTk-rS-Fwy">
-                                        <rect key="frame" x="150.33333333333334" y="9.3333333333333339" width="74.666666666666657" height="25.333333333333329"/>
+                                        <rect key="frame" x="149.66666666666666" y="9.6666666666666661" width="75.666666666666657" height="24.666666666666671"/>
                                         <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="21"/>
                                         <color key="textColor" name="ZTAppBlackColor"/>
                                         <nil key="highlightedColor"/>
@@ -1190,16 +1190,16 @@ verification code we’ve sent on given number</string>
                                         </state>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cUs-xx-g18">
-                                        <rect key="frame" x="138.33333333333334" y="9.6666666666666643" width="98.333333333333343" height="41"/>
+                                        <rect key="frame" x="138.33333333333334" y="10" width="98.333333333333343" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vC7-1k-Obj" userLabel="Movie Info">
-                                                <rect key="frame" x="0.0" y="0.0" width="98.333333333333329" height="15.666666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="98.333333333333329" height="15.333333333333334"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="13"/>
                                                 <color key="textColor" name="ZTGradientColor2"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Za4-4G-Xzp" userLabel="Movie Info">
-                                                <rect key="frame" x="0.0" y="15.666666666666663" width="98.333333333333329" height="25.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="15.33333333333333" width="98.333333333333329" height="24.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="21"/>
                                                 <color key="textColor" name="ZTAppBlackColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1796,16 +1796,16 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                         </state>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VqF-zN-xvk">
-                                        <rect key="frame" x="127.66666666666669" y="9.6666666666666643" width="120" height="41"/>
+                                        <rect key="frame" x="129" y="10" width="117.33333333333331" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Zk-O5-eBi" userLabel="Movie Info">
-                                                <rect key="frame" x="0.0" y="0.0" width="120" height="15.666666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="117.33333333333333" height="15.333333333333334"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="13"/>
                                                 <color key="textColor" name="ZTGradientColor2"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Declarations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJ2-I9-nVo" userLabel="Movie Info">
-                                                <rect key="frame" x="0.0" y="15.666666666666663" width="120" height="25.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="15.33333333333333" width="117.33333333333333" height="24.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="21"/>
                                                 <color key="textColor" name="ZTAppBlackColor"/>
                                                 <nil key="highlightedColor"/>
@@ -2050,16 +2050,16 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                         </state>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qET-a8-2E2">
-                                        <rect key="frame" x="129" y="9.6666666666666643" width="117.33333333333331" height="41"/>
+                                        <rect key="frame" x="129.66666666666666" y="10" width="116" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="st7-Bz-tq4" userLabel="Movie Info">
-                                                <rect key="frame" x="0.0" y="0.0" width="117.33333333333333" height="15.666666666666666"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="116" height="15.333333333333334"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="13"/>
                                                 <color key="textColor" name="ZTGradientColor2"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kot-9R-EBG" userLabel="Movie Info">
-                                                <rect key="frame" x="0.0" y="15.666666666666663" width="117.33333333333333" height="25.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="15.33333333333333" width="116" height="24.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="21"/>
                                                 <color key="textColor" name="ZTAppBlackColor"/>
                                                 <nil key="highlightedColor"/>
@@ -2745,10 +2745,10 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xNb-GK-q9q">
-                                        <rect key="frame" x="136.66666666666666" y="14.999999999999998" width="101.66666666666666" height="25.333333333333329"/>
+                                        <rect key="frame" x="136.66666666666666" y="15.333333333333337" width="101.66666666666666" height="24.666666666666671"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKp-lW-22b" userLabel="Movie Info">
-                                                <rect key="frame" x="0.0" y="0.0" width="101.66666666666667" height="25.333333333333332"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="101.66666666666667" height="24.666666666666668"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="21"/>
                                                 <color key="textColor" name="ZTAppBlackColor"/>
                                                 <nil key="highlightedColor"/>
@@ -3901,7 +3901,7 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9R-8c-Dhg">
-                                                <rect key="frame" x="140" y="12.666666666666664" width="95" height="25"/>
+                                                <rect key="frame" x="140" y="12.666666666666664" width="95.333333333333314" height="25"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="21"/>
                                                 <color key="textColor" name="ZTTabbarUnSelectedColor"/>
                                                 <nil key="highlightedColor"/>
@@ -4125,7 +4125,7 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WgT-oT-PAW">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WgT-oT-PAW">
                                                         <rect key="frame" x="255" y="5" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="FCl-ff-mot"/>
@@ -4180,8 +4180,8 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pND-JK-3ei">
-                                                        <rect key="frame" x="248.33333333333329" y="10.333333333333371" width="30.666666666666657" height="24"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pND-JK-3ei">
+                                                        <rect key="frame" x="279" y="22.333333333333371" width="0.0" height="0.0"/>
                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -4367,25 +4367,37 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Se6-3I-fuO">
-                                <rect key="frame" x="0.0" y="110" width="375" height="668"/>
+                                <rect key="frame" x="0.0" y="94" width="375" height="684"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="4Mh-rc-8Ds">
-                                        <rect key="frame" x="16" y="0.0" width="343" height="668"/>
-                                        <color key="backgroundColor" name="ZTBackgroundColor"/>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="Lrb-Eu-M5L" id="wrP-MS-ZPx"/>
-                                            <outlet property="delegate" destination="Lrb-Eu-M5L" id="KNW-8G-a48"/>
-                                        </connections>
-                                    </tableView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hfk-CW-z7E" customClass="ZTCornerRadiusView" customModule="ZettaOTT" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="16" width="343" height="668"/>
+                                        <subviews>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="4Mh-rc-8Ds">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="668"/>
+                                                <color key="backgroundColor" name="ZTBackgroundColor"/>
+                                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="Lrb-Eu-M5L" id="wrP-MS-ZPx"/>
+                                                    <outlet property="delegate" destination="Lrb-Eu-M5L" id="KNW-8G-a48"/>
+                                                </connections>
+                                            </tableView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="4Mh-rc-8Ds" secondAttribute="trailing" id="3Dh-1c-J1s"/>
+                                            <constraint firstAttribute="bottom" secondItem="4Mh-rc-8Ds" secondAttribute="bottom" id="7AY-81-KBP"/>
+                                            <constraint firstItem="4Mh-rc-8Ds" firstAttribute="top" secondItem="Hfk-CW-z7E" secondAttribute="top" id="7lp-S1-ag8"/>
+                                            <constraint firstItem="4Mh-rc-8Ds" firstAttribute="leading" secondItem="Hfk-CW-z7E" secondAttribute="leading" id="YZf-R1-YZC"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" name="ZTBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="4Mh-rc-8Ds" secondAttribute="trailing" constant="16" id="JhG-Br-dfN"/>
-                                    <constraint firstItem="4Mh-rc-8Ds" firstAttribute="top" secondItem="Se6-3I-fuO" secondAttribute="top" id="QRo-EM-ccQ"/>
-                                    <constraint firstAttribute="bottom" secondItem="4Mh-rc-8Ds" secondAttribute="bottom" id="Uz9-fJ-Z2J"/>
-                                    <constraint firstItem="4Mh-rc-8Ds" firstAttribute="leading" secondItem="Se6-3I-fuO" secondAttribute="leading" constant="16" id="ubP-Mx-P4J"/>
+                                    <constraint firstAttribute="trailing" secondItem="Hfk-CW-z7E" secondAttribute="trailing" constant="16" id="9fd-4T-5Ve"/>
+                                    <constraint firstItem="Hfk-CW-z7E" firstAttribute="top" secondItem="Se6-3I-fuO" secondAttribute="top" constant="16" id="Ftv-n0-0Wi"/>
+                                    <constraint firstAttribute="bottom" secondItem="Hfk-CW-z7E" secondAttribute="bottom" id="dCQ-Yk-ESP"/>
+                                    <constraint firstItem="Hfk-CW-z7E" firstAttribute="leading" secondItem="Se6-3I-fuO" secondAttribute="leading" constant="16" id="tQo-Lj-Jez"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -4393,7 +4405,7 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                         <color key="backgroundColor" name="ZTFormBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Se6-3I-fuO" firstAttribute="trailing" secondItem="0md-Il-eef" secondAttribute="trailing" id="BS5-Ax-F8Z"/>
-                            <constraint firstItem="Se6-3I-fuO" firstAttribute="top" secondItem="0md-Il-eef" secondAttribute="bottom" constant="16" id="Unr-dK-G7w"/>
+                            <constraint firstItem="Se6-3I-fuO" firstAttribute="top" secondItem="0md-Il-eef" secondAttribute="bottom" id="Unr-dK-G7w"/>
                             <constraint firstItem="Se6-3I-fuO" firstAttribute="leading" secondItem="0md-Il-eef" secondAttribute="leading" id="VRd-Be-FHz"/>
                             <constraint firstItem="lwV-8H-QDo" firstAttribute="bottom" secondItem="Se6-3I-fuO" secondAttribute="bottom" id="fkI-gu-PeC"/>
                             <constraint firstAttribute="trailing" secondItem="0md-Il-eef" secondAttribute="trailing" id="l7w-so-44S"/>
@@ -4885,7 +4897,7 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="M1q-Gs-8A9">
-                                        <rect key="frame" x="0.0" y="324.66666666666674" width="375" height="761"/>
+                                        <rect key="frame" x="0.0" y="324.66666666666674" width="375" height="791"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P2p-t8-2bE">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="212"/>
@@ -4908,19 +4920,48 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                                                                         </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aok-Rr-VvJ">
-                                                                        <rect key="frame" x="51" y="27.666666666666629" width="276" height="0.0"/>
+                                                                        <rect key="frame" x="51" y="27.666666666666629" width="176" height="0.0"/>
                                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Medium" family="SF UI Display" pointSize="22"/>
                                                                         <color key="textColor" name="ZTAppBlackColor"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="inV-ns-w9y">
+                                                                        <rect key="frame" x="243" y="15.666666666666629" width="100" height="24"/>
+                                                                        <subviews>
+                                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_exclusive" translatesAutoresizingMaskIntoConstraints="NO" id="0ba-AV-mwh">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="24"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="height" constant="24" id="9U6-cq-VqJ"/>
+                                                                                </constraints>
+                                                                            </imageView>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFv-Mq-gy6">
+                                                                                <rect key="frame" x="50" y="12" width="0.0" height="0.0"/>
+                                                                                <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="10"/>
+                                                                                <color key="textColor" name="ZTAppWhiteColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstItem="0ba-AV-mwh" firstAttribute="top" secondItem="inV-ns-w9y" secondAttribute="top" id="Aex-0Z-opE"/>
+                                                                            <constraint firstAttribute="width" constant="100" id="Ip6-zz-Ovl"/>
+                                                                            <constraint firstItem="sFv-Mq-gy6" firstAttribute="centerY" secondItem="0ba-AV-mwh" secondAttribute="centerY" id="RA0-Da-Upj"/>
+                                                                            <constraint firstItem="0ba-AV-mwh" firstAttribute="leading" secondItem="inV-ns-w9y" secondAttribute="leading" id="RJl-Y8-JzP"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="0ba-AV-mwh" secondAttribute="trailing" id="erl-jf-38P"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="0ba-AV-mwh" secondAttribute="bottom" id="kgp-Hm-wFt"/>
+                                                                            <constraint firstItem="sFv-Mq-gy6" firstAttribute="centerX" secondItem="0ba-AV-mwh" secondAttribute="centerX" id="zVK-kG-ycQ"/>
+                                                                        </constraints>
+                                                                    </view>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="inV-ns-w9y" secondAttribute="trailing" id="0Tb-Qz-OYS"/>
                                                                     <constraint firstAttribute="height" constant="55" id="FaE-z9-HJf"/>
                                                                     <constraint firstAttribute="bottom" secondItem="uIG-em-0ro" secondAttribute="bottom" constant="10" id="Lr6-6R-EoB"/>
                                                                     <constraint firstItem="uIG-em-0ro" firstAttribute="leading" secondItem="JOd-Wx-QT0" secondAttribute="leading" id="PK2-zC-Fip"/>
-                                                                    <constraint firstAttribute="trailing" secondItem="Aok-Rr-VvJ" secondAttribute="trailing" constant="16" id="Pbt-X0-uVM"/>
                                                                     <constraint firstItem="uIG-em-0ro" firstAttribute="top" secondItem="JOd-Wx-QT0" secondAttribute="top" constant="10" id="Ywe-fS-PuC"/>
+                                                                    <constraint firstItem="inV-ns-w9y" firstAttribute="centerY" secondItem="JOd-Wx-QT0" secondAttribute="centerY" id="aSe-1W-fW2"/>
+                                                                    <constraint firstItem="inV-ns-w9y" firstAttribute="leading" secondItem="Aok-Rr-VvJ" secondAttribute="trailing" constant="16" id="ehY-Xd-sft"/>
                                                                     <constraint firstItem="Aok-Rr-VvJ" firstAttribute="centerY" secondItem="JOd-Wx-QT0" secondAttribute="centerY" id="w3b-2B-Qre"/>
                                                                     <constraint firstItem="Aok-Rr-VvJ" firstAttribute="leading" secondItem="uIG-em-0ro" secondAttribute="trailing" constant="16" id="yxx-ez-c8P"/>
                                                                 </constraints>
@@ -5427,7 +5468,7 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JeG-Ha-BGV" userLabel="ReviewsStack">
-                                                <rect key="frame" x="0.0" y="536" width="375" height="225"/>
+                                                <rect key="frame" x="0.0" y="536" width="375" height="255"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q1D-zd-ygi" userLabel="HighlightsHeaderView">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
@@ -5482,14 +5523,14 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                                                             <constraint firstAttribute="bottom" secondItem="OQO-dY-Qyi" secondAttribute="bottom" constant="16" id="lQW-4i-Laf"/>
                                                         </constraints>
                                                     </view>
-                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kcs-qr-dks">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kcs-qr-dks">
                                                         <rect key="frame" x="0.0" y="225.00000000000011" width="375" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="RFH-Qa-lpc"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="12"/>
-                                                        <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
-                                                        <state key="normal" title="More Reviews">
+                                                        <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="5" maxY="0.0"/>
+                                                        <state key="normal" title="MORE REVIEWS">
                                                             <color key="titleColor" name="ZTMoreColor"/>
                                                         </state>
                                                         <connections>
@@ -5595,6 +5636,7 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                         <outlet property="imgVwMovieBanner" destination="VsB-MQ-EgM" id="Qba-g5-WXi"/>
                         <outlet property="imgVwTeaser" destination="fsQ-5Z-uJT" id="8sZ-9O-O4I"/>
                         <outlet property="imgVwTrailer" destination="VhY-gY-LFb" id="YP4-Ig-WDd"/>
+                        <outlet property="lblExclusiveText" destination="sFv-Mq-gy6" id="i9W-px-TJ1"/>
                         <outlet property="lblMovieAge" destination="IS2-4x-pK9" id="T4K-2x-GYV"/>
                         <outlet property="lblMovieDescription" destination="gqc-ht-4Go" id="Uko-gc-oap"/>
                         <outlet property="lblMovieDuration" destination="Gfa-JV-PvL" id="UY5-yW-9UM"/>
@@ -5615,6 +5657,7 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                         <outlet property="tblReviews" destination="OQO-dY-Qyi" id="gz1-HV-SMk"/>
                         <outlet property="videoHeightMultiplierHeight" destination="syr-vM-ZM7" id="zco-Wd-quC"/>
                         <outlet property="videoPlayerView" destination="MX3-bs-JHH" id="7sg-gJ-VJa"/>
+                        <outlet property="vwExclusive" destination="inV-ns-w9y" id="CwN-lg-GzP"/>
                         <outlet property="vwRateThisMoview" destination="o8P-xr-ptM" id="3kv-jz-RBD"/>
                         <outlet property="vwTeaser" destination="Mfz-4h-t67" id="8Eh-X2-3mw"/>
                         <outlet property="vwTrailer" destination="ThM-MH-38u" id="GA9-fh-Sat"/>
@@ -5681,6 +5724,15 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                                                                                         <color key="textColor" name="ZTTabbarUnSelectedColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Auto" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C1Y-aX-XyJ">
+                                                                                        <rect key="frame" x="294.66666666666669" y="0.0" width="30.333333333333314" height="35"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="35" id="qeh-aP-vYi"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="15"/>
+                                                                                        <color key="textColor" name="ZTGradientColor1"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="i2t-qY-udh">
                                                                                         <rect key="frame" x="330" y="12.666666666666657" width="5" height="10"/>
                                                                                         <constraints>
@@ -5688,15 +5740,16 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                                                                                             <constraint firstAttribute="height" constant="10" id="e7T-N8-ETq"/>
                                                                                         </constraints>
                                                                                     </imageView>
-                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsG-Vy-LmO" customClass="ZTButtonWithImageRightSide" customModule="ZettaOTT" customModuleProvider="target">
+                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qsG-Vy-LmO" customClass="ZTButtonWithImageRightSide" customModule="ZettaOTT" customModuleProvider="target">
                                                                                         <rect key="frame" x="258" y="5.6666666666666572" width="77" height="24"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="77" id="TQX-N1-PPh"/>
                                                                                             <constraint firstAttribute="height" constant="24" id="vqI-ok-Ina"/>
                                                                                         </constraints>
                                                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="15"/>
+                                                                                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
                                                                                         <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="10" maxY="0.0"/>
-                                                                                        <state key="normal" title="Auto">
+                                                                                        <state key="normal">
                                                                                             <color key="titleColor" name="ZTGradientColor1"/>
                                                                                         </state>
                                                                                     </button>
@@ -5705,6 +5758,7 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="trailing" secondItem="qsG-Vy-LmO" secondAttribute="trailing" id="7Fh-NG-7uc"/>
                                                                                     <constraint firstItem="i2t-qY-udh" firstAttribute="trailing" secondItem="qsG-Vy-LmO" secondAttribute="trailing" id="DCP-rv-zgp"/>
+                                                                                    <constraint firstItem="i2t-qY-udh" firstAttribute="leading" secondItem="C1Y-aX-XyJ" secondAttribute="trailing" constant="5" id="N0v-yd-FDn"/>
                                                                                     <constraint firstItem="tp6-Ss-iAb" firstAttribute="top" secondItem="Z6t-ZB-0Yd" secondAttribute="bottom" constant="10" id="Nca-ec-34V"/>
                                                                                     <constraint firstItem="qsG-Vy-LmO" firstAttribute="centerY" secondItem="Z6t-ZB-0Yd" secondAttribute="centerY" id="RHy-wx-XYO"/>
                                                                                     <constraint firstItem="i2t-qY-udh" firstAttribute="centerY" secondItem="qsG-Vy-LmO" secondAttribute="centerY" id="VMp-Hk-v2N"/>
@@ -5713,6 +5767,7 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                                                                                     <constraint firstItem="tp6-Ss-iAb" firstAttribute="leading" secondItem="8Oy-pV-uRA" secondAttribute="leading" id="g2H-Kd-vcO"/>
                                                                                     <constraint firstItem="Z6t-ZB-0Yd" firstAttribute="top" secondItem="8Oy-pV-uRA" secondAttribute="top" id="gDh-JN-And"/>
                                                                                     <constraint firstAttribute="bottom" secondItem="tp6-Ss-iAb" secondAttribute="bottom" constant="8" id="vuf-ei-TGZ"/>
+                                                                                    <constraint firstItem="C1Y-aX-XyJ" firstAttribute="centerY" secondItem="i2t-qY-udh" secondAttribute="centerY" id="yj5-0V-3Yd"/>
                                                                                 </constraints>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q6e-rc-vZN">
@@ -5781,6 +5836,15 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                                                                                         <color key="textColor" name="ZTTabbarUnSelectedColor"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="English" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcE-jj-XC2">
+                                                                                        <rect key="frame" x="277.66666666666669" y="0.0" width="47.333333333333314" height="35"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="35" id="2Ke-zn-vY1"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="15"/>
+                                                                                        <color key="textColor" name="ZTGradientColor1"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJ7-yx-7wG">
                                                                                         <rect key="frame" x="0.0" y="45" width="335" height="1"/>
                                                                                         <color key="backgroundColor" name="ZTAppDividersUIColor"/>
@@ -5806,7 +5870,7 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                                                                                         </constraints>
                                                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="15"/>
                                                                                         <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="10" maxY="0.0"/>
-                                                                                        <state key="normal" title="English">
+                                                                                        <state key="normal">
                                                                                             <color key="titleColor" name="ZTGradientColor1"/>
                                                                                         </state>
                                                                                     </button>
@@ -5816,12 +5880,14 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                                                                                     <constraint firstAttribute="bottom" secondItem="mJ7-yx-7wG" secondAttribute="bottom" constant="8" id="4dd-PB-5fr"/>
                                                                                     <constraint firstItem="cWj-5T-d1o" firstAttribute="leading" secondItem="EIR-id-w96" secondAttribute="leading" id="8zJ-vi-z7r"/>
                                                                                     <constraint firstAttribute="trailing" secondItem="4If-rc-lQm" secondAttribute="trailing" id="9ls-8b-awL"/>
+                                                                                    <constraint firstItem="xcE-jj-XC2" firstAttribute="centerY" secondItem="LGh-oi-L51" secondAttribute="centerY" id="C8v-bD-o03"/>
                                                                                     <constraint firstAttribute="trailing" secondItem="mJ7-yx-7wG" secondAttribute="trailing" id="D7j-Ls-7sK"/>
                                                                                     <constraint firstItem="LGh-oi-L51" firstAttribute="centerY" secondItem="4If-rc-lQm" secondAttribute="centerY" id="LL9-AO-P1A"/>
                                                                                     <constraint firstItem="LGh-oi-L51" firstAttribute="trailing" secondItem="4If-rc-lQm" secondAttribute="trailing" id="Nch-Yx-tg8"/>
                                                                                     <constraint firstItem="cWj-5T-d1o" firstAttribute="top" secondItem="EIR-id-w96" secondAttribute="top" id="WR4-T2-BQ9"/>
                                                                                     <constraint firstItem="mJ7-yx-7wG" firstAttribute="top" secondItem="cWj-5T-d1o" secondAttribute="bottom" constant="10" id="fea-UU-pUA"/>
                                                                                     <constraint firstItem="4If-rc-lQm" firstAttribute="centerY" secondItem="cWj-5T-d1o" secondAttribute="centerY" id="iXj-qC-y7v"/>
+                                                                                    <constraint firstItem="LGh-oi-L51" firstAttribute="leading" secondItem="xcE-jj-XC2" secondAttribute="trailing" constant="5" id="mXh-Kl-VWg"/>
                                                                                     <constraint firstItem="mJ7-yx-7wG" firstAttribute="leading" secondItem="EIR-id-w96" secondAttribute="leading" id="wku-lr-RFf"/>
                                                                                 </constraints>
                                                                             </view>
@@ -5835,6 +5901,15 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                                                                                         </constraints>
                                                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="15"/>
                                                                                         <color key="textColor" name="ZTTabbarUnSelectedColor"/>
+                                                                                        <nil key="highlightedColor"/>
+                                                                                    </label>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Byo-Vd-K3c">
+                                                                                        <rect key="frame" x="309" y="0.0" width="16" height="35"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" constant="35" id="Jv0-wb-aQt"/>
+                                                                                        </constraints>
+                                                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="15"/>
+                                                                                        <color key="textColor" name="ZTGradientColor1"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="4lT-9P-kAc">
@@ -5852,14 +5927,16 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                                                                                         </constraints>
                                                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="15"/>
                                                                                         <inset key="titleEdgeInsets" minX="8" minY="0.0" maxX="10" maxY="0.0"/>
-                                                                                        <state key="normal" title="All">
+                                                                                        <state key="normal">
                                                                                             <color key="titleColor" name="ZTGradientColor1"/>
                                                                                         </state>
                                                                                     </button>
                                                                                 </subviews>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
+                                                                                    <constraint firstItem="4lT-9P-kAc" firstAttribute="leading" secondItem="Byo-Vd-K3c" secondAttribute="trailing" constant="5" id="6eZ-Xm-rFk"/>
                                                                                     <constraint firstAttribute="bottom" secondItem="sDA-6x-2RU" secondAttribute="bottom" constant="8" id="9aP-X6-0ZF"/>
+                                                                                    <constraint firstItem="Byo-Vd-K3c" firstAttribute="centerY" secondItem="4lT-9P-kAc" secondAttribute="centerY" id="HsJ-4Q-qHU"/>
                                                                                     <constraint firstItem="sDA-6x-2RU" firstAttribute="top" secondItem="fM5-aq-bwB" secondAttribute="top" id="MCN-mo-DVX"/>
                                                                                     <constraint firstAttribute="trailing" secondItem="rzj-DC-IYL" secondAttribute="trailing" id="Uhh-18-uoM"/>
                                                                                     <constraint firstItem="sDA-6x-2RU" firstAttribute="leading" secondItem="fM5-aq-bwB" secondAttribute="leading" id="VIl-m2-b64"/>
@@ -6496,13 +6573,13 @@ We hope you are indoors and in the best of health. Due to these trying times, it
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TnM-nW-Cx3">
-                                <rect key="frame" x="161.66666666666666" y="224" width="52" height="13.666666666666657"/>
+                                <rect key="frame" x="161.66666666666666" y="224" width="52" height="13"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="11"/>
                                 <color key="textColor" name="ZTMovieDetailSubTitle"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p0c-yu-caC">
-                                <rect key="frame" x="16" y="257.66666666666669" width="343" height="520.33333333333326"/>
+                                <rect key="frame" x="16" y="257" width="343" height="521"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" name="ZTMovieDetailSubTitle"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="13"/>
@@ -6619,7 +6696,7 @@ We hope you are indoors and in the best of health. Due to these trying times, it
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="394" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="a4c-ts-1oN">
-                                                <rect key="frame" x="10" y="20" width="355" height="749"/>
+                                                <rect key="frame" x="10" y="10" width="355" height="749"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="wUW-3T-UNa">
                                                         <rect key="frame" x="0.0" y="0.0" width="355" height="749"/>
@@ -6687,7 +6764,7 @@ Details of transaction are included below</string>
                                                                                                                 <rect key="frame" x="25" y="20" width="310" height="77"/>
                                                                                                                 <subviews>
                                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shang-Chi and the Legend…" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNu-d3-giM">
-                                                                                                                        <rect key="frame" x="14" y="8" width="282" height="25"/>
+                                                                                                                        <rect key="frame" x="20" y="8" width="276" height="25"/>
                                                                                                                         <constraints>
                                                                                                                             <constraint firstAttribute="height" constant="25" id="3KX-lp-2Nn"/>
                                                                                                                         </constraints>
@@ -6696,7 +6773,7 @@ Details of transaction are included below</string>
                                                                                                                         <nil key="highlightedColor"/>
                                                                                                                     </label>
                                                                                                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FFB-Xv-O9S">
-                                                                                                                        <rect key="frame" x="13.999999999999986" y="41" width="244.66666666666663" height="15"/>
+                                                                                                                        <rect key="frame" x="19.999999999999986" y="41" width="244.66666666666663" height="15"/>
                                                                                                                         <subviews>
                                                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="English" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Zn-FF-hQO">
                                                                                                                                 <rect key="frame" x="0.0" y="0.0" width="41" height="15"/>
@@ -6775,7 +6852,7 @@ Details of transaction are included below</string>
                                                                                                                         </constraints>
                                                                                                                     </stackView>
                                                                                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jw9-Bi-VOF">
-                                                                                                                        <rect key="frame" x="14" y="66" width="282" height="1"/>
+                                                                                                                        <rect key="frame" x="20" y="66" width="276" height="1"/>
                                                                                                                         <color key="backgroundColor" name="ZTTicketSeperator"/>
                                                                                                                         <constraints>
                                                                                                                             <constraint firstAttribute="height" constant="1" id="gRf-UM-lQe"/>
@@ -6789,7 +6866,7 @@ Details of transaction are included below</string>
                                                                                                                 <constraints>
                                                                                                                     <constraint firstItem="jw9-Bi-VOF" firstAttribute="leading" secondItem="qNu-d3-giM" secondAttribute="leading" id="0c4-eS-H7m"/>
                                                                                                                     <constraint firstItem="qNu-d3-giM" firstAttribute="top" secondItem="xa7-61-ltc" secondAttribute="top" constant="8" id="EnW-rf-Wcp"/>
-                                                                                                                    <constraint firstItem="qNu-d3-giM" firstAttribute="leading" secondItem="xa7-61-ltc" secondAttribute="leading" constant="14" id="KBM-XJ-Kye"/>
+                                                                                                                    <constraint firstItem="qNu-d3-giM" firstAttribute="leading" secondItem="xa7-61-ltc" secondAttribute="leading" constant="20" id="KBM-XJ-Kye"/>
                                                                                                                     <constraint firstAttribute="trailing" secondItem="qNu-d3-giM" secondAttribute="trailing" constant="14" id="KZg-Nn-8dx"/>
                                                                                                                     <constraint firstItem="jw9-Bi-VOF" firstAttribute="top" secondItem="FFB-Xv-O9S" secondAttribute="bottom" constant="10" id="P8X-mB-1g4"/>
                                                                                                                     <constraint firstAttribute="bottom" secondItem="jw9-Bi-VOF" secondAttribute="bottom" constant="10" id="caT-UY-Jiz"/>
@@ -6802,13 +6879,13 @@ Details of transaction are included below</string>
                                                                                                                 <rect key="frame" x="25" y="107" width="310" height="79"/>
                                                                                                                 <subviews>
                                                                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cM3-08-oN4">
-                                                                                                                        <rect key="frame" x="14" y="0.0" width="282" height="40.666666666666664"/>
+                                                                                                                        <rect key="frame" x="20" y="0.0" width="276" height="40.666666666666664"/>
                                                                                                                         <subviews>
                                                                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="KvN-dH-TVh">
-                                                                                                                                <rect key="frame" x="0.0" y="0.0" width="138.66666666666666" height="40.666666666666664"/>
+                                                                                                                                <rect key="frame" x="0.0" y="0.0" width="135.66666666666666" height="40.666666666666664"/>
                                                                                                                                 <subviews>
                                                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5lL-nK-6zj">
-                                                                                                                                        <rect key="frame" x="0.0" y="0.0" width="138.66666666666666" height="15.666666666666666"/>
+                                                                                                                                        <rect key="frame" x="0.0" y="0.0" width="135.66666666666666" height="15.666666666666666"/>
                                                                                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                                                         <constraints>
                                                                                                                                             <constraint firstAttribute="height" constant="15.666666666666666" id="BRJ-N3-7KS"/>
@@ -6818,7 +6895,7 @@ Details of transaction are included below</string>
                                                                                                                                         <nil key="highlightedColor"/>
                                                                                                                                     </label>
                                                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25 Sep 2021 " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TBl-Ae-Wcg">
-                                                                                                                                        <rect key="frame" x="0.0" y="15.666666666666629" width="138.66666666666666" height="25"/>
+                                                                                                                                        <rect key="frame" x="0.0" y="15.666666666666686" width="135.66666666666666" height="25"/>
                                                                                                                                         <constraints>
                                                                                                                                             <constraint firstAttribute="height" constant="25" id="Jel-N3-vYl"/>
                                                                                                                                         </constraints>
@@ -6829,10 +6906,10 @@ Details of transaction are included below</string>
                                                                                                                                 </subviews>
                                                                                                                             </stackView>
                                                                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="PpE-Lu-Rd6">
-                                                                                                                                <rect key="frame" x="143.66666666666663" y="0.0" width="138.33333333333337" height="40.666666666666664"/>
+                                                                                                                                <rect key="frame" x="140.66666666666663" y="0.0" width="135.33333333333337" height="40.666666666666664"/>
                                                                                                                                 <subviews>
                                                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWN-G2-E23">
-                                                                                                                                        <rect key="frame" x="0.0" y="0.0" width="138.33333333333334" height="15.666666666666666"/>
+                                                                                                                                        <rect key="frame" x="0.0" y="0.0" width="135.33333333333334" height="15.666666666666666"/>
                                                                                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                                                         <constraints>
                                                                                                                                             <constraint firstAttribute="height" constant="15.666666666666666" id="8sn-q9-595"/>
@@ -6842,7 +6919,7 @@ Details of transaction are included below</string>
                                                                                                                                         <nil key="highlightedColor"/>
                                                                                                                                     </label>
                                                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="₹65.60" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXa-GA-fAd">
-                                                                                                                                        <rect key="frame" x="0.0" y="15.666666666666629" width="138.33333333333334" height="25"/>
+                                                                                                                                        <rect key="frame" x="0.0" y="15.666666666666686" width="135.33333333333334" height="25"/>
                                                                                                                                         <constraints>
                                                                                                                                             <constraint firstAttribute="height" constant="25" id="V1u-hF-5ok"/>
                                                                                                                                         </constraints>
@@ -6855,7 +6932,7 @@ Details of transaction are included below</string>
                                                                                                                         </subviews>
                                                                                                                     </stackView>
                                                                                                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6P-lE-Bjj">
-                                                                                                                        <rect key="frame" x="14" y="58" width="282" height="1"/>
+                                                                                                                        <rect key="frame" x="20" y="58" width="276" height="1"/>
                                                                                                                         <color key="backgroundColor" name="ZTTicketSeperator"/>
                                                                                                                         <constraints>
                                                                                                                             <constraint firstAttribute="height" constant="1" id="N7Z-RG-UHC"/>
@@ -6868,7 +6945,7 @@ Details of transaction are included below</string>
                                                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                                                 <constraints>
                                                                                                                     <constraint firstItem="s6P-lE-Bjj" firstAttribute="trailing" secondItem="cM3-08-oN4" secondAttribute="trailing" id="OJf-NT-Xb1"/>
-                                                                                                                    <constraint firstItem="cM3-08-oN4" firstAttribute="leading" secondItem="Ayz-hW-7DJ" secondAttribute="leading" constant="14" id="Vyr-cS-T4E"/>
+                                                                                                                    <constraint firstItem="cM3-08-oN4" firstAttribute="leading" secondItem="Ayz-hW-7DJ" secondAttribute="leading" constant="20" id="Vyr-cS-T4E"/>
                                                                                                                     <constraint firstItem="cM3-08-oN4" firstAttribute="top" secondItem="Ayz-hW-7DJ" secondAttribute="top" id="YqG-l3-U3X"/>
                                                                                                                     <constraint firstItem="s6P-lE-Bjj" firstAttribute="top" secondItem="cM3-08-oN4" secondAttribute="bottom" constant="17.333333333333336" id="q4n-Lj-pKE"/>
                                                                                                                     <constraint firstAttribute="trailing" secondItem="cM3-08-oN4" secondAttribute="trailing" constant="14" id="rF6-Yc-jCW"/>
@@ -6954,8 +7031,8 @@ Details of transaction are included below</string>
                                                                                                         <color key="textColor" name="ZTTabbarUnSelectedColor"/>
                                                                                                         <nil key="highlightedColor"/>
                                                                                                     </label>
-                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payed By" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4H-5I-V31">
-                                                                                                        <rect key="frame" x="14" y="16" width="68.333333333333329" height="35"/>
+                                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paid By" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4H-5I-V31">
+                                                                                                        <rect key="frame" x="13.999999999999996" y="16" width="54.666666666666657" height="35"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="height" constant="35" id="m17-BM-nkD"/>
                                                                                                         </constraints>
@@ -7100,7 +7177,7 @@ Details of transaction are included below</string>
                                         <color key="backgroundColor" name="ZTBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="a4c-ts-1oN" firstAttribute="leading" secondItem="Sr0-Jh-qke" secondAttribute="leading" constant="10" id="44n-he-cWx"/>
-                                            <constraint firstItem="a4c-ts-1oN" firstAttribute="top" secondItem="Sr0-Jh-qke" secondAttribute="top" constant="20" id="RXD-in-9lp"/>
+                                            <constraint firstItem="a4c-ts-1oN" firstAttribute="top" secondItem="Sr0-Jh-qke" secondAttribute="top" constant="10" id="RXD-in-9lp"/>
                                             <constraint firstAttribute="trailing" secondItem="a4c-ts-1oN" secondAttribute="trailing" constant="10" id="ckJ-tT-AkG"/>
                                         </constraints>
                                     </view>
@@ -7165,6 +7242,7 @@ Details of transaction are included below</string>
                     <navigationItem key="navigationItem" id="RAG-Ek-L9R"/>
                     <connections>
                         <outlet property="lblBookingDate" destination="TBl-Ae-Wcg" id="QUU-57-hgY"/>
+                        <outlet property="lblBookingPrice" destination="vXa-GA-fAd" id="o1F-qr-foo"/>
                         <outlet property="lblMovieAge" destination="H23-px-naP" id="YQl-sC-sMA"/>
                         <outlet property="lblMovieDuration" destination="EBB-VA-0o9" id="tGi-uf-zwb"/>
                         <outlet property="lblMovieLanguage" destination="4Zn-FF-hQO" id="8sq-Wt-ZBk"/>
@@ -7182,11 +7260,86 @@ Details of transaction are included below</string>
         </scene>
     </scenes>
     <designables>
+        <designable name="0O7-x4-cUy">
+            <size key="intrinsicContentSize" width="127.33333333333333" height="19.333333333333332"/>
+        </designable>
+        <designable name="3mV-Ks-slS">
+            <size key="intrinsicContentSize" width="72.666666666666671" height="19.333333333333332"/>
+        </designable>
+        <designable name="7n3-hD-Wis">
+            <size key="intrinsicContentSize" width="89" height="19.333333333333332"/>
+        </designable>
+        <designable name="C2q-yy-acN">
+            <size key="intrinsicContentSize" width="73.333333333333329" height="19.333333333333332"/>
+        </designable>
+        <designable name="Cld-4y-Cu1">
+            <size key="intrinsicContentSize" width="42.666666666666664" height="19.333333333333332"/>
+        </designable>
+        <designable name="Cma-Gc-Ejj">
+            <size key="intrinsicContentSize" width="151.66666666666666" height="19.333333333333332"/>
+        </designable>
+        <designable name="DpG-h4-Tt2">
+            <size key="intrinsicContentSize" width="32.333333333333336" height="19.333333333333332"/>
+        </designable>
+        <designable name="Elz-Nh-aWc">
+            <size key="intrinsicContentSize" width="180.33333333333334" height="19.333333333333332"/>
+        </designable>
+        <designable name="Grc-Tq-ymU">
+            <size key="intrinsicContentSize" width="81" height="19.333333333333332"/>
+        </designable>
+        <designable name="I6p-8O-X2e">
+            <size key="intrinsicContentSize" width="179.66666666666666" height="19.333333333333332"/>
+        </designable>
+        <designable name="PLU-2u-8Fj">
+            <size key="intrinsicContentSize" width="30.666666666666668" height="19.333333333333332"/>
+        </designable>
+        <designable name="UOC-Yk-1tB">
+            <size key="intrinsicContentSize" width="96.333333333333329" height="19.333333333333332"/>
+        </designable>
+        <designable name="Ucr-Kk-9wU">
+            <size key="intrinsicContentSize" width="101.66666666666667" height="19.333333333333332"/>
+        </designable>
         <designable name="Yyi-GV-lJS">
             <size key="intrinsicContentSize" width="170" height="30"/>
         </designable>
         <designable name="aHf-wu-Y66">
             <size key="intrinsicContentSize" width="99" height="33"/>
+        </designable>
+        <designable name="bqr-bR-V7o">
+            <size key="intrinsicContentSize" width="64" height="19.333333333333332"/>
+        </designable>
+        <designable name="cq4-Ed-QwR">
+            <size key="intrinsicContentSize" width="37" height="19.333333333333332"/>
+        </designable>
+        <designable name="d9k-wD-560">
+            <size key="intrinsicContentSize" width="178.66666666666666" height="19.333333333333332"/>
+        </designable>
+        <designable name="fs8-Tj-L4M">
+            <size key="intrinsicContentSize" width="101.66666666666667" height="19.333333333333332"/>
+        </designable>
+        <designable name="ips-aU-Ut8">
+            <size key="intrinsicContentSize" width="78" height="19.333333333333332"/>
+        </designable>
+        <designable name="jNv-tP-NNY">
+            <size key="intrinsicContentSize" width="45.333333333333336" height="19.333333333333332"/>
+        </designable>
+        <designable name="mFp-Bx-O7w">
+            <size key="intrinsicContentSize" width="190.66666666666666" height="19.333333333333332"/>
+        </designable>
+        <designable name="nTP-GY-6dG">
+            <size key="intrinsicContentSize" width="113" height="19.333333333333332"/>
+        </designable>
+        <designable name="pSW-Ys-6My">
+            <size key="intrinsicContentSize" width="50" height="19.333333333333332"/>
+        </designable>
+        <designable name="vc0-kS-srn">
+            <size key="intrinsicContentSize" width="40" height="19.333333333333332"/>
+        </designable>
+        <designable name="xqv-Xk-kEl">
+            <size key="intrinsicContentSize" width="78.666666666666671" height="19.333333333333332"/>
+        </designable>
+        <designable name="yTa-oK-bFl">
+            <size key="intrinsicContentSize" width="98.666666666666671" height="19.333333333333332"/>
         </designable>
     </designables>
     <resources>
@@ -7194,6 +7347,7 @@ Details of transaction are included below</string>
         <image name="app_logo" width="248.66667175292969" height="130.66667175292969"/>
         <image name="arrow_down" width="22.666666030883789" height="14"/>
         <image name="arrow_right" width="14" height="22.666666030883789"/>
+        <image name="bg_exclusive" width="137.33332824707031" height="32"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="dummy_profile" width="117" height="117"/>
         <image name="header_logo" width="178.66667175292969" height="24"/>

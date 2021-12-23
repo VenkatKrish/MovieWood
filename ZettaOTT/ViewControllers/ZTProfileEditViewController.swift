@@ -202,7 +202,7 @@ extension ZTProfileEditViewController : FPNTextFieldDelegate{
 
         listController.setup(repository: txtFieldPhone.countryRepository)
        
-        self.txtFieldPhone.setFlag(countryCode: FPNCountryCode(rawValue: currentCountry) ?? .IN)
+        self.txtFieldPhone.setFlag(countryCode:.IN)
 
         listController.didSelect = { [weak self] country in
             self?.txtFieldPhone.setFlag(countryCode: country.code)

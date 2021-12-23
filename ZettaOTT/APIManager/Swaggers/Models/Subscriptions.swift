@@ -28,8 +28,10 @@ public struct Subscriptions: Codable {
     public var subValue: Double?
     public var uom: String?
     public var versionNumber: Int64?
-
-    public init(active: String?, createdBy: String?, createdOn: Date?, _description: String?, _id: Int64?, lastUpdateLogin: String?, modifiedBy: String?, modifiedOn: Date?, name: String?, ordering: Int64?, promoColor: String?, promoLabel: String?, subDuration: Double?, subGroupId: Int64?, subValue: Double?, uom: String?, versionNumber: Int64?) {
+    public var subsKey: String?
+    public var subsBackgroundColor: String?
+    
+    public init(active: String?, createdBy: String?, createdOn: Date?, _description: String?, _id: Int64?, lastUpdateLogin: String?, modifiedBy: String?, modifiedOn: Date?, name: String?, ordering: Int64?, promoColor: String?, promoLabel: String?, subDuration: Double?, subGroupId: Int64?, subValue: Double?, uom: String?, versionNumber: Int64?, subsKey: String?, subsBackgroundColor: String?) {
         self.active = active
         self.createdBy = createdBy
         self.createdOn = createdOn
@@ -47,6 +49,8 @@ public struct Subscriptions: Codable {
         self.subValue = subValue
         self.uom = uom
         self.versionNumber = versionNumber
+        self.subsKey = subsKey
+        self.subsBackgroundColor = subsBackgroundColor
     }
 
     public enum CodingKeys: String, CodingKey { 
@@ -67,8 +71,8 @@ public struct Subscriptions: Codable {
         case subValue
         case uom
         case versionNumber
+        case subsKey
+        case subsBackgroundColor
     }
-
-
 }
 

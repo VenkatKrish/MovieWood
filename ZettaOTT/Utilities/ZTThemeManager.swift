@@ -23,6 +23,8 @@ let ZTAppProfileBorder = "ZTAppProfileBorder"
 let ZTReviewPageGreyColor = "ZTReviewPageGreyColor"
 let ZTSuccessColor = "ZTSuccessColor"
 let ZTFailureColor = "ZTFailureColor"
+let ZTAppWhiteColor = "ZTAppWhiteColor"
+let ZTPaymentNewColor = "ZTPaymentNewColor"
 
 class ThemeManager: NSObject {
     
