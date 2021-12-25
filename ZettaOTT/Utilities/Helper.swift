@@ -23,12 +23,65 @@ class Helper: NSObject {
     var snackBar : TTGSnackbar? = nil
     var helperDelegate : HelperMethodsDelegate!
     var noRecordsView = NoRecordsView()
-    
+    var imgMaxLimit:Double = 10.0
+    var videoMaxLimit:Double = 200.0
     class var shared: Helper {
         struct Static {
             static let instance: Helper = Helper()
         }
         return Static.instance
+    }
+    func getGenderKey(value:String) -> String{
+        switch value.lowercased() {
+        case "Male".lowercased():
+            return "M"
+        case "Female".lowercased():
+            return "F"
+        case "Others".lowercased():
+            return "O"
+        default:
+            return "O"
+        }
+    }
+    func showFileSizeExceedAlert(contentType:Int){
+        var messageStr:String = ""
+        if contentType == GlobalMediaType.image.rawValue{
+            messageStr = String(format: "This file exceeds the %d MB max file size", Int(imgMaxLimit))
+        }else{
+            messageStr = String(format: "This file exceeds the %d MB max file size", Int(videoMaxLimit))
+
+        }
+        let alertButtonData1: AUAlertButtonModel = AUAlertButtonModel.init(actionTitle: "Ok", actionStyle: .cancel, index: 0)
+               let alertData: AUAlertModel;
+               
+        alertData = AUAlertModel.init(title: "", message: messageStr, buttonModels: [alertButtonData1], style: .alert, controller: UIApplication.topViewController()!)
+               
+               AUAlertHandler.showAlertView(alertData: alertData, handler: {[unowned self] (index) in
+                   print(index)
+                   switch(index){
+                   case 0:
+                    
+                       break
+                  
+                   default:
+                       break
+                   }
+               })
+    }
+    func isImageOrVideoValid(contentType:Int, dataVal:Data, successBlock: @escaping kimageVideoSuccessBlock){
+        if contentType == GlobalMediaType.image.rawValue{
+            if dataVal.getSizeIn(.megabyte) <= imgMaxLimit{
+                successBlock(true)
+            }else{
+                successBlock(false)
+            }
+        }else{
+           if dataVal.getSizeIn(.megabyte) <= videoMaxLimit{
+                successBlock(true)
+            }else{
+                successBlock(false)
+            }
+        }
     }
     func getFormatedDate(dateVal:Date, dateFormat: String) -> String {
         let dateFormatter = DateFormatter()
@@ -115,6 +168,23 @@ class Helper: NSObject {
             }
         
         
+    }
+    func showAlertDialog(title: String!, subtitle: String? = "", type: AlertViewType!, okButtonTitle: String!, cancelButtonTitle: String? = ""){
+      
+        let vc  = UIApplication.topViewController()
+        if vc is ZTCustomAlertViewController{
+            vc?.dismiss(animated: false, completion: nil)
+        }
+            let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
+            let viewController = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTCustomAlertViewController) as! ZTCustomAlertViewController
+            viewController.titleText =  title
+        viewController.subTitle = subtitle ?? ""
+        viewController.okButtonTitle = okButtonTitle
+        viewController.cancelButtonTitle = cancelButtonTitle ?? ""
+        viewController.alertType = type
+        viewController.modalPresentationStyle = .overFullScreen
+        viewController.modalTransitionStyle = .crossDissolve
+        vc?.present(viewController, animated: true, completion: nil)
     }
 }
 
@@ -474,5 +544,32 @@ extension UIView {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         screenShotImage = image
         UIGraphicsEndImageContext()
+    }
+}
+extension Data {
+
+    public enum DataUnits: String {
+        case byte, kilobyte, megabyte, gigabyte
+    }
+
+    func getSizeIn(_ type: DataUnits)-> Double {
+
+        if self.count <= 0{
+            return 0
+        }
+        var size: Double = 0.0
+
+        switch type {
+        case .byte:
+            size = Double(self.count)
+        case .kilobyte:
+            size = Double(self.count) / 1024
+        case .megabyte:
+            size = Double(self.count) / 1024 / 1024
+        case .gigabyte:
+            size = Double(self.count) / 1024 / 1024 / 1024
+        }
+
+        return size//String(format: "%.2f", size)
     }
 }

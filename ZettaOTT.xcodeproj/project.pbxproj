@@ -130,6 +130,8 @@
 		393F17D22712008A005713E1 /* ZTProfileFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 393F17D02712008A005713E1 /* ZTProfileFooter.swift */; };
 		393F17D32712008A005713E1 /* ZTProfileFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 393F17D12712008A005713E1 /* ZTProfileFooter.xib */; };
 		3944E9182771141500B1706A /* OrderConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3944E9172771141500B1706A /* OrderConfirmation.swift */; };
+		3951B77E277780A600212697 /* ZTCustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3951B77D277780A500212697 /* ZTCustomAlertViewController.swift */; };
+		3951B780277788EB00212697 /* AUAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3951B77F277788EB00212697 /* AUAlertController.swift */; };
 		3957BC2627510800002AC22D /* ZTPaymentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3957BC2527510800002AC22D /* ZTPaymentsViewController.swift */; };
 		3957BC2B27511CAE002AC22D /* ZTMyTransactionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3957BC2927511CAE002AC22D /* ZTMyTransactionsTableViewCell.swift */; };
 		3957BC2C27511CAE002AC22D /* ZTMyTransactionsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3957BC2A27511CAE002AC22D /* ZTMyTransactionsTableViewCell.xib */; };
@@ -475,6 +477,8 @@
 		393F17D02712008A005713E1 /* ZTProfileFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTProfileFooter.swift; sourceTree = "<group>"; };
 		393F17D12712008A005713E1 /* ZTProfileFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTProfileFooter.xib; sourceTree = "<group>"; };
 		3944E9172771141500B1706A /* OrderConfirmation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderConfirmation.swift; sourceTree = "<group>"; };
+		3951B77D277780A500212697 /* ZTCustomAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZTCustomAlertViewController.swift; sourceTree = "<group>"; };
+		3951B77F277788EB00212697 /* AUAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AUAlertController.swift; sourceTree = "<group>"; };
 		3957BC2527510800002AC22D /* ZTPaymentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTPaymentsViewController.swift; sourceTree = "<group>"; };
 		3957BC2927511CAE002AC22D /* ZTMyTransactionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTMyTransactionsTableViewCell.swift; sourceTree = "<group>"; };
 		3957BC2A27511CAE002AC22D /* ZTMyTransactionsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTMyTransactionsTableViewCell.xib; sourceTree = "<group>"; };
@@ -845,6 +849,7 @@
 				3957BC3F275153B2002AC22D /* ZTAboutViewController.swift */,
 				3957BC4127515CE4002AC22D /* ZTTickerConfirmationViewController.swift */,
 				39B474A627568580006AE63B /* ZTLanguageViewController.swift */,
+				3951B77D277780A500212697 /* ZTCustomAlertViewController.swift */,
 				39E7B5BC2757BEB700A76BC5 /* ZTMoviePlayerViewController.swift */,
 				398FBA18275DF746005E78E3 /* ZTUpcomingViewController.swift */,
 				398FBA1A275DF754005E78E3 /* ZTWebseriesViewController.swift */,
@@ -864,6 +869,7 @@
 		390D14D327062C1F00C51259 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				3951B77F277788EB00212697 /* AUAlertController.swift */,
 				398EA7B927709EA600D26712 /* InAppPurchase */,
 				3915786227637D09004F51FF /* SnapKit */,
 				391577F827637BCB004F51FF /* BMPlayer */,
@@ -1517,6 +1523,7 @@
 				3915784A27637BCB004F51FF /* NVActivityIndicatorAnimationAudioEqualizer.swift in Sources */,
 				39EBD3B7273C007C00BEE73A /* UserControllerAPI.swift in Sources */,
 				39B86D1F275BDDE10000D2CF /* ZTLanguageTableViewCell.swift in Sources */,
+				3951B77E277780A600212697 /* ZTCustomAlertViewController.swift in Sources */,
 				3957BC2B27511CAE002AC22D /* ZTMyTransactionsTableViewCell.swift in Sources */,
 				391578A327637D0A004F51FF /* ConstraintItem.swift in Sources */,
 				39F64000273D51A600549A25 /* CommonRequest.swift in Sources */,
@@ -1631,6 +1638,7 @@
 				39EBD365273C003800BEE73A /* PageMoviePaymentStatus.swift in Sources */,
 				39EBD37C273C003800BEE73A /* PlayMovieRequest.swift in Sources */,
 				39EBD37D273C003800BEE73A /* Movies.swift in Sources */,
+				3951B780277788EB00212697 /* AUAlertController.swift in Sources */,
 				39EBD267273BFDA000BEE73A /* AlamofireImplementations.swift in Sources */,
 				39EBD3D6273C007C00BEE73A /* DashboardControllerAPI.swift in Sources */,
 				3915784927637BCB004F51FF /* NVActivityIndicatorAnimationCircleStrokeSpin.swift in Sources */,

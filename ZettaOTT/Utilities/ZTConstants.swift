@@ -129,6 +129,8 @@ class ZTControllerName{
     static let ZTRatingsReviewsViewController = "ZTRatingsReviewsViewController"
     static let ZTWriteAReviewViewController = "ZTWriteAReviewViewController"
     static let ZTTickerConfirmationViewController = "ZTTickerConfirmationViewController"
+    static let ZTCustomAlertViewController = "ZTCustomAlertViewController"
+
     
 }
 class moviesKeyUI {
@@ -153,5 +155,15 @@ class ZTUserDefaultKeys {
 class CustomDateFormatter{
     static let transactionDate = "dd MM"
     static let orderRequestDate = "dd-MM-yyyy hh:mm:ss a"
+}
+class AlertTitle{
+    static let logoutTitle = "Logout"
+}
+class AlertDescrition{
+    static let logoutDesc = "Do you want to logout?"
+}
+class AlertButtons{
+    static let YES = "YES"
+    static let CANCEL = "Cancel"
 }
 

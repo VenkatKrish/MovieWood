@@ -47,9 +47,19 @@ extension ZTLanguageViewController: UITableViewDelegate, UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ZTLanguageTableViewCell = tableView.dequeueReusableCell(withIdentifier: ZTCellNameOrIdentifier.ZTLanguageTableViewCell, for: indexPath) as! ZTLanguageTableViewCell
+        if ZTAppSession.sharedInstance.getMovieLanguage() == self.languages?[indexPath.row].languageId{
+            cell.vwChecked.isHidden = true
+        }else{
+            cell.vwChecked.isHidden = true
+        }
         cell.lblLanguageName.text = self.languages?[indexPath.row].languageName ?? ""
-        cell.vwChecked.isHidden = true
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let val = self.languages?[indexPath.row]{
+            ZTAppSession.sharedInstance.setMovieLanguage(val.languageId ?? -1)
+        }
+        self.tblHome.reloadData()
     }
     
     

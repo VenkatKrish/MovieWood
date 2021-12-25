@@ -797,7 +797,7 @@ verification code we’ve sent on given number</string>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTk-rS-Fwy">
-                                        <rect key="frame" x="149.66666666666666" y="9.6666666666666661" width="75.666666666666657" height="24.666666666666671"/>
+                                        <rect key="frame" x="150.33333333333334" y="9.3333333333333339" width="74.666666666666657" height="25.333333333333329"/>
                                         <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="21"/>
                                         <color key="textColor" name="ZTAppBlackColor"/>
                                         <nil key="highlightedColor"/>
@@ -1190,16 +1190,16 @@ verification code we’ve sent on given number</string>
                                         </state>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cUs-xx-g18">
-                                        <rect key="frame" x="138.33333333333334" y="10" width="98.333333333333343" height="40"/>
+                                        <rect key="frame" x="138.33333333333334" y="9.6666666666666643" width="98.333333333333343" height="41"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vC7-1k-Obj" userLabel="Movie Info">
-                                                <rect key="frame" x="0.0" y="0.0" width="98.333333333333329" height="15.333333333333334"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="98.333333333333329" height="15.666666666666666"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="13"/>
                                                 <color key="textColor" name="ZTGradientColor2"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Za4-4G-Xzp" userLabel="Movie Info">
-                                                <rect key="frame" x="0.0" y="15.33333333333333" width="98.333333333333329" height="24.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="15.666666666666663" width="98.333333333333329" height="25.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="21"/>
                                                 <color key="textColor" name="ZTAppBlackColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1796,16 +1796,16 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                         </state>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VqF-zN-xvk">
-                                        <rect key="frame" x="129" y="10" width="117.33333333333331" height="40"/>
+                                        <rect key="frame" x="127.66666666666669" y="9.6666666666666643" width="120" height="41"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Zk-O5-eBi" userLabel="Movie Info">
-                                                <rect key="frame" x="0.0" y="0.0" width="117.33333333333333" height="15.333333333333334"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="15.666666666666666"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="13"/>
                                                 <color key="textColor" name="ZTGradientColor2"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Declarations" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJ2-I9-nVo" userLabel="Movie Info">
-                                                <rect key="frame" x="0.0" y="15.33333333333333" width="117.33333333333333" height="24.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="15.666666666666663" width="120" height="25.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="21"/>
                                                 <color key="textColor" name="ZTAppBlackColor"/>
                                                 <nil key="highlightedColor"/>
@@ -2050,16 +2050,16 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                         </state>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qET-a8-2E2">
-                                        <rect key="frame" x="129.66666666666666" y="10" width="116" height="40"/>
+                                        <rect key="frame" x="129" y="9.6666666666666643" width="117.33333333333331" height="41"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Step 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="st7-Bz-tq4" userLabel="Movie Info">
-                                                <rect key="frame" x="0.0" y="0.0" width="116" height="15.333333333333334"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="117.33333333333333" height="15.666666666666666"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="13"/>
                                                 <color key="textColor" name="ZTGradientColor2"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kot-9R-EBG" userLabel="Movie Info">
-                                                <rect key="frame" x="0.0" y="15.33333333333333" width="116" height="24.666666666666671"/>
+                                                <rect key="frame" x="0.0" y="15.666666666666663" width="117.33333333333333" height="25.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="21"/>
                                                 <color key="textColor" name="ZTAppBlackColor"/>
                                                 <nil key="highlightedColor"/>
@@ -2506,7 +2506,7 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zf6-R6-uje">
                                                                                 <rect key="frame" x="103" y="20" width="117" height="117"/>
                                                                                 <subviews>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummy_profile" translatesAutoresizingMaskIntoConstraints="NO" id="qMl-12-P6O" customClass="ZTCircularImageView" customModule="ZettaOTT" customModuleProvider="target">
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place_holder" translatesAutoresizingMaskIntoConstraints="NO" id="qMl-12-P6O" customClass="ZTCircularImageView" customModule="ZettaOTT" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="117" height="117"/>
                                                                                     </imageView>
                                                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ej-1j-ziA">
@@ -2624,7 +2624,7 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                                                                                     <outlet property="delegate" destination="ANj-2P-VfJ" id="0OM-JS-EUa"/>
                                                                                                 </connections>
                                                                                             </textField>
-                                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="DOB" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DpG-h4-Tt2" customClass="ZTCustomTextField" customModule="ZettaOTT" customModuleProvider="target">
+                                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DpG-h4-Tt2" customClass="ZTCustomTextField" customModule="ZettaOTT" customModuleProvider="target">
                                                                                                 <rect key="frame" x="166.66666666666663" y="0.0" width="156.33333333333337" height="45"/>
                                                                                                 <color key="textColor" name="ZTAppSeperatorColor"/>
                                                                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="15"/>
@@ -2745,10 +2745,10 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xNb-GK-q9q">
-                                        <rect key="frame" x="136.66666666666666" y="15.333333333333337" width="101.66666666666666" height="24.666666666666671"/>
+                                        <rect key="frame" x="136.66666666666666" y="14.999999999999998" width="101.66666666666666" height="25.333333333333329"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKp-lW-22b" userLabel="Movie Info">
-                                                <rect key="frame" x="0.0" y="0.0" width="101.66666666666667" height="24.666666666666668"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="101.66666666666667" height="25.333333333333332"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="21"/>
                                                 <color key="textColor" name="ZTAppBlackColor"/>
                                                 <nil key="highlightedColor"/>
@@ -7258,88 +7258,217 @@ Details of transaction are included below</string>
             </objects>
             <point key="canvasLocation" x="570" y="-1142"/>
         </scene>
+        <!--Custom Alert View Controller-->
+        <scene sceneID="ykA-6J-MIf">
+            <objects>
+                <viewController storyboardIdentifier="ZTCustomAlertViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="oat-Ua-tX7" customClass="ZTCustomAlertViewController" customModule="ZettaOTT" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pSk-4t-7pL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kPO-5z-uIG">
+                                <rect key="frame" x="40" y="323.33333333333331" width="295" height="175.33333333333331"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="av6-jo-2uC" customClass="ZTCornerRadiusView" customModule="ZettaOTT" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="170.33333333333334"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="PVd-hy-Tyu">
+                                                <rect key="frame" x="0.0" y="30" width="295" height="140.33333333333334"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="86n-CK-9OC">
+                                                        <rect key="frame" x="0.0" y="0.0" width="295" height="20.333333333333332"/>
+                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Medium" family="SF UI Display" pointSize="17"/>
+                                                        <color key="textColor" name="ZTAppBlackColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="you_are_caughtup"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="900" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VvU-jx-xox">
+                                                        <rect key="frame" x="0.0" y="36.333333333333371" width="295" height="27"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" priority="800" constant="27" id="L0o-GI-Lo3"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="13"/>
+                                                        <color key="textColor" name="ZTAppDividersUIColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0RK-PS-kaI">
+                                                        <rect key="frame" x="0.0" y="79.333333333333371" width="295" height="61"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOg-8D-mNx">
+                                                                <rect key="frame" x="0.0" y="0.0" width="295" height="1"/>
+                                                                <color key="backgroundColor" name="AppGreyBackGroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="1" id="SKa-ug-5JK"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="W1q-td-2oV">
+                                                                <rect key="frame" x="0.0" y="1" width="295" height="60"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fa-FZ-7Zk">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="147.66666666666666" height="60"/>
+                                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="17"/>
+                                                                        <state key="normal" title="Cancel">
+                                                                            <color key="titleColor" name="ZTAppDividersUIColor"/>
+                                                                        </state>
+                                                                        <connections>
+                                                                            <action selector="cancelButtonTapped:" destination="oat-Ua-tX7" eventType="touchUpInside" id="ySS-gi-xyP"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5S1-pW-BNx">
+                                                                        <rect key="frame" x="147.66666666666663" y="0.0" width="147.33333333333337" height="60"/>
+                                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="17"/>
+                                                                        <state key="normal" title="OK">
+                                                                            <color key="titleColor" name="ZTAppDividersUIColor"/>
+                                                                        </state>
+                                                                        <connections>
+                                                                            <action selector="okButtonTapped:" destination="oat-Ua-tX7" eventType="touchUpInside" id="gxj-I4-yDn"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="60" id="1Zl-yS-biQ"/>
+                                                                </constraints>
+                                                            </stackView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstItem="wOg-8D-mNx" firstAttribute="leading" secondItem="0RK-PS-kaI" secondAttribute="leading" id="CKr-ZF-bN1"/>
+                                                            <constraint firstAttribute="trailing" secondItem="wOg-8D-mNx" secondAttribute="trailing" id="Gg9-wO-OUY"/>
+                                                            <constraint firstItem="wOg-8D-mNx" firstAttribute="top" secondItem="0RK-PS-kaI" secondAttribute="top" id="H2w-ZT-mSx"/>
+                                                            <constraint firstAttribute="bottom" secondItem="W1q-td-2oV" secondAttribute="bottom" id="Lmt-mA-mXi"/>
+                                                            <constraint firstItem="W1q-td-2oV" firstAttribute="top" secondItem="wOg-8D-mNx" secondAttribute="bottom" id="RUS-UY-1Y7"/>
+                                                            <constraint firstAttribute="trailing" secondItem="W1q-td-2oV" secondAttribute="trailing" id="git-LH-Kh6"/>
+                                                            <constraint firstItem="W1q-td-2oV" firstAttribute="leading" secondItem="0RK-PS-kaI" secondAttribute="leading" id="nEw-an-7f2"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" name="ZTFormBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="PVd-hy-Tyu" firstAttribute="top" secondItem="av6-jo-2uC" secondAttribute="top" constant="30" id="Bm0-W2-aGZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="PVd-hy-Tyu" secondAttribute="bottom" id="RXC-Wx-4lC"/>
+                                            <constraint firstItem="PVd-hy-Tyu" firstAttribute="leading" secondItem="av6-jo-2uC" secondAttribute="leading" id="S62-9P-oFy"/>
+                                            <constraint firstAttribute="trailing" secondItem="PVd-hy-Tyu" secondAttribute="trailing" id="klQ-DD-a6W"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="av6-jo-2uC" secondAttribute="bottom" constant="5" id="1yY-uj-A1X"/>
+                                    <constraint firstItem="av6-jo-2uC" firstAttribute="leading" secondItem="kPO-5z-uIG" secondAttribute="leading" id="Cxp-6a-uPr"/>
+                                    <constraint firstItem="av6-jo-2uC" firstAttribute="top" secondItem="kPO-5z-uIG" secondAttribute="top" id="Vf5-Ge-JKD"/>
+                                    <constraint firstAttribute="trailing" secondItem="av6-jo-2uC" secondAttribute="trailing" id="uKs-pw-nct"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cn6-te-LNJ"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kPO-5z-uIG" firstAttribute="leading" secondItem="cn6-te-LNJ" secondAttribute="leading" constant="40" id="5Sd-SV-hko"/>
+                            <constraint firstItem="cn6-te-LNJ" firstAttribute="trailing" secondItem="kPO-5z-uIG" secondAttribute="trailing" constant="40" id="9VS-qu-5so"/>
+                            <constraint firstItem="kPO-5z-uIG" firstAttribute="centerX" secondItem="cn6-te-LNJ" secondAttribute="centerX" id="HyS-S9-ktX"/>
+                            <constraint firstItem="kPO-5z-uIG" firstAttribute="centerY" secondItem="cn6-te-LNJ" secondAttribute="centerY" id="cLk-ca-qZb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="1fa-FZ-7Zk" id="eHq-vS-rOt"/>
+                        <outlet property="okButton" destination="5S1-pW-BNx" id="iUa-cK-VxL"/>
+                        <outlet property="subtitleLabel" destination="VvU-jx-xox" id="ZWI-bg-XbX"/>
+                        <outlet property="titleLabel" destination="86n-CK-9OC" id="ldH-EG-jCM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UAc-Kq-l7y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1167" y="-1380"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="0O7-x4-cUy">
-            <size key="intrinsicContentSize" width="127.33333333333333" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="125.66666666666667" height="19.666666666666668"/>
         </designable>
         <designable name="3mV-Ks-slS">
-            <size key="intrinsicContentSize" width="72.666666666666671" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="70" height="19.666666666666668"/>
         </designable>
         <designable name="7n3-hD-Wis">
-            <size key="intrinsicContentSize" width="89" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="88.333333333333329" height="19.666666666666668"/>
         </designable>
         <designable name="C2q-yy-acN">
-            <size key="intrinsicContentSize" width="73.333333333333329" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="70" height="19.666666666666668"/>
         </designable>
         <designable name="Cld-4y-Cu1">
-            <size key="intrinsicContentSize" width="42.666666666666664" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="43" height="19.666666666666668"/>
         </designable>
         <designable name="Cma-Gc-Ejj">
-            <size key="intrinsicContentSize" width="151.66666666666666" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="146.33333333333334" height="19.666666666666668"/>
         </designable>
         <designable name="DpG-h4-Tt2">
-            <size key="intrinsicContentSize" width="32.333333333333336" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="26" height="19.666666666666668"/>
         </designable>
         <designable name="Elz-Nh-aWc">
-            <size key="intrinsicContentSize" width="180.33333333333334" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="175.66666666666666" height="19.666666666666668"/>
         </designable>
         <designable name="Grc-Tq-ymU">
-            <size key="intrinsicContentSize" width="81" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="78.333333333333329" height="19.666666666666668"/>
         </designable>
         <designable name="I6p-8O-X2e">
-            <size key="intrinsicContentSize" width="179.66666666666666" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="177" height="19.666666666666668"/>
         </designable>
         <designable name="PLU-2u-8Fj">
-            <size key="intrinsicContentSize" width="30.666666666666668" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="31" height="19.666666666666668"/>
         </designable>
         <designable name="UOC-Yk-1tB">
-            <size key="intrinsicContentSize" width="96.333333333333329" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="91.666666666666671" height="19.666666666666668"/>
         </designable>
         <designable name="Ucr-Kk-9wU">
-            <size key="intrinsicContentSize" width="101.66666666666667" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="99" height="19.666666666666668"/>
         </designable>
         <designable name="Yyi-GV-lJS">
             <size key="intrinsicContentSize" width="170" height="30"/>
         </designable>
         <designable name="aHf-wu-Y66">
-            <size key="intrinsicContentSize" width="99" height="33"/>
+            <size key="intrinsicContentSize" width="99" height="19.666666666666668"/>
         </designable>
         <designable name="bqr-bR-V7o">
-            <size key="intrinsicContentSize" width="64" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="62" height="19.666666666666668"/>
         </designable>
         <designable name="cq4-Ed-QwR">
-            <size key="intrinsicContentSize" width="37" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="37.666666666666664" height="19.666666666666668"/>
         </designable>
         <designable name="d9k-wD-560">
-            <size key="intrinsicContentSize" width="178.66666666666666" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="172.66666666666666" height="19.666666666666668"/>
         </designable>
         <designable name="fs8-Tj-L4M">
-            <size key="intrinsicContentSize" width="101.66666666666667" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="99" height="19.666666666666668"/>
         </designable>
         <designable name="ips-aU-Ut8">
-            <size key="intrinsicContentSize" width="78" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="77" height="19.666666666666668"/>
         </designable>
         <designable name="jNv-tP-NNY">
-            <size key="intrinsicContentSize" width="45.333333333333336" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="46" height="19.666666666666668"/>
         </designable>
         <designable name="mFp-Bx-O7w">
-            <size key="intrinsicContentSize" width="190.66666666666666" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="184" height="19.666666666666668"/>
         </designable>
         <designable name="nTP-GY-6dG">
-            <size key="intrinsicContentSize" width="113" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="111.33333333333333" height="19.666666666666668"/>
         </designable>
         <designable name="pSW-Ys-6My">
-            <size key="intrinsicContentSize" width="50" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="48.333333333333336" height="19.666666666666668"/>
         </designable>
         <designable name="vc0-kS-srn">
-            <size key="intrinsicContentSize" width="40" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="38.666666666666664" height="19.666666666666668"/>
         </designable>
         <designable name="xqv-Xk-kEl">
-            <size key="intrinsicContentSize" width="78.666666666666671" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="77.333333333333329" height="19.666666666666668"/>
         </designable>
         <designable name="yTa-oK-bFl">
-            <size key="intrinsicContentSize" width="98.666666666666671" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="94.666666666666671" height="19.666666666666668"/>
         </designable>
     </designables>
     <resources>
@@ -7387,7 +7516,11 @@ Details of transaction are included below</string>
         <image name="logo_razorpay" width="105.66666412353516" height="42"/>
         <image name="movie_submit" width="206.66667175292969" height="200.66667175292969"/>
         <image name="multiply.circle" catalog="system" width="128" height="121"/>
+        <image name="place_holder" width="123" height="123"/>
         <image name="ticket_bg" width="457.33334350585938" height="234.66667175292969"/>
+        <namedColor name="AppGreyBackGroundColor">
+            <color red="0.32899999618530273" green="0.32400000095367432" blue="0.4779999852180481" alpha="0.33000001311302185" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="ZTAppBlackColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

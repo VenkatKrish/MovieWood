@@ -7,6 +7,11 @@
 import Foundation
 import UIKit
 
+public enum GlobalMediaType : Int {
+       case image = 0
+       case video = 1
+        case unknown = 2
+   }
 enum FirstLogin : String {
     case None = ""
     case FirstLogin_YES = "Y"
@@ -95,4 +100,8 @@ struct AppUtility {
         UIDevice.current.setValue(rotateOrientation.rawValue, forKey: "orientation")
     }
     
+}
+enum AlertViewType{
+    case Logout
+    case CameraPermission
 }

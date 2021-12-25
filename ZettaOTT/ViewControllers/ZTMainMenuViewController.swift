@@ -52,10 +52,7 @@ class ZTMainMenuViewController: UIViewController {
             Helper.shared.goToAbout(viewController: self, typeKey: WebViewStrings.privacy.rawValue, titleValStr: WebViewStrings.title_privacy.rawValue)
             break
         case 8:
-            ZTAppSession.sharedInstance.setAccessToken("")
-            ZTAppSession.sharedInstance.setIsUserLoggedIn(false)
-            ZTAppSession.sharedInstance.removeAllInstance()
-            Helper.shared.goToLoginScreen()
+            Helper.shared.showAlertDialog(title: AlertTitle.logoutTitle, subtitle: AlertDescrition.logoutDesc, type: .Logout, okButtonTitle: AlertButtons.YES, cancelButtonTitle: AlertButtons.CANCEL)
             break
         default:
             break

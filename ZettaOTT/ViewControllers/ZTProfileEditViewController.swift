@@ -8,8 +8,14 @@
 import UIKit
 import JVFloatLabeledTextField
 import FlagPhoneNumber
-
+import AVFoundation
+import MobileCoreServices
+import TOCropViewController
+import Alamofire
 class ZTProfileEditViewController: UIViewController {
+    var genders = ["Male", "Female", "Others"]
+    let genderPicker: UIPickerView = UIPickerView()
+    var photoPickerController : UIImagePickerController?
 
     var isPhoneNumberValid: Bool = true
     var listController: FPNCountryListViewController = FPNCountryListViewController(style: .grouped)
@@ -20,7 +26,7 @@ class ZTProfileEditViewController: UIViewController {
     @IBOutlet weak var txtFieldEmail: ZTCustomTextField!
     @IBOutlet weak var txtFieldGender: ZTCustomTextField!
     @IBOutlet weak var txtFieldDOB: ZTCustomTextField!
-
+    var appUserModel:AppUserModel? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,8 +34,12 @@ class ZTProfileEditViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     func initialLoad(){
+        self.genderPicker.delegate = self
+        self.genderPicker.dataSource = self
+//        self.genderPicker.backgroundColor = UIColor.init(named: COLOR_GREY_BACKGROUND)
         self.setupPhoneTextField()
         if let user = ZTAppSession.sharedInstance.getUserInfo() {
+            self.appUserModel = user
             self.loadProfileDetails(data: user)
         }
     }
@@ -56,7 +66,7 @@ class ZTProfileEditViewController: UIViewController {
         }
     }
     @IBAction func btnChangeProfileImage(_ sender: UIButton) {
-        
+        self.choosePhotoClicked()
     }
     @IBAction func btnSaveAndContinue(_ sender: UIButton) {
         if isValidationSuccess() == true{
@@ -70,7 +80,7 @@ class ZTProfileEditViewController: UIViewController {
 
             let gender = self.removeWhiteSpace(text: self.txtFieldGender.text ?? "-1")
             if let userModel = ZTAppSession.sharedInstance.getUserInfo(){
-                self.updateProfile(firstName: firstName, lastName: lastName, email: email, mobile: phoneNum, dialCode: dialCode, age: Int64(age) ?? -1, userId: Int64(userModel.userId ?? -1), gender:gender)
+                self.updateProfile(firstName: firstName, lastName: lastName, email: email, mobile: phoneNum, dialCode: dialCode, age: Int64(age) ?? -1, userId: Int64(userModel.userId ?? -1), gender:Helper.shared.getGenderKey(value: gender))
             }
             
             
@@ -176,7 +186,10 @@ extension ZTProfileEditViewController: UITextFieldDelegate{
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
+        if textField == self.txtFieldGender{
+            textField.inputView = self.genderPicker
+            textField.inputAccessoryView = nil
+        }
     }
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
@@ -269,4 +282,211 @@ extension ZTProfileEditViewController{
             }
         }
     }
+}
+extension ZTProfileEditViewController: UIPickerViewDelegate, UIPickerViewDataSource{
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return self.genders.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var pickerLabel: UILabel? = (view as? UILabel)
+            if pickerLabel == nil {
+                pickerLabel = UILabel()
+                pickerLabel?.font = UIFont.setAppFontMedium(15)
+                pickerLabel?.textAlignment = .center
+            }
+            pickerLabel?.text = self.genders[row]
+            pickerLabel?.textColor = UIColor.black
+
+            return pickerLabel!
+    }
+
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.txtFieldGender.text = self.genders[row]
+    }
+}
+extension ZTProfileEditViewController: UIImagePickerControllerDelegate,  UINavigationControllerDelegate, TOCropViewControllerDelegate{
+    func choosePhotoClicked(){
+              let alertButtonData1: AUAlertButtonModel = AUAlertButtonModel.init(actionTitle: "Capture from Camera", actionStyle: .default, index: 0)
+               let alertButtonData2: AUAlertButtonModel = AUAlertButtonModel.init(actionTitle: "Choose photo from Photo Album", actionStyle: .default, index: 1)
+//         let alertButtonData3: AUAlertButtonModel = AUAlertButtonModel.init(actionTitle: "Choose video from Photo Album", actionStyle: .default, index: 2)
+               
+        let alertButtonData4: AUAlertButtonModel = AUAlertButtonModel.init(actionTitle: "Cancel", actionStyle: .cancel, index: 2)
+               
+               let alertData: AUAlertModel;
+             
+              alertData = AUAlertModel.init(title: "Choose Attachment", message: "", buttonModels: [alertButtonData1, alertButtonData2, alertButtonData4], style: .actionSheet, controller: self)
+              
+               AUAlertHandler.showAlertView(alertData: alertData, handler: {[unowned self] (index) in
+                   print(index)
+                   switch(index){
+                   case 0:
+                       // camera
+                       self.openCamera()
+                       break;
+                   case 1:
+                       // gallery
+                        self.openGallery()
+                       break
+//                    case 2:
+//                    // gallery
+//                     self.openVideoGallery()
+//                    break
+                  
+                   default:
+                       break
+                   }
+               })
+          }
+          func openCamera()  {
+    
+            if AVCaptureDevice.authorizationStatus(for: .video) ==  .authorized {
+                  
+                    DispatchQueue.main.async {
+                           self.photoPickerController = UIImagePickerController()
+                           self.photoPickerController!.sourceType = .camera
+                           //self.photoPickerController!.allowsEditing = true
+                           self.photoPickerController!.delegate = self
+                           self.photoPickerController!.mediaTypes = [kUTTypeImage as String]
+                      self.present(self.photoPickerController!, animated: true, completion: nil)
+                        }
+                  
+                  //already authorized
+              }
+              else if AVCaptureDevice.authorizationStatus(for: .video) ==  .restricted || AVCaptureDevice.authorizationStatus(for: .video) ==  .denied {
+                   DispatchQueue.main.async {
+                      self.showAlertView(message: "Please allow camera in settings", controller: self)
+                  }
+              }
+              else {
+                  self.view.endEditing(true)
+                  AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
+                      DispatchQueue.main.async {
+                          if granted {
+                              self.photoPickerController = UIImagePickerController()
+                              self.photoPickerController!.sourceType = .camera
+                               //self.photoPickerController!.allowsEditing = true
+                               self.photoPickerController!.delegate = self
+                               self.photoPickerController!.mediaTypes = [kUTTypeImage as String]
+                              self.present(self.photoPickerController!, animated: true, completion: nil)
+                              //access allowed
+                          } else {
+                              //self.showAlertView(message: "Please allow camera in settings", controller: self)
+                          }
+                      }
+                  })
+              }
+          }
+          
+          func openGallery()  {
+              
+              let imagePickerController = UIImagePickerController()
+              imagePickerController.sourceType = .photoLibrary
+              //imagePickerController.allowsEditing = true
+              imagePickerController.delegate = self
+              imagePickerController.mediaTypes = [kUTTypeImage as String]
+              present(imagePickerController, animated: true, completion: nil)
+              //already authorized
+       }
+    
+        func openVideoGallery()  {
+                 
+                 let imagePickerController = UIImagePickerController()
+                 imagePickerController.sourceType = .photoLibrary
+                 imagePickerController.allowsEditing = false
+                 imagePickerController.delegate = self
+                 imagePickerController.mediaTypes = ["public.movie"]
+                 present(imagePickerController, animated: true, completion: nil)
+                 //already authorized
+          }
+    public func showAlertView(message:String, controller:UIViewController)
+    {
+        let alert = UIAlertController(title: "", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+      
+      if let checkimage = info[UIImagePickerController.InfoKey.originalImage]  {
+          Helper.shared.isImageOrVideoValid(contentType: GlobalMediaType.image.rawValue, dataVal: (checkimage as! UIImage).jpegData(compressionQuality: 100)!) { (status) in
+          if status == true{
+              DispatchQueue.main.async {
+                  self.dismiss(animated: true, completion: {
+                  
+                let cropController = TOCropViewController.init(image: checkimage as! UIImage)
+                cropController.modalPresentationStyle = .fullScreen
+                cropController.aspectRatioPreset = .presetSquare
+                cropController.delegate = self
+                cropController.activityItems = []
+              cropController.aspectRatioLockEnabled = false // The crop box is locked to the aspect ratio and can't be resized away from it
+            cropController.resetAspectRatioEnabled = false // When tapping 'reset', the aspect ratio will NOT be reset back to default
+            cropController.aspectRatioPickerButtonHidden = true
+                                              
+        cropController.toolbar.resetButton.isHidden = true
+        cropController.rotateButtonsHidden = true
+        cropController.rotateClockwiseButtonHidden = true
+        cropController.doneButtonTitle = "Choose"
+        cropController.toolbar.doneIconButton.setTitleColor(UIColor.white, for: .normal)
+        cropController.toolbar.doneIconButton.titleLabel?.textColor = .white
+        cropController.toolbar.clampButtonHidden = true
+         self.navigationController?.present(cropController, animated: true, completion: nil)
+    })
+            }
+        }else{
+                  DispatchQueue.main.async {
+                      Helper.shared.showFileSizeExceedAlert(contentType: GlobalMediaType.image.rawValue)
+                  }
+                  }
+              }
+      }else{
+          self.dismiss(animated: true, completion:nil)
+      }
+                      
+          }
+      
+      func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+          picker.dismiss(animated: true, completion: nil)
+      }
+    func cropViewController(_ cropViewController: TOCropViewController, didFinishCancelled cancelled: Bool) {
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func cropViewController(_ cropViewController: TOCropViewController, didCropTo image: UIImage, with cropRect: CGRect, angle: Int) {
+        self.uploadImage(image: image)
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
+    func uploadImage(image: UIImage? = nil){
+      if let imageVal = image{
+          self.imgVwProfile.image = imageVal
+          if NetworkReachability.shared.isReachable {
+              self.showActivityIndicator(self.view)
+              if let userModel = self.appUserModel{
+                  UserControllerAPI.uploadImageUsingPOST(file: imageVal.jpegData(compressionQuality: 0.5)!, userId: userModel.userId ?? -1) { response, error in
+                      self.hideActivityIndicator(self.view)
+                      if error != nil{
+                          WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
+                              
+                          }, failureBlock: { (errorMsg) in
+                             
+                          })
+                          return
+                      }
+                      if let _ = response{
+                          DispatchQueue.main.async {
+                              Helper.shared.showSnackBarAlert(message: ZTValidationMessage.PROFILE_UPDATED, type: .Success, superView: self)
+                          }
+                      }
+                      
+                  }
+              }
+             
+          }
+      }
+    }
+    
 }

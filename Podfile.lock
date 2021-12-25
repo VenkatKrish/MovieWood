@@ -20,6 +20,7 @@ PODS:
   - IQKeyboardManagerSwift (6.5.6)
   - JVFloatLabeledTextField (1.2.2)
   - Kingfisher (7.1.1)
+  - TOCropViewController (2.6.0)
   - TTGSnackbar (1.10.5)
 
 DEPENDENCIES:
@@ -30,6 +31,7 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift
   - JVFloatLabeledTextField
   - Kingfisher (~> 7.0)
+  - TOCropViewController
   - TTGSnackbar
 
 SPEC REPOS:
@@ -44,6 +46,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - JVFloatLabeledTextField
     - Kingfisher
+    - TOCropViewController
     - TTGSnackbar
 
 SPEC CHECKSUMS:
@@ -57,8 +60,9 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   JVFloatLabeledTextField: df48598472ee015701d509f43e59492a0d4ca208
   Kingfisher: f738f9c4a3415823b8e2985d10aa2d6a9f37bc4d
+  TOCropViewController: 3105367e808b7d3d886a74ff59bf4804e7d3ab38
   TTGSnackbar: 2bd245d2bbf83639483410273fd936af0b7ba2a9
 
-PODFILE CHECKSUM: bd8999ae33b084fba54e09c4fe23c83ab6ea901c
+PODFILE CHECKSUM: c2a87c89bcc54e097460515dd287ac5f1b24e03f
 
 COCOAPODS: 1.10.0

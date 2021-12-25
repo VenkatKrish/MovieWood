@@ -72,6 +72,13 @@ class ZTAppSession: NSObject {
     func getIsUserLoggedIn()->Bool{
         return self.userDefaults.bool(forKey: "isUserLogin")
     }
+    func setMovieLanguage(_ value : Int64){
+        self.userDefaults.set(value, forKey: "MovieLanguage")
+        self.saveValue()
+    }
+    func getMovieLanguage() -> Int64{
+        return self.userDefaults.object(forKey: "MovieLanguage") as? Int64 ?? -1
+    }
     func setIsSkipLoggedIn(_ value : Bool){
         self.userDefaults.set(value, forKey: "isSkipLogin")
         self.saveValue()
