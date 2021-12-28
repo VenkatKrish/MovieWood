@@ -4,7 +4,7 @@ public struct RazeFaceProducts {
   
   public static let SwiftShopping = "WuSMr0g56w"
   
-  private static let productIdentifiers: Set<ProductIdentifier> = [RazeFaceProducts.SwiftShopping]
+    public static var productIdentifiers: Set<ProductIdentifier> = []
 
   public static let store = IAPHelper(productIds: RazeFaceProducts.productIdentifiers)
 }

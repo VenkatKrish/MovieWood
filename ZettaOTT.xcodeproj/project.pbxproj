@@ -198,6 +198,7 @@
 		39B474A727568580006AE63B /* ZTLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B474A627568580006AE63B /* ZTLanguageViewController.swift */; };
 		39B86D1F275BDDE10000D2CF /* ZTLanguageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39B86D1D275BDDE10000D2CF /* ZTLanguageTableViewCell.swift */; };
 		39B86D20275BDDE10000D2CF /* ZTLanguageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B86D1E275BDDE10000D2CF /* ZTLanguageTableViewCell.xib */; };
+		39BD2AFC277B7CC200AC13E8 /* MovieLinkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39BD2AFB277B7CC200AC13E8 /* MovieLinkModel.swift */; };
 		39C769A3275E49E0009C9D13 /* ZTPagingCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C769A1275E49E0009C9D13 /* ZTPagingCollectionReusableView.swift */; };
 		39C769A4275E49E0009C9D13 /* ZTPagingCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39C769A2275E49E0009C9D13 /* ZTPagingCollectionReusableView.xib */; };
 		39E711C927330F830067016A /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39E711C827330F830067016A /* Utils.swift */; };
@@ -353,7 +354,7 @@
 /* Begin PBXFileReference section */
 		1AABDE8CA2AFB64521E45461 /* Pods_ZettaOTT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZettaOTT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34233AD641486043A2C40C91 /* Pods-ZettaOTT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZettaOTT.debug.xcconfig"; path = "Target Support Files/Pods-ZettaOTT/Pods-ZettaOTT.debug.xcconfig"; sourceTree = "<group>"; };
-		390D14B427062B3C00C51259 /* ZettaOTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZettaOTT.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		390D14B427062B3C00C51259 /* MovieWood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieWood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		390D14B727062B3C00C51259 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		390D14B927062B3C00C51259 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		390D14BE27062B3C00C51259 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -542,6 +543,7 @@
 		39B474A627568580006AE63B /* ZTLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTLanguageViewController.swift; sourceTree = "<group>"; };
 		39B86D1D275BDDE10000D2CF /* ZTLanguageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTLanguageTableViewCell.swift; sourceTree = "<group>"; };
 		39B86D1E275BDDE10000D2CF /* ZTLanguageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTLanguageTableViewCell.xib; sourceTree = "<group>"; };
+		39BD2AFB277B7CC200AC13E8 /* MovieLinkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieLinkModel.swift; sourceTree = "<group>"; };
 		39C769A1275E49E0009C9D13 /* ZTPagingCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTPagingCollectionReusableView.swift; sourceTree = "<group>"; };
 		39C769A2275E49E0009C9D13 /* ZTPagingCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTPagingCollectionReusableView.xib; sourceTree = "<group>"; };
 		39E711C827330F830067016A /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
@@ -731,7 +733,7 @@
 		390D14B527062B3C00C51259 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				390D14B427062B3C00C51259 /* ZettaOTT.app */,
+				390D14B427062B3C00C51259 /* MovieWood.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1124,6 +1126,7 @@
 		39EBD2DB273C003800BEE73A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				39BD2AFB277B7CC200AC13E8 /* MovieLinkModel.swift */,
 				3962BBA8277204660027E3E6 /* OrderConfirmPayment.swift */,
 				3944E9172771141500B1706A /* OrderConfirmation.swift */,
 				398A8831273E7E7C00C3EC90 /* AppUserModel.swift */,
@@ -1298,7 +1301,7 @@
 				3966BBC527664EC500D41E9D /* FacebookShare */,
 			);
 			productName = ZettaOTT;
-			productReference = 390D14B427062B3C00C51259 /* ZettaOTT.app */;
+			productReference = 390D14B427062B3C00C51259 /* MovieWood.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1623,6 +1626,7 @@
 				39EBD3E2273C576F00BEE73A /* ZTPublicAPIWrapper.swift in Sources */,
 				3915789927637D0A004F51FF /* ConstraintLayoutGuide.swift in Sources */,
 				3964A5E62710834500726487 /* ZTContinueWatchingCollectionCell.swift in Sources */,
+				39BD2AFC277B7CC200AC13E8 /* MovieLinkModel.swift in Sources */,
 				39EBD359273C003800BEE73A /* Blob.swift in Sources */,
 				39EBD2D7273BFDA100BEE73A /* Models.swift in Sources */,
 				39EBD37B273C003800BEE73A /* PageChannels.swift in Sources */,
@@ -1880,16 +1884,16 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 974JZY6YLE;
+				DEVELOPMENT_TEAM = 69VF6X7529;
 				INFOPLIST_FILE = ZettaOTT/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zetta.ottapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = ZettaDev;
+				PRODUCT_BUNDLE_IDENTIFIER = in.onandgo.moviewud;
+				PRODUCT_NAME = MovieWood;
+				PROVISIONING_PROFILE_SPECIFIER = MoviewoodDev;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1901,19 +1905,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 974JZY6YLE;
+				DEVELOPMENT_TEAM = 69VF6X7529;
 				INFOPLIST_FILE = ZettaOTT/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.zetta.ottapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = ZettaAppStore;
+				PRODUCT_BUNDLE_IDENTIFIER = in.onandgo.moviewud;
+				PRODUCT_NAME = MovieWood;
+				PROVISIONING_PROFILE_SPECIFIER = MoviewoodDev;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

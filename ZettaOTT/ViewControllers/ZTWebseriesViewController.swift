@@ -65,7 +65,7 @@ class ZTWebseriesViewController: UIViewController {
 extension ZTWebseriesViewController{
     func getStreamingNowMovies(){
         if NetworkReachability.shared.isReachable {
-            ZTCommonAPIWrapper.streamNow(pageNumber: self.pageNumber, pageSize: self.pageSize, sortSorted: true) { (response, error) in
+            ZTCommonAPIWrapper.streamNow(pageNumber: self.pageNumber, pageSize: self.pageSize, sortSorted: true, contenttype: MovieSearchTag.streamNowWebseries.rawValue) { (response, error) in
                 self.streamingNowMovies?.removeAll()
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in

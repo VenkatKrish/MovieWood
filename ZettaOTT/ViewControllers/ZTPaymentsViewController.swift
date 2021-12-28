@@ -66,6 +66,7 @@ class ZTPaymentsViewController: UIViewController {
         }
     }
     func getInAppProduct(){
+        
         RazeFaceProducts.store.requestProducts{ [weak self] success, productsArr in
           guard let self = self else { return }
           if success {
@@ -81,13 +82,14 @@ class ZTPaymentsViewController: UIViewController {
 //        var productId = ""
 //
 //        if self.isSubscription == true{
-//            productId = self.subscriptionInfo?.promoLabel ?? ""
+//            productId = self.subscriptionInfo?.subsKey ?? ""
 //        }else{
 //            productId = self.moviewDetails?.movieKey ?? ""
 //        }
 //        if productId.count > 0{
 //            let productIdentifiers: Set<ProductIdentifier> = [productId]
-//            RazeFaceProducts.store.productIdentifiers = productIdentifiers
+//            RazeFaceProducts.productIdentifiers = productIdentifiers
+////            RazeFaceProducts.store.productIdentifiers = productIdentifiers
 //            self.getInAppProduct()
 //        }
         self.placeOrder()
@@ -105,17 +107,45 @@ extension ZTPaymentsViewController{
     func placeOrder(){
         if NetworkReachability.shared.isReachable{
             self.showActivityIndicator(self.view)
-            
-            let bookingStart = Date()
-            let startStr = Helper.shared.getFormatedDate(dateVal: bookingStart, dateFormat: CustomDateFormatter.orderRequestDate)
+            var endStr = ""
             let calendar = Calendar.current
-            let bookingEnd = calendar.date(byAdding: .hour, value: 24, to: bookingStart)!
+
+            var bookingStart = Date()
+            var bookingEnd = Date()
+
+//            bookingStart = calendar.date(byAdding: .day, value: -1, to: Date())!
             
-            let endStr = Helper.shared.getFormatedDate(dateVal: bookingEnd, dateFormat: CustomDateFormatter.orderRequestDate)
+            let startStr = Helper.shared.getFormatedDate(dateVal: bookingStart, dateFormat: CustomDateFormatter.orderRequestDate)
             
-            let orders = Orders(bookingEndTime: endStr, bookingStartTime: startStr, capturedStatus: nil, conversionType: nil, couponCode: nil, createdBy: nil, createdOn: nil, discountPercentage: nil, discountType: nil, discountValue: nil, functionalCurrencyCode: "INR", lastUpdateLogin: nil, latitude: nil, longitude: nil, modifiedBy: nil, modifiedOn: nil, movieId: self.moviewDetails?.movieId ?? -1, movieOrderId: nil, orderCountry: "IN", orderDate: startStr, orderMovie: nil, orderNo: nil, orderQuantity: 1, orderRemarks: nil, orderSource: nil, orderType: nil, paidAmount: self.moviewDetails?.iosTicketPrice, paymentDate: startStr, paymentMode: "ApplePay", paymentStatus: MoviePaymentStatusStruct.paid.rawValue.uppercased(), paymentTransactionNo: "2070208254", subscriptionId: nil, taxPercentage: nil, totalOrderValue: self.moviewDetails?.iosTicketPrice ?? 0, totalRoundedValue: self.moviewDetails?.iosTicketPrice ?? 0, totalTaxValue: nil, transactionCurrencyCode: "USD", unitPrice: self.moviewDetails?.iosTicketPrice ?? 0, uom: "Nos", userId: Int64(self.appUserModel?.userId ?? -1), versionNumber: nil)
+            var movieID:Int64 = 0
+
            
-            ZTCommonAPIWrapper.saveMovieOrderUsingPOST(movieId: self.moviewDetails?.movieId ?? -1, order: orders) { response, error in
+            
+            if self.isSubscription == true{
+                movieID = 0
+                if self.subscriptionInfo?.uom ?? "" == SubscriptionUom.days.rawValue{
+                    bookingEnd = calendar.date(byAdding: .day, value: self.subscriptionInfo?.subDuration ?? 0, to: bookingStart)!
+                    
+                }else if self.subscriptionInfo?.uom ?? "" == SubscriptionUom.year.rawValue{
+                    bookingEnd = calendar.date(byAdding: .year, value: self.subscriptionInfo?.subDuration ?? 0, to: bookingStart)!
+                }else{
+                    bookingEnd = calendar.date(byAdding: .month, value: self.subscriptionInfo?.subDuration ?? 0, to: bookingStart)!
+                }
+            }else{
+                movieID = self.moviewDetails?.movieId ?? 0
+                bookingEnd = calendar.date(byAdding: .hour, value: 24, to: bookingStart)!
+            }
+            endStr = Helper.shared.getFormatedDate(dateVal: bookingEnd, dateFormat: CustomDateFormatter.orderRequestDate)
+            
+            var orders = Orders.init()
+        
+            if isSubscription == true{
+                orders = Orders(bookingEndTime: endStr, bookingStartTime: startStr, capturedStatus: nil, conversionType: nil, couponCode: nil, createdBy: nil, createdOn: nil, discountPercentage: nil, discountType: nil, discountValue: nil, functionalCurrencyCode: "INR", lastUpdateLogin: nil, latitude: nil, longitude: nil, modifiedBy: nil, modifiedOn: nil, movieId: movieID, movieOrderId: nil, orderCountry: "IN", orderDate: startStr, orderMovie: nil, orderNo: nil, orderQuantity: 1, orderRemarks: nil, orderSource: "iOS", orderType: MovieOrderTypeStruct.subscription.rawValue, paidAmount: self.subscriptionInfo?.subValue, paymentDate: startStr, paymentMode: "ApplePay", paymentStatus: MovieOrderStatusStruct.paid.rawValue, paymentTransactionNo: "2070208254", subscriptionId: self.subscriptionInfo?._id, taxPercentage: nil, totalOrderValue: self.subscriptionInfo?.subValue, totalRoundedValue: self.subscriptionInfo?.subValue, totalTaxValue: nil, transactionCurrencyCode: "USD", unitPrice: self.subscriptionInfo?.subValue, uom: "Nos", userId: Int64(self.appUserModel?.userId ?? -1), versionNumber: nil) //
+            }else{
+                orders = Orders(bookingEndTime: endStr, bookingStartTime: startStr, capturedStatus: nil, conversionType: nil, couponCode: nil, createdBy: nil, createdOn: nil, discountPercentage: nil, discountType: nil, discountValue: nil, functionalCurrencyCode: "INR", lastUpdateLogin: nil, latitude: nil, longitude: nil, modifiedBy: nil, modifiedOn: nil, movieId: movieID, movieOrderId: nil, orderCountry: "IN", orderDate: startStr, orderMovie: nil, orderNo: nil, orderQuantity: 1, orderRemarks: nil, orderSource: "iOS", orderType: MovieOrderTypeStruct.payPerView.rawValue, paidAmount: self.moviewDetails?.iosTicketPrice, paymentDate: startStr, paymentMode: "ApplePay", paymentStatus: MovieOrderStatusStruct.paid.rawValue, paymentTransactionNo: "2070208254", subscriptionId: nil, taxPercentage: nil, totalOrderValue: self.moviewDetails?.iosTicketPrice ?? 0, totalRoundedValue: self.moviewDetails?.iosTicketPrice ?? 0, totalTaxValue: nil, transactionCurrencyCode: "USD", unitPrice: self.moviewDetails?.iosTicketPrice ?? 0, uom: "Nos", userId: Int64(self.appUserModel?.userId ?? -1), versionNumber: nil)
+            }
+//            transactionCurrencyCode and paid amount, order country, transaction number
+            ZTCommonAPIWrapper.saveMovieOrderUsingPOST(movieId: movieID, order: orders) { response, error in
                 self.hideActivityIndicator(self.view)
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
@@ -133,10 +163,11 @@ extension ZTPaymentsViewController{
     }
     
     func orderTransactionUpdate(orderDetails:OrderConfirmation? = nil){
-        if let orderConfirm = orderDetails{
+        if let orderConfirm = orderDetails{ // order paymentStatus need to change based on InApp purchase fail or success and need to update order remarks text from apple purchase failure reason
+            
             if NetworkReachability.shared.isReachable{
                 self.showActivityIndicator(self.view)
-                let paymentRequest = PaymentRequest(orderNo: orderDetails?.orderNo ?? "", paidAmount: orderConfirm.paidAmount ?? 0, paymentDate: orderDetails?.paymentDate ?? "", paymentMode: orderDetails?.paymentMode ?? "", paymentStatus: MoviePaymentStatusStruct.paid.rawValue, paymentTransactionNo: orderDetails?.paymentTransactionNo ?? "22323444", totalOrderValue: orderDetails?.totalOrderValue ?? 0, totalRoundedValue: orderDetails?.totalRoundedValue ?? 0, transactionCurrencyCode: orderDetails?.transactionCurrencyCode ?? "", unitPrice: orderDetails?.unitPrice ?? 0)
+                let paymentRequest = PaymentRequest(orderNo: orderDetails?.orderNo ?? "", paidAmount: orderConfirm.paidAmount ?? 0, paymentDate: orderDetails?.paymentDate ?? "", paymentMode: orderDetails?.paymentMode ?? "", paymentStatus: MovieOrderStatusStruct.paid.rawValue, paymentTransactionNo: orderDetails?.paymentTransactionNo ?? "22323444", totalOrderValue: orderDetails?.totalOrderValue ?? 0, totalRoundedValue: orderDetails?.totalRoundedValue ?? 0, transactionCurrencyCode: orderDetails?.transactionCurrencyCode ?? "", unitPrice: orderDetails?.unitPrice ?? 0)
                 
                 
                 ZTCommonAPIWrapper.updateOrderPayment(orderId: orderConfirm.movieOrderId ?? -1, paymentRequest: paymentRequest) { response, error in

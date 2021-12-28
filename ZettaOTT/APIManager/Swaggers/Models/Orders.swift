@@ -53,6 +53,9 @@ public struct Orders: Codable {
     public var userId: Int64?
     public var versionNumber: Int64?
 
+    public init(){
+        
+    }
     public init(bookingEndTime: String?, bookingStartTime: String?, capturedStatus: String?, conversionType: String?, couponCode: String?, createdBy: String?, createdOn: String?, discountPercentage: Double?, discountType: String?, discountValue: Double?, functionalCurrencyCode: String?, lastUpdateLogin: String?, latitude: Double?, longitude: Double?, modifiedBy: String?, modifiedOn: String?, movieId: Int64?, movieOrderId: Int64?, orderCountry: String?, orderDate: String?, orderMovie: Movies?, orderNo: String?, orderQuantity: Int64?, orderRemarks: String?, orderSource: String?, orderType: String?, paidAmount: Double?, paymentDate: String?, paymentMode: String?, paymentStatus: String?, paymentTransactionNo: String?, subscriptionId: Int64?, taxPercentage: Double?, totalOrderValue: Double?, totalRoundedValue: Double?, totalTaxValue: Double?, transactionCurrencyCode: String?, unitPrice: Double?, uom: String?, userId: Int64?, versionNumber: Int64?) {
         self.bookingEndTime = bookingEndTime
         self.bookingStartTime = bookingStartTime

@@ -28,11 +28,23 @@ struct Validation {
 
 }
 class SwaggerPathTypes {
-    static let Swagger_AuthService = "https://cholaott.cinebazzar.com/authentication"
-    static let Swagger_OtherService = "https://cholaott.cinebazzar.com/cholaottservice"
+//    static let Swagger_AuthService = "https://cholaott.cinebazzar.com/authentication"
+//    static let Swagger_OtherService = "https://cholaott.cinebazzar.com/cholaottservice"
+    
+    
+    // client server
+    static let Swagger_AuthService = "https://ott.moviewood.io/authentication"
+    static let Swagger_OtherService = "https://ott.moviewood.io/cholaottservice" 
+    
+
 }
 class SocialAccountInfo {
-    static let Google_ClientId = "1031917031870-1ook6oe8p2jkov7ssl9f0p64gjkuee4b.apps.googleusercontent.com" //"460563733667-rb3gu4bomb4ioqqidt3c2b4ddpavbsh8.apps.googleusercontent.com"
+//    static let Google_ClientId = "1031917031870-1ook6oe8p2jkov7ssl9f0p64gjkuee4b.apps.googleusercontent.com"
+    //"460563733667-rb3gu4bomb4ioqqidt3c2b4ddpavbsh8.apps.googleusercontent.com"
+    
+    // client
+    static let Google_ClientId = "562900447023-gj3opnf5dgl3v2ppalq6q4dgsnkv7793.apps.googleusercontent.com"
+    
     
     
 }
@@ -50,7 +62,9 @@ class ZTDefaultValues{
     static let placeholder_others = "place_holder"
     static let socialGmail = "gmail"
     static let defaultCountryCode = "IN"
-    static let imageBaseURL = "https://d13heh6lmag6t5.cloudfront.net"
+//    static let imageBaseURL = "https://d13heh6lmag6t5.cloudfront.net"
+    static let imageBaseURL = "https://d12roikjmrtrj5.cloudfront.net" // client
+
     static let dummyPwd = "123456789abcd"
 }
 class ZTValidationMessage{
@@ -73,7 +87,7 @@ class ZTConstants: NSObject {
     static let BTN_READMORE = "Read More"
     static let BTN_READLESS = "Read Less"
     static let BTN_BOOK_NOW = "Book Now"
-    static let BTN_BOOK_PLAY = "Play"
+    static let BTN_BOOK_PLAY = "Watch Now"
     static let termsLabel = "By signing up, you are agreed with our Terms & Conditions"
     static let termsAndConditionLabel = "Terms & Conditions"
 }
@@ -140,7 +154,7 @@ class moviesKeyUI {
     static let zetta_movies_originals = "Moviewood Originals"
     static let popular_movies = "Popular Movies"
     static let recommended = "Recommended"
-    static let latest_tamil_movies = "Latest Tamil Movies"
+    static let latest_tamil_movies = "Tamil Movies"
     static let latest_web_series = "Latest Web Series"
 
 }
@@ -154,7 +168,7 @@ class ZTUserDefaultKeys {
 }
 class CustomDateFormatter{
     static let transactionDate = "dd MM"
-    static let orderRequestDate = "dd-MM-yyyy hh:mm:ss a"
+    static let orderRequestDate = "dd-MM-yyyy HH:mm:ss"
 }
 class AlertTitle{
     static let logoutTitle = "Logout"

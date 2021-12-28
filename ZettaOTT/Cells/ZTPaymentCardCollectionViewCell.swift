@@ -20,11 +20,10 @@ class ZTPaymentCardCollectionViewCell: UICollectionViewCell {
     func loadSubscriptionDetails(data:Subscriptions? = nil, indexPath:IndexPath){
         if let dataVal = data{
             let colorVal = Helper.shared.getRandomColor(indexVal: indexPath.row % colorRandom.count)
-            let duration:Int = Int(dataVal.subDuration ?? 0)
             self.lblPlanName.textColor = colorVal
             self.lblPlanName.text = dataVal.name ?? ""
             self.lblPlanDesc.text = dataVal._description ?? ""
-            self.lblPlanDuration.text = String(format: "%d %@", duration, dataVal.uom ?? "")
+            self.lblPlanDuration.text = String(format: "%d %@", dataVal.subDuration ?? 0, dataVal.uom ?? "")
             self.lblPlanPrice.text = String(format: "%@", (dataVal.subValue ?? 0).getPriceValue())
             
             self.vwBorder.applyGradientEffect(isVertical: false, colorVal: colorVal)

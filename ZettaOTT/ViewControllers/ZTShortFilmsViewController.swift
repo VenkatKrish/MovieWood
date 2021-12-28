@@ -59,7 +59,7 @@ class ZTShortFilmsViewController: UIViewController {
 extension ZTShortFilmsViewController{
     func getStreamingNowMovies(){
         if NetworkReachability.shared.isReachable {
-            ZTCommonAPIWrapper.streamNow(pageNumber: self.pageNumber, pageSize: self.pageSize, sortSorted: true) { (response, error) in
+            ZTCommonAPIWrapper.streamNow(pageNumber: self.pageNumber, pageSize: self.pageSize, sortSorted: true, contenttype: MovieSearchTag.streamNowShortFilms.rawValue) { (response, error) in
                 self.streamingNowMovies?.removeAll()
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in

@@ -3,7 +3,7 @@ public struct OrderConfirmation : Codable {
 	let movieOrderId : Int64?
 	let orderNo : String?
 	let orderType : String?
-	let subscriptionId : String?
+	let subscriptionId : Int64?
 	let movieId : Int64?
 	let userId : Int64?
 	let bookingStartTime : String?
@@ -92,7 +92,7 @@ public struct OrderConfirmation : Codable {
 		movieOrderId = try values.decodeIfPresent(Int64.self, forKey: .movieOrderId)
 		orderNo = try values.decodeIfPresent(String.self, forKey: .orderNo)
 		orderType = try values.decodeIfPresent(String.self, forKey: .orderType)
-		subscriptionId = try values.decodeIfPresent(String.self, forKey: .subscriptionId)
+		subscriptionId = try values.decodeIfPresent(Int64.self, forKey: .subscriptionId)
 		movieId = try values.decodeIfPresent(Int64.self, forKey: .movieId)
 		userId = try values.decodeIfPresent(Int64.self, forKey: .userId)
 		bookingStartTime = try values.decodeIfPresent(String.self, forKey: .bookingStartTime)

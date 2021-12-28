@@ -384,7 +384,7 @@ open class MovieControllerAPI {
      - parameter playMovieRequest: (body) playMovieRequest 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func getMovieVideoWUsingPOST(playMovieRequest: PlayMovieRequest, completion: @escaping ((_ data: JSONValue?,_ error: Error?) -> Void)) {
+    open class func getMovieVideoWUsingPOST(playMovieRequest: PlayMovieRequest, completion: @escaping ((_ data: MovieLinkModel?,_ error: Error?) -> Void)) {
         getMovieVideoWUsingPOSTWithRequestBuilder(playMovieRequest: playMovieRequest).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
@@ -400,14 +400,14 @@ open class MovieControllerAPI {
 
      - returns: RequestBuilder<JSONValue> 
      */
-    open class func getMovieVideoWUsingPOSTWithRequestBuilder(playMovieRequest: PlayMovieRequest) -> RequestBuilder<JSONValue> {
+    open class func getMovieVideoWUsingPOSTWithRequestBuilder(playMovieRequest: PlayMovieRequest) -> RequestBuilder<MovieLinkModel> {
         let path = "/api/v1/playmoview"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: playMovieRequest)
 
         let url = URLComponents(string: URLString)
 
-        let requestBuilder: RequestBuilder<JSONValue>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<MovieLinkModel>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }
@@ -878,7 +878,7 @@ open class MovieControllerAPI {
      - parameter unpaged: (query)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func streamingnowPublicUsingGET(language: String? = nil, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, showinios: String? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, completion: @escaping ((_ data: PageMoviePaymentStatus?,_ error: Error?) -> Void)) {
+    open class func streamingnowPublicUsingGET(language: String? = nil, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, showinios: String? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, contenttype:String? = nil, completion: @escaping ((_ data: PageMoviePaymentStatus?,_ error: Error?) -> Void)) {
         streamingnowPublicUsingGETWithRequestBuilder(language: language, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, showinios: showinios, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
@@ -902,7 +902,7 @@ open class MovieControllerAPI {
 
      - returns: RequestBuilder<PageMoviePaymentStatus> 
      */
-    open class func streamingnowPublicUsingGETWithRequestBuilder(language: String? = nil, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, showinios: String? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil) -> RequestBuilder<PageMoviePaymentStatus> {
+    open class func streamingnowPublicUsingGETWithRequestBuilder(language: String? = nil, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, showinios: String? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, contenttype:String? = nil) -> RequestBuilder<PageMoviePaymentStatus> {
         let path = "/api/v1/public/streamingnow"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -917,7 +917,8 @@ open class MovieControllerAPI {
             "showinios": showinios, 
             "sort.sorted": sortSorted, 
             "sort.unsorted": sortUnsorted, 
-            "unpaged": unpaged
+            "unpaged": unpaged,
+            "contenttype": contenttype
         ])
 
         let requestBuilder: RequestBuilder<PageMoviePaymentStatus>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -939,7 +940,7 @@ open class MovieControllerAPI {
      - parameter unpaged: (query)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func streamingnowUsingGET(language: String? = nil, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, showinios: String? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, completion: @escaping ((_ data: PageMoviePaymentStatus?,_ error: Error?) -> Void)) {
+    open class func streamingnowUsingGET(language: String? = nil, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, showinios: String? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, contenttype:String? = nil, completion: @escaping ((_ data: PageMoviePaymentStatus?,_ error: Error?) -> Void)) {
         streamingnowUsingGETWithRequestBuilder(language: language, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, showinios: showinios, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
@@ -963,7 +964,7 @@ open class MovieControllerAPI {
 
      - returns: RequestBuilder<PageMoviePaymentStatus> 
      */
-    open class func streamingnowUsingGETWithRequestBuilder(language: String? = nil, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, showinios: String? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil) -> RequestBuilder<PageMoviePaymentStatus> {
+    open class func streamingnowUsingGETWithRequestBuilder(language: String? = nil, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, showinios: String? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, contenttype:String? = nil) -> RequestBuilder<PageMoviePaymentStatus> {
         let path = "/api/v1/streamingnow"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -978,7 +979,8 @@ open class MovieControllerAPI {
             "showinios": showinios, 
             "sort.sorted": sortSorted, 
             "sort.unsorted": sortUnsorted, 
-            "unpaged": unpaged
+            "unpaged": unpaged,
+            "contenttype": contenttype
         ])
 
         let requestBuilder: RequestBuilder<PageMoviePaymentStatus>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()

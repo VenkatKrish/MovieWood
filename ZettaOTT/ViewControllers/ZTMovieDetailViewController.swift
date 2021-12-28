@@ -193,14 +193,12 @@ class ZTMovieDetailViewController: UIViewController {
         self.loadVideo(strUrl: self.moviewDetails?.trailorUrl ?? "")
 
     }
-    @IBAction func btnPlayTapped(_ sender: Any) {
-        self.checkMoviePaymentStatus()
-    }
+    
     @IBAction func btnBackTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     func checkMoviePaymentStatus(){
-        if let paymentStatus = self.moviewDetails?.contactPaymentStatus, paymentStatus == MoviePaymentStatusStruct.paid.rawValue{
+        if let paymentStatus = self.moviewDetails?.paymentStatus, paymentStatus == MoviePaymentStatusStruct.paid.rawValue{
             getMovieLink()
         }else{
             Helper.shared.goToChoosePlan(viewController: self, movieInfo: self.moviewDetails)
@@ -365,7 +363,9 @@ extension ZTMovieDetailViewController{
         if NetworkReachability.shared.isReachable {
             self.showActivityIndicator(self.view)
             ZTCommonAPIWrapper.getMovieUsingGET(movieId: self.moviewDetails?.movieId ?? -1) { response, error in
-                self.hideActivityIndicator(self.view)
+                
+            self.hideActivityIndicator(self.view)
+                
             if error != nil{
                 WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
                     
@@ -443,8 +443,9 @@ extension ZTMovieDetailViewController{
     }
     func getMovieLink(){
         if NetworkReachability.shared.isReachable {
+            let playMovieRequest = PlayMovieRequest(ipAddress: "abcd12345", movieId: self.moviewDetails?.movieId ?? -1)
             
-            ZTCommonAPIWrapper.getMovieVideoUsingGET(movieId: self.moviewDetails?.movieId ?? -1) { response, error in
+            ZTCommonAPIWrapper.getMovieVideoWUsingPOST(playMovieRequest: playMovieRequest) { response, error in
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
                         
@@ -454,12 +455,13 @@ extension ZTMovieDetailViewController{
                     return
                 }
                 if let responseVal = response{
-                    debugPrint("response\(responseVal)")
                     DispatchQueue.main.async {
-                       
+                        self.videoPlayerView.isHidden = false
+                        self.loadVideo(strUrl: responseVal.movieUrl ?? "")
                     }
                 }
             }
+            
         }
     }
 }

@@ -86,6 +86,7 @@ class Helper: NSObject {
     func getFormatedDate(dateVal:Date, dateFormat: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
+        dateFormatter.timeZone = TimeZone(identifier:"GMT")
         let newDate:String = dateFormatter.string(from: dateVal)
         return newDate
     }

@@ -138,7 +138,25 @@ extension ZTDiscoveryViewController: UITableViewDelegate, UITableViewDataSource{
         if keyVal == moviesKeyUI.genres || keyVal == moviesKeyUI.paging {
             return 0.1
         }else {
-            return cellHeight
+            if keyVal == moviesKeyUI.recommended {
+                if self.recommendedMovies?.count ?? 0 > 0{
+                    return cellHeight
+                }
+            }else if keyVal == moviesKeyUI.latest_tamil_movies{
+                if self.latestTamilMovies?.count ?? 0 > 0{
+                    return cellHeight
+                }
+            }else{
+                if self.movieCollectionsValues?.count ?? 0 > 0{
+                    if let filterMovies = self.movieCollectionsValues?
+                        .first(where: { $0.name == keyVal }), filterMovies.movieCollections?.count ?? 0 > 0{
+                        if filterMovies.movieCollections?.count ?? 0 > 0{
+                            return cellHeight
+                        }
+                    }
+                }
+            }
+            return 0.1
         }
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -222,7 +240,7 @@ extension ZTDiscoveryViewController{
 extension ZTDiscoveryViewController{
     func getStreamingNowMovies(){
         if NetworkReachability.shared.isReachable {
-            ZTCommonAPIWrapper.streamNow(pageNumber: self.pageNumber, pageSize: self.pageSize, sortSorted: true) { (response, error) in
+            ZTCommonAPIWrapper.streamNow(pageNumber: self.pageNumber, pageSize: self.pageSize, sortSorted: true, contenttype: MovieSearchTag.streamNow.rawValue) { (response, error) in
                 self.streamingNowMovies?.removeAll()
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
@@ -234,11 +252,14 @@ extension ZTDiscoveryViewController{
                 }
                 if let responseVal = response{
                     self.streamingNowMovies?.append(contentsOf: responseVal.content ?? [])
-                    DispatchQueue.main.async {
-                        self.tblHome.reloadData()
-                    }
                 }
+                self.refreshTable()
             }
+        }
+    }
+    func refreshTable(){
+        DispatchQueue.main.async {
+            self.tblHome.reloadData()
         }
     }
     func getLatestTamilMovies(){
@@ -255,10 +276,8 @@ extension ZTDiscoveryViewController{
                 }
                 if let responseVal = response{
                     self.latestTamilMovies?.append(contentsOf: responseVal.content ?? [])
-                    DispatchQueue.main.async {
-                        self.tblHome.reloadData()
-                    }
                 }
+                self.refreshTable()
             }
         }
     }
@@ -277,10 +296,8 @@ extension ZTDiscoveryViewController{
                 }
                 if let responseVal = response{
                     self.recommendedMovies?.append(contentsOf: responseVal.content ?? [])
-                    DispatchQueue.main.async {
-                        self.tblHome.reloadData()
-                    }
                 }
+                self.refreshTable()
             }
         }
     }
@@ -328,13 +345,11 @@ extension ZTDiscoveryViewController{
                         }
                     }
                 }
-                DispatchQueue.main.async {
-                    self.tblHome.reloadData()
-                }
             }
         }else{
             self.isPageEnable = false
         }
+        self.refreshTable()
     }
     func getGenrieList(){
         if NetworkReachability.shared.isReachable {
@@ -351,10 +366,8 @@ extension ZTDiscoveryViewController{
                 }
                 if let responseVal = response{
                     self.allGenres?.append(contentsOf: responseVal.content ?? [])
-                    DispatchQueue.main.async {
-                        self.tblHome.reloadData()
-                    }
                 }
+                self.refreshTable()
             }
         }
     }

@@ -25,13 +25,13 @@ open class ZTCommonAPIWrapper {
      - parameter unpaged: (query)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func streamNow(language: String? = nil, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, showinios: String? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, completion: @escaping ((_ data: PageMoviePaymentStatus?,_ error: Error?) -> Void)) {
+    open class func streamNow(language: String? = nil, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, showinios: String? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, contenttype:String? = nil, completion: @escaping ((_ data: PageMoviePaymentStatus?,_ error: Error?) -> Void)) {
         if ZTAppSession.sharedInstance.getIsUserLoggedIn() {
-            ZTPrivateAPIWrapper.streamingnowUsingGET(language: language, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, showinios: showinios, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged) { (response, error) in
+            ZTPrivateAPIWrapper.streamingnowUsingGET(language: language, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, showinios: showinios, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged, contenttype:contenttype) { (response, error) in
                 completion(response, error)
             }
         }else{
-            ZTPublicAPIWrapper.streamingnowPublicUsingGET(language: language, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, showinios: showinios, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged) { (response, error) in
+            ZTPublicAPIWrapper.streamingnowPublicUsingGET(language: language, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, showinios: showinios, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged, contenttype:contenttype) { (response, error) in
                 completion(response, error)
             }
         }
@@ -307,7 +307,17 @@ open class ZTCommonAPIWrapper {
             completion(response,error)
         }
     }
-    
+    /**
+     getMovieVideoW
+     
+     - parameter playMovieRequest: (body) playMovieRequest
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getMovieVideoWUsingPOST(playMovieRequest: PlayMovieRequest, completion: @escaping ((_ data: MovieLinkModel?,_ error: Error?) -> Void)) {
+        MovieControllerAPI.getMovieVideoWUsingPOST(playMovieRequest: playMovieRequest) { response, error in
+            completion(response, error)
+        }
+    }
     /**
      saveMovieReview
      

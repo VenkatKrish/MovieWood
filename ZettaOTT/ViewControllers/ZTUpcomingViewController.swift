@@ -11,16 +11,15 @@ import SwiftUI
 class ZTUpcomingViewController: UIViewController {
     @IBOutlet weak var tblHome: UITableView!
     var movieCollectionsValues : [MCollections]? = []
-    var streamingNowMovies : [Movies]? = []
     var upcomingMovies : [Movies]? = []
     var continueWatching : [Movies]? = []
     var popularMovies : [Movies]? = []
     var allGenres : [Genres]? = []
-    var allTitles = [moviesKeyUI.paging, moviesKeyUI.genres, moviesKeyUI.recommended, moviesKeyUI.popular_movies]
+    var allTitles = [moviesKeyUI.paging, moviesKeyUI.genres, moviesKeyUI.recommended, moviesKeyUI.latest_tamil_movies]
     var pageSize : Int = 5
     var pageNumber : Int = 0
     
-    var movieColPageSize : Int = 5
+    var movieColPageSize : Int = 10
     var movieColPageNumber : Int = 0
     
     var collectionPageSize : Int = 50
@@ -39,6 +38,9 @@ class ZTUpcomingViewController: UIViewController {
         self.initialLoad()
         // Do any additional setup after loading the view.
     }
+    override func viewDidAppear(_ animated: Bool) {
+        self.refreshTable()
+    }
     override func viewWillAppear(_ animated: Bool) {
         if let userModel = ZTAppSession.sharedInstance.getUserInfo(){
         }
@@ -46,7 +48,6 @@ class ZTUpcomingViewController: UIViewController {
     
     func initialLoad(){
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.getStreamingNowMovies()
             self.getUpcomingVideos()
             self.getPopularMovies()
             self.getGenrieList()
@@ -85,14 +86,10 @@ extension ZTUpcomingViewController: UITableViewDelegate, UITableViewDataSource{
                 return 1
             }
         }else if keyVal == moviesKeyUI.paging {
-            if self.streamingNowMovies?.count ?? 0 > 0{
-                return 1
-            }
-        }else if keyVal == moviesKeyUI.recommended {
             if self.upcomingMovies?.count ?? 0 > 0{
                 return 1
             }
-        }else if keyVal == moviesKeyUI.popular_movies {
+        }else if keyVal == moviesKeyUI.recommended {
             if self.popularMovies?.count ?? 0 > 0{
                 return 1
             }
@@ -112,18 +109,15 @@ extension ZTUpcomingViewController: UITableViewDelegate, UITableViewDataSource{
             return cell
         }else if keyVal == moviesKeyUI.paging {
             let cell: ZTPagingTableViewCell = tableView.dequeueReusableCell(withIdentifier: ZTCellNameOrIdentifier.ZTPagingTableViewCell, for: indexPath) as! ZTPagingTableViewCell
-            cell.loadPagingScroll(videosVal: self.streamingNowMovies ?? [], delegateObj: self)
+            cell.loadPagingScroll(videosVal: self.upcomingMovies ?? [], delegateObj: self)
             return cell
         }else{
             let cell: ZTHomeTableViewCell = tableView.dequeueReusableCell(withIdentifier: ZTCellNameOrIdentifier.ZTHomeTableViewCell, for: indexPath) as! ZTHomeTableViewCell
             if keyVal == moviesKeyUI.recommended {
-                cell.loadPortraintVideos(videosVal: self.upcomingMovies, delegateObj: self, isExclusiveHide: false)
-                return cell
-            }
-            else if keyVal == moviesKeyUI.popular_movies {
                 cell.loadPortraintVideos(videosVal: self.popularMovies, delegateObj: self, isExclusiveHide: false)
                 return cell
-            }else{
+            }
+            else{
                 if self.movieCollectionsValues?.count ?? 0 > 0{
                     if let filterMovies = self.movieCollectionsValues?
                         .first(where: { $0.name == keyVal }), filterMovies.movieCollections?.count ?? 0 > 0{
@@ -141,7 +135,23 @@ extension ZTUpcomingViewController: UITableViewDelegate, UITableViewDataSource{
         if keyVal == moviesKeyUI.genres || keyVal == moviesKeyUI.paging {
             return 0.1
         }else {
-            return cellHeight
+            if keyVal == moviesKeyUI.recommended {
+                if self.popularMovies?.count ?? 0 > 0{
+                    return cellHeight
+                }
+            }
+            else{
+                if self.movieCollectionsValues?.count ?? 0 > 0{
+                    if let filterMovies = self.movieCollectionsValues?
+                        .first(where: { $0.name == keyVal }), filterMovies.movieCollections?.count ?? 0 > 0{
+                        if filterMovies.movieCollections?.count ?? 0 > 0{
+                            return cellHeight
+                        }
+                    }
+                }
+                return 0.1
+            }
+            return 0.1
         }
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -202,28 +212,10 @@ extension ZTUpcomingViewController{
             self.tblHome.reloadData()
         }
     }
-    func getStreamingNowMovies(){
-        if NetworkReachability.shared.isReachable {
-            ZTCommonAPIWrapper.streamNow(pageNumber: self.pageNumber, pageSize: self.pageSize, sortSorted: true) { (response, error) in
-                self.streamingNowMovies?.removeAll()
-                if error != nil{
-                    WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
-                       
-                    }, failureBlock: { (errorMsg) in
-                       
-                    })
-                    return
-                }
-                if let responseVal = response{
-                    self.streamingNowMovies?.append(contentsOf: responseVal.content ?? [])
-                    self.refreshTable()
-                }
-            }
-        }
-    }
+    
     func getUpcomingVideos(){
         if NetworkReachability.shared.isReachable {
-            ZTCommonAPIWrapper.upcomingMovies( pageNumber: self.collectionPageNumber, pageSize: self.collectionPageSize, completion: { (response, error) in
+            ZTCommonAPIWrapper.upcomingMovies( pageNumber: self.movieColPageNumber, pageSize: self.movieColPageSize, completion: { (response, error) in
                 self.upcomingMovies?.removeAll()
 //                Helper.shared.removeNoView(fromView: self.upcomingCollection)
                 if error != nil{
@@ -236,12 +228,8 @@ extension ZTUpcomingViewController{
                 }
                 if let responseVal = response, responseVal.content?.count ?? 0 > 0{
                     self.upcomingMovies?.append(contentsOf: responseVal.content ?? [])
-                    self.refreshTable()
-                }else{
-//                    Helper.shared.showNoView(title: "", description: "", fromView: self.upcomingCollection, hideActionBtn: true, imageName: "",fromViewController: self )
-
                 }
-                
+                self.refreshTable()
             })
         }
     }
@@ -291,14 +279,13 @@ extension ZTUpcomingViewController{
                         
                     }
                 }
-                DispatchQueue.main.async {
-                    self.tblHome.reloadData()
-                }
             }
         }else{
             self.isPageEnable = false
         }
+        self.refreshTable()
     }
+    
     func getPopularMovies(){
         if NetworkReachability.shared.isReachable {
             ZTCommonAPIWrapper.searchMoviesGET(search: MovieSearchTag.movieSearchAvg.rawValue, page: self.pageNumber, size: self.pageSize) { (response, error) in
@@ -314,8 +301,8 @@ extension ZTUpcomingViewController{
                 }
                 if let responseVal = response{
                     self.popularMovies?.append(contentsOf: responseVal.content ?? [])
-                    self.refreshTable()
                 }
+                self.refreshTable()
             }
         }
     }
@@ -334,8 +321,8 @@ extension ZTUpcomingViewController{
                 }
                 if let responseVal = response{
                     self.allGenres?.append(contentsOf: responseVal.content ?? [])
-                    self.refreshTable()
                 }
+                self.refreshTable()
             }
         }
     }

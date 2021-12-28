@@ -23,7 +23,7 @@ public struct Subscriptions: Codable {
     public var ordering: Int64?
     public var promoColor: String?
     public var promoLabel: String?
-    public var subDuration: Double?
+    public var subDuration: Int?
     public var subGroupId: Int64?
     public var subValue: Double?
     public var uom: String?
@@ -31,7 +31,7 @@ public struct Subscriptions: Codable {
     public var subsKey: String?
     public var subsBackgroundColor: String?
     
-    public init(active: String?, createdBy: String?, createdOn: Date?, _description: String?, _id: Int64?, lastUpdateLogin: String?, modifiedBy: String?, modifiedOn: Date?, name: String?, ordering: Int64?, promoColor: String?, promoLabel: String?, subDuration: Double?, subGroupId: Int64?, subValue: Double?, uom: String?, versionNumber: Int64?, subsKey: String?, subsBackgroundColor: String?) {
+    public init(active: String?, createdBy: String?, createdOn: Date?, _description: String?, _id: Int64?, lastUpdateLogin: String?, modifiedBy: String?, modifiedOn: Date?, name: String?, ordering: Int64?, promoColor: String?, promoLabel: String?, subDuration: Int?, subGroupId: Int64?, subValue: Double?, uom: String?, versionNumber: Int64?, subsKey: String?, subsBackgroundColor: String?) {
         self.active = active
         self.createdBy = createdBy
         self.createdOn = createdOn

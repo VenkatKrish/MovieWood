@@ -34,6 +34,9 @@ class ZTNowViewController: UIViewController {
         self.initialLoad()
         // Do any additional setup after loading the view.
     }
+    override func viewDidAppear(_ animated: Bool) {
+        self.refreshTable()
+    }
     override func viewWillAppear(_ animated: Bool) {
         if let userModel = ZTAppSession.sharedInstance.getUserInfo(){
         }
@@ -153,13 +156,30 @@ extension ZTNowViewController: UITableViewDelegate, UITableViewDataSource{
             if keyVal == moviesKeyUI.continue_watching {
                 if self.continueWatching?.count ?? 0 > 0{
                     return cellHeight
-                }else{
-                    return 0.1
                 }
             }else{
-                return cellHeight
+                if keyVal == moviesKeyUI.zetta_movies_originals {
+                    if self.zettaMovieOriginals?.count ?? 0 > 0{
+                        return cellHeight
+                    }
+                }else if keyVal == moviesKeyUI.latest_web_series{
+                    if self.webSeriesMovies?.count ?? 0 > 0{
+                        return cellHeight
+                    }
+                }else{
+                    if self.movieCollectionsValues?.count ?? 0 > 0{
+                        if let filterMovies = self.movieCollectionsValues?
+                            .first(where: { $0.name == keyVal }), filterMovies.movieCollections?.count ?? 0 > 0{
+                            if filterMovies.movieCollections?.count ?? 0 >= 0{
+                                return cellHeight
+                            }
+                        }
+                    }
+                }
+                return 0.1
             }
         }
+        return 0.1
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let keyVal = self.allTitles[section]
@@ -240,7 +260,7 @@ extension ZTNowViewController{
 extension ZTNowViewController{
     func getStreamingNowMovies(){
         if NetworkReachability.shared.isReachable {
-            ZTCommonAPIWrapper.streamNow(pageNumber: self.pageNumber, pageSize: self.pageSize, sortSorted: true) { (response, error) in
+            ZTCommonAPIWrapper.streamNow(pageNumber: self.pageNumber, pageSize: self.pageSize, sortSorted: true, contenttype: MovieSearchTag.streamNow.rawValue) { (response, error) in
                 self.streamingNowMovies?.removeAll()
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
@@ -293,11 +313,14 @@ extension ZTNowViewController{
                 }
                 if let responseVal = response{
                     self.zettaMovieOriginals?.append(contentsOf: responseVal.content ?? [])
-                    DispatchQueue.main.async {
-                        self.tblHome.reloadData()
-                    }
+                    self.refreshTable()
                 }
             }
+        }
+    }
+    func refreshTable(){
+        DispatchQueue.main.async {
+            self.tblHome.reloadData()
         }
     }
     func getAllCollections(isSpinnerNeeded:Bool){
@@ -345,10 +368,8 @@ extension ZTNowViewController{
                         
                     }
                 }
-                DispatchQueue.main.async {
-                    self.tblHome.reloadData()
-                }
             }
+            self.refreshTable()
         }else{
             self.isPageEnable = false
         }
@@ -376,10 +397,9 @@ extension ZTNowViewController{
                     if let responseVal = response, responseVal.content?.count ?? 0 > 0{
                         
                         self.webSeriesMovies?.append(contentsOf: responseVal.content ?? [])
-                        DispatchQueue.main.async {
-                            self.tblHome.reloadData()
-                        }
+                        
                     }
+                    self.refreshTable()
                 }
             }
         }
@@ -399,10 +419,8 @@ extension ZTNowViewController{
                 }
                 if let responseVal = response{
                     self.allGenres?.append(contentsOf: responseVal.content ?? [])
-                    DispatchQueue.main.async {
-                        self.tblHome.reloadData()
-                    }
                 }
+                self.refreshTable()
             }
         }
     }

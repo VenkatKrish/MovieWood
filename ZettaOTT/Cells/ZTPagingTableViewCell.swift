@@ -34,7 +34,7 @@ class ZTPagingTableViewCell: UITableViewCell, UIScrollViewDelegate {
         self.mainScrollView.isPagingEnabled = true
         let width = self.mainScrollView.bounds.size.width
         let height = self.mainScrollView.bounds.size.height
-
+        self.mainScrollView.layer.cornerRadius = 5.0
         var x:CGFloat = 0
         for index in 0..<self.videos.count {
             if index > 0{
@@ -43,7 +43,8 @@ class ZTPagingTableViewCell: UITableViewCell, UIScrollViewDelegate {
             let subView = UIImageView()
             subView.frame = CGRect(x: x, y: 0, width: width, height: height)
             subView.backgroundColor = .clear
-            subView.contentMode = .scaleAspectFill
+            subView.contentMode = .redraw
+            subView.layer.cornerRadius = 5.0
             Helper.shared.loadImage(url: self.videos[index].webStreamingNow ?? "", imageView: subView)
             
             let btnView = UIButton()

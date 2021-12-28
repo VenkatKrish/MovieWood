@@ -38,6 +38,10 @@ enum MovieSearchTag : String {
     case webSeries = "movieType:Series,active:Y,showInIos:Y"
     case genresFilter = "active:Y,showInIos:Y,movieGenresDSgenreIdLIST="
     case latestTamilMovies = "active:Y,showInIos:Y,primaryLanguage:Tamil"
+    case streamNow = "contenttype=Movie"
+    case streamNowWebseries = "contenttype=Series"
+    case streamNowShortFilms = "contenttype=Shorts"
+
     func MovieSearchTag() -> String{
         return self.rawValue
     }
@@ -62,8 +66,24 @@ enum MovieOrderStatusStruct : String {
         return self.rawValue
     }
 }
+enum SubscriptionUom : String {
+    case days = "Days"
+    case year = "Year"
+    case month = "Month"
+    func SubscriptionUom() -> String{
+        return self.rawValue
+    }
+}
+enum MovieOrderTypeStruct : String {
+    case subscription = "Subscription"
+    case payPerView = "PayPerView"
+    func MovieOrderTypeStruct() -> String{
+        return self.rawValue
+    }
+}
+
 enum MoviePaymentStatusStruct : String {
-    case paid = "PAID"
+    case paid = "1"
     case none = "0"
     func MoviePaymentStatusStruct() -> String{
         return self.rawValue
