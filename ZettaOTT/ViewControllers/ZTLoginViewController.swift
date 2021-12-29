@@ -135,6 +135,7 @@ class ZTLoginViewController: UIViewController {
        
         if gesture.didTapAttributedTextInLabel(label: self.termsLabel, inRange: termsRange) {
             print("Tapped terms")
+            Helper.shared.goToAbout(viewController: self, typeKey: WebViewStrings.terms.rawValue, titleValStr: WebViewStrings.title_terms.rawValue)
 
         } else {
             print("Tapped none")

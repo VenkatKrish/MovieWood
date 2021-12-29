@@ -15,6 +15,7 @@ class NoRecordsView: UIView {
     var btnDelegate : dataMissingDelegate!
 
     @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var centerYConstraints: NSLayoutConstraint!
 
     override func awakeFromNib() {
         super.awakeFromNib()

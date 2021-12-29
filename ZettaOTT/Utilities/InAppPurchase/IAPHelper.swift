@@ -6,7 +6,10 @@ public typealias ProductsRequestCompletionHandler = (_ success: Bool, _ products
 extension Notification.Name {
   static let IAPHelperPurchaseNotification = Notification.Name("IAPHelperPurchaseNotification")
 }
-
+struct InAppProductTransaction{
+    var transaction:SKPaymentTransaction?
+    var productIdentifier : String?
+}
 open class IAPHelper: NSObject  {
   
     var productIdentifiers: Set<ProductIdentifier>
@@ -119,7 +122,7 @@ extension IAPHelper: SKPaymentTransactionObserver {
 
   private func complete(transaction: SKPaymentTransaction) {
     print("complete...")
-    deliverPurchaseNotificationFor(identifier: transaction.payment.productIdentifier)
+      deliverPurchaseNotificationFor(identifier: transaction.payment.productIdentifier, transaction: transaction)
     SKPaymentQueue.default().finishTransaction(transaction)
   }
 
@@ -127,7 +130,7 @@ extension IAPHelper: SKPaymentTransactionObserver {
     guard let productIdentifier = transaction.original?.payment.productIdentifier else { return }
 
     print("restore... \(productIdentifier)")
-    deliverPurchaseNotificationFor(identifier: productIdentifier)
+      deliverPurchaseNotificationFor(identifier: productIdentifier, transaction: transaction)
     SKPaymentQueue.default().finishTransaction(transaction)
   }
 
@@ -138,15 +141,46 @@ extension IAPHelper: SKPaymentTransactionObserver {
         transactionError.code != SKError.paymentCancelled.rawValue {
         print("Transaction Error: \(localizedDescription)")
       }
+      deliverPurchaseNotificationFor(identifier: transaction.payment.productIdentifier, transaction: transaction)
 
     SKPaymentQueue.default().finishTransaction(transaction)
   }
 
-  private func deliverPurchaseNotificationFor(identifier: String?) {
-    guard let identifier = identifier else { return }
+    private func deliverPurchaseNotificationFor(identifier: String?, transaction:SKPaymentTransaction?) {
+        guard let identifier = identifier, let transaction = transaction else { return }
 
     purchasedProductIdentifiers.insert(identifier)
     UserDefaults.standard.set(true, forKey: identifier)
-    NotificationCenter.default.post(name: .IAPHelperPurchaseNotification, object: identifier)
+        let inAppProductTransaction = InAppProductTransaction(transaction: transaction, productIdentifier: identifier)
+    NotificationCenter.default.post(name: .IAPHelperPurchaseNotification, object: inAppProductTransaction)
   }
+}
+extension SKProduct {
+
+    private static let formatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter
+    }()
+
+    var isFree: Bool {
+        price == 0.00
+    }
+
+    var localizedPrice: String? {
+        guard !isFree else {
+            return nil
+        }
+        
+        let formatter = SKProduct.formatter
+        formatter.locale = priceLocale
+
+        return formatter.string(from: price)
+    }
+
+}
+extension Decimal {
+    var doubleValue:Double {
+        return NSDecimalNumber(decimal:self).doubleValue
+    }
 }

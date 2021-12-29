@@ -67,13 +67,14 @@
                 <constraint firstItem="583-ML-8Yu" firstAttribute="centerX" secondItem="bgo-MW-68Z" secondAttribute="centerX" id="drB-DT-K0i"/>
             </constraints>
             <connections>
+                <outlet property="centerYConstraints" destination="KtC-vi-gYD" id="bV0-uN-wmS"/>
                 <outlet property="titleLabel" destination="W3m-F0-rP3" id="Jcz-eJ-C9b"/>
             </connections>
             <point key="canvasLocation" x="-213.5" y="-259.5"/>
         </view>
     </objects>
     <resources>
-        <image name="bg_no_movies" width="278" height="270"/>
+        <image name="bg_no_movies" width="208.5" height="202.5"/>
         <namedColor name="ZTAppBlackColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

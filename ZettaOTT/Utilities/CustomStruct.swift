@@ -125,3 +125,20 @@ enum AlertViewType{
     case Logout
     case CameraPermission
 }
+
+
+public struct ContinueWatching: Codable {
+
+    var movieId:Int64?
+    var userIdVal:Int64?
+    var overAllSecond : Double?
+    var watchedSecond : Double?
+
+    public init(movieId: Int64?, userIdVal: Int64?, overAllSecond: Double?, watchedSecond: Double?) {
+        self.movieId = movieId
+        self.userIdVal = userIdVal
+        self.overAllSecond = overAllSecond
+        self.watchedSecond = watchedSecond
+    }
+
+}

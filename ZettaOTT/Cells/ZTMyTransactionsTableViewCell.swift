@@ -39,19 +39,20 @@ class ZTMyTransactionsTableViewCell: UITableViewCell {
             self.lblMovieYear.text = String(format: "%d", Int(movieInfo.yearReleased ?? 0))
             self.lblMoviePrice.text = String(format: "%@", (movieInfo.iosTicketPrice ?? 0).getPriceValue())
             
-            self.lblTransactionDate.text = String(format: "%@", data?.orderDate ?? "")
-            if movieInfo.paymentStatus == MovieOrderStatusStruct.paid.rawValue{
+            self.lblTransactionDate.text = Helper.shared.getConvertFromToDate(dateStr: data?.orderDate ?? "", fromDateFormat: CustomDateFormatter.orderRequestDate, toDateFormat: CustomDateFormatter.transactionDate)
+            
+            if movieInfo.paymentStatus == MoviePaymentStatusStruct.paid.rawValue{
                 self.lblPaymentStatus.text = TransactionStatusStruct.Success.rawValue
                 self.lblPaymentStatus.textColor = UIColor.getColor(colorVal: ZTSuccessColor)
-            }else if movieInfo.paymentStatus == MovieOrderStatusStruct.new.rawValue{
-                self.lblPaymentStatus.text = TransactionStatusStruct.New.rawValue
-                self.lblPaymentStatus.textColor = UIColor.getColor(colorVal: ZTPaymentNewColor)
-            }else{
+            }else if movieInfo.paymentStatus == MoviePaymentStatusStruct.none.rawValue{
                 self.lblPaymentStatus.text = TransactionStatusStruct.Failure.rawValue
                 self.lblPaymentStatus.textColor = UIColor.getColor(colorVal: ZTFailureColor)
+            }else{
+                self.lblPaymentStatus.text = TransactionStatusStruct.Success.rawValue
+                self.lblPaymentStatus.textColor = UIColor.getColor(colorVal: ZTSuccessColor)
             }
             
-            Helper.shared.loadImage(url: movieInfo.image ?? "", imageView: self.imgVwThumbnail)
+            Helper.shared.loadImage(url: movieInfo.thumbnail ?? "", imageView: self.imgVwThumbnail)
             
         }
     }

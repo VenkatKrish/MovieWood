@@ -22,8 +22,23 @@ class ZTShortFilmsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerCells()
+        self.profileCollection.addSubview(self.refreshControl)
         self.initialLoad()
         // Do any additional setup after loading the view.
+    }
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = UIColor.getColor(colorVal: ZTGradientColor1)
+        
+        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.getColor(colorVal: ZTGradientColor1)]
+        refreshControl.attributedTitle = NSAttributedString(string: ZTConstants.PLEASE_WAIT_LOADING, attributes: attributes)
+        
+        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
+        return refreshControl
+    }()
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        self.pageNumber = 0
+        self.initialLoad()
     }
     override func viewWillAppear(_ animated: Bool) {
         if let _ = ZTAppSession.sharedInstance.getUserInfo(){
@@ -32,8 +47,8 @@ class ZTShortFilmsViewController: UIViewController {
 
     func initialLoad(){
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-        self.getStreamingNowMovies()
-        self.getWebSeriesVideos(isSpinnerNeeded: true)
+            self.getStreamingNowMovies()
+            self.getWebSeriesVideos(isSpinnerNeeded: true)
         }
     }
     
@@ -60,6 +75,11 @@ extension ZTShortFilmsViewController{
     func getStreamingNowMovies(){
         if NetworkReachability.shared.isReachable {
             ZTCommonAPIWrapper.streamNow(pageNumber: self.pageNumber, pageSize: self.pageSize, sortSorted: true, contenttype: MovieSearchTag.streamNowShortFilms.rawValue) { (response, error) in
+                DispatchQueue.main.async {
+                    if self.refreshControl.isRefreshing{
+                        self.refreshControl.endRefreshing()
+                    }
+                }
                 self.streamingNowMovies?.removeAll()
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
@@ -71,11 +91,14 @@ extension ZTShortFilmsViewController{
                 }
                 if let responseVal = response{
                     self.streamingNowMovies?.append(contentsOf: responseVal.content ?? [])
-                    DispatchQueue.main.async {
-                        self.profileCollection.reloadData()
-                    }
+                    self.refreshTable()
                 }
             }
+        }
+    }
+    func refreshTable(){
+        DispatchQueue.main.async {
+            self.profileCollection.reloadData()
         }
     }
     func getWebSeriesVideos(isSpinnerNeeded:Bool){
@@ -99,11 +122,7 @@ extension ZTShortFilmsViewController{
                     if responseVal.last == true{
                         self.isPageEnable  = false
                     }
-                    if self.webSeriesMovies?.count ?? 0 > 0{
-                    DispatchQueue.main.async {
-                        self.profileCollection.reloadData()
-                        }
-                    }
+                    self.refreshTable()
                 }
             }
         }
@@ -114,14 +133,22 @@ extension ZTShortFilmsViewController{
 extension ZTShortFilmsViewController:UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.webSeriesMovies?.count ?? 0
+        if self.webSeriesMovies?.count ?? 0 > 0{
+            return self.webSeriesMovies?.count ?? 0
+        }else{
+            return 1
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZTCellNameOrIdentifier.ZTVideoTileCollectionViewCell, for: indexPath) as! ZTVideoTileCollectionViewCell
-        cell.loadMoviesModel(data: self.webSeriesMovies?[indexPath.row], indexPath: indexPath)
-        return cell
-        
+        if self.webSeriesMovies?.count ?? 0 > 0{
+            cell.loadMoviesModel(data: self.webSeriesMovies?[indexPath.row], indexPath: indexPath)
+            return cell
+        }else{
+            Helper.shared.showNoView(fromView: cell, fromViewController: self, needToSetTop: true)
+            return cell
+        }        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -130,15 +157,21 @@ extension ZTShortFilmsViewController:UICollectionViewDelegate, UICollectionViewD
                
                 let widthPerItem = collectionView.frame.width / 3 - lay.minimumInteritemSpacing
                
-                return CGSize(width: widthPerItem, height: widthPerItem + 50)
+        if self.webSeriesMovies?.count ?? 0 > 0{
+            return CGSize(width: widthPerItem, height: widthPerItem + 50)
+    
+        }else{
+            return CGSize(width: collectionView.frame.width, height: collectionView.frame.height - (self.headerHeight + 50))
+        }
     }
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let movieInfo = self.webSeriesMovies?[indexPath.row]{
-            Helper.shared.goToMovieDetails(viewController: self, movieInfo: movieInfo)
+        if self.webSeriesMovies?.count ?? 0 > 0{
+            if let movieInfo = self.webSeriesMovies?[indexPath.row]{
+                Helper.shared.goToMovieDetails(viewController: self, movieInfo: movieInfo)
+            }
         }
-        
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
@@ -162,14 +195,15 @@ extension ZTShortFilmsViewController:UICollectionViewDelegate, UICollectionViewD
         return CGSize(width: collectionView.frame.width, height: self.headerHeight)
         }
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-               if self.isPageEnable == true {
-                   if  indexPath.row ==  (self.webSeriesMovies?.count ?? 0) - 1{
-                       self.pageNumber = self.pageNumber + 1
-                       self.getWebSeriesVideos(isSpinnerNeeded: false)
-                   }
-               }
-           
-       }
+        if self.webSeriesMovies?.count ?? 0 > 0{
+            if self.isPageEnable == true {
+                if  indexPath.row ==  (self.webSeriesMovies?.count ?? 0) - 1{
+                    self.pageNumber = self.pageNumber + 1
+                    self.getWebSeriesVideos(isSpinnerNeeded: false)
+                    }
+                }
+        }
+    }
 
 }
 extension ZTShortFilmsViewController : ZTCollectionPagingDelegate{

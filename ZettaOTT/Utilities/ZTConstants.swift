@@ -90,6 +90,13 @@ class ZTConstants: NSObject {
     static let BTN_BOOK_PLAY = "Watch Now"
     static let termsLabel = "By signing up, you are agreed with our Terms & Conditions"
     static let termsAndConditionLabel = "Terms & Conditions"
+    static let ticket_confirmation = "Ticket Confirmation"
+    static let ticket_payment_success = "Ticket Payment Successful"
+    static let subscription_confirmation = "Subscription Confirmation"
+    static let subscription_payment_success = "Subscription Payment Successful"
+    static let PLEASE_WAIT_LOADING = "Please wait loading";
+
+
 }
 
 class ZTCellNameOrIdentifier{
@@ -167,8 +174,11 @@ class ZTUserDefaultKeys {
 
 }
 class CustomDateFormatter{
-    static let transactionDate = "dd MM"
+    static let transactionDate = "dd MMM"
     static let orderRequestDate = "dd-MM-yyyy HH:mm:ss"
+    static let ticketConfirmationDate = "dd-MM-yyyy"
+    static let transactionDateWithTime = "dd MMM yyyy | hh:mm a"
+
 }
 class AlertTitle{
     static let logoutTitle = "Logout"

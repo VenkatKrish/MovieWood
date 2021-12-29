@@ -13,6 +13,7 @@ class ZTAboutViewController: UIViewController {
     var titleVal : String = ""
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var txtVwContent: UITextView!
+    @IBOutlet weak var lblVersion: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()

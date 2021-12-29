@@ -90,6 +90,16 @@ class Helper: NSObject {
         let newDate:String = dateFormatter.string(from: dateVal)
         return newDate
     }
+    func getConvertFromToDate(dateStr:String, fromDateFormat: String, toDateFormat:String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = fromDateFormat
+        let newDate = dateFormatter.date(from: dateStr)
+        
+        let to_dateFormatter = DateFormatter()
+        to_dateFormatter.dateFormat = toDateFormat
+        let finalDate:String = to_dateFormatter.string(from: newDate ?? Date())
+        return finalDate
+    }
     func getRandomColor(indexVal:Int) -> UIColor {
         let randomIndex = Int(arc4random_uniform(UInt32(colorRandom.count)))
         print(colorRandom[randomIndex])
@@ -473,7 +483,7 @@ extension Helper{
     }
 }
 extension Helper:dataMissingDelegate{
-    func showNoView(title:String, description:String, fromView:UIView, hideActionBtn:Bool, imageName:String, fromViewController:UIViewController, needToSetTop:Bool? = false){
+    func showNoView(title:String? = "", description:String? = "", fromView:UIView, hideActionBtn:Bool? = true, imageName:String? = "", fromViewController:UIViewController, needToSetTop:Bool? = false){
            
         self.noRecordsView = Bundle.main.loadNibNamed("NoRecordsView", owner: self, options: nil)?[0] as! NoRecordsView
         self.helperDelegate = fromViewController as? HelperMethodsDelegate
@@ -481,9 +491,11 @@ extension Helper:dataMissingDelegate{
                       frame.origin.y = 0
                       self.noRecordsView.frame = frame
                       self.noRecordsView.tag = 100001
-//        if needToSetTop == true{
-//            self.noRecordsView.mainViewTopConstraints.constant = -(fromView.bounds.height / 3)
-//        }
+        if needToSetTop == true{
+            self.noRecordsView.centerYConstraints.constant = -30
+        }else{
+            self.noRecordsView.centerYConstraints.constant = 0
+        }
         self.noRecordsView.hideAllViews()
 //        if imageName.count > 0{
 //            self.noRecordsView.placeholderImageView.isHidden = false

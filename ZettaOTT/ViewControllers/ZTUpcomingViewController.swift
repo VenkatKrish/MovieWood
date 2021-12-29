@@ -33,10 +33,24 @@ class ZTUpcomingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tblHome.isHidden = true
-
+        self.tblHome.addSubview(self.refreshControl)
         self.registerCells()
         self.initialLoad()
         // Do any additional setup after loading the view.
+    }
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = UIColor.getColor(colorVal: ZTGradientColor1)
+        
+        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.getColor(colorVal: ZTGradientColor1)]
+        refreshControl.attributedTitle = NSAttributedString(string: ZTConstants.PLEASE_WAIT_LOADING, attributes: attributes)
+        
+        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
+        return refreshControl
+    }()
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        self.pageNumber = 0
+        self.initialLoad()
     }
     override func viewDidAppear(_ animated: Bool) {
         self.refreshTable()
@@ -168,7 +182,21 @@ extension ZTUpcomingViewController: UITableViewDelegate, UITableViewDataSource{
             headerView.btnMore.isHidden = true
         }else{
             headerView.lblTitle.text = keyVal
-            headerView.btnMore.isHidden = false
+
+            if keyVal == moviesKeyUI.recommended {
+                if self.popularMovies?.count ?? 0 >= self.pageSize{
+                    headerView.btnMore.isHidden = false
+                }
+            }else{
+                if self.movieCollectionsValues?.count ?? 0 > 0{
+                    if let filterMovies = self.movieCollectionsValues?
+                        .first(where: { $0.name == keyVal }), filterMovies.movieCollections?.count ?? 0 > 0{
+                        if filterMovies.movieCollections?.count ?? 0 >= self.pageSize{
+                            headerView.btnMore.isHidden = false
+                        }
+                    }
+                }
+            }
         }
 
         return headerView
@@ -216,6 +244,11 @@ extension ZTUpcomingViewController{
     func getUpcomingVideos(){
         if NetworkReachability.shared.isReachable {
             ZTCommonAPIWrapper.upcomingMovies( pageNumber: self.movieColPageNumber, pageSize: self.movieColPageSize, completion: { (response, error) in
+                DispatchQueue.main.async {
+                    if self.refreshControl.isRefreshing{
+                        self.refreshControl.endRefreshing()
+                    }
+                }
                 self.upcomingMovies?.removeAll()
 //                Helper.shared.removeNoView(fromView: self.upcomingCollection)
                 if error != nil{

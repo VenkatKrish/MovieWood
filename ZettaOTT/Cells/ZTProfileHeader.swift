@@ -60,7 +60,7 @@ class ZTProfileHeader: UICollectionReusableView {
         self.vwGender.isHidden = true
         self.vwDOB.isHidden = true
         self.vwPhone.isHidden = true
-        self.imgVwProfile.image = UIImage(named: "dummy_profile")
+        self.imgVwProfile.image = UIImage(named: ZTDefaultValues.placeholder_profile)
     }
     
 }

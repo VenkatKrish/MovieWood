@@ -64,6 +64,22 @@ class ZTAppSession: NSObject {
         }
         return nil
     }
+    func setVideoInfo(data: ContinueWatching) {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(data) {
+            self.userDefaults.set(encoded, forKey: "ContinueWatching")
+        }
+        self.saveValue()
+    }
+    func getVideoInfo() -> ContinueWatching? {
+        if let keySettings = self.userDefaults.object(forKey: "ContinueWatching") as? Data {
+            let decoder = JSONDecoder()
+            if let appKey = try? decoder.decode(ContinueWatching.self, from: keySettings){
+                return appKey
+            }
+        }
+        return nil
+    }
     func setIsUserLoggedIn(_ value : Bool){
         self.userDefaults.set(value, forKey: "isUserLogin")
         self.saveValue()

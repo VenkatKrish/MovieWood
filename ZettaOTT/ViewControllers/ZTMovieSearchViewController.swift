@@ -13,6 +13,7 @@ class ZTMovieSearchViewController: UIViewController {
     @IBOutlet weak var txtFldSearch : UITextField!
     var pageSize : Int = 50
     var pageNumber : Int = 0
+    var isPageEnable: Bool = true
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initialLoad()
@@ -105,10 +106,11 @@ extension ZTMovieSearchViewController{
             self.tblMovieSearch.reloadData()
         }else{
             if NetworkReachability.shared.isReachable{
-                self.showActivityIndicator(self.tblMovieSearch)
+                self.showActivityIndicator(self.tblMovieSearch, setDarkBackground:false)
                 self.videosList?.removeAll()
                 ZTCommonAPIWrapper.getbyMovieNameSearchUsingGET(movieName: self.removeWhiteSpace(text: txtSearch), pageNumber: self.pageNumber, pageSize: self.pageSize) { (response, error) in
-                    self.hideActivityIndicator(self.view)
+                    self.videosList?.removeAll()
+                    self.hideActivityIndicator(self.tblMovieSearch)
                     if error != nil{
                         WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
                            
@@ -119,13 +121,23 @@ extension ZTMovieSearchViewController{
                     }
                     if let responseVal = response{
                         self.videosList?.append(contentsOf: responseVal.content ?? [])
-                        DispatchQueue.main.async {
-                            self.tblMovieSearch.reloadData()
-                        }
+                        self.refreshTable(searchText:txtSearch)
                     }
                 }
                 
             }
+        }
+    }
+    func refreshTable(searchText:String){
+        if searchText.count > 0{
+            if self.videosList?.count == 0{
+                Helper.shared.showNoView(fromView: self.tblMovieSearch, fromViewController: self, needToSetTop: false)
+            }else{
+                Helper.shared.removeNoView(fromView: self.tblMovieSearch)
+            }
+        }
+        DispatchQueue.main.async {
+            self.tblMovieSearch.reloadData()
         }
     }
 }

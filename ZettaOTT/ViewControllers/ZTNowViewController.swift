@@ -27,10 +27,23 @@ class ZTNowViewController: UIViewController {
     var movieColPageNumber : Int = 0
     
     var isPageEnable: Bool = true
-
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = UIColor.getColor(colorVal: ZTGradientColor1)
+        
+        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.getColor(colorVal: ZTGradientColor1)]
+        refreshControl.attributedTitle = NSAttributedString(string: ZTConstants.PLEASE_WAIT_LOADING, attributes: attributes)
+        
+        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
+        return refreshControl
+    }()
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        self.initialLoad()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerCells()
+        self.tblHome.addSubview(self.refreshControl)
         self.initialLoad()
         // Do any additional setup after loading the view.
     }
@@ -261,6 +274,11 @@ extension ZTNowViewController{
     func getStreamingNowMovies(){
         if NetworkReachability.shared.isReachable {
             ZTCommonAPIWrapper.streamNow(pageNumber: self.pageNumber, pageSize: self.pageSize, sortSorted: true, contenttype: MovieSearchTag.streamNow.rawValue) { (response, error) in
+                DispatchQueue.main.async {
+                    if self.refreshControl.isRefreshing{
+                        self.refreshControl.endRefreshing()
+                    }
+                }
                 self.streamingNowMovies?.removeAll()
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in

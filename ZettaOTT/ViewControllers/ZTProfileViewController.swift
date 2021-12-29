@@ -54,14 +54,22 @@ class ZTProfileViewController: UIViewController {
 extension ZTProfileViewController:UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.watchLists?.count ?? 0
+        if self.watchLists?.count ?? 0 > 0{
+            return self.watchLists?.count ?? 0
+        }else{
+            return 1
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZTCellNameOrIdentifier.ZTVideoTileCollectionViewCell, for: indexPath) as! ZTVideoTileCollectionViewCell
-        cell.loadMoviesModel(data: self.watchLists?[indexPath.row], indexPath: indexPath)
-        return cell
-        
+        if self.watchLists?.count ?? 0 > 0{
+            cell.loadMoviesModel(data: self.watchLists?[indexPath.row], indexPath: indexPath)
+            return cell
+        }else{
+            Helper.shared.showNoView(fromView: cell, fromViewController: self, needToSetTop: true)
+            return cell
+        }
     }
     // inner margin
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -74,15 +82,23 @@ extension ZTProfileViewController:UICollectionViewDelegate, UICollectionViewData
                let width = collectionView.frame.width - 32
                 let widthPerItem = width / 3 - lay.minimumInteritemSpacing
                
-                return CGSize(width: widthPerItem, height: widthPerItem + 50)
+        if self.watchLists?.count ?? 0 > 0{
+            return CGSize(width: widthPerItem, height: widthPerItem + 50)
+    
+        }else{
+            return CGSize(width: collectionView.frame.width, height: collectionView.frame.height - (self.headerHeight + 50))
+        }
+                
     }
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let movieInfo = self.watchLists?[indexPath.row]{
-            Helper.shared.goToMovieDetails(viewController: self, movieInfo: movieInfo)
-        }
         
+        if self.watchLists?.count ?? 0 > 0{
+            if let movieInfo = self.watchLists?[indexPath.row]{
+                Helper.shared.goToMovieDetails(viewController: self, movieInfo: movieInfo)
+            }
+        }
     }
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
@@ -106,13 +122,14 @@ extension ZTProfileViewController:UICollectionViewDelegate, UICollectionViewData
         return CGSize(width: collectionView.frame.width, height: self.headerHeight)
         }
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-               if self.isPageEnable == true {
-                   if  indexPath.row ==  (self.watchLists?.count ?? 0) - 1{
-                       self.pageNumber = self.pageNumber + 1
-                       self.getMyWatchLists(isSpinnerNeeded: false)
-                   }
-               }
-           
+        if self.watchLists?.count ?? 0 > 0{
+            if self.isPageEnable == true {
+                if  indexPath.row ==  (self.watchLists?.count ?? 0) - 1{
+                    self.pageNumber = self.pageNumber + 1
+                    self.getMyWatchLists(isSpinnerNeeded: false)
+                }
+            }
+        }
        }
 
 }
@@ -177,15 +194,15 @@ extension ZTProfileViewController{
                     if responseVal.last == true{
                         self.isPageEnable  = false
                     }
-                    if self.watchLists?.count ?? 0 > 0{
-                    DispatchQueue.main.async {
-                        self.profileCollection.reloadData()
-                        }
-                    }else{
-                        Helper.shared.showNoView(title: "", description: "", fromView: self.profileCollection, hideActionBtn: true, imageName: "",fromViewController: self )
-                    }
+                    self.refreshTable()
                 }
             }
         }
+    }
+    func refreshTable(){
+        DispatchQueue.main.async {
+            self.profileCollection.reloadData()
+        }
+        
     }
 }

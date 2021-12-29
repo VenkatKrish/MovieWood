@@ -27,6 +27,8 @@ struct MyConstraint {
     }
 }
 class ZTMovieDetailViewController: UIViewController {
+    var watchedDuration : Double = 0
+    var overAllDuration : Double = 0
     var videoPlayerSize : CGFloat = 0.3
     var videoBannerSize : CGFloat = 0.4
     var tryingCount = 0
@@ -182,6 +184,7 @@ class ZTMovieDetailViewController: UIViewController {
             }
             
             let asset = BMPlayerResource(url: url)
+            self.playerView.delegate = self
             self.playerView.setVideo(resource: asset)
             self.multiplierHeightChange(sizeVal: self.videoPlayerSize)
             self.btnBack.isHidden = true
@@ -469,4 +472,27 @@ extension ZTMovieDetailViewController:WriteAReviewDelegate{
     func updateUI() {
         self.getMovieDetails()
     }
+}
+extension ZTMovieDetailViewController:BMPlayerDelegate{
+    func bmPlayer(player: BMPlayer, playerStateDidChange state: BMPlayerState) {
+        
+    }
+    
+    func bmPlayer(player: BMPlayer, loadedTimeDidChange loadedDuration: TimeInterval, totalDuration: TimeInterval) {
+        
+    }
+    
+    func bmPlayer(player: BMPlayer, playTimeDidChange currentTime: TimeInterval, totalTime: TimeInterval) {
+        
+    }
+    
+    func bmPlayer(player: BMPlayer, playerIsPlaying playing: Bool) {
+        
+    }
+    
+    func bmPlayer(player: BMPlayer, playerOrientChanged isFullscreen: Bool) {
+        
+    }
+    
+    
 }

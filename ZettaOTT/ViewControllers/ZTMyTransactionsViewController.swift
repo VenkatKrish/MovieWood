@@ -29,6 +29,7 @@ class ZTMyTransactionsViewController: UIViewController {
         self.tblTransactions.dataSource = self
         self.tblTransactions.delegate = self
         self.tblTransactions.reloadData()
+
         self.loadOrders()
     }
     func loadOrders(){
@@ -86,7 +87,7 @@ extension ZTMyTransactionsViewController{
     func getOrders(isSpinnerNeeded:Bool = false){
         if NetworkReachability.shared.isReachable{
             if isSpinnerNeeded == true{
-                self.showActivityIndicator(self.tblTransactions)
+                self.showActivityIndicator(self.tblTransactions, setDarkBackground: false)
             }
             ZTCommonAPIWrapper.allOrders(pageNumber: self.pageNumber, pageSize: self.pageSize) { response, error in
                 if isSpinnerNeeded == true{
@@ -110,8 +111,12 @@ extension ZTMyTransactionsViewController{
                         self.isPageEnable = false
                     }
                     DispatchQueue.main.async {
+                        if self.transactionsList?.count ?? 0 == 0{
+                            Helper.shared.showNoView(fromView: self.tblTransactions, fromViewController: self, needToSetTop: false)
+                        }
                         self.tblTransactions.reloadData()
                     }
+                    
                 }
             }
            

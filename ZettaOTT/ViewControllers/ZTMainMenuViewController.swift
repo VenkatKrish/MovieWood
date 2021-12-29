@@ -9,10 +9,14 @@ import UIKit
 
 class ZTMainMenuViewController: UIViewController {
     @IBOutlet weak var imgVw: UIImageView!
+    @IBOutlet weak var lblDivider: UILabel!
+    @IBOutlet weak var lblFirstName: UILabel!
+    @IBOutlet weak var lblEmail: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.lblDivider.layer.cornerRadius = 2.0
+        self.lblDivider.clipsToBounds = true
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -20,6 +24,14 @@ class ZTMainMenuViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             if let screenImgVal = screenShotImage{
                 self.imgVw.image = screenImgVal
+            }
+        }
+        if let userModel = ZTAppSession.sharedInstance.getUserInfo(){
+            if let name = userModel.firstName, name.count > 0{
+                self.lblFirstName.text = String(format: "%@ %@", name, userModel.lastName ?? "")
+            }
+            if let email = userModel.emailId{
+                self.lblEmail.text = String(format: "%@ %d",email)
             }
         }
     }
@@ -31,7 +43,7 @@ class ZTMainMenuViewController: UIViewController {
             Helper.shared.goToEditProfile(viewController: self)
             break
         case 1: // language
-            Helper.shared.goToLanguage(viewController: self)
+//            Helper.shared.goToLanguage(viewController: self)
             break
         case 2: // My transaction
             Helper.shared.goToMyTransactions(viewController: self)
