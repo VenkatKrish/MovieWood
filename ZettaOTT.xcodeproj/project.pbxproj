@@ -180,6 +180,14 @@
 		3995EA432707244300E3FB19 /* SFUIDisplay-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3995EA33270722D600E3FB19 /* SFUIDisplay-Thin.otf */; };
 		3995EA442707244300E3FB19 /* SFUIDisplay-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3995EA36270722D600E3FB19 /* SFUIDisplay-Ultralight.otf */; };
 		3995EA4B2707293A00E3FB19 /* ZTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3995EA4A2707293A00E3FB19 /* ZTConstants.swift */; };
+		39A0DBAC277E22670095EEE2 /* FaqControllerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A0DBAA277E22670095EEE2 /* FaqControllerAPI.swift */; };
+		39A0DBAD277E22670095EEE2 /* FaqGroupsControllerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A0DBAB277E22670095EEE2 /* FaqGroupsControllerAPI.swift */; };
+		39A0DBB0277E22990095EEE2 /* FaqGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A0DBAE277E22990095EEE2 /* FaqGroups.swift */; };
+		39A0DBB1277E22990095EEE2 /* Faqs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A0DBAF277E22990095EEE2 /* Faqs.swift */; };
+		39A0DBB4277E22D00095EEE2 /* PageFaqGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A0DBB2277E22D00095EEE2 /* PageFaqGroups.swift */; };
+		39A0DBB5277E22D00095EEE2 /* PageFaqs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A0DBB3277E22D00095EEE2 /* PageFaqs.swift */; };
+		39A0DBB8277E25330095EEE2 /* ZTFAQsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A0DBB6277E25330095EEE2 /* ZTFAQsTableViewCell.swift */; };
+		39A0DBB9277E25330095EEE2 /* ZTFAQsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39A0DBB7277E25330095EEE2 /* ZTFAQsTableViewCell.xib */; };
 		39A42B53270ECA48002C100D /* ZTTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A42B52270ECA48002C100D /* ZTTabbarViewController.swift */; };
 		39A42B56270ECA65002C100D /* ZTHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A42B55270ECA65002C100D /* ZTHomeViewController.swift */; };
 		39A42B59270ECA70002C100D /* ZTDiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A42B58270ECA70002C100D /* ZTDiscoveryViewController.swift */; };
@@ -526,6 +534,14 @@
 		3995EA3A270722D600E3FB19 /* SFUIDisplay-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Bold.ttf"; sourceTree = "<group>"; };
 		3995EA3B270722D600E3FB19 /* SFUIDisplay-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIDisplay-Heavy.otf"; sourceTree = "<group>"; };
 		3995EA4A2707293A00E3FB19 /* ZTConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTConstants.swift; sourceTree = "<group>"; };
+		39A0DBAA277E22670095EEE2 /* FaqControllerAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqControllerAPI.swift; sourceTree = "<group>"; };
+		39A0DBAB277E22670095EEE2 /* FaqGroupsControllerAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqGroupsControllerAPI.swift; sourceTree = "<group>"; };
+		39A0DBAE277E22990095EEE2 /* FaqGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqGroups.swift; sourceTree = "<group>"; };
+		39A0DBAF277E22990095EEE2 /* Faqs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Faqs.swift; sourceTree = "<group>"; };
+		39A0DBB2277E22D00095EEE2 /* PageFaqGroups.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageFaqGroups.swift; sourceTree = "<group>"; };
+		39A0DBB3277E22D00095EEE2 /* PageFaqs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageFaqs.swift; sourceTree = "<group>"; };
+		39A0DBB6277E25330095EEE2 /* ZTFAQsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTFAQsTableViewCell.swift; sourceTree = "<group>"; };
+		39A0DBB7277E25330095EEE2 /* ZTFAQsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTFAQsTableViewCell.xib; sourceTree = "<group>"; };
 		39A42B52270ECA48002C100D /* ZTTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTTabbarViewController.swift; sourceTree = "<group>"; };
 		39A42B55270ECA65002C100D /* ZTHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTHomeViewController.swift; sourceTree = "<group>"; };
 		39A42B58270ECA70002C100D /* ZTDiscoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTDiscoveryViewController.swift; sourceTree = "<group>"; };
@@ -822,6 +838,8 @@
 				39C769A2275E49E0009C9D13 /* ZTPagingCollectionReusableView.xib */,
 				39256B232769FEAF00450888 /* ZTPaymentCardCollectionViewCell.swift */,
 				39256B242769FEAF00450888 /* ZTPaymentCardCollectionViewCell.xib */,
+				39A0DBB6277E25330095EEE2 /* ZTFAQsTableViewCell.swift */,
+				39A0DBB7277E25330095EEE2 /* ZTFAQsTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1130,6 +1148,10 @@
 		39EBD2DB273C003800BEE73A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				39A0DBB2277E22D00095EEE2 /* PageFaqGroups.swift */,
+				39A0DBB3277E22D00095EEE2 /* PageFaqs.swift */,
+				39A0DBAE277E22990095EEE2 /* FaqGroups.swift */,
+				39A0DBAF277E22990095EEE2 /* Faqs.swift */,
 				39BD2AFB277B7CC200AC13E8 /* MovieLinkModel.swift */,
 				3962BBA8277204660027E3E6 /* OrderConfirmPayment.swift */,
 				3944E9172771141500B1706A /* OrderConfirmation.swift */,
@@ -1230,6 +1252,8 @@
 		39EBD38C273C007C00BEE73A /* APIs */ = {
 			isa = PBXGroup;
 			children = (
+				39A0DBAA277E22670095EEE2 /* FaqControllerAPI.swift */,
+				39A0DBAB277E22670095EEE2 /* FaqGroupsControllerAPI.swift */,
 				39EBD38D273C007C00BEE73A /* RoleControllerAPI.swift */,
 				39EBD38E273C007C00BEE73A /* AdControllerAPI.swift */,
 				39EBD38F273C007C00BEE73A /* NotifyTemplateControllerAPI.swift */,
@@ -1376,6 +1400,7 @@
 				3995EA442707244300E3FB19 /* SFUIDisplay-Ultralight.otf in Resources */,
 				390D14C427062B3F00C51259 /* LaunchScreen.storyboard in Resources */,
 				3957BC3227512069002AC22D /* ZTUserReviewTableViewCell.xib in Resources */,
+				39A0DBB9277E25330095EEE2 /* ZTFAQsTableViewCell.xib in Resources */,
 				393F17CE2711F989005713E1 /* ZTProfileHeader.xib in Resources */,
 				390D14C127062B3F00C51259 /* Assets.xcassets in Resources */,
 				39E7B5BB2757B33700A76BC5 /* NoRecordsView.xib in Resources */,
@@ -1435,6 +1460,7 @@
 			files = (
 				3915783627637BCB004F51FF /* NVActivityIndicatorAnimationBallRotate.swift in Sources */,
 				39EBD367273C003800BEE73A /* Notifications.swift in Sources */,
+				39A0DBAD277E22670095EEE2 /* FaqGroupsControllerAPI.swift in Sources */,
 				391578A527637D0A004F51FF /* Debugging.swift in Sources */,
 				39A42B62270ECAF8002C100D /* ZTMainMenuViewController.swift in Sources */,
 				39EBD28B273BFDA100BEE73A /* CodableHelper.swift in Sources */,
@@ -1474,6 +1500,7 @@
 				39EBD3C9273C007C00BEE73A /* MovieContentControllerAPI.swift in Sources */,
 				3995EA2927071CF100E3FB19 /* ZTCustomUIComponents.swift in Sources */,
 				3915783A27637BCB004F51FF /* NVActivityIndicatorAnimationBallTrianglePath.swift in Sources */,
+				39A0DBB0277E22990095EEE2 /* FaqGroups.swift in Sources */,
 				39EBD3D4273C007C00BEE73A /* SettingsControllerAPI.swift in Sources */,
 				3915784727637BCB004F51FF /* NVActivityIndicatorAnimationBallPulse.swift in Sources */,
 				3915785327637BCB004F51FF /* NVActivityIndicatorAnimationBallSpinFadeLoader.swift in Sources */,
@@ -1503,6 +1530,7 @@
 				39EBD34A273C003800BEE73A /* PageMovies.swift in Sources */,
 				39EBD36A273C003800BEE73A /* RegisterByPhone.swift in Sources */,
 				393789EE274FFDC6009FB5A3 /* ZTChooseAPlanViewController.swift in Sources */,
+				39A0DBB5277E22D00095EEE2 /* PageFaqs.swift in Sources */,
 				39EBD373273C003800BEE73A /* Settings.swift in Sources */,
 				39EBD3CB273C007C00BEE73A /* LanguageControllerAPI.swift in Sources */,
 				391578A227637D0A004F51FF /* ConstraintView+Extensions.swift in Sources */,
@@ -1570,6 +1598,7 @@
 				3915789E27637D0A004F51FF /* ConstraintMakerEditable.swift in Sources */,
 				391578A127637D0A004F51FF /* ConstraintLayoutGuideDSL.swift in Sources */,
 				39EBD36E273C003800BEE73A /* MovieCouponValidateRequest.swift in Sources */,
+				39A0DBAC277E22670095EEE2 /* FaqControllerAPI.swift in Sources */,
 				390D14B827062B3C00C51259 /* AppDelegate.swift in Sources */,
 				39EBD3D0273C007C00BEE73A /* MovieSongControllerAPI.swift in Sources */,
 				39EBD361273C003800BEE73A /* NotificationTemplate.swift in Sources */,
@@ -1597,6 +1626,7 @@
 				3937DE2A2712D8B4009F0E2C /* ZTMovieCustomTableViewCell.swift in Sources */,
 				3915789A27637D0A004F51FF /* ConstraintLayoutSupport.swift in Sources */,
 				3915783527637BCB004F51FF /* NVActivityIndicatorView.swift in Sources */,
+				39A0DBB8277E25330095EEE2 /* ZTFAQsTableViewCell.swift in Sources */,
 				391578A427637D0A004F51FF /* Constraint.swift in Sources */,
 				39EBD3D2273C007C00BEE73A /* MovieCollectionControllerAPI.swift in Sources */,
 				3930C346274D3456009D8F7A /* DynamicHeightCollectionView.swift in Sources */,
@@ -1661,6 +1691,7 @@
 				39EBD380273C003800BEE73A /* Languages.swift in Sources */,
 				3944E9182771141500B1706A /* OrderConfirmation.swift in Sources */,
 				398EA7BC27709EA600D26712 /* IAPHelper.swift in Sources */,
+				39A0DBB1277E22990095EEE2 /* Faqs.swift in Sources */,
 				3915783B27637BCB004F51FF /* NVActivityIndicatorAnimationBallDoubleBounce.swift in Sources */,
 				39EBD3C4273C007C00BEE73A /* CouponControllerAPI.swift in Sources */,
 				3915784527637BCB004F51FF /* NVActivityIndicatorAnimationSquareSpin.swift in Sources */,
@@ -1692,6 +1723,7 @@
 				39EBD33E273C003800BEE73A /* UpdateUser.swift in Sources */,
 				3915789527637D0A004F51FF /* ConstraintDirectionalInsetTarget.swift in Sources */,
 				39EBD345273C003800BEE73A /* DailyRates.swift in Sources */,
+				39A0DBB4277E22D00095EEE2 /* PageFaqGroups.swift in Sources */,
 				39EBD34B273C003800BEE73A /* UsernameRequest.swift in Sources */,
 				39EBD3CD273C007C00BEE73A /* ActorControllerAPI.swift in Sources */,
 				39EBD3CF273C007C00BEE73A /* MovieGenreControllerAPI.swift in Sources */,

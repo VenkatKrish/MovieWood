@@ -343,7 +343,7 @@ open class ZTCommonAPIWrapper {
      - parameter completion: completion handler to receive the data and the error objects
      */
     open class func allOrders(offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, completion: @escaping ((_ data: PageOrders?,_ error: Error?) -> Void)) {
-        OrderControllerAPI.allUsingGET23(offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged) { response, error in
+        OrderControllerAPI.userOrdersUsingGET(offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged) { response, error in
             completion(response,error)
         }
     }
@@ -381,6 +381,23 @@ open class ZTCommonAPIWrapper {
     open class func getMovieUsingGET(movieId: Int64, completion: @escaping ((_ data: Movies?,_ error: Error?) -> Void)) {
         MovieControllerAPI.getMovieUsingGET(movieId: movieId) { response, error in
             completion(response, error)
+        }
+    }
+    /**
+     getFAQs
+     
+     - parameter offset: (query)  (optional)
+     - parameter pageNumber: (query)  (optional)
+     - parameter pageSize: (query)  (optional)
+     - parameter paged: (query)  (optional)
+     - parameter sortSorted: (query)  (optional)
+     - parameter sortUnsorted: (query)  (optional)
+     - parameter unpaged: (query)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getFAQs(offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, completion: @escaping ((_ data: PageFaqs?,_ error: Error?) -> Void)) {
+        FaqControllerAPI.allPublicUsingGET(offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged) { response, error in
+            completion(response,error)
         }
     }
 }

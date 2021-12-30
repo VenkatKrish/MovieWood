@@ -26,6 +26,20 @@ class ZTProfileViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         self.view.takeScreenshot()
     }
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = UIColor.getColor(colorVal: ZTGradientColor1)
+        
+        let attributes = [NSAttributedString.Key.foregroundColor: UIColor.getColor(colorVal: ZTGradientColor1)]
+        refreshControl.attributedTitle = NSAttributedString(string: ZTConstants.PLEASE_WAIT_LOADING, attributes: attributes)
+        
+        refreshControl.addTarget(self, action: #selector(handleRefresh(_:)), for: UIControl.Event.valueChanged)
+        return refreshControl
+    }()
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        self.pageNumber = 0
+        self.initialLoad()
+    }
     func initialLoad(){
         self.getMyWatchLists(isSpinnerNeeded: true)
     }
@@ -34,6 +48,8 @@ class ZTProfileViewController: UIViewController {
         layout.minimumLineSpacing = zt_minimumLineSpacing
         layout.minimumInteritemSpacing = zt_minimumInteritemSpacing
         layout.collectionView?.backgroundColor = UIColor.getColor(colorVal: ZTBackgroundColor)
+        self.profileCollection.addSubview(self.refreshControl)
+        self.profileCollection.alwaysBounceVertical = true
         self.profileCollection.collectionViewLayout = layout
         self.profileCollection.register(UINib(nibName: ZTCellNameOrIdentifier.ZTProfileHeader, bundle: nil),
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
@@ -144,6 +160,11 @@ extension ZTProfileViewController{
                 if isSpinnerNeeded == true{
                     self.hideActivityIndicator(self.view)
                 }
+         DispatchQueue.main.async {
+             if self.refreshControl.isRefreshing{
+                 self.refreshControl.endRefreshing()
+             }
+         }
 //            Helper.shared.removeNoView(fromView: self.profileCollection)
 
                 if self.pageNumber == 0{
@@ -177,6 +198,11 @@ extension ZTProfileViewController{
         
                 if NetworkReachability.shared.isReachable {
             ZTCommonAPIWrapper.searchMoviesGET(search: MovieSearchTag.zettaMovieOriginal.rawValue, page: 0, size: 100) { (response, error) in
+                DispatchQueue.main.async {
+                    if self.refreshControl.isRefreshing{
+                        self.refreshControl.endRefreshing()
+                    }
+                }
                 if self.pageNumber == 0{
                     self.watchLists?.removeAll()
                 }

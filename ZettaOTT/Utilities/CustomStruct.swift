@@ -142,3 +142,7 @@ public struct ContinueWatching: Codable {
     }
 
 }
+public struct FAQsStruct{
+    var isSelected:Bool? = false
+    var faqModel:Faqs?
+}

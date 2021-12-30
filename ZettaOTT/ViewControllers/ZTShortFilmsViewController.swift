@@ -22,6 +22,7 @@ class ZTShortFilmsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerCells()
+        self.profileCollection.alwaysBounceVertical = true
         self.profileCollection.addSubview(self.refreshControl)
         self.initialLoad()
         // Do any additional setup after loading the view.

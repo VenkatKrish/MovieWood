@@ -10,7 +10,7 @@ import UIKit
 
 typealias kSuccessBlockWithObject = (_ success : Bool, _ response : Any) ->()
 
-typealias kSuccessBlock = (_ success : Bool, _ message : [String: AnyObject],_ code: Int) ->()
+typealias kSuccessBlock = (_ success : Bool, _ message : String,_ code: Int) ->()
 typealias kErrorBlock = (_ errorMesssage: String) -> ()
 typealias kSuccessWithMessageCodeBlock = (_ success: Bool, _ messageCode: Int, _ message: String) ->()
 
@@ -93,7 +93,16 @@ class WebServicesHelper: NSObject {
                 if let responseData = data {
                     if let jsonObject = try? (JSONSerialization.jsonObject(with: responseData, options: []) as! [String: AnyObject])
                     {
-                        successBlock(true,jsonObject,statusCode)
+                        let message = self.getMessage(dict: jsonObject)
+                        if statusCode == StatusCodeObj.forbidden.rawValue{
+                            successBlock(true,message,statusCode)
+                        }else{
+                            DispatchQueue.main.async {
+                                Helper.shared.showSnackBarAlert(message: message, type: .Failure, superView: UIApplication.topViewController())
+                            }
+                            successBlock(true,message,statusCode)
+                        }
+                        
                     }
                     else{
                         failureBlock(CommonErrorMessage)
@@ -106,5 +115,18 @@ class WebServicesHelper: NSObject {
                 break
             }
         }
+    }
+    func getMessage(dict:[String:AnyObject]) -> String{
+        
+        let dictKeys = dict.keys
+        for i in dictKeys{
+            if keyArray.contains(where: { $0.lowercased() == i.lowercased() }) {
+                if let val = dict[i] as? String{
+                    return val
+                }
+                return CommonErrorMessage
+            }
+        }
+        return CommonErrorMessage
     }
 }

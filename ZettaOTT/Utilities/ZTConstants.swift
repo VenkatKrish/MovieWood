@@ -120,7 +120,8 @@ class ZTCellNameOrIdentifier{
     static let ZTUserReviewTableViewCell = "ZTUserReviewTableViewCell"
     static let ZTPaymentCardCollectionViewCell = "ZTPaymentCardCollectionViewCell"
     static let ZTMyTransactionsTableViewCell = "ZTMyTransactionsTableViewCell"
-
+    static let ZTFAQsTableViewCell = "ZTFAQsTableViewCell"
+    
 }
 class ZTControllerName{
     static let ZT_TabbarController = "ZTTabbarViewController"

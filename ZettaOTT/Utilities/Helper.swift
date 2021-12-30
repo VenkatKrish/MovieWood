@@ -161,10 +161,10 @@ class Helper: NSObject {
             snackBar?.show()
             switch type {
             case .Success:
-                snackBar?.backgroundColor = UIColor.green
+                snackBar?.backgroundColor = UIColor.getColor(colorVal: ZTSuccessColor)
                 break
             case .Failure:
-                snackBar?.backgroundColor = UIColor.red
+                snackBar?.backgroundColor = UIColor.getColor(colorVal: ZTGradientColor1)
                 break
             case .Warning:
                 snackBar?.backgroundColor = UIColor.yellow

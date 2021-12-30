@@ -23,6 +23,7 @@ class ZTWebseriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.registerCells()
+        self.profileCollection.alwaysBounceVertical = true
         self.profileCollection.addSubview(self.refreshControl)
         self.calculateCollectionWidthHeight()
         self.initialLoad()
@@ -159,6 +160,7 @@ extension ZTWebseriesViewController:UICollectionViewDelegate, UICollectionViewDa
             cell.loadMoviesModel(data: self.webSeriesMovies?[indexPath.row], indexPath: indexPath)
             return cell
         }else{
+            Helper.shared.removeNoView(fromView: cell)
             Helper.shared.showNoView(fromView: cell, fromViewController: self, needToSetTop: true)
             return cell
         }

@@ -89,7 +89,7 @@ extension ZTMyTransactionsViewController{
             if isSpinnerNeeded == true{
                 self.showActivityIndicator(self.tblTransactions, setDarkBackground: false)
             }
-            ZTCommonAPIWrapper.allOrders(pageNumber: self.pageNumber, pageSize: self.pageSize) { response, error in
+            ZTCommonAPIWrapper.allOrders(pageNumber: self.pageNumber, pageSize: self.pageSize, sortSorted: true) { response, error in
                 if isSpinnerNeeded == true{
                     self.hideActivityIndicator(self.view)
 

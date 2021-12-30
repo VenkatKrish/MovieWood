@@ -27,7 +27,7 @@ class ZTProfileHeader: UICollectionReusableView {
         super.awakeFromNib()
         self.vwImage.layer.cornerRadius = self.vwImage.frame.size.width / 2
         self.vwImage.layer.borderWidth = 2.0
-        self.vwImage.layer.borderColor = UIColor.init(named: ZTAppProfileBorder)!.cgColor
+//        self.vwImage.layer.borderColor = UIColor.init(named: ZTAppProfileBorder)!.cgColor
         // Initialization code
     }
     func loadProfileDetails(data:AppUserModel? = nil){
