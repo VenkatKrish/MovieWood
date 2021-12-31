@@ -7456,8 +7456,86 @@ Details of transaction are included below</string>
         </scene>
     </scenes>
     <designables>
-        <designable name="aHf-wu-Y66">
+        <designable name="0O7-x4-cUy">
+            <size key="intrinsicContentSize" width="125.66666666666667" height="19.666666666666668"/>
+        </designable>
+        <designable name="3mV-Ks-slS">
+            <size key="intrinsicContentSize" width="70" height="19.666666666666668"/>
+        </designable>
+        <designable name="7n3-hD-Wis">
+            <size key="intrinsicContentSize" width="88.333333333333329" height="19.666666666666668"/>
+        </designable>
+        <designable name="C2q-yy-acN">
+            <size key="intrinsicContentSize" width="70" height="19.666666666666668"/>
+        </designable>
+        <designable name="Cld-4y-Cu1">
+            <size key="intrinsicContentSize" width="43" height="19.666666666666668"/>
+        </designable>
+        <designable name="Cma-Gc-Ejj">
+            <size key="intrinsicContentSize" width="146.33333333333334" height="19.666666666666668"/>
+        </designable>
+        <designable name="DpG-h4-Tt2">
+            <size key="intrinsicContentSize" width="26" height="19.666666666666668"/>
+        </designable>
+        <designable name="Elz-Nh-aWc">
+            <size key="intrinsicContentSize" width="175.66666666666666" height="19.666666666666668"/>
+        </designable>
+        <designable name="Grc-Tq-ymU">
+            <size key="intrinsicContentSize" width="78.333333333333329" height="19.666666666666668"/>
+        </designable>
+        <designable name="I6p-8O-X2e">
+            <size key="intrinsicContentSize" width="177" height="19.666666666666668"/>
+        </designable>
+        <designable name="PLU-2u-8Fj">
+            <size key="intrinsicContentSize" width="31" height="19.666666666666668"/>
+        </designable>
+        <designable name="UOC-Yk-1tB">
+            <size key="intrinsicContentSize" width="91.666666666666671" height="19.666666666666668"/>
+        </designable>
+        <designable name="Ucr-Kk-9wU">
             <size key="intrinsicContentSize" width="99" height="19.666666666666668"/>
+        </designable>
+        <designable name="Yyi-GV-lJS">
+            <size key="intrinsicContentSize" width="170" height="30"/>
+        </designable>
+        <designable name="aHf-wu-Y66">
+            <size key="intrinsicContentSize" width="99" height="33"/>
+        </designable>
+        <designable name="bqr-bR-V7o">
+            <size key="intrinsicContentSize" width="62" height="19.666666666666668"/>
+        </designable>
+        <designable name="cq4-Ed-QwR">
+            <size key="intrinsicContentSize" width="37.666666666666664" height="19.666666666666668"/>
+        </designable>
+        <designable name="d9k-wD-560">
+            <size key="intrinsicContentSize" width="172.66666666666666" height="19.666666666666668"/>
+        </designable>
+        <designable name="fs8-Tj-L4M">
+            <size key="intrinsicContentSize" width="99" height="19.666666666666668"/>
+        </designable>
+        <designable name="ips-aU-Ut8">
+            <size key="intrinsicContentSize" width="77" height="19.666666666666668"/>
+        </designable>
+        <designable name="jNv-tP-NNY">
+            <size key="intrinsicContentSize" width="46" height="19.666666666666668"/>
+        </designable>
+        <designable name="mFp-Bx-O7w">
+            <size key="intrinsicContentSize" width="184" height="19.666666666666668"/>
+        </designable>
+        <designable name="nTP-GY-6dG">
+            <size key="intrinsicContentSize" width="111.33333333333333" height="19.666666666666668"/>
+        </designable>
+        <designable name="pSW-Ys-6My">
+            <size key="intrinsicContentSize" width="48.333333333333336" height="19.666666666666668"/>
+        </designable>
+        <designable name="vc0-kS-srn">
+            <size key="intrinsicContentSize" width="38.666666666666664" height="19.666666666666668"/>
+        </designable>
+        <designable name="xqv-Xk-kEl">
+            <size key="intrinsicContentSize" width="77.333333333333329" height="19.666666666666668"/>
+        </designable>
+        <designable name="yTa-oK-bFl">
+            <size key="intrinsicContentSize" width="94.666666666666671" height="19.666666666666668"/>
         </designable>
     </designables>
     <resources>
