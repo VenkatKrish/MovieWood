@@ -43,6 +43,30 @@ class Helper: NSObject {
             return "O"
         }
     }
+    func getRefreshToken(){
+        if NetworkReachability.shared.isReachable{
+            var loginModel = ZTAppSession.sharedInstance.getLoginInfo()
+            let tokenRequest = TokenRequest(refreshToken: loginModel?.refreshtoken ?? "")
+            ZTCommonAPIWrapper.authenticateTokenUsingPOST(tokenRequest: tokenRequest) { response, error in
+                if error != nil{
+                    DispatchQueue.main.async {
+                        Helper.shared.showAlertDialog(title: AlertTitle.sessionTitle, subtitle: AlertDescrition.sessionDesc, type: .SessionExpired, okButtonTitle: AlertButtons.OK)
+                    }
+                }
+                if let responseVal = response{
+                    ZTAppSession.sharedInstance.setLoginInfo(data: responseVal)
+                    ZTAppSession.sharedInstance.setAccessToken(responseVal.token ?? "")
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        Helper.shared.getUserBackground()
+                    }
+                    DispatchQueue.main.async {
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: TOKEN_EXPIRED), object: nil, userInfo: nil)
+                    }
+                }
+            }
+            
+        }
+    }
     func showFileSizeExceedAlert(contentType:Int){
         var messageStr:String = ""
         if contentType == GlobalMediaType.image.rawValue{
@@ -186,9 +210,12 @@ class Helper: NSObject {
         if vc is ZTCustomAlertViewController{
             vc?.dismiss(animated: false, completion: nil)
         }
-            let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
-            let viewController = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTCustomAlertViewController) as! ZTCustomAlertViewController
-            viewController.titleText =  title
+            
+        let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
+            
+        let viewController = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTCustomAlertViewController) as! ZTCustomAlertViewController
+            
+        viewController.titleText =  title
         viewController.subTitle = subtitle ?? ""
         viewController.okButtonTitle = okButtonTitle
         viewController.cancelButtonTitle = cancelButtonTitle ?? ""

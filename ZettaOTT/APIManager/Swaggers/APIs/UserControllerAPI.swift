@@ -140,7 +140,7 @@ open class UserControllerAPI {
      - parameter tokenRequest: (body) tokenRequest 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func authenticateTokenUsingPOST(tokenRequest: TokenRequest, completion: @escaping ((_ data: JSONValue?,_ error: Error?) -> Void)) {
+    open class func authenticateTokenUsingPOST(tokenRequest: TokenRequest, completion: @escaping ((_ data: LoginSuccessModel?,_ error: Error?) -> Void)) {
         authenticateTokenUsingPOSTWithRequestBuilder(tokenRequest: tokenRequest).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
@@ -156,14 +156,14 @@ open class UserControllerAPI {
 
      - returns: RequestBuilder<JSONValue> 
      */
-    open class func authenticateTokenUsingPOSTWithRequestBuilder(tokenRequest: TokenRequest) -> RequestBuilder<JSONValue> {
+    open class func authenticateTokenUsingPOSTWithRequestBuilder(tokenRequest: TokenRequest) -> RequestBuilder<LoginSuccessModel> {
         let path = "/api/v1/users/generatetoken"
         let URLString = SwaggerClientAPI.basePathAuth + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: tokenRequest)
 
         let url = URLComponents(string: URLString)
 
-        let requestBuilder: RequestBuilder<JSONValue>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<LoginSuccessModel>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }

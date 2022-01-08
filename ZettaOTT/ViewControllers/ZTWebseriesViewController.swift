@@ -29,6 +29,19 @@ class ZTWebseriesViewController: UIViewController {
         self.initialLoad()
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        if let userModel = ZTAppSession.sharedInstance.getUserInfo(){
+        }
+        NotificationCenter.default.addObserver(self, selector: #selector(pageRefresh(_:)), name: NSNotification.Name(rawValue: TOKEN_EXPIRED), object: nil)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        self.view.takeScreenshot()
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(TOKEN_EXPIRED), object: nil)
+    }
+    @objc func pageRefresh(_ notification:NSNotification){
+        self.pageNumber = 0
+        self.initialLoad()
+    }
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = UIColor.getColor(colorVal: ZTGradientColor1)
@@ -42,10 +55,6 @@ class ZTWebseriesViewController: UIViewController {
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         self.pageNumber = 0
         self.initialLoad()
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        if let _ = ZTAppSession.sharedInstance.getUserInfo(){
-        }
     }
 
     func initialLoad(){

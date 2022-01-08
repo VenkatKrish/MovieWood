@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+var TOKEN_EXPIRED = "TOKEN_EXPIRED"
 
 let ZTScreenWidth = UIScreen.main.bounds.size.width
 let ZTScreenHeight = UIScreen.main.bounds.size.height
@@ -121,7 +122,8 @@ class ZTCellNameOrIdentifier{
     static let ZTPaymentCardCollectionViewCell = "ZTPaymentCardCollectionViewCell"
     static let ZTMyTransactionsTableViewCell = "ZTMyTransactionsTableViewCell"
     static let ZTFAQsTableViewCell = "ZTFAQsTableViewCell"
-    
+    static let ZTSeasonEpisodeCollectionViewCell = "ZTSeasonEpisodeCollectionViewCell"
+
 }
 class ZTControllerName{
     static let ZT_TabbarController = "ZTTabbarViewController"
@@ -152,7 +154,7 @@ class ZTControllerName{
     static let ZTWriteAReviewViewController = "ZTWriteAReviewViewController"
     static let ZTTickerConfirmationViewController = "ZTTickerConfirmationViewController"
     static let ZTCustomAlertViewController = "ZTCustomAlertViewController"
-
+    static let ZTSeasonVideoListViewController = "ZTSeasonVideoListViewController"
     
 }
 class moviesKeyUI {
@@ -183,12 +185,18 @@ class CustomDateFormatter{
 }
 class AlertTitle{
     static let logoutTitle = "Logout"
+    static let sessionTitle = "Session Timeout"
+
 }
 class AlertDescrition{
     static let logoutDesc = "Do you want to logout?"
+    static let sessionDesc = "Session Expired"
+
 }
 class AlertButtons{
     static let YES = "YES"
     static let CANCEL = "Cancel"
+    static let OK = "OK"
+
 }
 

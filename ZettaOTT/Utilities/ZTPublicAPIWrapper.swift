@@ -189,4 +189,21 @@ open class ZTPublicAPIWrapper {
             completion(response, error)
         }
     }
+    /**
+     movieSeasonsByMoviePublic
+     - parameter movieId: (path) movieId
+     - parameter offset: (query)  (optional)
+     - parameter pageNumber: (query)  (optional)
+     - parameter pageSize: (query)  (optional)
+     - parameter paged: (query)  (optional)
+     - parameter sortSorted: (query)  (optional)
+     - parameter sortUnsorted: (query)  (optional)
+     - parameter unpaged: (query)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func movieSeasonsByMoviePublicUsingGET(movieId: Int64, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, completion: @escaping ((_ data: PageMovieSeasons?,_ error: Error?) -> Void)) {
+        MovieSeasonControllerAPI.movieSeasonsByMoviePublicUsingGET(movieId: movieId, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged) { response, error in
+            completion(response, error)
+        }
+    }
 }

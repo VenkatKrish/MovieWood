@@ -124,6 +124,7 @@ struct AppUtility {
 enum AlertViewType{
     case Logout
     case CameraPermission
+    case SessionExpired
 }
 
 

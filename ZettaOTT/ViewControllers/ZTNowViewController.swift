@@ -38,6 +38,7 @@ class ZTNowViewController: UIViewController {
         return refreshControl
     }()
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
+        self.pageNumber = 0
         self.initialLoad()
     }
     override func viewDidLoad() {
@@ -53,6 +54,14 @@ class ZTNowViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         if let userModel = ZTAppSession.sharedInstance.getUserInfo(){
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(pageRefresh(_:)), name: NSNotification.Name(rawValue: TOKEN_EXPIRED), object: nil)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(TOKEN_EXPIRED), object: nil)
+    }
+    @objc func pageRefresh(_ notification:NSNotification){
+        self.pageNumber = 0
+        self.initialLoad()
     }
     
     func initialLoad(){

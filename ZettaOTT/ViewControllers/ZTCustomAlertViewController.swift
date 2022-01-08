@@ -45,8 +45,14 @@ class ZTCustomAlertViewController: UIViewController {
             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
             
             self.dismiss(animated: true, completion: nil)
-            
+        
         case .Logout:
+            ZTAppSession.sharedInstance.setAccessToken("")
+            ZTAppSession.sharedInstance.setIsUserLoggedIn(false)
+            ZTAppSession.sharedInstance.removeAllInstance()
+            Helper.shared.goToLoginScreen()
+            
+        case .SessionExpired:
             ZTAppSession.sharedInstance.setAccessToken("")
             ZTAppSession.sharedInstance.setIsUserLoggedIn(false)
             ZTAppSession.sharedInstance.removeAllInstance()
@@ -67,6 +73,11 @@ class ZTCustomAlertViewController: UIViewController {
         case .Logout:
             self.dismiss(animated: true, completion: nil)
             
+        case .SessionExpired:
+            ZTAppSession.sharedInstance.setAccessToken("")
+            ZTAppSession.sharedInstance.setIsUserLoggedIn(false)
+            ZTAppSession.sharedInstance.removeAllInstance()
+            Helper.shared.goToLoginScreen()
         case .none:
             print("None")
             self.dismiss(animated: true, completion: nil)

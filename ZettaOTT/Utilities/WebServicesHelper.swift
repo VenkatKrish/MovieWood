@@ -86,6 +86,7 @@ class WebServicesHelper: NSObject {
             debugPrint(err)
             switch(err){
             case .error(401, _, _):
+                Helper.shared.getRefreshToken()
                 break
 //            case .error(403, _, _):
 //                break

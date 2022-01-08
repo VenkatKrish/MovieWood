@@ -105,6 +105,11 @@
 		391CA8EA2753FBF500CBCC4E /* ProgressShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 391CA8E52753FBF500CBCC4E /* ProgressShapeLayer.swift */; };
 		39256B252769FEAF00450888 /* ZTPaymentCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39256B232769FEAF00450888 /* ZTPaymentCardCollectionViewCell.swift */; };
 		39256B262769FEAF00450888 /* ZTPaymentCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39256B242769FEAF00450888 /* ZTPaymentCardCollectionViewCell.xib */; };
+		392D9158278A0AE900ACC258 /* ZTSeasonVideoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392D9157278A0AE900ACC258 /* ZTSeasonVideoListViewController.swift */; };
+		392D915A278A0DD000ACC258 /* MovieEpisodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392D9159278A0DD000ACC258 /* MovieEpisodes.swift */; };
+		392D915C278A0E1A00ACC258 /* MovieCrew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392D915B278A0E1900ACC258 /* MovieCrew.swift */; };
+		392D915F278A0EC500ACC258 /* ZTSeasonEpisodeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392D915D278A0EC500ACC258 /* ZTSeasonEpisodeCollectionViewCell.swift */; };
+		392D9160278A0EC500ACC258 /* ZTSeasonEpisodeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 392D915E278A0EC500ACC258 /* ZTSeasonEpisodeCollectionViewCell.xib */; };
 		3930C33B274D2AAF009D8F7A /* ZTMovieInfo1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3930C33A274D2AAF009D8F7A /* ZTMovieInfo1ViewController.swift */; };
 		3930C33D274D2AC3009D8F7A /* ZTMovieInfo2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3930C33C274D2AC3009D8F7A /* ZTMovieInfo2ViewController.swift */; };
 		3930C33F274D2AD3009D8F7A /* ZTMovieInfo3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3930C33E274D2AD3009D8F7A /* ZTMovieInfo3ViewController.swift */; };
@@ -462,6 +467,11 @@
 		391CA8E52753FBF500CBCC4E /* ProgressShapeLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressShapeLayer.swift; sourceTree = "<group>"; };
 		39256B232769FEAF00450888 /* ZTPaymentCardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTPaymentCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		39256B242769FEAF00450888 /* ZTPaymentCardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTPaymentCardCollectionViewCell.xib; sourceTree = "<group>"; };
+		392D9157278A0AE900ACC258 /* ZTSeasonVideoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTSeasonVideoListViewController.swift; sourceTree = "<group>"; };
+		392D9159278A0DD000ACC258 /* MovieEpisodes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieEpisodes.swift; sourceTree = "<group>"; };
+		392D915B278A0E1900ACC258 /* MovieCrew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCrew.swift; sourceTree = "<group>"; };
+		392D915D278A0EC500ACC258 /* ZTSeasonEpisodeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTSeasonEpisodeCollectionViewCell.swift; sourceTree = "<group>"; };
+		392D915E278A0EC500ACC258 /* ZTSeasonEpisodeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTSeasonEpisodeCollectionViewCell.xib; sourceTree = "<group>"; };
 		3930C33A274D2AAF009D8F7A /* ZTMovieInfo1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTMovieInfo1ViewController.swift; sourceTree = "<group>"; };
 		3930C33C274D2AC3009D8F7A /* ZTMovieInfo2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTMovieInfo2ViewController.swift; sourceTree = "<group>"; };
 		3930C33E274D2AD3009D8F7A /* ZTMovieInfo3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTMovieInfo3ViewController.swift; sourceTree = "<group>"; };
@@ -840,6 +850,8 @@
 				39256B242769FEAF00450888 /* ZTPaymentCardCollectionViewCell.xib */,
 				39A0DBB6277E25330095EEE2 /* ZTFAQsTableViewCell.swift */,
 				39A0DBB7277E25330095EEE2 /* ZTFAQsTableViewCell.xib */,
+				392D915D278A0EC500ACC258 /* ZTSeasonEpisodeCollectionViewCell.swift */,
+				392D915E278A0EC500ACC258 /* ZTSeasonEpisodeCollectionViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -879,6 +891,7 @@
 				398FBA1A275DF754005E78E3 /* ZTWebseriesViewController.swift */,
 				398FBA1C275DF766005E78E3 /* ZTShortFilmsViewController.swift */,
 				398FBA1E275DFB2F005E78E3 /* ZTNowViewController.swift */,
+				392D9157278A0AE900ACC258 /* ZTSeasonVideoListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1148,6 +1161,7 @@
 		39EBD2DB273C003800BEE73A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				392D9159278A0DD000ACC258 /* MovieEpisodes.swift */,
 				39A0DBB2277E22D00095EEE2 /* PageFaqGroups.swift */,
 				39A0DBB3277E22D00095EEE2 /* PageFaqs.swift */,
 				39A0DBAE277E22990095EEE2 /* FaqGroups.swift */,
@@ -1200,6 +1214,7 @@
 				39EBD303273C003800BEE73A /* PageUsers.swift */,
 				39EBD304273C003800BEE73A /* MovieActors.swift */,
 				39EBD305273C003800BEE73A /* UserDetailUpdate.swift */,
+				392D915B278A0E1900ACC258 /* MovieCrew.swift */,
 				39EBD306273C003800BEE73A /* Pages.swift */,
 				39EBD307273C003800BEE73A /* PageMovieReviews.swift */,
 				39EBD308273C003800BEE73A /* Pageable.swift */,
@@ -1392,6 +1407,7 @@
 				393F17BF2711E4E2005713E1 /* ZTProfileTopTableViewCell.xib in Resources */,
 				3995EA422707244300E3FB19 /* SFUIDisplay-Semibold.otf in Resources */,
 				393F17D32712008A005713E1 /* ZTProfileFooter.xib in Resources */,
+				392D9160278A0EC500ACC258 /* ZTSeasonEpisodeCollectionViewCell.xib in Resources */,
 				39A42B92270EDF70002C100D /* ZTPortraitVideoCollectionViewCell.xib in Resources */,
 				3995EA432707244300E3FB19 /* SFUIDisplay-Thin.otf in Resources */,
 				39C769A4275E49E0009C9D13 /* ZTPagingCollectionReusableView.xib in Resources */,
@@ -1552,6 +1568,7 @@
 				3957BC3627512561002AC22D /* ZTWriteAReviewViewController.swift in Sources */,
 				39EBD369273C003800BEE73A /* RegisterByEmail.swift in Sources */,
 				39EBD352273C003800BEE73A /* PageDailyRates.swift in Sources */,
+				392D9158278A0AE900ACC258 /* ZTSeasonVideoListViewController.swift in Sources */,
 				39EBD33C273C003800BEE73A /* Subtitles.swift in Sources */,
 				3931BD592742D1C200540E8C /* ZTCrewCollectionViewCell.swift in Sources */,
 				398FBA1F275DFB2F005E78E3 /* ZTNowViewController.swift in Sources */,
@@ -1642,6 +1659,7 @@
 				3915789D27637D0A004F51FF /* ConstraintOffsetTarget.swift in Sources */,
 				391578A027637D0A004F51FF /* ConstraintRelation.swift in Sources */,
 				3915789C27637D0A004F51FF /* ConstraintConstantTarget.swift in Sources */,
+				392D915F278A0EC500ACC258 /* ZTSeasonEpisodeCollectionViewCell.swift in Sources */,
 				3957BC382751476A002AC22D /* CosmosDistrib.swift in Sources */,
 				39EBD370273C003800BEE73A /* InputStream.swift in Sources */,
 				39E711C927330F830067016A /* Utils.swift in Sources */,
@@ -1714,6 +1732,7 @@
 				39EBD344273C003800BEE73A /* PageRoles.swift in Sources */,
 				39EBD349273C003800BEE73A /* MovieLanguages.swift in Sources */,
 				3915785827637BCB004F51FF /* BMPlayerItem.swift in Sources */,
+				392D915C278A0E1A00ACC258 /* MovieCrew.swift in Sources */,
 				3964A5E12710832B00726487 /* ZTContinueWatchingCell.swift in Sources */,
 				393F17D22712008A005713E1 /* ZTProfileFooter.swift in Sources */,
 				3915785627637BCB004F51FF /* NVActivityIndicatorAnimationBallPulseRise.swift in Sources */,
@@ -1723,6 +1742,7 @@
 				39EBD33E273C003800BEE73A /* UpdateUser.swift in Sources */,
 				3915789527637D0A004F51FF /* ConstraintDirectionalInsetTarget.swift in Sources */,
 				39EBD345273C003800BEE73A /* DailyRates.swift in Sources */,
+				392D915A278A0DD000ACC258 /* MovieEpisodes.swift in Sources */,
 				39A0DBB4277E22D00095EEE2 /* PageFaqGroups.swift in Sources */,
 				39EBD34B273C003800BEE73A /* UsernameRequest.swift in Sources */,
 				39EBD3CD273C007C00BEE73A /* ActorControllerAPI.swift in Sources */,

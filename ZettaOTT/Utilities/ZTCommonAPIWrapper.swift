@@ -12,6 +12,17 @@ import Alamofire
 
 open class ZTCommonAPIWrapper {
     /**
+     authenticateToken
+     
+     - parameter tokenRequest: (body) tokenRequest
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func authenticateTokenUsingPOST(tokenRequest: TokenRequest, completion: @escaping ((_ data: LoginSuccessModel?,_ error: Error?) -> Void)) {
+        UserControllerAPI.authenticateTokenUsingPOST(tokenRequest: tokenRequest) { response, error in
+            completion(response, error)
+        }
+    }
+    /**
      streamingnow
      
      - parameter language: (query) language (optional)
@@ -398,6 +409,29 @@ open class ZTCommonAPIWrapper {
     open class func getFAQs(offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, completion: @escaping ((_ data: PageFaqs?,_ error: Error?) -> Void)) {
         FaqControllerAPI.allPublicUsingGET(offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged) { response, error in
             completion(response,error)
+        }
+    }
+    /**
+     movieSeasonsByMovieCommon
+     - parameter movieId: (path) movieId
+     - parameter offset: (query)  (optional)
+     - parameter pageNumber: (query)  (optional)
+     - parameter pageSize: (query)  (optional)
+     - parameter paged: (query)  (optional)
+     - parameter sortSorted: (query)  (optional)
+     - parameter sortUnsorted: (query)  (optional)
+     - parameter unpaged: (query)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func movieSeasonsByMovieCommon(movieId: Int64, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, completion: @escaping ((_ data: PageMovieSeasons?,_ error: Error?) -> Void)) {
+        if ZTAppSession.sharedInstance.getIsUserLoggedIn() {
+            ZTPrivateAPIWrapper.movieSeasonsByMoviePrivate(movieId: movieId, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged) { response, error in
+                completion(response, error)
+            }
+        }else{
+            ZTPublicAPIWrapper.movieSeasonsByMoviePublicUsingGET(movieId: movieId, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged) { response, error in
+                completion(response, error)
+            }
         }
     }
 }

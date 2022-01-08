@@ -38,6 +38,18 @@ class ZTUpcomingViewController: UIViewController {
         self.initialLoad()
         // Do any additional setup after loading the view.
     }
+    override func viewWillAppear(_ animated: Bool) {
+        if let userModel = ZTAppSession.sharedInstance.getUserInfo(){
+        }
+        NotificationCenter.default.addObserver(self, selector: #selector(pageRefresh(_:)), name: NSNotification.Name(rawValue: TOKEN_EXPIRED), object: nil)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(TOKEN_EXPIRED), object: nil)
+    }
+    @objc func pageRefresh(_ notification:NSNotification){
+        self.pageNumber = 0
+        self.initialLoad()
+    }
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.tintColor = UIColor.getColor(colorVal: ZTGradientColor1)
@@ -54,10 +66,6 @@ class ZTUpcomingViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         self.refreshTable()
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        if let userModel = ZTAppSession.sharedInstance.getUserInfo(){
-        }
     }
     
     func initialLoad(){
