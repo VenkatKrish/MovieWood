@@ -160,7 +160,7 @@
                                                                         <rect key="frame" x="0.0" y="128" width="305" height="49"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyC-O0-Ccr">
-                                                                                <rect key="frame" x="142.33333333333334" y="16.333333333333314" width="20.333333333333343" height="16.333333333333329"/>
+                                                                                <rect key="frame" x="143" y="16" width="19" height="17"/>
                                                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Medium" family="SF UI Display" pointSize="14"/>
                                                                                 <color key="textColor" name="ZTTabbarUnSelectedColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -190,7 +190,7 @@
                                                                                                 </constraints>
                                                                                             </imageView>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Facebook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqK-lI-vy2">
-                                                                                                <rect key="frame" x="33.666666666666671" y="15.333333333333316" width="75" height="18.666666666666671"/>
+                                                                                                <rect key="frame" x="33.666666666666671" y="14.999999999999998" width="75" height="19.333333333333329"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="width" constant="75" id="ffM-UF-sAn"/>
                                                                                                 </constraints>
@@ -228,7 +228,7 @@
                                                                                                 </constraints>
                                                                                             </imageView>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQQ-ai-eeo">
-                                                                                                <rect key="frame" x="43" y="15.333333333333316" width="56" height="18.666666666666671"/>
+                                                                                                <rect key="frame" x="43" y="14.999999999999998" width="56" height="19.333333333333329"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="width" constant="56" id="tYv-PL-ITl"/>
                                                                                                 </constraints>
@@ -271,7 +271,7 @@
                                                                         <rect key="frame" x="0.0" y="241" width="305" height="49"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4Q-D9-gwH">
-                                                                                <rect key="frame" x="112" y="8.6666666666666288" width="81" height="32"/>
+                                                                                <rect key="frame" x="111.66666666666666" y="8" width="82" height="33"/>
                                                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="17"/>
                                                                                 <state key="normal" title="Skip Login">
                                                                                     <color key="titleColor" systemColor="systemBackgroundColor"/>
@@ -304,7 +304,7 @@
                                                         <rect key="frame" x="0.0" y="451" width="335" height="60"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGq-Pq-MWS">
-                                                                <rect key="frame" x="67.666666666666686" y="9" width="200" height="42"/>
+                                                                <rect key="frame" x="67.666666666666686" y="15.666666666666631" width="200" height="28.666666666666671"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="200" id="sVe-Vc-JDQ"/>
                                                                 </constraints>
@@ -3117,42 +3117,37 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eCK-8g-ED7">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
-                                <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qic-gy-gEm">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="199" id="Fbq-wT-Iog"/>
-                                        </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bdP-7c-plR">
-                                            <size key="itemSize" width="0.0" height="0.0"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        </collectionViewFlowLayout>
-                                    </collectionView>
-                                </subviews>
-                                <color key="backgroundColor" name="ZTBackgroundColor"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qic-gy-gEm">
+                                <rect key="frame" x="0.0" y="10" width="375" height="199"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="qic-gy-gEm" firstAttribute="top" secondItem="eCK-8g-ED7" secondAttribute="top" id="gQt-uG-3rR"/>
-                                    <constraint firstAttribute="trailing" secondItem="qic-gy-gEm" secondAttribute="trailing" id="lXX-K1-mz0"/>
-                                    <constraint firstItem="qic-gy-gEm" firstAttribute="leading" secondItem="eCK-8g-ED7" secondAttribute="leading" id="rrY-wx-KH7"/>
+                                    <constraint firstAttribute="height" constant="199" id="Fbq-wT-Iog"/>
                                 </constraints>
-                            </view>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bdP-7c-plR">
+                                    <size key="itemSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <connections>
+                                    <outlet property="dataSource" destination="Fxo-37-z9r" id="hBh-nW-Yvk"/>
+                                    <outlet property="delegate" destination="Fxo-37-z9r" id="eLw-4a-c12"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Dr2-tm-3Wi"/>
-                        <color key="backgroundColor" name="ZTFormBackgroundColor"/>
+                        <color key="backgroundColor" name="ZTBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Dr2-tm-3Wi" firstAttribute="bottom" secondItem="eCK-8g-ED7" secondAttribute="bottom" id="eXR-UB-ZfC"/>
-                            <constraint firstItem="eCK-8g-ED7" firstAttribute="leading" secondItem="Dr2-tm-3Wi" secondAttribute="leading" id="sRO-cs-fNi"/>
-                            <constraint firstItem="Dr2-tm-3Wi" firstAttribute="trailing" secondItem="eCK-8g-ED7" secondAttribute="trailing" id="vpX-EB-1Bf"/>
-                            <constraint firstItem="Dr2-tm-3Wi" firstAttribute="top" secondItem="eCK-8g-ED7" secondAttribute="top" id="yst-2T-n87"/>
+                            <constraint firstItem="Dr2-tm-3Wi" firstAttribute="trailing" secondItem="qic-gy-gEm" secondAttribute="trailing" id="507-hR-keG"/>
+                            <constraint firstItem="qic-gy-gEm" firstAttribute="leading" secondItem="Dr2-tm-3Wi" secondAttribute="leading" id="GBb-YI-k3k"/>
+                            <constraint firstItem="qic-gy-gEm" firstAttribute="top" secondItem="esv-nf-Z0R" secondAttribute="top" constant="10" id="iGI-VI-rCR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PYJ-kl-Fis"/>
+                    <connections>
+                        <outlet property="seasonCollection" destination="qic-gy-gEm" id="ALe-wc-ITA"/>
+                        <outlet property="vwHeightConstraints" destination="Fbq-wT-Iog" id="IZg-hV-Kxe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uSg-Lr-LZs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -4949,7 +4944,7 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="M1q-Gs-8A9">
-                                        <rect key="frame" x="0.0" y="324.66666666666674" width="375" height="826"/>
+                                        <rect key="frame" x="0.0" y="324.66666666666674" width="375" height="1025"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P2p-t8-2bE">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="247"/>
@@ -5391,20 +5386,33 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
-                                            <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="w8f-qw-fbW" userLabel="SeasonStack">
-                                                <rect key="frame" x="0.0" y="385.99999999999994" width="375" height="125"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="w8f-qw-fbW" userLabel="SeasonStack">
+                                                <rect key="frame" x="0.0" y="385.99999999999994" width="375" height="199.00000000000006"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2sg-Yu-IJK">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j0N-p6-G96">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="199"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2sg-Yu-IJK">
+                                                                <rect key="frame" x="16" y="0.0" width="359" height="199"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="199" id="FBe-0f-CE8"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="125" id="FBe-0f-CE8"/>
+                                                            <constraint firstAttribute="trailing" secondItem="2sg-Yu-IJK" secondAttribute="trailing" id="M3E-l0-76r"/>
+                                                            <constraint firstItem="2sg-Yu-IJK" firstAttribute="top" secondItem="j0N-p6-G96" secondAttribute="top" id="PhN-Bl-cjB"/>
+                                                            <constraint firstItem="2sg-Yu-IJK" firstAttribute="leading" secondItem="j0N-p6-G96" secondAttribute="leading" constant="16" id="RFN-hu-UiJ"/>
+                                                            <constraint firstAttribute="bottom" secondItem="2sg-Yu-IJK" secondAttribute="bottom" id="U2v-lH-jSw"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lpf-Kn-UZm" userLabel="CastStack">
-                                                <rect key="frame" x="0.0" y="385.99999999999994" width="375" height="185.00000000000006"/>
+                                                <rect key="frame" x="0.0" y="585" width="375" height="185"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="74Y-Lg-dAW" userLabel="HighlightsHeaderView">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
@@ -5458,7 +5466,7 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                                                 </subviews>
                                             </stackView>
                                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wdr-uC-2bT" userLabel="RecommendedStack">
-                                                <rect key="frame" x="0.0" y="571" width="375" height="264"/>
+                                                <rect key="frame" x="0.0" y="770" width="375" height="264"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a0J-Bh-Vem" userLabel="HighlightsHeaderView">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
@@ -5512,7 +5520,7 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="JeG-Ha-BGV" userLabel="ReviewsStack">
-                                                <rect key="frame" x="0.0" y="571" width="375" height="255"/>
+                                                <rect key="frame" x="0.0" y="770" width="375" height="255"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q1D-zd-ygi" userLabel="HighlightsHeaderView">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
@@ -5568,7 +5576,7 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kcs-qr-dks">
-                                                        <rect key="frame" x="0.0" y="225.00000000000011" width="375" height="30"/>
+                                                        <rect key="frame" x="0.0" y="225" width="375" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="RFH-Qa-lpc"/>
                                                         </constraints>
@@ -5674,6 +5682,7 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                         <outlet property="btnBookNow" destination="wai-oG-etq" id="XmR-hg-hli"/>
                         <outlet property="btnMoreReview" destination="Kcs-qr-dks" id="Zpd-RS-u8D"/>
                         <outlet property="btnReadMore" destination="a0z-dl-PfA" id="RQ4-vd-Wba"/>
+                        <outlet property="carbonKitSeasonView" destination="2sg-Yu-IJK" id="qES-h3-TnW"/>
                         <outlet property="collectionCast" destination="mfp-y3-cEj" id="SKb-Dk-5Qd"/>
                         <outlet property="collectionGenre" destination="TCe-fP-QjA" id="dBi-uh-ASk"/>
                         <outlet property="collectionRecommended" destination="blk-eb-3E9" id="FkJ-lD-IgH"/>
@@ -5694,11 +5703,13 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                         <outlet property="lblTrailerTitle" destination="0b6-zV-1OO" id="Yuo-8j-jUb"/>
                         <outlet property="playerView" destination="KCe-Gm-1Wh" id="ycX-4x-fEv"/>
                         <outlet property="stackCast" destination="lpf-Kn-UZm" id="1c6-Mu-pIG"/>
+                        <outlet property="stackGenre" destination="hhq-9J-05r" id="NgF-ch-RdH"/>
+                        <outlet property="stackReadmore" destination="g7I-4c-M6a" id="QZ1-7T-Oyt"/>
                         <outlet property="stackRecommended" destination="wdr-uC-2bT" id="s9j-hf-Du5"/>
                         <outlet property="stackReviews" destination="JeG-Ha-BGV" id="z8e-8G-UHm"/>
                         <outlet property="stackSeason" destination="w8f-qw-fbW" id="6fU-m3-Sce"/>
                         <outlet property="stackTeaser" destination="046-sU-YSU" id="Yac-4V-3cK"/>
-                        <outlet property="tblReviews" destination="OQO-dY-Qyi" id="gz1-HV-SMk"/>
+                        <outlet property="tblReviews" destination="OQO-dY-Qyi" id="RN3-eO-hH8"/>
                         <outlet property="videoHeightMultiplierHeight" destination="syr-vM-ZM7" id="zco-Wd-quC"/>
                         <outlet property="videoPlayerView" destination="MX3-bs-JHH" id="7sg-gJ-VJa"/>
                         <outlet property="vwExclusive" destination="inV-ns-w9y" id="CwN-lg-GzP"/>
@@ -7505,11 +7516,86 @@ Details of transaction are included below</string>
         </scene>
     </scenes>
     <designables>
+        <designable name="0O7-x4-cUy">
+            <size key="intrinsicContentSize" width="125.66666666666667" height="19.666666666666668"/>
+        </designable>
+        <designable name="3mV-Ks-slS">
+            <size key="intrinsicContentSize" width="70" height="19.666666666666668"/>
+        </designable>
+        <designable name="7n3-hD-Wis">
+            <size key="intrinsicContentSize" width="88.333333333333329" height="19.666666666666668"/>
+        </designable>
+        <designable name="C2q-yy-acN">
+            <size key="intrinsicContentSize" width="70" height="19.666666666666668"/>
+        </designable>
+        <designable name="Cld-4y-Cu1">
+            <size key="intrinsicContentSize" width="43" height="19.666666666666668"/>
+        </designable>
+        <designable name="Cma-Gc-Ejj">
+            <size key="intrinsicContentSize" width="146.33333333333334" height="19.666666666666668"/>
+        </designable>
+        <designable name="DpG-h4-Tt2">
+            <size key="intrinsicContentSize" width="26" height="19.666666666666668"/>
+        </designable>
+        <designable name="Elz-Nh-aWc">
+            <size key="intrinsicContentSize" width="175.66666666666666" height="19.666666666666668"/>
+        </designable>
+        <designable name="Grc-Tq-ymU">
+            <size key="intrinsicContentSize" width="78.333333333333329" height="19.666666666666668"/>
+        </designable>
+        <designable name="I6p-8O-X2e">
+            <size key="intrinsicContentSize" width="177" height="19.666666666666668"/>
+        </designable>
+        <designable name="PLU-2u-8Fj">
+            <size key="intrinsicContentSize" width="31" height="19.666666666666668"/>
+        </designable>
+        <designable name="UOC-Yk-1tB">
+            <size key="intrinsicContentSize" width="91.666666666666671" height="19.666666666666668"/>
+        </designable>
+        <designable name="Ucr-Kk-9wU">
+            <size key="intrinsicContentSize" width="99" height="19.666666666666668"/>
+        </designable>
         <designable name="Yyi-GV-lJS">
             <size key="intrinsicContentSize" width="170" height="30"/>
         </designable>
         <designable name="aHf-wu-Y66">
-            <size key="intrinsicContentSize" width="101.66666666666667" height="32.333333333333329"/>
+            <size key="intrinsicContentSize" width="99" height="33"/>
+        </designable>
+        <designable name="bqr-bR-V7o">
+            <size key="intrinsicContentSize" width="62" height="19.666666666666668"/>
+        </designable>
+        <designable name="cq4-Ed-QwR">
+            <size key="intrinsicContentSize" width="37.666666666666664" height="19.666666666666668"/>
+        </designable>
+        <designable name="d9k-wD-560">
+            <size key="intrinsicContentSize" width="172.66666666666666" height="19.666666666666668"/>
+        </designable>
+        <designable name="fs8-Tj-L4M">
+            <size key="intrinsicContentSize" width="99" height="19.666666666666668"/>
+        </designable>
+        <designable name="ips-aU-Ut8">
+            <size key="intrinsicContentSize" width="77" height="19.666666666666668"/>
+        </designable>
+        <designable name="jNv-tP-NNY">
+            <size key="intrinsicContentSize" width="46" height="19.666666666666668"/>
+        </designable>
+        <designable name="mFp-Bx-O7w">
+            <size key="intrinsicContentSize" width="184" height="19.666666666666668"/>
+        </designable>
+        <designable name="nTP-GY-6dG">
+            <size key="intrinsicContentSize" width="111.33333333333333" height="19.666666666666668"/>
+        </designable>
+        <designable name="pSW-Ys-6My">
+            <size key="intrinsicContentSize" width="48.333333333333336" height="19.666666666666668"/>
+        </designable>
+        <designable name="vc0-kS-srn">
+            <size key="intrinsicContentSize" width="38.666666666666664" height="19.666666666666668"/>
+        </designable>
+        <designable name="xqv-Xk-kEl">
+            <size key="intrinsicContentSize" width="77.333333333333329" height="19.666666666666668"/>
+        </designable>
+        <designable name="yTa-oK-bFl">
+            <size key="intrinsicContentSize" width="94.666666666666671" height="19.666666666666668"/>
         </designable>
     </designables>
     <resources>

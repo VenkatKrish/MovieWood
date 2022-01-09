@@ -309,6 +309,7 @@ extension ZTNowViewController{
     func getContinueWatching(){
         if NetworkReachability.shared.isReachable {
             ZTCommonAPIWrapper.getWatchListUsingGET( pageNumber: self.pageNumber, pageSize: self.pageSize) { (response, error) in
+                self.continueWatching?.removeAll()
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
                        

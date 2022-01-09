@@ -22,14 +22,14 @@ public struct MoviePlays: Codable {
     public var movieId: Int64?
     public var moviePlayId: Int64?
     public var operatingSystem: String?
-    public var playEndTime: Date?
+    public var playEndTime: String?
     public var playSeekTime: Int64?
     public var playStartTime: Date?
     public var timezone: String?
     public var userId: Int64?
     public var versionNumber: Int64?
 
-    public init(country: String?, createdBy: String?, createdOn: Date?, deviceInfo: String?, ipAddress: String?, lastUpdateLogin: String?, modifiedBy: String?, modifiedOn: Date?, movieId: Int64?, moviePlayId: Int64?, operatingSystem: String?, playEndTime: Date?, playSeekTime: Int64?, playStartTime: Date?, timezone: String?, userId: Int64?, versionNumber: Int64?) {
+    public init(country: String?, createdBy: String?, createdOn: Date?, deviceInfo: String?, ipAddress: String?, lastUpdateLogin: String?, modifiedBy: String?, modifiedOn: Date?, movieId: Int64?, moviePlayId: Int64?, operatingSystem: String?, playEndTime: String?, playSeekTime: Int64?, playStartTime: Date?, timezone: String?, userId: Int64?, versionNumber: Int64?) {
         self.country = country
         self.createdBy = createdBy
         self.createdOn = createdOn

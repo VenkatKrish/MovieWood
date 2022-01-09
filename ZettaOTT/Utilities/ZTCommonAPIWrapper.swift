@@ -434,4 +434,16 @@ open class ZTCommonAPIWrapper {
             }
         }
     }
+    /**
+     updateMovieGenre
+     
+     - parameter moviePlay: (body) moviePlay
+     - parameter moviePlayId: (path) moviePlayId
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func updateMoviePlayTime(moviePlay: MoviePlays, moviePlayId: Int64, completion: @escaping ((_ data: JSONValue?,_ error: Error?) -> Void)) {
+        MoviePlayControllerAPI.updateMovieGenreUsingPUT1(moviePlay: moviePlay, moviePlayId: moviePlayId) { response, error in
+            completion(response, error)
+        }
+    }
 }

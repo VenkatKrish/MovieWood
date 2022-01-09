@@ -88,6 +88,14 @@ class ZTAppSession: NSObject {
     func getIsUserLoggedIn()->Bool{
         return self.userDefaults.bool(forKey: "isUserLogin")
     }
+    func setIsRefreshUpdating(_ value : Bool){
+        self.userDefaults.set(value, forKey: "RefreshToken")
+        self.saveValue()
+        SwaggerClientAPI.customHeaders = WebServicesHelper().getHeaderDetails()
+    }
+    func getIsRefreshUpdating()->Bool{
+        return self.userDefaults.bool(forKey: "RefreshToken")
+    }
     func setMovieLanguage(_ value : Int64){
         self.userDefaults.set(value, forKey: "MovieLanguage")
         self.saveValue()

@@ -66,6 +66,7 @@ extension ZTContinueWatchingCell:  UICollectionViewDataSource, UICollectionViewD
 }
 extension ZTContinueWatchingCell : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         return CGSize(width: 135, height: collectionView.frame.height)
     }
 }

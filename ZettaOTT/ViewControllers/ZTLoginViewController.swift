@@ -282,6 +282,11 @@ extension ZTLoginViewController {
 }
 // API methods
 extension ZTLoginViewController{
+    func showToastMessage(message:String){
+        DispatchQueue.main.async {
+            Helper.shared.showSnackBarAlert(message: message, type: .Failure, superView: self)
+        }
+    }
     func forgotPasswordByEmail(dialCode:String, phoneNum:String, email:String){
         if NetworkReachability.shared.isReachable{
             self.showActivityIndicator(self.view)
@@ -292,6 +297,8 @@ extension ZTLoginViewController{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
                         if code == StatusCodeObj.forbidden.rawValue{
                             self.registerByEmail(email: email, dialCode: dialCode, phoneNum: phoneNum)
+                        }else{
+                            self.showToastMessage(message: message)
                         }
                     }, failureBlock: { (errorMsg) in
                     })
@@ -315,6 +322,8 @@ extension ZTLoginViewController{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
                         if code == StatusCodeObj.forbidden.rawValue{
                             self.registerByPhone(dialCode: dialCode, phoneNum: phoneNum)
+                        }else{
+                            self.showToastMessage(message: message)
                         }
                     }, failureBlock: { (errorMsg) in
                     })
@@ -335,9 +344,7 @@ extension ZTLoginViewController{
                 self.hideActivityIndicator(self.view)
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
-                        if code == StatusCodeObj.forbidden.rawValue{
-                            
-                        }
+                        self.showToastMessage(message: message)
                     }, failureBlock: { (errorMsg) in
                     })
                     return
@@ -356,9 +363,8 @@ extension ZTLoginViewController{
                 self.hideActivityIndicator(self.view)
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
-                        if code == StatusCodeObj.forbidden.rawValue{
-                            
-                        }
+                        self.showToastMessage(message: message)
+                        
                     }, failureBlock: { (errorMsg) in
                     })
                     return
@@ -377,7 +383,7 @@ extension ZTLoginViewController{
                 self.hideActivityIndicator(self.view)
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
-                        
+                        self.showToastMessage(message: message)
                     }, failureBlock: { (errorMsg) in
                        
                     })

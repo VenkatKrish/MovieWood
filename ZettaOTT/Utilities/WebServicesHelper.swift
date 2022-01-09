@@ -86,7 +86,10 @@ class WebServicesHelper: NSObject {
             debugPrint(err)
             switch(err){
             case .error(401, _, _):
-                Helper.shared.getRefreshToken()
+                if ZTAppSession.sharedInstance.getIsRefreshUpdating() == false{
+                    ZTAppSession.sharedInstance.setIsRefreshUpdating(true)
+                    Helper.shared.getRefreshToken()
+                }
                 break
 //            case .error(403, _, _):
 //                break
@@ -98,9 +101,6 @@ class WebServicesHelper: NSObject {
                         if statusCode == StatusCodeObj.forbidden.rawValue{
                             successBlock(true,message,statusCode)
                         }else{
-                            DispatchQueue.main.async {
-                                Helper.shared.showSnackBarAlert(message: message, type: .Failure, superView: UIApplication.topViewController())
-                            }
                             successBlock(true,message,statusCode)
                         }
                         

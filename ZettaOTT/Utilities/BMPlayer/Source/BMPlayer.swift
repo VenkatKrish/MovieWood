@@ -95,7 +95,7 @@ open class BMPlayer: UIView {
     /// Used to save time status
     fileprivate var sumTime         : TimeInterval = 0
     fileprivate var totalDuration   : TimeInterval = 0
-    fileprivate var currentPosition : TimeInterval = 0
+    public var currentPosition : TimeInterval = 0
     fileprivate var shouldSeekTo    : TimeInterval = 0
     
     fileprivate var isURLSet        = false

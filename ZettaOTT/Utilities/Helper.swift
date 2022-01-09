@@ -54,11 +54,12 @@ class Helper: NSObject {
                     }
                 }
                 if let responseVal = response{
+                    debugPrint("responseVal refresh token\(responseVal)")
+                    ZTAppSession.sharedInstance.setIsRefreshUpdating(false)
                     ZTAppSession.sharedInstance.setLoginInfo(data: responseVal)
                     ZTAppSession.sharedInstance.setAccessToken(responseVal.token ?? "")
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        Helper.shared.getUserBackground()
-                    }
+                    
+                    
                     DispatchQueue.main.async {
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue: TOKEN_EXPIRED), object: nil, userInfo: nil)
                     }

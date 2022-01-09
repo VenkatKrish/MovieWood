@@ -6,7 +6,8 @@
 //
 
 import UIKit
-//import VGPlayer
+import CarbonKit
+
 struct MyConstraint {
     static func changeMultiplier(_ constraint: NSLayoutConstraint, multiplier: CGFloat) -> NSLayoutConstraint {
         let newConstraint = NSLayoutConstraint(
@@ -27,12 +28,18 @@ struct MyConstraint {
     }
 }
 class ZTMovieDetailViewController: UIViewController {
-    var watchedDuration : Double = 0
+    var movieLinkModel:MovieLinkModel? = nil
+    var currentDuration : TimeInterval = 0
     var overAllDuration : Double = 0
     var videoPlayerSize : CGFloat = 0.3
     var videoBannerSize : CGFloat = 0.4
     var tryingCount = 0
     var videoUrlVal : URL? = nil
+    var zTSeasonVideoListViewController: ZTSeasonVideoListViewController?
+    var carbonKitTabs:[String] = []
+    var carbonTabSwipeNavigation: CarbonTabSwipeNavigation = CarbonTabSwipeNavigation()
+    var homeCarbonSelectedSegment: UInt = 0
+    var movieSeasons: [MovieSeasons]? = []
     @IBOutlet weak var btnMoreReview: UIButton!
     @IBOutlet weak var imgVwMovieBanner: UIImageView!
     @IBOutlet weak var lblMovieName: UILabel!
@@ -45,6 +52,8 @@ class ZTMovieDetailViewController: UIViewController {
     @IBOutlet weak var collectionCast: UICollectionView!
     var moviewDetails : Movies? = nil
     @IBOutlet weak var stackTeaser: UIStackView!
+    @IBOutlet weak var stackGenre: UIStackView!
+    @IBOutlet weak var stackReadmore: UIStackView!
     @IBOutlet weak var stackCast: UIStackView!
     @IBOutlet weak var stackSeason: UIStackView!
     @IBOutlet weak var stackRecommended: UIStackView!
@@ -78,13 +87,14 @@ class ZTMovieDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        self.registerCells()
        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         UIApplication.shared.isIdleTimerDisabled = true
+        self.zTSeasonVideoListViewController = self.storyboard!.instantiateViewController(withIdentifier: "ZTSeasonVideoListViewController") as? ZTSeasonVideoListViewController
+        // Do any additional setup after loading the view.
+        self.registerCells()
         AppUtility.lockOrientation(.all)
         self.getMovieDetails()
 
@@ -93,6 +103,7 @@ class ZTMovieDetailViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         UIApplication.shared.isIdleTimerDisabled = false
         AppUtility.lockOrientation(.portrait)
+        self.updateVideoPlayTime(currentTime: self.currentDuration)
 
     }
     func registerCells(){
@@ -117,6 +128,13 @@ class ZTMovieDetailViewController: UIViewController {
         self.multiplierHeightChange(sizeVal: self.videoBannerSize)
         self.refreshReadmoreUI()
         if let movieInfo = self.moviewDetails{
+            self.lblMovieDescription.text = movieInfo.movieDescription ?? ""
+            if (movieInfo.movieDescription ?? "").count > 0{
+                self.stackReadmore.isHidden = false
+            }else{
+                self.stackReadmore.isHidden = true
+            }
+            
             if let paymentStatus = movieInfo.paymentStatus, paymentStatus == MoviePaymentStatusStruct.paid.rawValue{
                 self.btnBookNow.setTitle(ZTConstants.BTN_BOOK_PLAY, for: .normal)
                 self.vwRateThisMoview.isHidden = false                
@@ -157,8 +175,14 @@ class ZTMovieDetailViewController: UIViewController {
                 Helper.shared.loadImage(url: self.moviewDetails?.thumbnail ?? "", imageView: self.imgVwTrailer)
             }
             self.lblTblReviewsCount.text = String(format: "%d Reviews", Int(movieInfo.overallRank ?? 0))
+            if self.moviewDetails?.movieActors?.count ?? 0 > 0{
+                self.stackGenre.isHidden = false
+            }else{
+                self.stackGenre.isHidden = true
+            }
             self.getRecommendedMovies()
             self.getMovieReviews()
+            self.getMovieSeasons()
         }
     }
     @IBAction func btnWriteAReview(_ sender: Any) {
@@ -362,6 +386,36 @@ extension ZTMovieDetailViewController: UITableViewDelegate, UITableViewDataSourc
     }
 }
 extension ZTMovieDetailViewController{
+    func getMovieSeasons(){
+        if NetworkReachability.shared.isReachable {
+//            self.showActivityIndicator(self.view)
+            ZTCommonAPIWrapper.movieSeasonsByMovieCommon(movieId: self.moviewDetails?.movieId ?? -1, pageNumber: 0, pageSize: 100, sortSorted: true) { response, error in
+                self.movieSeasons?.removeAll()
+//                self.hideActivityIndicator(self.view)
+                if error != nil{
+                    WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
+                        
+                    }, failureBlock: { (errorMsg) in
+                       
+                    })
+                    return
+                }
+                if let responseVal = response{
+                    
+                    DispatchQueue.main.async {
+                        self.movieSeasons?.append(contentsOf: responseVal.content ?? [])
+                        
+                        if self.movieSeasons?.count ?? 0 > 0{
+                            self.stackSeason.isHidden = false
+                            self.carbonInitialize()
+                        }else{
+                            self.stackSeason.isHidden = true
+                        }
+                    }
+                }
+            }
+        }
+    }
     func getMovieDetails(){
         if NetworkReachability.shared.isReachable {
             self.showActivityIndicator(self.view)
@@ -446,7 +500,7 @@ extension ZTMovieDetailViewController{
     }
     func getMovieLink(){
         if NetworkReachability.shared.isReachable {
-            let playMovieRequest = PlayMovieRequest(ipAddress: "abcd12345", movieId: self.moviewDetails?.movieId ?? -1)
+            let playMovieRequest = PlayMovieRequest(ipAddress: "abcd123456", movieId: self.moviewDetails?.movieId ?? -1)
             
             ZTCommonAPIWrapper.getMovieVideoWUsingPOST(playMovieRequest: playMovieRequest) { response, error in
                 if error != nil{
@@ -459,6 +513,7 @@ extension ZTMovieDetailViewController{
                 }
                 if let responseVal = response{
                     DispatchQueue.main.async {
+                        self.movieLinkModel = responseVal
                         self.videoPlayerView.isHidden = false
                         self.loadVideo(strUrl: responseVal.movieUrl ?? "")
                     }
@@ -472,6 +527,32 @@ extension ZTMovieDetailViewController:WriteAReviewDelegate{
     func updateUI() {
         self.getMovieDetails()
     }
+    func updateVideoPlayTime(currentTime:TimeInterval){
+        let watch = StopWatch(totalSeconds: Int(currentTime))
+        print(watch.minutes)
+        let dateStr = Helper.shared.getFormatedDate(dateVal: Date(), dateFormat: CustomDateFormatter.orderRequestDate)
+        
+        let moviePlays = MoviePlays(country: nil, createdBy: nil, createdOn: nil, deviceInfo: nil, ipAddress: "abcd1234", lastUpdateLogin: nil, modifiedBy: nil, modifiedOn: nil, movieId: self.moviewDetails?.movieId ?? -1, moviePlayId: self.movieLinkModel?.moviePlayId ?? -1, operatingSystem: "iOS", playEndTime: dateStr, playSeekTime: Int64(watch.minutes), playStartTime: nil, timezone: nil, userId: ZTAppSession.sharedInstance.getUserInfo()?.userId, versionNumber: nil)
+       
+        if NetworkReachability.shared.isReachable {
+            
+            ZTCommonAPIWrapper.updateMoviePlayTime(moviePlay: moviePlays, moviePlayId: self.movieLinkModel?.moviePlayId ?? -1) { response, error in
+                if error != nil{
+                    WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
+                        
+                    }, failureBlock: { (errorMsg) in
+                       
+                    })
+                    return
+                }
+                if let responseVal = response{
+                    
+                }
+            }
+        }
+
+    }
+
 }
 extension ZTMovieDetailViewController:BMPlayerDelegate{
     func bmPlayer(player: BMPlayer, playerStateDidChange state: BMPlayerState) {
@@ -484,15 +565,83 @@ extension ZTMovieDetailViewController:BMPlayerDelegate{
     
     func bmPlayer(player: BMPlayer, playTimeDidChange currentTime: TimeInterval, totalTime: TimeInterval) {
         
+        self.currentDuration = currentTime
     }
     
     func bmPlayer(player: BMPlayer, playerIsPlaying playing: Bool) {
-        
+        debugPrint("Player playing\(playing)")
+        if playing == false{
+            self.currentDuration = player.currentPosition
+            self.updateVideoPlayTime(currentTime: self.currentDuration)
+        }
     }
     
     func bmPlayer(player: BMPlayer, playerOrientChanged isFullscreen: Bool) {
         
     }
     
+}
+extension ZTMovieDetailViewController {
     
+    func setUp(text: String, characterSpacing: Float)-> NSAttributedString{
+           let attributedString = NSMutableAttributedString(string: text)
+           attributedString.addAttribute(NSAttributedString.Key.kern, value: characterSpacing, range: NSRange(location: 0, length: attributedString.length))
+          return attributedString
+    }
+
+    func carbonInitialize() {
+       
+        for i in self.movieSeasons ?? []{
+            let seasonModel = i
+            carbonKitTabs.append(seasonModel.name ?? "")
+        }
+        zTSeasonVideoListViewController?.tagNum = 0
+        zTSeasonVideoListViewController?.movieSeasons = self.movieSeasons ?? []
+        self.zTSeasonVideoListViewController?.viewHeight = Int(self.carbonKitSeasonView.bounds.height - 40)
+        carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: carbonKitTabs as [AnyObject], delegate: self)
+        self.style()
+        carbonTabSwipeNavigation.insert(intoRootViewController: self, andTargetView: self.carbonKitSeasonView)
+    }
+    
+    func style() {
+        
+        let color: UIColor = UIColor.getColor(colorVal: ZTGradientColor1)
+        carbonTabSwipeNavigation.toolbar.isTranslucent = true
+         carbonTabSwipeNavigation.toolbar.clipsToBounds = true
+        carbonTabSwipeNavigation.setIndicatorColor(color)
+        carbonTabSwipeNavigation.setTabBarHeight(40)
+       
+        carbonTabSwipeNavigation.toolbar.backgroundColor = UIColor.getColor(colorVal: ZTBackgroundColor)
+        carbonTabSwipeNavigation.setIndicatorHeight(2.0)
+        carbonTabSwipeNavigation.carbonTabSwipeScrollView.backgroundColor = UIColor.getColor(colorVal: ZTBackgroundColor)
+        
+//        let frame  = (self.view.bounds.width  / CGFloat(self.carbonKitTabs.count)) - 30
+//        let frameCat = (self.view.bounds.width / CGFloat(self.carbonKitTabs.count)) + 10
+//        carbonTabSwipeNavigation.carbonSegmentedControl!.setWidth(frame, forSegmentAt: 0)
+//        carbonTabSwipeNavigation.carbonSegmentedControl!.setWidth(frameCat, forSegmentAt: 1)
+//        carbonTabSwipeNavigation.carbonSegmentedControl!.setWidth(frameCat, forSegmentAt: 2)
+//        carbonTabSwipeNavigation.carbonSegmentedControl!.setWidth(frameCat, forSegmentAt: 3)
+
+        let font = UIFont.setAppFontMedium(16)
+
+        carbonTabSwipeNavigation.setNormalColor(UIColor.getColor(colorVal: ZTAppBlackColor), font: font )
+        carbonTabSwipeNavigation.currentTabIndex = homeCarbonSelectedSegment
+        carbonTabSwipeNavigation.setSelectedColor(UIColor.getColor(colorVal: ZTGradientColor1), font: font)
+        carbonTabSwipeNavigation.pagesScrollView?.isScrollEnabled = true
+    
+    }
+    
+}
+// MARK:- Carbon Kit delegates
+
+extension ZTMovieDetailViewController: CarbonTabSwipeNavigationDelegate {
+
+    func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAt index: UInt) -> UIViewController {
+        return zTSeasonVideoListViewController!
+    }
+    
+    func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, didMoveAt index: UInt) {
+        zTSeasonVideoListViewController?.tagNum = Int(index)
+        zTSeasonVideoListViewController?.initialLoad()
+    }
 }
