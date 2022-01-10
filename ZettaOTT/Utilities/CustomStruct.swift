@@ -46,7 +46,14 @@ enum MovieSearchTag : String {
         return self.rawValue
     }
 }
-
+enum MovieTypes:String{
+    case Movie = "Movie"
+    case WebSeries = "Series"
+    case ShortFilms = "Shorts"
+    func MovieTypes() -> String{
+        return self.rawValue
+    }
+}
 enum WebViewStrings : String {
     case about = "about-us"
     case privacy = "privacy-policy"
@@ -128,7 +135,7 @@ enum AlertViewType{
 }
 
 
-public struct ContinueWatching: Codable {
+public struct ContinueWatchingStruct: Codable {
 
     var movieId:Int64?
     var userIdVal:Int64?

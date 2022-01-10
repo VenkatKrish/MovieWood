@@ -7,7 +7,22 @@
 
 import Foundation
 
+public struct LoginOrRegisterRequest: Codable {
 
+    public var username: String?
+    public var password: String?
+    public var mobileNo: String?
+    public var loginSource: String?
+    public var countryCode: String?
+
+    public init(username: String?, password: String?, mobileNo: String?, loginSource: String?, countryCode: String? ) {
+        self.username = username
+        self.password = password
+        self.mobileNo = mobileNo
+        self.loginSource = loginSource
+        self.countryCode = countryCode
+    }
+}
 
 public struct LoginRequest: Codable {
 
@@ -15,10 +30,26 @@ public struct LoginRequest: Codable {
     public var loginSource: String?
     public var password: String?
     public var username: String?
+    public var countryCode: String? = "91"
 
-    public init(firstName: String?, loginSource: String?, password: String?, username: String?) {
+    public init(firstName: String?, loginSource: String?, password: String?, username: String?, countryCode: String?) {
         self.firstName = firstName
         self.loginSource = loginSource
+        self.password = password
+        self.username = username
+        self.countryCode = countryCode
+
+    }
+
+
+}
+
+public struct AuthLoginRequest: Codable {
+
+    public var password: String?
+    public var username: String?
+
+    public init(password: String?, username: String?) {
         self.password = password
         self.username = username
     }

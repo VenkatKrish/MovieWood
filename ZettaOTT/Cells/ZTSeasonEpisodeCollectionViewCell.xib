@@ -30,9 +30,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4FO-NY-Uh6" customClass="ZTCornerRadiusView" customModule="MovieWood" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="140" height="94"/>
                                 <subviews>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Mk-3P-bGs">
-                                        <rect key="frame" x="0.0" y="0.0" width="140" height="94"/>
-                                    </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RpF-uH-Hf8" customClass="ZTGradientImageView" customModule="MovieWood" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="140" height="94"/>
                                     </imageView>
@@ -48,13 +45,9 @@
                                 <constraints>
                                     <constraint firstItem="NO7-P2-dh5" firstAttribute="centerX" secondItem="RpF-uH-Hf8" secondAttribute="centerX" id="0Lf-gy-34W"/>
                                     <constraint firstAttribute="trailing" secondItem="RpF-uH-Hf8" secondAttribute="trailing" id="7SJ-jy-fGI"/>
-                                    <constraint firstItem="0Mk-3P-bGs" firstAttribute="leading" secondItem="4FO-NY-Uh6" secondAttribute="leading" id="ISZ-15-jwh"/>
-                                    <constraint firstItem="0Mk-3P-bGs" firstAttribute="top" secondItem="4FO-NY-Uh6" secondAttribute="top" id="K6e-5Q-B3P"/>
-                                    <constraint firstAttribute="trailing" secondItem="0Mk-3P-bGs" secondAttribute="trailing" id="MDk-bI-rX0"/>
                                     <constraint firstAttribute="bottom" secondItem="RpF-uH-Hf8" secondAttribute="bottom" id="URS-Gk-dHH"/>
                                     <constraint firstItem="RpF-uH-Hf8" firstAttribute="leading" secondItem="4FO-NY-Uh6" secondAttribute="leading" id="b1m-0a-hpy"/>
                                     <constraint firstItem="RpF-uH-Hf8" firstAttribute="top" secondItem="4FO-NY-Uh6" secondAttribute="top" id="meG-ad-c83"/>
-                                    <constraint firstAttribute="bottom" secondItem="0Mk-3P-bGs" secondAttribute="bottom" id="q0b-Or-PYE"/>
                                     <constraint firstAttribute="height" constant="94" id="uZR-kG-4b6"/>
                                     <constraint firstItem="NO7-P2-dh5" firstAttribute="centerY" secondItem="RpF-uH-Hf8" secondAttribute="centerY" id="xe2-kR-k4S"/>
                                 </constraints>
@@ -68,13 +61,23 @@
                                 <color key="textColor" name="ZTTabbarUnSelectedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Mk-3P-bGs">
+                                <rect key="frame" x="0.0" y="0.0" width="140" height="124"/>
+                                <connections>
+                                    <action selector="btnTappedVideo:" destination="gTV-IL-0wX" eventType="touchUpInside" id="OVs-Nf-sKT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="0Mk-3P-bGs" firstAttribute="top" secondItem="4FO-NY-Uh6" secondAttribute="top" id="2Ue-5Y-mW1"/>
+                            <constraint firstItem="0Mk-3P-bGs" firstAttribute="trailing" secondItem="4FO-NY-Uh6" secondAttribute="trailing" id="8La-UT-QSC"/>
                             <constraint firstItem="4FO-NY-Uh6" firstAttribute="top" secondItem="U3m-bv-J8v" secondAttribute="top" id="C9f-XB-Tdc"/>
                             <constraint firstItem="gki-Ch-vyP" firstAttribute="leading" secondItem="U3m-bv-J8v" secondAttribute="leading" id="JL6-bN-TXX"/>
                             <constraint firstAttribute="trailing" secondItem="gki-Ch-vyP" secondAttribute="trailing" id="Okn-gz-9tf"/>
                             <constraint firstItem="gki-Ch-vyP" firstAttribute="top" secondItem="4FO-NY-Uh6" secondAttribute="bottom" constant="5" id="SWm-mz-c87"/>
+                            <constraint firstItem="0Mk-3P-bGs" firstAttribute="bottom" secondItem="gki-Ch-vyP" secondAttribute="bottom" id="Ske-Oq-oti"/>
+                            <constraint firstItem="0Mk-3P-bGs" firstAttribute="leading" secondItem="4FO-NY-Uh6" secondAttribute="leading" id="VHR-Bz-KFC"/>
                             <constraint firstAttribute="trailing" secondItem="4FO-NY-Uh6" secondAttribute="trailing" id="h3N-aC-GTL"/>
                             <constraint firstItem="4FO-NY-Uh6" firstAttribute="leading" secondItem="U3m-bv-J8v" secondAttribute="leading" id="qhZ-gd-8cX"/>
                         </constraints>
@@ -90,6 +93,7 @@
             </constraints>
             <size key="customSize" width="222" height="128"/>
             <connections>
+                <outlet property="btnTap" destination="0Mk-3P-bGs" id="TYj-5o-E6r"/>
                 <outlet property="imgVwEpisode" destination="RpF-uH-Hf8" id="hpJ-3B-KfD"/>
                 <outlet property="lblEpisodeTitle" destination="gki-Ch-vyP" id="PWx-yr-zgE"/>
             </connections>

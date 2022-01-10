@@ -43,6 +43,7 @@ class Helper: NSObject {
             return "O"
         }
     }
+    
     func getRefreshToken(){
         if NetworkReachability.shared.isReachable{
             var loginModel = ZTAppSession.sharedInstance.getLoginInfo()

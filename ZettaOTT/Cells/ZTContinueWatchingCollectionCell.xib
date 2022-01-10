@@ -4,13 +4,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ZTContinueWatchingCollectionCell" id="gTV-IL-0wX" customClass="ZTContinueWatchingCollectionCell" customModule="ZettaOTT" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ZTContinueWatchingCollectionCell" id="gTV-IL-0wX" customClass="ZTContinueWatchingCollectionCell" customModule="MovieWood" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="206" height="113"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -20,17 +21,26 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="45w-hC-40S">
                         <rect key="frame" x="0.0" y="0.0" width="206" height="113"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6OP-GX-lVc" customClass="ZTImageViewCornerRadius" customModule="ZettaOTT" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6OP-GX-lVc" customClass="ZTImageViewCornerRadius" customModule="MovieWood" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="206" height="113"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
+                            <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cgM-MQ-dcC">
+                                <rect key="frame" x="10" y="99" width="186" height="4"/>
+                                <color key="tintColor" name="ZTGradientColor1"/>
+                                <color key="progressTintColor" name="ZTGradientColor1"/>
+                                <color key="trackTintColor" name="ZTMovieDetailSubTitle"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="6OP-GX-lVc" secondAttribute="bottom" id="65b-9w-4eZ"/>
                             <constraint firstAttribute="trailing" secondItem="6OP-GX-lVc" secondAttribute="trailing" id="QPP-mC-m16"/>
+                            <constraint firstItem="cgM-MQ-dcC" firstAttribute="leading" secondItem="45w-hC-40S" secondAttribute="leading" constant="10" id="Rpe-3I-6MQ"/>
                             <constraint firstItem="6OP-GX-lVc" firstAttribute="leading" secondItem="45w-hC-40S" secondAttribute="leading" id="hmL-S0-zCL"/>
                             <constraint firstItem="6OP-GX-lVc" firstAttribute="top" secondItem="45w-hC-40S" secondAttribute="top" id="j2M-pt-pxl"/>
+                            <constraint firstAttribute="trailing" secondItem="cgM-MQ-dcC" secondAttribute="trailing" constant="10" id="o5m-J7-yvN"/>
+                            <constraint firstAttribute="bottom" secondItem="cgM-MQ-dcC" secondAttribute="bottom" constant="10" id="ypb-z1-lKZ"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -46,8 +56,17 @@
             <size key="customSize" width="206" height="113"/>
             <connections>
                 <outlet property="imgVwWatchList" destination="6OP-GX-lVc" id="AEy-Ar-Q2J"/>
+                <outlet property="taskProgress" destination="cgM-MQ-dcC" id="Kz7-3t-4Tl"/>
             </connections>
             <point key="canvasLocation" x="250.72463768115944" y="153.01339285714286"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <namedColor name="ZTGradientColor1">
+            <color red="0.82352941176470584" green="0.21568627450980393" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ZTMovieDetailSubTitle">
+            <color red="0.59200000762939453" green="0.59200000762939453" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>

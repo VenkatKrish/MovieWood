@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 var TOKEN_EXPIRED = "TOKEN_EXPIRED"
+var SEASON_VIDEO_SELECTION = "SEASON_VIDEO_SELECTION"
 
 let ZTScreenWidth = UIScreen.main.bounds.size.width
 let ZTScreenHeight = UIScreen.main.bounds.size.height

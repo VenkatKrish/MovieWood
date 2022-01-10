@@ -267,7 +267,7 @@ extension ZTProfileEditViewController{
                 
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
-                        
+                        self.showToastMessage(message: message)
                     }, failureBlock: { (errorMsg) in
                        
                     })
@@ -460,6 +460,11 @@ extension ZTProfileEditViewController: UIImagePickerControllerDelegate,  UINavig
         self.uploadImage(image: image)
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
+    func showToastMessage(message:String){
+        DispatchQueue.main.async {
+            Helper.shared.showSnackBarAlert(message: message, type: .Failure, superView: self)
+        }
+    }
     func uploadImage(image: UIImage? = nil){
       if let imageVal = image{
           self.imgVwProfile.image = imageVal
@@ -470,7 +475,7 @@ extension ZTProfileEditViewController: UIImagePickerControllerDelegate,  UINavig
                       self.hideActivityIndicator(self.view)
                       if error != nil{
                           WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
-                              
+                              self.showToastMessage(message: message)
                           }, failureBlock: { (errorMsg) in
                              
                           })

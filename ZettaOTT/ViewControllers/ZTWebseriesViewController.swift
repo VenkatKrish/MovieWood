@@ -114,7 +114,6 @@ extension ZTWebseriesViewController{
         }
     }
     func refreshTable(){
-        
         DispatchQueue.main.async {
             self.profileCollection.reloadData()
         }

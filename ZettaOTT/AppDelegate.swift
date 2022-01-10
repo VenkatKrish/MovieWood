@@ -14,6 +14,15 @@ var zt_minimumLineSpacing : CGFloat = 8
 var zt_minimumInteritemSpacing : CGFloat = 8
 var screenShotImage:UIImage? = nil
 var mainNav : UINavigationController? = nil
+var currentDeviceToken = String()
+var model_name = String()
+var model_number = String()
+var os_type = String()
+var os_version = String()
+var app_build_no = String()
+var app_version = String()
+var device_uuid = String()
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
@@ -23,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+        self.initialSetup()
         ApplicationDelegate.shared.application(
                     application,
                     didFinishLaunchingWithOptions: launchOptions
@@ -34,6 +43,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         NetworkReachability.shared.checkForReachability()
         return true
+    }
+    func initialSetup(){
+        os_version = UIDevice.current.systemVersion
+        if let text = Bundle.main.infoDictionary?["CFBundleShortVersionString"]  as? String {
+            
+            app_version = String(format: "%@",text )
+        }else{
+            app_version = ""
+        }
+        if let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"]  as? String
+        {
+            app_build_no = String(format: "%@",buildNumber)
+
+        }else{
+            app_build_no = ""
+        }
+        if let device_Id = UIDevice.current.identifierForVendor?.uuidString{
+            
+            device_uuid = String(format: "%@",device_Id)
+        }
+        currentDeviceToken = ""
+        model_name = UIDevice.current.name
+        model_number = UIDevice.current.name
+        
     }
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return self.orientationLock

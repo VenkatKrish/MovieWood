@@ -715,5 +715,38 @@ open class UserControllerAPI {
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }
+    /**
+     loginOrRegisterUser
+     
+     - parameter loginRequest: (body) loginRequest
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func loginOrRegisterUserUsingPOST(loginRequest: LoginOrRegisterRequest, completion: @escaping ((_ data: JSONValue?,_ error: Error?) -> Void)) {
+        loginOrRegisterUserUsingPOSTWithRequestBuilder(loginRequest: loginRequest).execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
+
+
+    /**
+     loginOrRegisterUser
+     - POST /api/v1/users/loginOrRegisterUser
+     - examples: [{output=none}]
+     
+     - parameter loginRequest: (body) loginRequest
+
+     - returns: RequestBuilder<JSONValue>
+     */
+    open class func loginOrRegisterUserUsingPOSTWithRequestBuilder(loginRequest: LoginOrRegisterRequest) -> RequestBuilder<JSONValue> {
+        let path = "/api/v1/users/loginOrRegisterUser"
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: loginRequest)
+
+        let url = URLComponents(string: URLString)
+
+        let requestBuilder: RequestBuilder<JSONValue>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
+    }
 
 }

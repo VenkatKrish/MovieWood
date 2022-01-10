@@ -80,6 +80,8 @@ class ZTPaymentsViewController: UIViewController {
                   }
               }
               
+          }else{
+              self.placeOrder(product: nil, transaction: nil)
           }
         }
     }
@@ -165,7 +167,7 @@ extension ZTPaymentsViewController{
             
             var transactionNo = "8578575858"
             if let transactionVal = transaction {
-                transactionNo = transactionVal.transactionIdentifier ??  "2070208254"
+                transactionNo = transactionVal.transactionIdentifier ??  "8578575858"
             }
             
             var orders = Orders.init()

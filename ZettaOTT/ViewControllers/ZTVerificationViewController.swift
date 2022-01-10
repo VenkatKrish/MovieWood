@@ -51,9 +51,9 @@ class ZTVerificationViewController: UIViewController {
             if self.isMobileFlow == true{
                 self.validateOTP(otp: self.otpText, phoneNumber: self.enteredPhone)
             }else{
-                
+                self.authenticateUserPhoneFlow(loginSource: LoginSource.emailFlow, password: self.otpText, username: self.enteredEmail)
             }
-           
+//            self.authenticateUserEmailPhoneFlow(loginSource: LoginSource.emailFlow, password: self.otpText, username: self.enteredEmail)
         }else{
             Helper.shared.showSnackBarAlert(message: ZTValidationMessage.INVALID_OTP, type: .Failure)
         }
@@ -108,7 +108,7 @@ extension ZTVerificationViewController{
                 self.hideActivityIndicator(self.view)
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
-                        
+                        self.showToastMessage(message: message)
                     }, failureBlock: { (errorMsg) in
                     })
                     return
@@ -130,6 +130,8 @@ extension ZTVerificationViewController{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
                         if code == StatusCodeObj.forbidden.rawValue{
                             
+                        }else{
+                            self.showToastMessage(message: message)
                         }
                     }, failureBlock: { (errorMsg) in
                     })
@@ -152,6 +154,8 @@ extension ZTVerificationViewController{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
                         if code == StatusCodeObj.forbidden.rawValue{
                             
+                        }else{
+                            self.showToastMessage(message: message)
                         }
                     }, failureBlock: { (errorMsg) in
                     })
@@ -162,15 +166,35 @@ extension ZTVerificationViewController{
             }
         }
     }
+//    func authenticateUserEmailPhoneFlow(loginSource:String, password:String, username:String){
+//        if NetworkReachability.shared.isReachable{
+//            self.showActivityIndicator(self.view)
+//            let loginRequest = LoginRequest(firstName: "", loginSource: loginSource, password: password, username: username, countryCode: self.enteredDialCode)
+//            UserControllerAPI.authenticateUserUsingPOST(loginRequest: loginRequest) { response, error in
+//                self.hideActivityIndicator(self.view)
+//                if error != nil{
+//                    WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
+//                        self.showToastMessage(message: message)
+//                    }, failureBlock: { (errorMsg) in
+//
+//                    })
+//                    return
+//                }
+//                if let responseVal = response{
+//                    Helper.shared.validateAfterLogin(loginModel: responseVal, viewController: self)
+//                }
+//            }
+//        }
+//    }
     func authenticateUserPhoneFlow(loginSource:String, password:String, username:String){
         if NetworkReachability.shared.isReachable{
             self.showActivityIndicator(self.view)
-            let loginRequest = LoginRequest(firstName: "", loginSource: loginSource, password: password, username: username)
+            let loginRequest = LoginRequest(firstName: "", loginSource: loginSource, password: password, username: username, countryCode: self.enteredDialCode)
             UserControllerAPI.authenticateUserUsingPOST(loginRequest: loginRequest) { response, error in
                 self.hideActivityIndicator(self.view)
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
-                        
+                        self.showToastMessage(message: message)
                     }, failureBlock: { (errorMsg) in
                        
                     })
@@ -180,6 +204,11 @@ extension ZTVerificationViewController{
                     Helper.shared.validateAfterLogin(loginModel: responseVal, viewController: self)
                 }
             }
+        }
+    }
+    func showToastMessage(message:String){
+        DispatchQueue.main.async {
+            Helper.shared.showSnackBarAlert(message: message, type: .Failure, superView: self)
         }
     }
 }

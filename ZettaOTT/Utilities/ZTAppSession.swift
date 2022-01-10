@@ -64,17 +64,17 @@ class ZTAppSession: NSObject {
         }
         return nil
     }
-    func setVideoInfo(data: ContinueWatching) {
+    func setVideoInfo(data: [ContinueWatchingStruct]) {
         let encoder = JSONEncoder()
         if let encoded = try? encoder.encode(data) {
             self.userDefaults.set(encoded, forKey: "ContinueWatching")
         }
         self.saveValue()
     }
-    func getVideoInfo() -> ContinueWatching? {
+    func getVideoInfo() -> [ContinueWatchingStruct]? {
         if let keySettings = self.userDefaults.object(forKey: "ContinueWatching") as? Data {
             let decoder = JSONDecoder()
-            if let appKey = try? decoder.decode(ContinueWatching.self, from: keySettings){
+            if let appKey = try? decoder.decode([ContinueWatchingStruct].self, from: keySettings){
                 return appKey
             }
         }

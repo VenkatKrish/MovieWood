@@ -233,7 +233,7 @@ extension ZTSignupViewController{
             UserControllerAPI.updateUserUsingPUT(user: updateUser, userId: userId) { response, error in
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
-                        
+                        self.showToastMessage(message: message)
                     }, failureBlock: { (errorMsg) in
                        
                     })
@@ -244,6 +244,11 @@ extension ZTSignupViewController{
                     Helper.shared.goToHomeScreen()
                 }
             }
+        }
+    }
+    func showToastMessage(message:String){
+        DispatchQueue.main.async {
+            Helper.shared.showSnackBarAlert(message: message, type: .Failure, superView: self)
         }
     }
 }

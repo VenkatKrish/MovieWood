@@ -162,7 +162,7 @@ extension ZTProfileViewController:UICollectionViewDelegate, UICollectionViewData
 
 extension ZTProfileViewController{
     func getMyWatchLists(isSpinnerNeeded:Bool){
-        /*if NetworkReachability.shared.isReachable{
+        if NetworkReachability.shared.isReachable{
             if isSpinnerNeeded == true{
                 self.showActivityIndicator(self.view)
             }
@@ -175,8 +175,6 @@ extension ZTProfileViewController{
                  self.refreshControl.endRefreshing()
              }
          }
-//            Helper.shared.removeNoView(fromView: self.profileCollection)
-
                 if self.pageNumber == 0{
                     self.watchLists?.removeAll()
                 }
@@ -193,52 +191,14 @@ extension ZTProfileViewController{
                     if responseVal.last == true{
                         self.isPageEnable  = false
                     }
-                    if self.watchLists?.count ?? 0 > 0{
-                        DispatchQueue.main.async {
-                            self.profileCollection.reloadData()
-                        }
-                    }else{
-                        Helper.shared.showNoView(title: "", description: "", fromView: self.profileCollection, hideActionBtn: true, imageName: "",fromViewController: self )
-                    }
-
                 }
+                self.refreshTable()
             })
-        }
-*/
-        
-                if NetworkReachability.shared.isReachable {
-            ZTCommonAPIWrapper.searchMoviesGET(search: MovieSearchTag.zettaMovieOriginal.rawValue, page: 0, size: 100) { (response, error) in
-                DispatchQueue.main.async {
-                    if self.refreshControl.isRefreshing{
-                        self.refreshControl.endRefreshing()
-                    }
-                }
-                if self.pageNumber == 0{
-                    self.watchLists?.removeAll()
-                }
-                Helper.shared.removeNoView(fromView: self.profileCollection)
-                if error != nil{
-                    WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
-
-                    }, failureBlock: { (errorMsg) in
-
-                    })
-                    return
-                }
-                if let responseVal = response{
-                    self.watchLists?.append(contentsOf: responseVal.content ?? [])
-                    if responseVal.last == true{
-                        self.isPageEnable  = false
-                    }
-                    self.refreshTable()
-                }
-            }
         }
     }
     func refreshTable(){
         DispatchQueue.main.async {
             self.profileCollection.reloadData()
         }
-        
     }
 }

@@ -29,7 +29,9 @@ struct MyConstraint {
 }
 class ZTMovieDetailViewController: UIViewController {
     var movieLinkModel:MovieLinkModel? = nil
-    var currentDuration : TimeInterval = 0
+    var movieSeasonId : Int64 = 0
+    var seasonEpisodeId : Int64 = 0
+    var currentDuration : TimeInterval = -1
     var overAllDuration : Double = 0
     var videoPlayerSize : CGFloat = 0.3
     var videoBannerSize : CGFloat = 0.4
@@ -91,11 +93,13 @@ class ZTMovieDetailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.btnBack.isHidden = false
         UIApplication.shared.isIdleTimerDisabled = true
         self.zTSeasonVideoListViewController = self.storyboard!.instantiateViewController(withIdentifier: "ZTSeasonVideoListViewController") as? ZTSeasonVideoListViewController
         // Do any additional setup after loading the view.
         self.registerCells()
         AppUtility.lockOrientation(.all)
+        NotificationCenter.default.addObserver(self, selector: #selector(videoRefresh(_:)), name: NSNotification.Name(rawValue: SEASON_VIDEO_SELECTION), object: nil)
         self.getMovieDetails()
 
 
@@ -103,8 +107,18 @@ class ZTMovieDetailViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         UIApplication.shared.isIdleTimerDisabled = false
         AppUtility.lockOrientation(.portrait)
-        self.updateVideoPlayTime(currentTime: self.currentDuration)
-
+        self.playerView.pause()
+        if currentDuration != -1{
+            
+            // later will remove this condition
+            if self.moviewDetails?.movieType == MovieTypes.WebSeries.rawValue{
+                
+            }else{
+                self.updateVideoPlayTime(currentTime: self.currentDuration)
+            }
+        }
+        
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(SEASON_VIDEO_SELECTION), object: nil)
     }
     func registerCells(){
         self.tblReviews.rowHeight = UITableView.automaticDimension
@@ -123,7 +137,7 @@ class ZTMovieDetailViewController: UIViewController {
         self.videoHeightMultiplierHeight = MyConstraint.changeMultiplier(self.videoHeightMultiplierHeight, multiplier: sizeVal)
     }
     func initialLoad(){
-        
+        self.btnBack.isHidden = false
         self.videoPlayerView.isHidden = true
         self.multiplierHeightChange(sizeVal: self.videoBannerSize)
         self.refreshReadmoreUI()
@@ -192,12 +206,12 @@ class ZTMovieDetailViewController: UIViewController {
         Helper.shared.goToRatingsReviews(viewController: self, movieInfo: self.moviewDetails)
     }
     @IBAction func btnTeaserPlay(_ sender: Any) {
-        self.videoPlayerView.isHidden = false
         self.loadVideo(strUrl: self.moviewDetails?.teaserUrl ?? "")
     }
-    func loadVideo(strUrl:String){
+    func loadVideo(strUrl:String, seekTime:Int64? = 0){
         if let url = URL.init(string: strUrl) {
-            
+        let timeInterval = Double((seekTime ?? 0) * 60)
+        self.videoPlayerView.isHidden = false
         self.playerView.backBlock = { [unowned self] (isFullScreen) in
                 if isFullScreen == true {
                     return
@@ -210,13 +224,13 @@ class ZTMovieDetailViewController: UIViewController {
             let asset = BMPlayerResource(url: url)
             self.playerView.delegate = self
             self.playerView.setVideo(resource: asset)
+            self.playerView.seek(timeInterval, completion: nil)
             self.multiplierHeightChange(sizeVal: self.videoPlayerSize)
             self.btnBack.isHidden = true
         }
     }
     @IBAction func btnTrailerPlay(_ sender: Any) {
         
-        self.videoPlayerView.isHidden = false
         self.loadVideo(strUrl: self.moviewDetails?.trailorUrl ?? "")
 
     }
@@ -226,7 +240,14 @@ class ZTMovieDetailViewController: UIViewController {
     }
     func checkMoviePaymentStatus(){
         if let paymentStatus = self.moviewDetails?.paymentStatus, paymentStatus == MoviePaymentStatusStruct.paid.rawValue{
-            getMovieLink()
+            if self.moviewDetails?.movieType == MovieTypes.WebSeries.rawValue{
+                self.movieSeasonId = self.movieSeasons?[0].seasonId ?? 0
+                self.seasonEpisodeId = self.movieSeasons?[0].movieEpisodes?[0]._id ?? 0
+                let linkVal = self.movieSeasons?[0].movieEpisodes?[0].sourceUrl ?? ""
+                self.loadVideo(strUrl: linkVal)
+            }else{
+                self.getMovieLink()
+            }
         }else{
             Helper.shared.goToChoosePlan(viewController: self, movieInfo: self.moviewDetails)
         }
@@ -500,7 +521,7 @@ extension ZTMovieDetailViewController{
     }
     func getMovieLink(){
         if NetworkReachability.shared.isReachable {
-            let playMovieRequest = PlayMovieRequest(ipAddress: "abcd123456", movieId: self.moviewDetails?.movieId ?? -1)
+            let playMovieRequest = PlayMovieRequest(ipAddress: device_uuid, movieId: self.moviewDetails?.movieId ?? -1)
             
             ZTCommonAPIWrapper.getMovieVideoWUsingPOST(playMovieRequest: playMovieRequest) { response, error in
                 if error != nil{
@@ -514,13 +535,34 @@ extension ZTMovieDetailViewController{
                 if let responseVal = response{
                     DispatchQueue.main.async {
                         self.movieLinkModel = responseVal
-                        self.videoPlayerView.isHidden = false
-                        self.loadVideo(strUrl: responseVal.movieUrl ?? "")
+                        self.getMovieLinkDetails()
                     }
                 }
             }
             
         }
+    }
+    func getMovieLinkDetails(){
+        if self.moviewDetails?.movieType == MovieTypes.WebSeries.rawValue{
+                        if self.movieLinkModel?.seasonId != 0{
+                            if let movieSeasonsVal = self.movieSeasons?
+                                .first(where: { $0.seasonId == self.movieLinkModel?.seasonId ?? 0 }){
+                                if let episodesVal = movieSeasonsVal.movieEpisodes?.first(where: { $0._id == self.movieLinkModel?.episodeId ?? 0 }){
+                                    self.seasonEpisodeId = episodesVal._id ?? 0
+                                    self.movieSeasonId = movieSeasonsVal.seasonId ?? 0
+                                    self.loadVideo(strUrl: episodesVal.sourceUrl ?? "", seekTime: self.movieLinkModel?.initialSeekTime ?? 0)
+                                }
+                            }
+                        }else{
+                            self.movieSeasonId = self.movieSeasons?[0].seasonId ?? 0
+                            self.seasonEpisodeId = self.movieSeasons?[0].movieEpisodes?[0]._id ?? 0
+                            
+                            let linkVal = self.movieSeasons?[0].movieEpisodes?[0].sourceUrl ?? ""
+                            self.loadVideo(strUrl: linkVal)
+                        }
+                    }else {
+                        self.loadVideo(strUrl: self.movieLinkModel?.movieUrl ?? "", seekTime: self.movieLinkModel?.initialSeekTime ?? 0)
+                    }
     }
 }
 extension ZTMovieDetailViewController:WriteAReviewDelegate{
@@ -532,7 +574,16 @@ extension ZTMovieDetailViewController:WriteAReviewDelegate{
         print(watch.minutes)
         let dateStr = Helper.shared.getFormatedDate(dateVal: Date(), dateFormat: CustomDateFormatter.orderRequestDate)
         
-        let moviePlays = MoviePlays(country: nil, createdBy: nil, createdOn: nil, deviceInfo: nil, ipAddress: "abcd1234", lastUpdateLogin: nil, modifiedBy: nil, modifiedOn: nil, movieId: self.moviewDetails?.movieId ?? -1, moviePlayId: self.movieLinkModel?.moviePlayId ?? -1, operatingSystem: "iOS", playEndTime: dateStr, playSeekTime: Int64(watch.minutes), playStartTime: nil, timezone: nil, userId: ZTAppSession.sharedInstance.getUserInfo()?.userId, versionNumber: nil)
+        var seasonIdVal:Int64 = 0
+        var episodeIdVal:Int64 = 0
+        var movieIdVal:Int64 = self.moviewDetails?.movieId ?? 0
+
+        if self.moviewDetails?.movieType == MovieTypes.WebSeries.rawValue{
+            seasonIdVal = self.movieSeasonId
+            episodeIdVal = self.seasonEpisodeId
+            movieIdVal = 0
+        }
+        let moviePlays = MoviePlays(country: nil, createdBy: nil, createdOn: nil, deviceInfo: nil, ipAddress: device_uuid, lastUpdateLogin: nil, modifiedBy: nil, modifiedOn: nil, movieId: movieIdVal, moviePlayId: self.movieLinkModel?.moviePlayId ?? -1, operatingSystem: "iOS", playEndTime: dateStr, playSeekTime: Int64(watch.minutes),seasonId: seasonIdVal, episodeId: episodeIdVal, playStartTime: nil, timezone: nil, userId: ZTAppSession.sharedInstance.getUserInfo()?.userId, versionNumber: nil)
        
         if NetworkReachability.shared.isReachable {
             
@@ -546,13 +597,11 @@ extension ZTMovieDetailViewController:WriteAReviewDelegate{
                     return
                 }
                 if let responseVal = response{
-                    
+                    debugPrint("video seek time \(responseVal)")
                 }
             }
         }
-
     }
-
 }
 extension ZTMovieDetailViewController:BMPlayerDelegate{
     func bmPlayer(player: BMPlayer, playerStateDidChange state: BMPlayerState) {
@@ -572,7 +621,11 @@ extension ZTMovieDetailViewController:BMPlayerDelegate{
         debugPrint("Player playing\(playing)")
         if playing == false{
             self.currentDuration = player.currentPosition
-            self.updateVideoPlayTime(currentTime: self.currentDuration)
+            if self.moviewDetails?.movieType == MovieTypes.WebSeries.rawValue{
+                
+            }else{
+                self.updateVideoPlayTime(currentTime: self.currentDuration)
+            }
         }
     }
     
@@ -614,14 +667,7 @@ extension ZTMovieDetailViewController {
         carbonTabSwipeNavigation.toolbar.backgroundColor = UIColor.getColor(colorVal: ZTBackgroundColor)
         carbonTabSwipeNavigation.setIndicatorHeight(2.0)
         carbonTabSwipeNavigation.carbonTabSwipeScrollView.backgroundColor = UIColor.getColor(colorVal: ZTBackgroundColor)
-        
-//        let frame  = (self.view.bounds.width  / CGFloat(self.carbonKitTabs.count)) - 30
-//        let frameCat = (self.view.bounds.width / CGFloat(self.carbonKitTabs.count)) + 10
-//        carbonTabSwipeNavigation.carbonSegmentedControl!.setWidth(frame, forSegmentAt: 0)
-//        carbonTabSwipeNavigation.carbonSegmentedControl!.setWidth(frameCat, forSegmentAt: 1)
-//        carbonTabSwipeNavigation.carbonSegmentedControl!.setWidth(frameCat, forSegmentAt: 2)
-//        carbonTabSwipeNavigation.carbonSegmentedControl!.setWidth(frameCat, forSegmentAt: 3)
-
+ 
         let font = UIFont.setAppFontMedium(16)
 
         carbonTabSwipeNavigation.setNormalColor(UIColor.getColor(colorVal: ZTAppBlackColor), font: font )
@@ -636,6 +682,9 @@ extension ZTMovieDetailViewController {
 
 extension ZTMovieDetailViewController: CarbonTabSwipeNavigationDelegate {
 
+    func refreshVideo(){
+        
+    }
     func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, viewControllerAt index: UInt) -> UIViewController {
         return zTSeasonVideoListViewController!
     }
@@ -643,5 +692,12 @@ extension ZTMovieDetailViewController: CarbonTabSwipeNavigationDelegate {
     func carbonTabSwipeNavigation(_ carbonTabSwipeNavigation: CarbonTabSwipeNavigation, didMoveAt index: UInt) {
         zTSeasonVideoListViewController?.tagNum = Int(index)
         zTSeasonVideoListViewController?.initialLoad()
+    }
+    @objc func videoRefresh(_ notification:NSNotification){
+        if let args = notification.object as? SeasonVideoStruct{
+            self.movieSeasonId = args.movieSeason?.seasonId ?? 0
+            self.seasonEpisodeId = args.movieEpisodes?._id ?? 0
+            self.loadVideo(strUrl: args.movieEpisodes?.sourceUrl ?? "")
+        }
     }
 }
