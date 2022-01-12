@@ -13,10 +13,15 @@ public struct PlayMovieRequest: Codable {
 
     public var ipAddress: String?
     public var movieId: Int64?
+    public var seasonId : Int64?
+    public var episodeId : Int64?
 
-    public init(ipAddress: String?, movieId: Int64?) {
+    public init(ipAddress: String?, movieId: Int64?, seasonId : Int64?, episodeId : Int64?) {
         self.ipAddress = ipAddress
         self.movieId = movieId
+        self.seasonId = movieId
+        self.episodeId = movieId
+
     }
 
 

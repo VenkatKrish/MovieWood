@@ -93,12 +93,13 @@ class ZTLoginViewController: UIViewController {
                 let phoneNum = self.txtFieldFlag.getRawPhoneNumber() ?? "0"
                 let dialCode = self.removeSpecialCharsFromPhoneString(text: self.txtFieldFlag.selectedCountry?.phoneCode ?? "91")
             let email = self.removeWhiteSpace(text: self.txtFieldEmail.text ?? "")
-            if self.isOtherCountry == true{
-                self.forgotPasswordByEmail(dialCode: dialCode, phoneNum: phoneNum, email: email)
-            }else{
-                self.forgotPasswordByPhone(dialCode: dialCode, phoneNum: phoneNum)
-
-            }
+//            if self.isOtherCountry == true{
+//                self.forgotPasswordByEmail(dialCode: dialCode, phoneNum: phoneNum, email: email)
+//            }else{
+//                self.forgotPasswordByPhone(dialCode: dialCode, phoneNum: phoneNum)
+//
+//            }
+            self.loginOrRegister(dialCode: dialCode, phoneNum: phoneNum, email: email)
             
         }
     }
@@ -287,31 +288,27 @@ extension ZTLoginViewController{
             Helper.shared.showSnackBarAlert(message: message, type: .Failure, superView: self)
         }
     }
-//    func loginOrRegister(dialCode:String, phoneNum:String, email:String){
-//        if NetworkReachability.shared.isReachable{
-//            self.showActivityIndicator(self.view)
-//            let requestVal = LoginOrRegisterRequest(username: email, password: "1", mobileNo: phoneNum, loginSource: LoginSource.emailFlow, countryCode: dialCode)
-//        
-//            UserControllerAPI.loginOrRegisterUserUsingPOST(loginRequest: requestVal) { response, error in
-//                self.hideActivityIndicator(self.view)
-//                if error != nil{
-//                    WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
-//                        if code == StatusCodeObj.forbidden.rawValue{
-//                            self.registerByEmail(email: email, dialCode: dialCode, phoneNum: phoneNum)
-//                        }else{
-//                            self.showToastMessage(message: message)
-//                        }
-//                    }, failureBlock: { (errorMsg) in
-//                    })
-//                    
-//                }else{
-//                    if let _ = response{
-//                        Helper.shared.goToVerificationScreen(viewController: self, enteredPhone: phoneNum, enteredDialCode: dialCode, enteredEmail: email, isMobileFlow: false)
-//                    }
-//                }
-//            }
-//        }
-//    }
+    func loginOrRegister(dialCode:String, phoneNum:String, email:String){
+        if NetworkReachability.shared.isReachable{
+            self.showActivityIndicator(self.view)
+            let requestVal = LoginOrRegisterRequest(username: email, password: "1", mobileNo: phoneNum, loginSource: LoginSource.emailFlow, countryCode: dialCode)
+        
+            UserControllerAPI.loginOrRegisterUserUsingPOST(loginRequest: requestVal) { response, error in
+                self.hideActivityIndicator(self.view)
+                if error != nil{
+                    WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
+                        self.showToastMessage(message: message)
+                    }, failureBlock: { (errorMsg) in
+                    })
+                    
+                }else{
+                    if let _ = response{
+                        Helper.shared.goToVerificationScreen(viewController: self, enteredPhone: phoneNum, enteredDialCode: dialCode, enteredEmail: email, isMobileFlow: false)
+                    }
+                }
+            }
+        }
+    }
     func forgotPasswordByEmail(dialCode:String, phoneNum:String, email:String){
         if NetworkReachability.shared.isReachable{
             self.showActivityIndicator(self.view)

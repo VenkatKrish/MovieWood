@@ -48,12 +48,12 @@ class ZTVerificationViewController: UIViewController {
     }
     @IBAction func btnSubmitTapped(_ sender: Any) {
         if self.isValidateSuccess == true{
-            if self.isMobileFlow == true{
-                self.validateOTP(otp: self.otpText, phoneNumber: self.enteredPhone)
-            }else{
-                self.authenticateUserPhoneFlow(loginSource: LoginSource.emailFlow, password: self.otpText, username: self.enteredEmail)
-            }
-//            self.authenticateUserEmailPhoneFlow(loginSource: LoginSource.emailFlow, password: self.otpText, username: self.enteredEmail)
+//            if self.isMobileFlow == true{
+//                self.validateOTP(otp: self.otpText, phoneNumber: self.enteredPhone)
+//            }else{
+//                self.authenticateUserPhoneFlow(loginSource: LoginSource.emailFlow, password: self.otpText, username: self.enteredEmail)
+//            }
+            self.authenticateUserEmailPhoneFlow(loginSource: LoginSource.emailFlow, password: self.otpText, username: self.enteredEmail)
         }else{
             Helper.shared.showSnackBarAlert(message: ZTValidationMessage.INVALID_OTP, type: .Failure)
         }
@@ -166,26 +166,26 @@ extension ZTVerificationViewController{
             }
         }
     }
-//    func authenticateUserEmailPhoneFlow(loginSource:String, password:String, username:String){
-//        if NetworkReachability.shared.isReachable{
-//            self.showActivityIndicator(self.view)
-//            let loginRequest = LoginRequest(firstName: "", loginSource: loginSource, password: password, username: username, countryCode: self.enteredDialCode)
-//            UserControllerAPI.authenticateUserUsingPOST(loginRequest: loginRequest) { response, error in
-//                self.hideActivityIndicator(self.view)
-//                if error != nil{
-//                    WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
-//                        self.showToastMessage(message: message)
-//                    }, failureBlock: { (errorMsg) in
-//
-//                    })
-//                    return
-//                }
-//                if let responseVal = response{
-//                    Helper.shared.validateAfterLogin(loginModel: responseVal, viewController: self)
-//                }
-//            }
-//        }
-//    }
+    func authenticateUserEmailPhoneFlow(loginSource:String, password:String, username:String){
+        if NetworkReachability.shared.isReachable{
+            self.showActivityIndicator(self.view)
+            let loginRequest = LoginRequest(firstName: "", loginSource: loginSource, password: password, username: username, countryCode: self.enteredDialCode)
+            UserControllerAPI.authenticateUserUsingPOST(loginRequest: loginRequest) { response, error in
+                self.hideActivityIndicator(self.view)
+                if error != nil{
+                    WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
+                        self.showToastMessage(message: message)
+                    }, failureBlock: { (errorMsg) in
+
+                    })
+                    return
+                }
+                if let responseVal = response{
+                    Helper.shared.validateAfterLogin(loginModel: responseVal, viewController: self)
+                }
+            }
+        }
+    }
     func authenticateUserPhoneFlow(loginSource:String, password:String, username:String){
         if NetworkReachability.shared.isReachable{
             self.showActivityIndicator(self.view)

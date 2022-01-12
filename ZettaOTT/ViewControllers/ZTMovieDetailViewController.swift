@@ -111,11 +111,13 @@ class ZTMovieDetailViewController: UIViewController {
         if currentDuration != -1{
             
             // later will remove this condition
-            if self.moviewDetails?.movieType == MovieTypes.WebSeries.rawValue{
-                
-            }else{
-                self.updateVideoPlayTime(currentTime: self.currentDuration)
-            }
+//            if self.moviewDetails?.movieType == MovieTypes.WebSeries.rawValue{
+//
+//            }else{
+//                self.updateVideoPlayTime(currentTime: self.currentDuration)
+//            }
+            self.updateVideoPlayTime(currentTime: self.currentDuration)
+
         }
         
         NotificationCenter.default.removeObserver(self, name: Notification.Name(SEASON_VIDEO_SELECTION), object: nil)
@@ -173,6 +175,12 @@ class ZTMovieDetailViewController: UIViewController {
             self.lblReviesCount.text = String(format: "%d Reviews", Int(movieInfo.overallRank ?? 0))
             self.collectionCast.reloadData()
             self.collectionGenre.reloadData()
+            if self.moviewDetails?.movieGenres?.count ?? 0 > 0 {
+                self.collectionGenre.reloadData()
+                self.stackGenre.isHidden = false
+            }else{
+                self.stackGenre.isHidden = true
+            }
             if self.moviewDetails?.movieActors?.count ?? 0 > 0{
                 self.stackCast.isHidden = false
             }else{
@@ -240,14 +248,16 @@ class ZTMovieDetailViewController: UIViewController {
     }
     func checkMoviePaymentStatus(){
         if let paymentStatus = self.moviewDetails?.paymentStatus, paymentStatus == MoviePaymentStatusStruct.paid.rawValue{
-            if self.moviewDetails?.movieType == MovieTypes.WebSeries.rawValue{
-                self.movieSeasonId = self.movieSeasons?[0].seasonId ?? 0
-                self.seasonEpisodeId = self.movieSeasons?[0].movieEpisodes?[0]._id ?? 0
-                let linkVal = self.movieSeasons?[0].movieEpisodes?[0].sourceUrl ?? ""
-                self.loadVideo(strUrl: linkVal)
-            }else{
-                self.getMovieLink()
-            }
+//            if self.moviewDetails?.movieType == MovieTypes.WebSeries.rawValue{
+//                self.movieSeasonId = self.movieSeasons?[0].seasonId ?? 0
+//                self.seasonEpisodeId = self.movieSeasons?[0].movieEpisodes?[0]._id ?? 0
+//                let linkVal = self.movieSeasons?[0].movieEpisodes?[0].sourceUrl ?? ""
+//                self.loadVideo(strUrl: linkVal)
+//            }else{
+//                self.getMovieLink()
+//            }
+            self.getMovieLink()
+
         }else{
             Helper.shared.goToChoosePlan(viewController: self, movieInfo: self.moviewDetails)
         }
@@ -490,7 +500,7 @@ extension ZTMovieDetailViewController{
     }
     func getMovieReviews(){
         if NetworkReachability.shared.isReachable {
-            ZTCommonAPIWrapper.movieReviewsByMovie(movieId: self.moviewDetails?.movieId ?? -1) { response, error in
+            ZTCommonAPIWrapper.movieReviewsByMovie(movieId: self.moviewDetails?.movieId ?? -1, sort: SortingStruct.sort_createdOn_desc.rawValue) { response, error in
                 self.moviewReviews?.removeAll()
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
@@ -521,7 +531,7 @@ extension ZTMovieDetailViewController{
     }
     func getMovieLink(){
         if NetworkReachability.shared.isReachable {
-            let playMovieRequest = PlayMovieRequest(ipAddress: device_uuid, movieId: self.moviewDetails?.movieId ?? -1)
+            let playMovieRequest = PlayMovieRequest(ipAddress: device_uuid, movieId: self.moviewDetails?.movieId ?? -1, seasonId: self.movieSeasonId, episodeId: self.seasonEpisodeId)
             
             ZTCommonAPIWrapper.getMovieVideoWUsingPOST(playMovieRequest: playMovieRequest) { response, error in
                 if error != nil{
@@ -581,7 +591,7 @@ extension ZTMovieDetailViewController:WriteAReviewDelegate{
         if self.moviewDetails?.movieType == MovieTypes.WebSeries.rawValue{
             seasonIdVal = self.movieSeasonId
             episodeIdVal = self.seasonEpisodeId
-            movieIdVal = 0
+//            movieIdVal = 0
         }
         let moviePlays = MoviePlays(country: nil, createdBy: nil, createdOn: nil, deviceInfo: nil, ipAddress: device_uuid, lastUpdateLogin: nil, modifiedBy: nil, modifiedOn: nil, movieId: movieIdVal, moviePlayId: self.movieLinkModel?.moviePlayId ?? -1, operatingSystem: "iOS", playEndTime: dateStr, playSeekTime: Int64(watch.minutes),seasonId: seasonIdVal, episodeId: episodeIdVal, playStartTime: nil, timezone: nil, userId: ZTAppSession.sharedInstance.getUserInfo()?.userId, versionNumber: nil)
        
@@ -621,11 +631,13 @@ extension ZTMovieDetailViewController:BMPlayerDelegate{
         debugPrint("Player playing\(playing)")
         if playing == false{
             self.currentDuration = player.currentPosition
-            if self.moviewDetails?.movieType == MovieTypes.WebSeries.rawValue{
-                
-            }else{
-                self.updateVideoPlayTime(currentTime: self.currentDuration)
-            }
+//            if self.moviewDetails?.movieType == MovieTypes.WebSeries.rawValue{
+//
+//            }else{
+//                self.updateVideoPlayTime(currentTime: self.currentDuration)
+//            }
+            self.updateVideoPlayTime(currentTime: self.currentDuration)
+
         }
     }
     
@@ -694,9 +706,12 @@ extension ZTMovieDetailViewController: CarbonTabSwipeNavigationDelegate {
         zTSeasonVideoListViewController?.initialLoad()
     }
     @objc func videoRefresh(_ notification:NSNotification){
+        self.updateVideoPlayTime(currentTime: self.currentDuration)
+        
         if let args = notification.object as? SeasonVideoStruct{
             self.movieSeasonId = args.movieSeason?.seasonId ?? 0
             self.seasonEpisodeId = args.movieEpisodes?._id ?? 0
+//            self.getMovieLink()
             self.loadVideo(strUrl: args.movieEpisodes?.sourceUrl ?? "")
         }
     }

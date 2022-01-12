@@ -262,9 +262,9 @@ open class ZTCommonAPIWrapper {
      - parameter unpaged: (query)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func movieReviewsByMovie(movieId: Int64, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, completion: @escaping ((_ data: PageMovieReviews?,_ error: Error?) -> Void)) {
+    open class func movieReviewsByMovie(movieId: Int64, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, sort:String? = nil, completion: @escaping ((_ data: PageMovieReviews?,_ error: Error?) -> Void)) {
         if ZTAppSession.sharedInstance.getIsUserLoggedIn() {
-            ZTPrivateAPIWrapper.movieReviewsByMoviePrivate(movieId: movieId, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged) { response, error in
+            ZTPrivateAPIWrapper.movieReviewsByMoviePrivate(movieId: movieId, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged, sort:sort) { response, error in
                 completion(response, error)
             }
         }else{

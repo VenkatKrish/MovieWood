@@ -739,7 +739,7 @@ open class UserControllerAPI {
      */
     open class func loginOrRegisterUserUsingPOSTWithRequestBuilder(loginRequest: LoginOrRegisterRequest) -> RequestBuilder<JSONValue> {
         let path = "/api/v1/users/loginOrRegisterUser"
-        let URLString = SwaggerClientAPI.basePath + path
+        let URLString = SwaggerClientAPI.basePathAuth + path
         let parameters = JSONEncodingHelper.encodingParameters(forEncodableObject: loginRequest)
 
         let url = URLComponents(string: URLString)

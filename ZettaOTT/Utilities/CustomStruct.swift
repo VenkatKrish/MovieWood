@@ -46,6 +46,14 @@ enum MovieSearchTag : String {
         return self.rawValue
     }
 }
+enum SortingStruct : String {
+    case sort_createdOn_desc = "createdOn,desc"
+    case sort_createdOn_asc = "createdOn,asc"
+    func SortingStruct() -> String{
+        return self.rawValue
+    }
+}
+
 enum MovieTypes:String{
     case Movie = "Movie"
     case WebSeries = "Series"

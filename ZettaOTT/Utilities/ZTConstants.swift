@@ -52,7 +52,7 @@ class SocialAccountInfo {
 }
 class LoginSource{
     static let mobileFlow = "mobile"
-    static let emailFlow = "email"
+    static let emailFlow = "Email"
     static let gmailFlow = "gmail"
     static let fbFlow = "facebook"
 

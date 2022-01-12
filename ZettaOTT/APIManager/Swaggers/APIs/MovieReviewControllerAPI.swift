@@ -95,10 +95,12 @@ open class MovieReviewControllerAPI {
      - parameter sortSorted: (query)  (optional)
      - parameter sortUnsorted: (query)  (optional)
      - parameter unpaged: (query)  (optional)
+     - parameter sort: (query)  (optional)
+
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func movieReviewsByMoviePublicUsingGET(movieId: Int64, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, completion: @escaping ((_ data: PageMovieReviews?,_ error: Error?) -> Void)) {
-        movieReviewsByMoviePublicUsingGETWithRequestBuilder(movieId: movieId, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged).execute { (response, error) -> Void in
+    open class func movieReviewsByMoviePublicUsingGET(movieId: Int64, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, sort:String? = nil, completion: @escaping ((_ data: PageMovieReviews?,_ error: Error?) -> Void)) {
+        movieReviewsByMoviePublicUsingGETWithRequestBuilder(movieId: movieId, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged, sort:sort).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
@@ -117,10 +119,11 @@ open class MovieReviewControllerAPI {
      - parameter sortSorted: (query)  (optional)
      - parameter sortUnsorted: (query)  (optional)
      - parameter unpaged: (query)  (optional)
+     - parameter sort: (query)  (optional)
 
      - returns: RequestBuilder<PageMovieReviews> 
      */
-    open class func movieReviewsByMoviePublicUsingGETWithRequestBuilder(movieId: Int64, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil) -> RequestBuilder<PageMovieReviews> {
+    open class func movieReviewsByMoviePublicUsingGETWithRequestBuilder(movieId: Int64, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, sort:String? = nil) -> RequestBuilder<PageMovieReviews> {
         var path = "/api/v1/public/moviereviewsbymovie/{movieId}"
         let movieIdPreEscape = "\(movieId)"
         let movieIdPostEscape = movieIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -136,7 +139,8 @@ open class MovieReviewControllerAPI {
             "paged": paged, 
             "sort.sorted": sortSorted, 
             "sort.unsorted": sortUnsorted, 
-            "unpaged": unpaged
+            "unpaged": unpaged,
+            "sort": sort
         ])
 
         let requestBuilder: RequestBuilder<PageMovieReviews>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -155,10 +159,12 @@ open class MovieReviewControllerAPI {
      - parameter sortSorted: (query)  (optional)
      - parameter sortUnsorted: (query)  (optional)
      - parameter unpaged: (query)  (optional)
+     - parameter sort: (query)  (optional)
+
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func movieReviewsByMovieUsingGET(movieId: Int64, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, completion: @escaping ((_ data: PageMovieReviews?,_ error: Error?) -> Void)) {
-        movieReviewsByMovieUsingGETWithRequestBuilder(movieId: movieId, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged).execute { (response, error) -> Void in
+    open class func movieReviewsByMovieUsingGET(movieId: Int64, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, sort:String? = nil, completion: @escaping ((_ data: PageMovieReviews?,_ error: Error?) -> Void)) {
+        movieReviewsByMovieUsingGETWithRequestBuilder(movieId: movieId, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged, sort: sort).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
@@ -177,10 +183,11 @@ open class MovieReviewControllerAPI {
      - parameter sortSorted: (query)  (optional)
      - parameter sortUnsorted: (query)  (optional)
      - parameter unpaged: (query)  (optional)
+     - parameter sort: (query)  (optional)
 
      - returns: RequestBuilder<PageMovieReviews> 
      */
-    open class func movieReviewsByMovieUsingGETWithRequestBuilder(movieId: Int64, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil) -> RequestBuilder<PageMovieReviews> {
+    open class func movieReviewsByMovieUsingGETWithRequestBuilder(movieId: Int64, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, sort:String? = nil) -> RequestBuilder<PageMovieReviews> {
         var path = "/api/v1/moviereviewsbymovie/{movieId}"
         let movieIdPreEscape = "\(movieId)"
         let movieIdPostEscape = movieIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -196,7 +203,8 @@ open class MovieReviewControllerAPI {
             "paged": paged, 
             "sort.sorted": sortSorted, 
             "sort.unsorted": sortUnsorted, 
-            "unpaged": unpaged
+            "unpaged": unpaged,
+            "sort": sort
         ])
 
         let requestBuilder: RequestBuilder<PageMovieReviews>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()

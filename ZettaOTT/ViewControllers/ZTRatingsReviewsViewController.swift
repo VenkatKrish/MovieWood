@@ -55,7 +55,7 @@ extension ZTRatingsReviewsViewController{
             if isSpinnerNeeded == true{
                 self.showActivityIndicator(self.view)
             }
-            ZTCommonAPIWrapper.movieReviewsByMovie(movieId: self.moviewDetails?.movieId ?? -1) { response, error in
+            ZTCommonAPIWrapper.movieReviewsByMovie(movieId: self.moviewDetails?.movieId ?? -1, sort: SortingStruct.sort_createdOn_desc.rawValue) { response, error in
                 if isSpinnerNeeded == true{
                     self.hideActivityIndicator(self.view)
                 }
