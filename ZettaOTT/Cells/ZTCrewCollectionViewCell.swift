@@ -16,10 +16,18 @@ class ZTCrewCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    func loadCrewCaseDetails(data:MovieActors? = nil){
+    func loadCastDetails(data:MovieActors? = nil){
         if let model = data{
             self.lblName.text = model.actor?.actorName ?? ""
             self.lblDesignation.text = model.actorRole ?? ""
+            Helper.shared.loadImage(url: model.actor?.actorImage ?? "", imageView: self.imgVwProfile, placeHolder: ZTDefaultValues.placeholder_profile)
+        }
+        
+    }
+    func loadCrewDetails(data:MovieCrew? = nil){
+        if let model = data{
+            self.lblName.text = model.actor?.actorName ?? ""
+            self.lblDesignation.text = model.crewRole ?? ""
             Helper.shared.loadImage(url: model.actor?.actorImage ?? "", imageView: self.imgVwProfile, placeHolder: ZTDefaultValues.placeholder_profile)
         }
         

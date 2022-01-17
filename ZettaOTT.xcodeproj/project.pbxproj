@@ -368,7 +368,7 @@
 /* Begin PBXFileReference section */
 		1AABDE8CA2AFB64521E45461 /* Pods_ZettaOTT.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ZettaOTT.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34233AD641486043A2C40C91 /* Pods-ZettaOTT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZettaOTT.debug.xcconfig"; path = "Target Support Files/Pods-ZettaOTT/Pods-ZettaOTT.debug.xcconfig"; sourceTree = "<group>"; };
-		390D14B427062B3C00C51259 /* MovieWood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieWood.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		390D14B427062B3C00C51259 /* Moviewood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moviewood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		390D14B727062B3C00C51259 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		390D14B927062B3C00C51259 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		390D14BE27062B3C00C51259 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -763,7 +763,7 @@
 		390D14B527062B3C00C51259 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				390D14B427062B3C00C51259 /* MovieWood.app */,
+				390D14B427062B3C00C51259 /* Moviewood.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1344,7 +1344,7 @@
 				3966BBC527664EC500D41E9D /* FacebookShare */,
 			);
 			productName = ZettaOTT;
-			productReference = 390D14B427062B3C00C51259 /* MovieWood.app */;
+			productReference = 390D14B427062B3C00C51259 /* Moviewood.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1940,7 +1940,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 69VF6X7529;
+				DEVELOPMENT_TEAM = PK5XQ274B4;
 				INFOPLIST_FILE = ZettaOTT/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1948,9 +1948,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = in.onandgo.moviewud;
-				PRODUCT_NAME = MovieWood;
-				PROVISIONING_PROFILE_SPECIFIER = MoviewoodDev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crosshurdle.moviewood;
+				PRODUCT_NAME = Moviewood;
+				PROVISIONING_PROFILE_SPECIFIER = SelvaMoviewoodDev;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1962,10 +1962,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = 69VF6X7529;
+				DEVELOPMENT_TEAM = PK5XQ274B4;
 				INFOPLIST_FILE = ZettaOTT/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1973,9 +1973,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = in.onandgo.moviewud;
-				PRODUCT_NAME = MovieWood;
-				PROVISIONING_PROFILE_SPECIFIER = MoviewoodDev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.crosshurdle.moviewood;
+				PRODUCT_NAME = Moviewood;
+				PROVISIONING_PROFILE_SPECIFIER = SelvaMoviewoodAppStore;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

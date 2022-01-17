@@ -74,14 +74,15 @@ class ZTPaymentsViewController: UIViewController {
               debugPrint("self.products \(productsArr)")
               DispatchQueue.main.async {
                   if self.products.count > 0{
+                      self.showActivityIndicator(self.view)
                       RazeFaceProducts.store.buyProduct(self.products[0])
                   }else{
-                      self.placeOrder(product: nil, transaction: nil)
+//                      self.placeOrder(product: nil, transaction: nil)
                   }
               }
               
           }else{
-              self.placeOrder(product: nil, transaction: nil)
+//              self.placeOrder(product: nil, transaction: nil)
           }
         }
     }
@@ -105,6 +106,10 @@ class ZTPaymentsViewController: UIViewController {
 //        self.placeOrder()
     }
     @objc func handlePurchaseNotification(_ notification: Notification) {
+        DispatchQueue.main.async {
+            self.hideActivityIndicator(self.view)
+        }
+
         if let inAppProductTransaction = notification.object as? InAppProductTransaction{
             let productVal = self.products.first(where: { $0.productIdentifier == inAppProductTransaction.productIdentifier })
                 

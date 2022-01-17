@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "390D14B327062B3C00C51259"
-               BuildableName = "MovieWood.app"
+               BuildableName = "Moviewood.app"
                BlueprintName = "ZettaOTT"
                ReferencedContainer = "container:ZettaOTT.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "390D14B327062B3C00C51259"
-            BuildableName = "MovieWood.app"
+            BuildableName = "Moviewood.app"
             BlueprintName = "ZettaOTT"
             ReferencedContainer = "container:ZettaOTT.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "390D14B327062B3C00C51259"
-            BuildableName = "MovieWood.app"
+            BuildableName = "Moviewood.app"
             BlueprintName = "ZettaOTT"
             ReferencedContainer = "container:ZettaOTT.xcodeproj">
          </BuildableReference>

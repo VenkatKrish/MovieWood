@@ -45,7 +45,9 @@ class SocialAccountInfo {
     //"460563733667-rb3gu4bomb4ioqqidt3c2b4ddpavbsh8.apps.googleusercontent.com"
     
     // client
-    static let Google_ClientId = "562900447023-gj3opnf5dgl3v2ppalq6q4dgsnkv7793.apps.googleusercontent.com"
+//    static let Google_ClientId = "562900447023-gj3opnf5dgl3v2ppalq6q4dgsnkv7793.apps.googleusercontent.com" // last moviewood code
+    
+    static let Google_ClientId = "562900447023-8qsbtt3ahep64mh59lplushhjpuu8t4e.apps.googleusercontent.com"
     
     
     

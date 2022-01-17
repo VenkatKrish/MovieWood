@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>MovieWood</string>
+	<string>Moviewood</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -26,7 +26,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>fb334771431496641</string>
-				<string>com.googleusercontent.apps.562900447023-gj3opnf5dgl3v2ppalq6q4dgsnkv7793</string>
+				<string>com.googleusercontent.apps.562900447023-8qsbtt3ahep64mh59lplushhjpuu8t4e</string>
 			</array>
 		</dict>
 	</array>

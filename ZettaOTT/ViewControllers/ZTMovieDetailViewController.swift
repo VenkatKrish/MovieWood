@@ -52,11 +52,13 @@ class ZTMovieDetailViewController: UIViewController {
     @IBOutlet weak var collectionGenre: UICollectionView!
     @IBOutlet weak var lblMovieDescription: UILabel!
     @IBOutlet weak var collectionCast: UICollectionView!
+    @IBOutlet weak var collectionCrew: UICollectionView!
     var moviewDetails : Movies? = nil
     @IBOutlet weak var stackTeaser: UIStackView!
     @IBOutlet weak var stackGenre: UIStackView!
     @IBOutlet weak var stackReadmore: UIStackView!
     @IBOutlet weak var stackCast: UIStackView!
+    @IBOutlet weak var stackCrew: UIStackView!
     @IBOutlet weak var stackSeason: UIStackView!
     @IBOutlet weak var stackRecommended: UIStackView!
     @IBOutlet weak var stackReviews: UIStackView!
@@ -133,6 +135,8 @@ class ZTMovieDetailViewController: UIViewController {
         
         self.collectionCast.register(UINib(nibName: ZTCellNameOrIdentifier.ZTCrewCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: ZTCellNameOrIdentifier.ZTCrewCollectionViewCell)
         
+        self.collectionCrew.register(UINib(nibName: ZTCellNameOrIdentifier.ZTCrewCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: ZTCellNameOrIdentifier.ZTCrewCollectionViewCell)
+
 
     }
     func multiplierHeightChange(sizeVal:CGFloat){
@@ -150,7 +154,7 @@ class ZTMovieDetailViewController: UIViewController {
             }else{
                 self.stackReadmore.isHidden = true
             }
-            
+            self.vwRateThisMoview.isHidden = true
             if let paymentStatus = movieInfo.paymentStatus, paymentStatus == MoviePaymentStatusStruct.paid.rawValue{
                 self.btnBookNow.setTitle(ZTConstants.BTN_BOOK_PLAY, for: .normal)
                 self.vwRateThisMoview.isHidden = false                
@@ -174,6 +178,8 @@ class ZTMovieDetailViewController: UIViewController {
             self.lblMovieYear.text = String(format: "%d", Int(movieInfo.yearReleased ?? 0))
             self.lblReviesCount.text = String(format: "%d Reviews", Int(movieInfo.overallRank ?? 0))
             self.collectionCast.reloadData()
+            self.collectionCrew.reloadData()
+
             self.collectionGenre.reloadData()
             if self.moviewDetails?.movieGenres?.count ?? 0 > 0 {
                 self.collectionGenre.reloadData()
@@ -185,6 +191,11 @@ class ZTMovieDetailViewController: UIViewController {
                 self.stackCast.isHidden = false
             }else{
                 self.stackCast.isHidden = true
+            }
+            if self.moviewDetails?.movieCrew?.count ?? 0 > 0{
+                self.stackCrew.isHidden = false
+            }else{
+                self.stackCrew.isHidden = true
             }
             self.vwTeaser.isHidden = true
             self.vwTrailer.isHidden = true
@@ -301,6 +312,8 @@ extension ZTMovieDetailViewController:UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.collectionCast{
             return self.moviewDetails?.movieActors?.count ?? 0
+        }else if collectionView == self.collectionCrew{
+            return self.moviewDetails?.movieCrew?.count ?? 0
         }else if collectionView == self.collectionRecommended{
             return self.recommendedMovies?.count ?? 0
         }else if collectionView == self.collectionGenre{
@@ -314,7 +327,12 @@ extension ZTMovieDetailViewController:UICollectionViewDelegate, UICollectionView
         
         if collectionView == self.collectionCast{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZTCellNameOrIdentifier.ZTCrewCollectionViewCell, for: indexPath) as! ZTCrewCollectionViewCell
-            cell.loadCrewCaseDetails(data: self.moviewDetails?.movieActors?[indexPath.row])
+            cell.loadCastDetails(data: self.moviewDetails?.movieActors?[indexPath.row])
+            return cell
+
+        }else if collectionView == self.collectionCrew{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZTCellNameOrIdentifier.ZTCrewCollectionViewCell, for: indexPath) as! ZTCrewCollectionViewCell
+            cell.loadCrewDetails(data: self.moviewDetails?.movieCrew?[indexPath.row])
             return cell
 
         }else if collectionView == self.collectionGenre{
@@ -338,6 +356,8 @@ extension ZTMovieDetailViewController:UICollectionViewDelegate, UICollectionView
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if collectionView == self.collectionCast{
+            return CGSize(width: 80, height:  collectionView.frame.size.height)
+        }else if collectionView == self.collectionCrew{
             return CGSize(width: 80, height:  collectionView.frame.size.height)
         }else if collectionView == self.collectionRecommended{
             return CGSize(width: 133, height: collectionView.frame.size.height)
@@ -580,6 +600,7 @@ extension ZTMovieDetailViewController:WriteAReviewDelegate{
         self.getMovieDetails()
     }
     func updateVideoPlayTime(currentTime:TimeInterval){
+        if let paymentStatus = self.moviewDetails?.paymentStatus, paymentStatus == MoviePaymentStatusStruct.paid.rawValue{
         let watch = StopWatch(totalSeconds: Int(currentTime))
         print(watch.minutes)
         let dateStr = Helper.shared.getFormatedDate(dateVal: Date(), dateFormat: CustomDateFormatter.orderRequestDate)
@@ -611,6 +632,7 @@ extension ZTMovieDetailViewController:WriteAReviewDelegate{
                 }
             }
         }
+    }
     }
 }
 extension ZTMovieDetailViewController:BMPlayerDelegate{
@@ -656,6 +678,7 @@ extension ZTMovieDetailViewController {
 
     func carbonInitialize() {
        
+        carbonKitTabs.removeAll()
         for i in self.movieSeasons ?? []{
             let seasonModel = i
             carbonKitTabs.append(seasonModel.name ?? "")
@@ -706,13 +729,17 @@ extension ZTMovieDetailViewController: CarbonTabSwipeNavigationDelegate {
         zTSeasonVideoListViewController?.initialLoad()
     }
     @objc func videoRefresh(_ notification:NSNotification){
-        self.updateVideoPlayTime(currentTime: self.currentDuration)
+        
+            self.updateVideoPlayTime(currentTime: self.currentDuration)
         
         if let args = notification.object as? SeasonVideoStruct{
-            self.movieSeasonId = args.movieSeason?.seasonId ?? 0
-            self.seasonEpisodeId = args.movieEpisodes?._id ?? 0
-//            self.getMovieLink()
-            self.loadVideo(strUrl: args.movieEpisodes?.sourceUrl ?? "")
+            
+            if let paymentStatus = self.moviewDetails?.paymentStatus, paymentStatus == MoviePaymentStatusStruct.paid.rawValue{
+                self.movieSeasonId = args.movieSeason?.seasonId ?? 0
+                self.seasonEpisodeId = args.movieEpisodes?._id ?? 0
+    //            self.getMovieLink()
+                self.loadVideo(strUrl: args.movieEpisodes?.sourceUrl ?? "")
+            }
         }
     }
 }

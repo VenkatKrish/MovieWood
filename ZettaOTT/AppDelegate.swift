@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     didFinishLaunchingWithOptions: launchOptions
                 )
         SwaggerClientAPI.customHeaders = WebServicesHelper.shared.getHeaderDetails()
-
+        ZTAppSession.sharedInstance.setIsRefreshUpdating(false)
         self.setUpRoot()
         IQKeyboardManager.shared.enable = true
         NetworkReachability.shared.checkForReachability()
