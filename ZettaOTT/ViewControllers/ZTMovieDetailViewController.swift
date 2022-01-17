@@ -88,6 +88,7 @@ class ZTMovieDetailViewController: UIViewController {
     @IBOutlet weak var lblTblReviewsCount: UILabel!
     var readMoreClicked : Bool = false
     var currentMovieId : Int64 = -1
+    var transMovieId : Int64? = -1
 
 
     override func viewDidLoad() {
@@ -473,9 +474,15 @@ extension ZTMovieDetailViewController{
         }
     }
     func getMovieDetails(){
+        var movieIdVal: Int64 = -1
+        if let moviewDe = self.moviewDetails{
+            movieIdVal = self.moviewDetails?.movieId ?? -1
+        }else{
+            movieIdVal = self.transMovieId ?? -1
+        }
         if NetworkReachability.shared.isReachable {
             self.showActivityIndicator(self.view)
-            ZTCommonAPIWrapper.getMovieUsingGET(movieId: self.moviewDetails?.movieId ?? -1) { response, error in
+            ZTCommonAPIWrapper.getMovieUsingGET(movieId: movieIdVal) { response, error in
                 
             self.hideActivityIndicator(self.view)
                 
@@ -488,7 +495,7 @@ extension ZTMovieDetailViewController{
                 return
             }
             if let responseVal = response{
-                self.currentMovieId = self.moviewDetails?.movieId ?? -1
+                self.currentMovieId = movieIdVal//self.moviewDetails?.movieId ?? -1
                 self.moviewDetails = nil
                 self.moviewDetails = responseVal
 

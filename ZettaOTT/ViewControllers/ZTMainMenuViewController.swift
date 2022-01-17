@@ -31,7 +31,7 @@ class ZTMainMenuViewController: UIViewController {
                 self.lblFirstName.text = String(format: "%@ %@", name, userModel.lastName ?? "")
             }
             if let email = userModel.emailId{
-                self.lblEmail.text = String(format: "%@ %d",email)
+                self.lblEmail.text = String(format: "%@",email)
             }
         }
     }

@@ -40,7 +40,7 @@ class ZTAppSession: NSObject {
         self.saveValue()
     }
     func getUserInfo() -> AppUserModel? {
-        if let keySettings = self.userDefaults.object(forKey: ZTUserDefaultKeys.LoginSuccessModel) as? Data {
+        if let keySettings = self.userDefaults.object(forKey: ZTUserDefaultKeys.AppUserModel) as? Data {
             let decoder = JSONDecoder()
             if let appKey = try? decoder.decode(AppUserModel.self, from: keySettings){
                 return appKey

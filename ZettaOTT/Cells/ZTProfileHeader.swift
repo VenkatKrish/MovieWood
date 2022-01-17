@@ -41,6 +41,10 @@ class ZTProfileHeader: UICollectionReusableView {
                 self.lblUserDOB.isHidden = false
                 self.lblUserDOB.text = String(format: "%d",age)
             }
+            if let email = dataVal.emailId{
+                self.lblUserEmail.isHidden = false
+                self.lblUserEmail.text = String(format: "%@",email)
+            }
             if let gender = dataVal.gender, gender.count > 0{
                 self.lblUserGender.isHidden = false
                 self.lblUserGender.text = String(format: "%@",gender)

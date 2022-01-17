@@ -433,11 +433,12 @@ extension Helper{
         let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTMovieSearchViewController) as! ZTMovieSearchViewController
         viewController.navigationController?.pushViewController(initial, animated: true)
     }
-    func goToMovieDetails(viewController:UIViewController, movieInfo:Movies? = nil){
+    func goToMovieDetails(viewController:UIViewController, movieInfo:Movies? = nil, isFromTransaction:Bool = false, movieId:Int64 = -1){
         
         let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
         let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTMovieDetailViewController) as! ZTMovieDetailViewController
         initial.moviewDetails = movieInfo
+        initial.transMovieId = movieId
         viewController.navigationController?.pushViewController(initial, animated: true)
     }
     func goToEditProfile(viewController:UIViewController){

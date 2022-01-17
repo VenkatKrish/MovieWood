@@ -160,7 +160,7 @@
                                                                         <rect key="frame" x="0.0" y="128" width="305" height="49"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyC-O0-Ccr">
-                                                                                <rect key="frame" x="142.33333333333334" y="16.333333333333314" width="20.333333333333343" height="16.333333333333329"/>
+                                                                                <rect key="frame" x="143" y="16" width="19" height="17"/>
                                                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Medium" family="SF UI Display" pointSize="14"/>
                                                                                 <color key="textColor" name="ZTTabbarUnSelectedColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -190,7 +190,7 @@
                                                                                                 </constraints>
                                                                                             </imageView>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Facebook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqK-lI-vy2">
-                                                                                                <rect key="frame" x="-37.666666666666664" y="15.333333333333316" width="75.333333333333329" height="18.666666666666671"/>
+                                                                                                <rect key="frame" x="-37.666666666666664" y="14.999999999999998" width="75.333333333333329" height="19.333333333333329"/>
                                                                                                 <constraints>
                                                                                                     <constraint firstAttribute="width" constant="75" id="ffM-UF-sAn"/>
                                                                                                 </constraints>
@@ -228,7 +228,7 @@
                                                                                                 </constraints>
                                                                                             </imageView>
                                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login with Google" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQQ-ai-eeo">
-                                                                                                <rect key="frame" x="87.333333333333329" y="15.333333333333316" width="130.33333333333337" height="18.666666666666671"/>
+                                                                                                <rect key="frame" x="85.666666666666671" y="14.999999999999998" width="133.66666666666663" height="19.333333333333329"/>
                                                                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="16"/>
                                                                                                 <color key="textColor" name="ZTAppBlackColor"/>
                                                                                                 <nil key="highlightedColor"/>
@@ -268,7 +268,7 @@
                                                                         <rect key="frame" x="0.0" y="241" width="305" height="49"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4Q-D9-gwH">
-                                                                                <rect key="frame" x="112" y="8.6666666666666288" width="81" height="32"/>
+                                                                                <rect key="frame" x="111.66666666666666" y="8" width="82" height="33"/>
                                                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="17"/>
                                                                                 <state key="normal" title="Skip Login">
                                                                                     <color key="titleColor" systemColor="systemBackgroundColor"/>
@@ -301,7 +301,7 @@
                                                         <rect key="frame" x="0.0" y="451" width="335" height="60"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGq-Pq-MWS">
-                                                                <rect key="frame" x="67.666666666666686" y="9" width="200" height="42"/>
+                                                                <rect key="frame" x="67.666666666666686" y="15.666666666666631" width="200" height="28.666666666666671"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="200" id="sVe-Vc-JDQ"/>
                                                                 </constraints>
@@ -3945,7 +3945,7 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9R-8c-Dhg">
-                                                <rect key="frame" x="140" y="12.666666666666664" width="95.333333333333314" height="25"/>
+                                                <rect key="frame" x="141" y="12.666666666666664" width="93" height="25"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="21"/>
                                                 <color key="textColor" name="ZTTabbarUnSelectedColor"/>
                                                 <nil key="highlightedColor"/>
@@ -4848,7 +4848,7 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="Htt-7o-YDL">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="691"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="690.99999999999989"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zf8-In-hlC">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="324.66666666666669"/>
@@ -7581,7 +7581,7 @@ Details of transaction are included below</string>
     </scenes>
     <designables>
         <designable name="aHf-wu-Y66">
-            <size key="intrinsicContentSize" width="101.66666666666667" height="19.333333333333332"/>
+            <size key="intrinsicContentSize" width="99" height="19.666666666666668"/>
         </designable>
     </designables>
     <resources>

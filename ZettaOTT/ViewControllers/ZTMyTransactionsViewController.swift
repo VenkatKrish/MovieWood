@@ -67,7 +67,10 @@ extension ZTMyTransactionsViewController: UITableViewDelegate, UITableViewDataSo
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if let modelVal = self.transactionsList?[indexPath.row]{
+            Helper.shared.goToMovieDetails(viewController: self, movieInfo: nil, isFromTransaction: true, movieId: modelVal.movieId ?? -1)
+
+        }
     }
 //    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 //        return 0.1

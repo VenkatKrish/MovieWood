@@ -48,8 +48,11 @@ class ZTProfileEditViewController: UIViewController {
             if let name = dataVal.firstName, name.count > 0{
                 self.txtFieldFirstName.text = String(format: "%@", dataVal.firstName ?? "")
             }
-            if let name = dataVal.lastName, name.count > 0{
-                self.txtFieldLastName.text = String(format: "%@", dataVal.lastName ?? "")
+            if let lastname = dataVal.lastName, lastname.count > 0{
+                self.txtFieldLastName.text = String(format: "%@", lastname)
+            }
+            if let email = dataVal.emailId{
+                self.txtFieldEmail.text = String(format: "%@",email)
             }
             if let age = dataVal.age{
                 self.txtFieldDOB.text = String(format: "%d",age)
