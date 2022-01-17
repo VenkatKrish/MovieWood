@@ -575,6 +575,12 @@ extension Double {
     formatter.unitsStyle = style
     return formatter.string(from: self) ?? ""
   }
+    func asMinutesString() -> String {
+      let formatter = DateComponentsFormatter()
+      formatter.allowedUnits = [.minute]
+        formatter.unitsStyle = .positional
+      return formatter.string(from: self) ?? ""
+    }
 }
 extension UIView {
     func takeScreenshot() {

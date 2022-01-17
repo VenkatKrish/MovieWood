@@ -103,7 +103,10 @@ extension ZTWriteAReviewViewController{
 
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
-
+                        DispatchQueue.main.async {
+                            Helper.shared.showSnackBarAlert(message: message, type: .Failure, superView: self)
+                        }
+                        
                     }, failureBlock: { (errorMsg) in
 
                     })

@@ -23,10 +23,14 @@ class ZTPaymentsViewController: UIViewController {
     @IBOutlet weak var lblSeperator: UILabel!
     var products: [SKProduct] = []
     var appUserModel:AppUserModel? = nil
+    var selectedProdcutId: String = ""
+    var skProductVal: SKProduct? = nil
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        SKPaymentQueue.default().add(self)
+
         self.initialLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(ZTPaymentsViewController.handlePurchaseNotification(_:)),
                                                name: .IAPHelperPurchaseNotification,
@@ -35,6 +39,7 @@ class ZTPaymentsViewController: UIViewController {
     }
     deinit{
         NotificationCenter.default.removeObserver(self, name: .IAPHelperPurchaseNotification, object: nil)
+        SKPaymentQueue.default().remove(self)
     }
     func initialLoad(){
         if let userModel = ZTAppSession.sharedInstance.getUserInfo(){
@@ -93,17 +98,36 @@ class ZTPaymentsViewController: UIViewController {
         var productId = ""
 
         if self.isSubscription == true{
+            self.selectedProdcutId = self.subscriptionInfo?.subsKey ?? ""
             productId = self.subscriptionInfo?.subsKey ?? ""
+
         }else{
+            self.selectedProdcutId = self.moviewDetails?.movieKey ?? ""
             productId = self.moviewDetails?.movieKey ?? ""
+
         }
-        if productId.count > 0{
-            let productIdentifiers: Set<ProductIdentifier> = [productId]
-            RazeFaceProducts.productIdentifiers = productIdentifiers
-//            RazeFaceProducts.store.productIdentifiers = productIdentifiers
-            self.getInAppProduct()
-        }
+        self.showActivityIndicator(self.view)
+        self.requestInApp()
+        
+//        if productId.count > 0{
+//            let productIdentifiers: Set<ProductIdentifier> = [productId]
+//            RazeFaceProducts.productIdentifiers = productIdentifiers
+////            RazeFaceProducts.store.productIdentifiers = productIdentifiers
+//            self.getInAppProduct()
+//        }
 //        self.placeOrder()
+        
+    }
+    func requestInApp(){
+        if (SKPaymentQueue.canMakePayments()) {
+            let productID:NSSet = NSSet(object: self.selectedProdcutId);
+            let productsRequest:SKProductsRequest = SKProductsRequest(productIdentifiers: productID as! Set<String>);
+                productsRequest.delegate = self;
+                productsRequest.start();
+            print("Fetching Products");
+            } else {
+                print("can't make purchases");
+            }
     }
     @objc func handlePurchaseNotification(_ notification: Notification) {
         DispatchQueue.main.async {
@@ -111,14 +135,23 @@ class ZTPaymentsViewController: UIViewController {
         }
 
         if let inAppProductTransaction = notification.object as? InAppProductTransaction{
-            let productVal = self.products.first(where: { $0.productIdentifier == inAppProductTransaction.productIdentifier })
+            var transactionErrorStr = ""
+            if let transactionError = inAppProductTransaction.transaction?.error as NSError?,
+               let localizedDescription = inAppProductTransaction.transaction?.error?.localizedDescription,
+                transactionError.code != SKError.paymentCancelled.rawValue {
                 
-            self.placeOrder(product: productVal, transaction: inAppProductTransaction.transaction ?? nil)
+                transactionErrorStr = "\(localizedDescription)"
+                print("Transaction Error: \(localizedDescription)")
+            }else{
+                let productVal = self.products.first(where: { $0.productIdentifier == inAppProductTransaction.productIdentifier })
+                    
+                self.placeOrder(product: productVal, transaction: inAppProductTransaction.transaction ?? nil, isFailed: true)
+            }
         }
     }
 }
 extension ZTPaymentsViewController{
-    func placeOrder(product:SKProduct?, transaction:SKPaymentTransaction?){
+    func placeOrder(product:SKProduct?, transaction:SKPaymentTransaction?, isFailed:Bool){
         if NetworkReachability.shared.isReachable{
             
             self.showActivityIndicator(self.view)
@@ -225,5 +258,97 @@ extension ZTPaymentsViewController{
             }
         }
         
+    }
+}
+
+extension ZTPaymentsViewController: SKProductsRequestDelegate, SKPaymentTransactionObserver{
+    func buyProduct(product: SKProduct) {
+        DispatchQueue.main.async {
+            self.showActivityIndicator(self.view)
+        }
+        debugPrint("Sending the Payment Request to Apple");
+        let payment = SKPayment(product: product)
+        SKPaymentQueue.default().add(payment);
+    }
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        DispatchQueue.main.async {
+            self.hideActivityIndicator(self.view)
+        }
+        let count : Int = response.products.count
+        if (count > 0) {
+            let validProduct: SKProduct = response.products[0] as SKProduct
+            if (validProduct.productIdentifier == self.selectedProdcutId) {
+                self.skProductVal = validProduct
+                print(validProduct.localizedTitle)
+                print(validProduct.localizedDescription)
+                print(validProduct.price)
+                buyProduct(product: validProduct);
+            } else {
+                print(validProduct.productIdentifier)
+            }
+        } else {
+            DispatchQueue.main.async {
+                Helper.shared.showSnackBarAlert(message: "No products found", type: .Failure, superView: self)
+            }
+            print("nothing")
+        }
+    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        print("Received Payment Transaction Response from Apple");
+        DispatchQueue.main.async {
+            self.hideActivityIndicator(self.view)
+        }
+        for transaction:AnyObject in transactions {
+            if let trans:SKPaymentTransaction = transaction as? SKPaymentTransaction{
+                
+                switch trans.transactionState {
+                case .purchased:
+                    print("Product Purchased");
+                    DispatchQueue.main.async {
+                        self.hideActivityIndicator(self.view)
+                    }
+                    SKPaymentQueue.default().finishTransaction(trans)
+                    if let productVal = self.skProductVal{
+                        self.placeOrder(product: productVal, transaction: trans, isFailed: false)
+                    }
+                    break;
+                case .failed:
+                   
+                    print("Purchased Failed");
+                    
+                    var transactionErrorStr = ""
+                    if let transactionError = trans.error as NSError?,
+                       let localizedDescription = trans.error?.localizedDescription,
+                        transactionError.code != SKError.paymentCancelled.rawValue {
+                        
+                        transactionErrorStr = "\(localizedDescription)"
+                        print("Transaction Error: \(localizedDescription)")
+                      }
+                    
+                    DispatchQueue.main.async {
+                        Helper.shared.showSnackBarAlert(message: "Transaction failed", type: .Failure, superView: self)
+                    }
+                    SKPaymentQueue.default().finishTransaction(trans)
+//                    if let productVal = self.skProductVal{
+//                        self.placeOrder(product: productVal, transaction: trans, isFailed: true)
+//                    }
+                    break;
+                case .restored:
+                    print("Already Purchased");
+                    SKPaymentQueue.default().restoreCompletedTransactions()
+                case .purchasing:
+                    DispatchQueue.main.async {
+                        self.showActivityIndicator(self.view)
+                    }
+                default:
+                    break;
+                }
+            }
+        }
+    }
+    
+    private func request(request: SKRequest!, didFailWithError error: NSError!) {
+        print("Error Fetching product information");
     }
 }

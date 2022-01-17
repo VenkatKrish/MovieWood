@@ -43,6 +43,7 @@ class ZTMovieDetailViewController: UIViewController {
     var homeCarbonSelectedSegment: UInt = 0
     var movieSeasons: [MovieSeasons]? = []
     @IBOutlet weak var btnMoreReview: UIButton!
+    @IBOutlet weak var btnWriteAReview: UIButton!
     @IBOutlet weak var imgVwMovieBanner: UIImageView!
     @IBOutlet weak var lblMovieName: UILabel!
     @IBOutlet weak var lblMovieLanguage: UILabel!
@@ -109,7 +110,7 @@ class ZTMovieDetailViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         UIApplication.shared.isIdleTimerDisabled = false
         AppUtility.lockOrientation(.portrait)
-        self.playerView.pause()
+        self.playerView.pause(allowAutoPlay: false)
         if currentDuration != -1{
             
             // later will remove this condition
@@ -157,11 +158,12 @@ class ZTMovieDetailViewController: UIViewController {
             self.vwRateThisMoview.isHidden = true
             if let paymentStatus = movieInfo.paymentStatus, paymentStatus == MoviePaymentStatusStruct.paid.rawValue{
                 self.btnBookNow.setTitle(ZTConstants.BTN_BOOK_PLAY, for: .normal)
-                self.vwRateThisMoview.isHidden = false                
+                self.vwRateThisMoview.isHidden = false
+                self.btnWriteAReview.isHidden = false
             }else{
                 self.btnBookNow.setTitle(ZTConstants.BTN_BOOK_NOW, for: .normal)
                 self.vwRateThisMoview.isHidden = true
-
+                self.btnWriteAReview.isHidden = true
             }
             self.lblMovieName.text = movieInfo.movieName
             self.lblMovieLanguage.text = movieInfo.primaryLanguage
@@ -219,9 +221,11 @@ class ZTMovieDetailViewController: UIViewController {
         }
     }
     @IBAction func btnWriteAReview(_ sender: Any) {
+        self.playerView.pause(allowAutoPlay: false)
         Helper.shared.gotoWriteAReview(viewController: self, movieInfo: self.moviewDetails)
     }
     @IBAction func btnMoreReviews(_ sender: Any) {
+        
         Helper.shared.goToRatingsReviews(viewController: self, movieInfo: self.moviewDetails)
     }
     @IBAction func btnTeaserPlay(_ sender: Any) {
@@ -289,6 +293,7 @@ class ZTMovieDetailViewController: UIViewController {
         self.refreshReadmoreUI()
     }
     @IBAction func btnRateThisMovieTapped(_ sender: Any) {
+        self.playerView.pause(allowAutoPlay: false)
         Helper.shared.gotoWriteAReview(viewController: self, movieInfo: self.moviewDetails)
     }
     @IBAction func btnReviewsTapped(_ sender: Any) {
@@ -601,8 +606,11 @@ extension ZTMovieDetailViewController:WriteAReviewDelegate{
     }
     func updateVideoPlayTime(currentTime:TimeInterval){
         if let paymentStatus = self.moviewDetails?.paymentStatus, paymentStatus == MoviePaymentStatusStruct.paid.rawValue{
-        let watch = StopWatch(totalSeconds: Int(currentTime))
-        print(watch.minutes)
+        
+            let watch:String = currentTime.asMinutesString()
+            
+            //StopWatch(totalSeconds: Int(currentTime))
+        print(watch)
         let dateStr = Helper.shared.getFormatedDate(dateVal: Date(), dateFormat: CustomDateFormatter.orderRequestDate)
         
         var seasonIdVal:Int64 = 0
@@ -614,7 +622,7 @@ extension ZTMovieDetailViewController:WriteAReviewDelegate{
             episodeIdVal = self.seasonEpisodeId
 //            movieIdVal = 0
         }
-        let moviePlays = MoviePlays(country: nil, createdBy: nil, createdOn: nil, deviceInfo: nil, ipAddress: device_uuid, lastUpdateLogin: nil, modifiedBy: nil, modifiedOn: nil, movieId: movieIdVal, moviePlayId: self.movieLinkModel?.moviePlayId ?? -1, operatingSystem: "iOS", playEndTime: dateStr, playSeekTime: Int64(watch.minutes),seasonId: seasonIdVal, episodeId: episodeIdVal, playStartTime: nil, timezone: nil, userId: ZTAppSession.sharedInstance.getUserInfo()?.userId, versionNumber: nil)
+        let moviePlays = MoviePlays(country: nil, createdBy: nil, createdOn: nil, deviceInfo: nil, ipAddress: device_uuid, lastUpdateLogin: nil, modifiedBy: nil, modifiedOn: nil, movieId: movieIdVal, moviePlayId: self.movieLinkModel?.moviePlayId ?? -1, operatingSystem: "iOS", playEndTime: dateStr, playSeekTime: Int64(watch),seasonId: seasonIdVal, episodeId: episodeIdVal, playStartTime: nil, timezone: nil, userId: ZTAppSession.sharedInstance.getUserInfo()?.userId, versionNumber: nil)
        
         if NetworkReachability.shared.isReachable {
             
@@ -637,7 +645,13 @@ extension ZTMovieDetailViewController:WriteAReviewDelegate{
 }
 extension ZTMovieDetailViewController:BMPlayerDelegate{
     func bmPlayer(player: BMPlayer, playerStateDidChange state: BMPlayerState) {
-        
+        switch state {
+        case .readyToPlay:
+            self.playerView.play()
+            break
+        default: break
+            
+        }
     }
     
     func bmPlayer(player: BMPlayer, loadedTimeDidChange loadedDuration: TimeInterval, totalDuration: TimeInterval) {
