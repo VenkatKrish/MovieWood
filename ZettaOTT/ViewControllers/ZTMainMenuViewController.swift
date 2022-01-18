@@ -12,6 +12,7 @@ class ZTMainMenuViewController: UIViewController {
     @IBOutlet weak var lblDivider: UILabel!
     @IBOutlet weak var lblFirstName: UILabel!
     @IBOutlet weak var lblEmail: UILabel!
+    @IBOutlet weak var imgVwProfile: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,16 +27,23 @@ class ZTMainMenuViewController: UIViewController {
                 self.imgVw.image = screenImgVal
             }
         }
-        if let userModel = ZTAppSession.sharedInstance.getUserInfo(){
-            if let name = userModel.firstName, name.count > 0{
-                self.lblFirstName.text = String(format: "%@ %@", name, userModel.lastName ?? "")
-            }
-            if let email = userModel.emailId{
-                self.lblEmail.text = String(format: "%@",email)
+        self.getUserInfo()
+    }
+    func getUserInfo(){
+        Helper.shared.getUserWithCompletion { response, error in
+            if error == nil{
+                if let userModel = ZTAppSession.sharedInstance.getUserInfo(){
+                    if let name = userModel.firstName, name.count > 0{
+                        self.lblFirstName.text = String(format: "%@ %@", name, userModel.lastName ?? "")
+                    }
+                    if let email = userModel.emailId{
+                        self.lblEmail.text = String(format: "%@",email)
+                    }
+                    Helper.shared.loadImage(url: userModel.userImagePath ?? "", imageView: self.imgVwProfile, placeHolder: ZTDefaultValues.placeholder_profile)
+                }
             }
         }
     }
-    
     @IBAction func menuTapped(_ sender: UIButton) {
         let tag = sender.tag
         switch tag {

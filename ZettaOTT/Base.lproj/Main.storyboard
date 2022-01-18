@@ -48,10 +48,10 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" verticalCompressionResistancePriority="900" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4X3-Vf-NgM" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="616"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="488"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="lza-2L-sYc">
-                                                <rect key="frame" x="20" y="85" width="335" height="511"/>
+                                                <rect key="frame" x="20" y="85" width="335" height="383"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_logo" translatesAutoresizingMaskIntoConstraints="NO" id="fpR-QZ-0GE">
                                                         <rect key="frame" x="0.0" y="0.0" width="335" height="100"/>
@@ -60,10 +60,10 @@
                                                         </constraints>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" placeholderIntrinsicWidth="394" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="tSp-C7-DTt" customClass="ZTLoginCornerRadiusView" customModule="Moviewood" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="130" width="335" height="291"/>
+                                                        <rect key="frame" x="0.0" y="130" width="335" height="163"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="87n-QU-FfX">
-                                                                <rect key="frame" x="15" y="25" width="305" height="241"/>
+                                                                <rect key="frame" x="15" y="25" width="305" height="113"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWa-CL-5hX" customClass="ZTLoginCornerRadiusView" customModule="Moviewood" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="305" height="49"/>
@@ -156,8 +156,8 @@
                                                                             <constraint firstItem="vS1-cy-xoJ" firstAttribute="top" secondItem="lRg-ga-fUd" secondAttribute="top" id="sza-ic-a7C"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLf-UQ-OAR">
-                                                                        <rect key="frame" x="0.0" y="128" width="305" height="49"/>
+                                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HLf-UQ-OAR">
+                                                                        <rect key="frame" x="0.0" y="113" width="305" height="49"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pyC-O0-Ccr">
                                                                                 <rect key="frame" x="143" y="16" width="19" height="17"/>
@@ -173,8 +173,8 @@
                                                                             <constraint firstItem="pyC-O0-Ccr" firstAttribute="centerY" secondItem="HLf-UQ-OAR" secondAttribute="centerY" id="cyr-wt-zeC"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7u-SU-VXh">
-                                                                        <rect key="frame" x="0.0" y="192" width="305" height="49"/>
+                                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7u-SU-VXh">
+                                                                        <rect key="frame" x="0.0" y="113" width="305" height="49"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ZoA-CV-l1v">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="305" height="49"/>
@@ -265,7 +265,7 @@
                                                                         </constraints>
                                                                     </view>
                                                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uGZ-9L-9Zn">
-                                                                        <rect key="frame" x="0.0" y="241" width="305" height="49"/>
+                                                                        <rect key="frame" x="0.0" y="113" width="305" height="49"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4Q-D9-gwH">
                                                                                 <rect key="frame" x="111.66666666666666" y="8" width="82" height="33"/>
@@ -298,10 +298,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PFx-Ej-6Ga">
-                                                        <rect key="frame" x="0.0" y="451" width="335" height="60"/>
+                                                        <rect key="frame" x="0.0" y="323" width="335" height="60"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WGq-Pq-MWS">
-                                                                <rect key="frame" x="67.666666666666686" y="15.666666666666631" width="200" height="28.666666666666671"/>
+                                                                <rect key="frame" x="67.666666666666686" y="15.666666666666687" width="200" height="28.666666666666671"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="200" id="sVe-Vc-JDQ"/>
                                                                 </constraints>
@@ -1509,6 +1509,8 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                         <outlet property="collectionSubscription" destination="5h8-Fb-K52" id="1AD-eG-qBf"/>
                         <outlet property="lblExclAmount" destination="eu2-hd-0BR" id="Rgi-55-WHp"/>
                         <outlet property="lblExclDescription" destination="tCz-gg-efL" id="061-yU-H8D"/>
+                        <outlet property="vwOr" destination="hy0-hb-4FT" id="hvd-wV-E63"/>
+                        <outlet property="vwTicket" destination="Jek-Mo-Mw9" id="Sdn-Db-DXe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UJJ-dR-zrf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2503,7 +2505,7 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zf6-R6-uje">
                                                                                 <rect key="frame" x="103" y="20" width="117" height="117"/>
                                                                                 <subviews>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place_holder" translatesAutoresizingMaskIntoConstraints="NO" id="qMl-12-P6O" customClass="ZTCircularImageView" customModule="Moviewood" customModuleProvider="target">
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place_holder" translatesAutoresizingMaskIntoConstraints="NO" id="qMl-12-P6O" customClass="ZTCircularImageView" customModule="Moviewood" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="117" height="117"/>
                                                                                     </imageView>
                                                                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Ej-1j-ziA">
@@ -3192,7 +3194,7 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zaL-Lh-K72" customClass="ZTCornerRadiusView" customModule="Moviewood" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="336.66666666666669" height="90"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place_holder" translatesAutoresizingMaskIntoConstraints="NO" id="v09-XV-Tq6" customClass="ZTCircularImageView" customModule="Moviewood" customModuleProvider="target">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="place_holder" translatesAutoresizingMaskIntoConstraints="NO" id="v09-XV-Tq6" customClass="ZTCircularImageView" customModule="Moviewood" customModuleProvider="target">
                                                                         <rect key="frame" x="16" y="15" width="60" height="60"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="60" id="Of4-3C-Mme"/>
@@ -3622,6 +3624,7 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                     <navigationItem key="navigationItem" id="rjO-kt-lZo"/>
                     <connections>
                         <outlet property="imgVw" destination="k80-De-h6n" id="ryG-Jx-rKf"/>
+                        <outlet property="imgVwProfile" destination="v09-XV-Tq6" id="T0Z-SX-mWJ"/>
                         <outlet property="lblDivider" destination="CeR-KK-J1L" id="Gu9-TC-Erf"/>
                         <outlet property="lblEmail" destination="wq4-X8-U0m" id="Dh6-rF-Yna"/>
                         <outlet property="lblFirstName" destination="fSO-6Q-xt3" id="Sz4-7F-iPz"/>
@@ -3945,7 +3948,7 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9R-8c-Dhg">
-                                                <rect key="frame" x="141" y="12.666666666666664" width="93" height="25"/>
+                                                <rect key="frame" x="140" y="12.666666666666664" width="95.333333333333314" height="25"/>
                                                 <fontDescription key="fontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="21"/>
                                                 <color key="textColor" name="ZTTabbarUnSelectedColor"/>
                                                 <nil key="highlightedColor"/>
@@ -4848,7 +4851,7 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="Htt-7o-YDL">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="690.99999999999989"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="691"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zf8-In-hlC">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="324.66666666666669"/>
@@ -7580,8 +7583,11 @@ Details of transaction are included below</string>
         </scene>
     </scenes>
     <designables>
+        <designable name="Yyi-GV-lJS">
+            <size key="intrinsicContentSize" width="170" height="30"/>
+        </designable>
         <designable name="aHf-wu-Y66">
-            <size key="intrinsicContentSize" width="99" height="19.666666666666668"/>
+            <size key="intrinsicContentSize" width="99" height="33"/>
         </designable>
     </designables>
     <resources>

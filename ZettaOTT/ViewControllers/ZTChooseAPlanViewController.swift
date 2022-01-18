@@ -12,6 +12,9 @@ class ZTChooseAPlanViewController: UIViewController {
     @IBOutlet weak var lblExclDescription: UILabel!
     @IBOutlet weak var collectionSubscription: UICollectionView!
     var subscriptions : [Subscriptions]? = []
+    @IBOutlet weak var vwTicket: UIView!
+    @IBOutlet weak var vwOr: UIView!
+
     var moviewDetails : Movies? = nil
 
     override func viewDidLoad() {
@@ -25,6 +28,19 @@ class ZTChooseAPlanViewController: UIViewController {
         layout.minimumInteritemSpacing = zt_minimumInteritemSpacing
         self.collectionSubscription.collectionViewLayout = layout
         self.collectionSubscription.register(UINib(nibName: ZTCellNameOrIdentifier.ZTPaymentCardCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: ZTCellNameOrIdentifier.ZTPaymentCardCollectionViewCell)
+        self.vwTicket.isHidden = true
+        self.vwOr.isHidden = true
+        self.collectionSubscription.isHidden = true
+        if self.moviewDetails?.tvodEnabled ?? "" == "Y"{
+            self.vwTicket.isHidden = false
+        }
+        if self.moviewDetails?.svodEnabled ?? "" == "Y"{
+            self.collectionSubscription.isHidden = false
+        }
+        
+        if self.moviewDetails?.tvodEnabled ?? "" == "Y" && self.moviewDetails?.svodEnabled ?? "" == "Y"{
+            self.vwOr.isHidden = false
+        }
         self.loadMovieDetails()
         self.loadSubscription()
     }
@@ -81,7 +97,7 @@ extension ZTChooseAPlanViewController:UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZTCellNameOrIdentifier.ZTPaymentCardCollectionViewCell, for: indexPath) as! ZTPaymentCardCollectionViewCell
-            cell.loadSubscriptionDetails(data: self.subscriptions?[indexPath.row], indexPath: indexPath)
+        cell.loadSubscriptionDetails(data: self.subscriptions?[indexPath.row], indexPath: indexPath, delegateVal: self)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -98,9 +114,7 @@ extension ZTChooseAPlanViewController:UICollectionViewDelegate, UICollectionView
 //        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
 //    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let dataVal = self.subscriptions?[indexPath.row]{
-            Helper.shared.goToPaymentPage(viewController: self, subscriptionInfo: dataVal, isSubscription:true)
-        }
+        
     }
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
 //
@@ -112,3 +126,10 @@ extension ZTChooseAPlanViewController:UICollectionViewDelegate, UICollectionView
 //        }
 }
 
+extension ZTChooseAPlanViewController : btnProceedClickDelegate{
+    func btnProceedClicked(btn: UIButton) {
+        if let dataVal = self.subscriptions?[btn.tag]{
+            Helper.shared.goToPaymentPage(viewController: self, subscriptionInfo: dataVal, isSubscription:true)
+        }
+    }
+}

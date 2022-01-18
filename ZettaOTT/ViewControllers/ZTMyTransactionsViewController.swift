@@ -61,8 +61,10 @@ extension ZTMyTransactionsViewController: UITableViewDelegate, UITableViewDataSo
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: ZTMyTransactionsTableViewCell = tableView.dequeueReusableCell(withIdentifier: ZTCellNameOrIdentifier.ZTMyTransactionsTableViewCell, for: indexPath) as! ZTMyTransactionsTableViewCell
+        
         cell.selectionStyle = .none
         cell.loadOrderDetails(data: self.transactionsList?[indexPath.row], indexPath: indexPath)
+        
         return cell
         
     }

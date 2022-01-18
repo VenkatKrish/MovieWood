@@ -7,18 +7,27 @@
 
 import UIKit
 
+protocol btnProceedClickDelegate{
+    func btnProceedClicked(btn:UIButton)
+}
+
 class ZTPaymentCardCollectionViewCell: UICollectionViewCell {
+    var delegate:btnProceedClickDelegate? = nil
     @IBOutlet weak var lblPlanName: UILabel!
     @IBOutlet weak var lblPlanPrice: UILabel!
     @IBOutlet weak var lblPlanDuration: UILabel!
     @IBOutlet weak var lblPlanDesc: UILabel!
     @IBOutlet weak var vwBorder: UIView!
+    @IBOutlet weak var btnProceed: UIButton!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-    func loadSubscriptionDetails(data:Subscriptions? = nil, indexPath:IndexPath){
+    func loadSubscriptionDetails(data:Subscriptions? = nil, indexPath:IndexPath, delegateVal:btnProceedClickDelegate){
         if let dataVal = data{
+            self.delegate = delegateVal
+            self.btnProceed.tag = indexPath.row
             let colorVal = Helper.shared.getRandomColor(indexVal: indexPath.row % colorRandom.count)
             self.lblPlanName.textColor = colorVal
             self.lblPlanName.text = dataVal.name ?? ""
@@ -30,5 +39,7 @@ class ZTPaymentCardCollectionViewCell: UICollectionViewCell {
 
         }
     }
-
+    @IBAction func btnProceedTapped(_ sender: UIButton) {
+        delegate?.btnProceedClicked(btn: sender)
+    }
 }

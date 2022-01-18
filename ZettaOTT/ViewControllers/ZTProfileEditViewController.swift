@@ -58,10 +58,15 @@ class ZTProfileEditViewController: UIViewController {
                 self.txtFieldDOB.text = String(format: "%d",age)
             }
             if let gender = dataVal.gender, gender.count > 0{
-                self.txtFieldDOB.text = String(format: "%@",gender)
+                self.txtFieldGender.text = String(format: "%@",Helper.shared.getGenderText(value: gender))
+                if let index = genders.firstIndex(of: Helper.shared.getGenderText(value: gender)) {
+                    self.genderPicker.selectRow(index, inComponent: 0, animated: false)
+                }
             }
             if let mobile = dataVal.mobile{
-                self.txtFieldPhone.text = String(format: "%@ %d",dataVal.countryCode ?? "", mobile)
+                let mobileStr = "\(mobile)" //String(format: "%d", mobile)
+                self.txtFieldPhone.set(phoneNumber: "\((dataVal.countryCode ?? "91") + mobileStr)")
+                
             }
             if let userImagePath = dataVal.userImagePath, userImagePath.count > 0{
                 Helper.shared.loadImage(url: userImagePath, imageView: self.imgVwProfile, placeHolder: ZTDefaultValues.placeholder_profile)
@@ -200,8 +205,11 @@ extension ZTProfileEditViewController: UITextFieldDelegate{
     }
     
     func textFieldDidEndEditing(_ textField: UITextField){
-
-        
+        if textField == self.txtFieldGender{
+            let row = self.genderPicker.selectedRow(inComponent: 0)
+            self.genderPicker.selectRow(row, inComponent: 0, animated: false)
+            self.txtFieldGender.text = self.genders[row]
+        }
     }
 }
 extension ZTProfileEditViewController : FPNTextFieldDelegate{
@@ -278,12 +286,22 @@ extension ZTProfileEditViewController{
                 }
                 if let _ = response{
                     DispatchQueue.main.async {
-                        Helper.shared.showSnackBarAlert(message: ZTValidationMessage.PROFILE_UPDATED, type: .Success, superView: self)
-                        self.navigationController?.popViewController(animated: true)
+                        self.refreshUser()
                     }
                 }
             }
         }
+    }
+    func refreshUser(){
+        self.showActivityIndicator(self.view)
+        Helper.shared.getUserWithCompletion { response, error in
+            self.hideActivityIndicator(self.view)
+            if error == nil{
+                Helper.shared.showSnackBarAlert(message: ZTValidationMessage.PROFILE_UPDATED, type: .Success, superView: self)
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+        
     }
 }
 extension ZTProfileEditViewController: UIPickerViewDelegate, UIPickerViewDataSource{
@@ -415,40 +433,77 @@ extension ZTProfileEditViewController: UIImagePickerControllerDelegate,  UINavig
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
       
-      if let checkimage = info[UIImagePickerController.InfoKey.originalImage]  {
-          Helper.shared.isImageOrVideoValid(contentType: GlobalMediaType.image.rawValue, dataVal: (checkimage as! UIImage).jpegData(compressionQuality: 100)!) { (status) in
-          if status == true{
-              DispatchQueue.main.async {
-                  self.dismiss(animated: true, completion: {
-                  
-                let cropController = TOCropViewController.init(image: checkimage as! UIImage)
-                cropController.modalPresentationStyle = .fullScreen
-                cropController.aspectRatioPreset = .presetSquare
-                cropController.delegate = self
-                cropController.activityItems = []
-              cropController.aspectRatioLockEnabled = false // The crop box is locked to the aspect ratio and can't be resized away from it
-            cropController.resetAspectRatioEnabled = false // When tapping 'reset', the aspect ratio will NOT be reset back to default
-            cropController.aspectRatioPickerButtonHidden = true
-                                              
-        cropController.toolbar.resetButton.isHidden = true
-        cropController.rotateButtonsHidden = true
-        cropController.rotateClockwiseButtonHidden = true
-        cropController.doneButtonTitle = "Choose"
-        cropController.toolbar.doneIconButton.setTitleColor(UIColor.white, for: .normal)
-        cropController.toolbar.doneIconButton.titleLabel?.textColor = .white
-        cropController.toolbar.clampButtonHidden = true
-         self.navigationController?.present(cropController, animated: true, completion: nil)
-    })
+        
+        guard let fileURL = info[.imageURL] as? URL else {
+                    print("no media URL")
+                    return
+                }
+
+        if let checkimage = info[UIImagePickerController.InfoKey.originalImage]{
+            self.imgVwProfile.image = checkimage as? UIImage
+        }
+        if NetworkReachability.shared.isReachable {
+            self.showActivityIndicator(self.view)
+            if let userModel = self.appUserModel{
+                UserControllerAPI.uploadImageUsingPOST(file: fileURL, userId: userModel.userId ?? -1) { response, error in
+                    self.hideActivityIndicator(self.view)
+                    if error != nil{
+                        WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
+                            self.showToastMessage(message: message)
+                        }, failureBlock: { (errorMsg) in
+                           
+                        })
+                        return
+                    }
+                    if let _ = response{
+                        DispatchQueue.main.async {
+                            Helper.shared.showSnackBarAlert(message: ZTValidationMessage.PROFILE_UPDATED, type: .Success, superView: self)
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                    }
+                    
+                }
             }
-        }else{
-                  DispatchQueue.main.async {
-                      Helper.shared.showFileSizeExceedAlert(contentType: GlobalMediaType.image.rawValue)
-                  }
-                  }
-              }
-      }else{
-          self.dismiss(animated: true, completion:nil)
-      }
+           
+        }
+        
+        self.dismiss(animated: true, completion:nil)
+        
+        
+//      if let checkimage = info[UIImagePickerController.InfoKey.originalImage]  {
+//          Helper.shared.isImageOrVideoValid(contentType: GlobalMediaType.image.rawValue, dataVal: (checkimage as! UIImage).jpegData(compressionQuality: 100)!) { (status) in
+//          if status == true{
+//              DispatchQueue.main.async {
+//                  self.dismiss(animated: true, completion: {
+//
+//                let cropController = TOCropViewController.init(image: checkimage as! UIImage)
+//                cropController.modalPresentationStyle = .fullScreen
+//                cropController.aspectRatioPreset = .presetSquare
+//                cropController.delegate = self
+//                cropController.activityItems = []
+//              cropController.aspectRatioLockEnabled = false // The crop box is locked to the aspect ratio and can't be resized away from it
+//            cropController.resetAspectRatioEnabled = false // When tapping 'reset', the aspect ratio will NOT be reset back to default
+//            cropController.aspectRatioPickerButtonHidden = true
+//
+//        cropController.toolbar.resetButton.isHidden = true
+//        cropController.rotateButtonsHidden = true
+//        cropController.rotateClockwiseButtonHidden = true
+//        cropController.doneButtonTitle = "Choose"
+//        cropController.toolbar.doneIconButton.setTitleColor(UIColor.white, for: .normal)
+//        cropController.toolbar.doneIconButton.titleLabel?.textColor = .white
+//        cropController.toolbar.clampButtonHidden = true
+//         self.navigationController?.present(cropController, animated: true, completion: nil)
+//    })
+//            }
+//        }else{
+//                  DispatchQueue.main.async {
+//                      Helper.shared.showFileSizeExceedAlert(contentType: GlobalMediaType.image.rawValue)
+//                  }
+//                  }
+//              }
+//      }else{
+//          self.dismiss(animated: true, completion:nil)
+//      }
                       
           }
       
@@ -471,30 +526,43 @@ extension ZTProfileEditViewController: UIImagePickerControllerDelegate,  UINavig
     func uploadImage(image: UIImage? = nil){
       if let imageVal = image{
           self.imgVwProfile.image = imageVal
-          if NetworkReachability.shared.isReachable {
-              self.showActivityIndicator(self.view)
-              if let userModel = self.appUserModel{
-                  UserControllerAPI.uploadImageUsingPOST(file: imageVal.jpegData(compressionQuality: 0.5)!, userId: userModel.userId ?? -1) { response, error in
-                      self.hideActivityIndicator(self.view)
-                      if error != nil{
-                          WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
-                              self.showToastMessage(message: message)
-                          }, failureBlock: { (errorMsg) in
-                             
-                          })
-                          return
-                      }
-                      if let _ = response{
-                          DispatchQueue.main.async {
-                              Helper.shared.showSnackBarAlert(message: ZTValidationMessage.PROFILE_UPDATED, type: .Success, superView: self)
-                          }
-                      }
-                      
-                  }
-              }
-             
-          }
+//          if NetworkReachability.shared.isReachable {
+//              self.showActivityIndicator(self.view)
+//              if let userModel = self.appUserModel{
+//                  UserControllerAPI.uploadImageUsingPOST(file: imageVal.jpegData(compressionQuality: 0.5)!, userId: userModel.userId ?? -1) { response, error in
+//                      self.hideActivityIndicator(self.view)
+//                      if error != nil{
+//                          WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
+//                              self.showToastMessage(message: message)
+//                          }, failureBlock: { (errorMsg) in
+//                             
+//                          })
+//                          return
+//                      }
+//                      if let _ = response{
+//                          DispatchQueue.main.async {
+//                              Helper.shared.showSnackBarAlert(message: ZTValidationMessage.PROFILE_UPDATED, type: .Success, superView: self)
+//                          }
+//                      }
+//                      
+//                  }
+//              }
+//             
+//          }
       }
     }
-    
+}
+extension Data {
+
+    /// Append string to Data
+    ///
+    /// Rather than littering my code with calls to `data(using: .utf8)` to convert `String` values to `Data`, this wraps it in a nice convenient little extension to Data. This defaults to converting using UTF-8.
+    ///
+    /// - parameter string:       The string to be added to the `Data`.
+
+    mutating func append(_ string: String, using encoding: String.Encoding = .utf8) {
+        if let data = string.data(using: encoding) {
+            append(data)
+        }
+    }
 }

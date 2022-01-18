@@ -18,7 +18,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ZTPaymentCardCollectionViewCell" id="gTV-IL-0wX" customClass="ZTPaymentCardCollectionViewCell" customModule="ZettaOTT" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ZTPaymentCardCollectionViewCell" id="gTV-IL-0wX" customClass="ZTPaymentCardCollectionViewCell" customModule="Moviewood" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="157" height="232"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -60,13 +60,22 @@
                                 <color key="textColor" name="ZTAppBlackColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Proceed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFf-im-paw">
+                                <rect key="frame" x="49.5" y="174" width="58.5" height="18"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ssV-cw-wO1">
-                                <rect key="frame" x="39" y="174" width="79" height="38"/>
+                                <rect key="frame" x="0.0" y="0.0" width="157" height="212"/>
                                 <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="15"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
-                                <state key="normal" title="Proceed">
+                                <state key="normal">
                                     <color key="titleColor" name="ZTAppBlackColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnProceedTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="vbT-eU-5YC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -78,16 +87,20 @@
                             <constraint firstAttribute="trailing" secondItem="Tuo-y8-nAT" secondAttribute="trailing" constant="15" id="Fbc-me-F37"/>
                             <constraint firstItem="JWc-cX-2Dk" firstAttribute="top" secondItem="cQq-ch-9M1" secondAttribute="bottom" constant="10" id="GPt-cp-xfZ"/>
                             <constraint firstItem="JWc-cX-2Dk" firstAttribute="centerX" secondItem="zPZ-FM-Ulk" secondAttribute="centerX" id="I8j-qD-NKH"/>
+                            <constraint firstItem="ssV-cw-wO1" firstAttribute="leading" secondItem="zPZ-FM-Ulk" secondAttribute="leading" id="M2M-fn-nPX"/>
+                            <constraint firstItem="IFf-im-paw" firstAttribute="centerX" secondItem="zPZ-FM-Ulk" secondAttribute="centerX" id="Ob2-Ri-pqV"/>
                             <constraint firstItem="cQq-ch-9M1" firstAttribute="centerX" secondItem="iW7-CI-fiV" secondAttribute="centerX" id="PFj-AQ-gHM"/>
                             <constraint firstItem="JWc-cX-2Dk" firstAttribute="centerX" secondItem="cQq-ch-9M1" secondAttribute="centerX" id="QBT-nc-teg"/>
                             <constraint firstItem="Tuo-y8-nAT" firstAttribute="centerX" secondItem="zPZ-FM-Ulk" secondAttribute="centerX" id="Qln-t8-oAz"/>
+                            <constraint firstAttribute="trailing" secondItem="ssV-cw-wO1" secondAttribute="trailing" id="SJK-am-gFu"/>
                             <constraint firstItem="SQk-rj-qKw" firstAttribute="top" secondItem="JWc-cX-2Dk" secondAttribute="bottom" id="T0l-3P-5AT"/>
+                            <constraint firstItem="ssV-cw-wO1" firstAttribute="top" secondItem="zPZ-FM-Ulk" secondAttribute="top" id="TCj-5I-ePA"/>
+                            <constraint firstAttribute="bottom" secondItem="ssV-cw-wO1" secondAttribute="bottom" constant="20" symbolic="YES" id="XaB-fE-CYs"/>
                             <constraint firstItem="Tuo-y8-nAT" firstAttribute="leading" secondItem="zPZ-FM-Ulk" secondAttribute="leading" constant="15" id="Xuv-yG-ofW"/>
                             <constraint firstAttribute="trailing" secondItem="iW7-CI-fiV" secondAttribute="trailing" id="gY6-TC-vsJ"/>
                             <constraint firstItem="Tuo-y8-nAT" firstAttribute="centerY" secondItem="zPZ-FM-Ulk" secondAttribute="centerY" id="lPx-V9-ruY"/>
                             <constraint firstItem="SQk-rj-qKw" firstAttribute="centerX" secondItem="zPZ-FM-Ulk" secondAttribute="centerX" id="pbb-St-PrC"/>
-                            <constraint firstItem="ssV-cw-wO1" firstAttribute="top" secondItem="Tuo-y8-nAT" secondAttribute="bottom" constant="25" id="riO-FV-WWn"/>
-                            <constraint firstItem="ssV-cw-wO1" firstAttribute="centerX" secondItem="zPZ-FM-Ulk" secondAttribute="centerX" id="rnu-6E-v62"/>
+                            <constraint firstItem="IFf-im-paw" firstAttribute="top" secondItem="Tuo-y8-nAT" secondAttribute="bottom" constant="25" id="qfk-Hp-jsd"/>
                             <constraint firstItem="iW7-CI-fiV" firstAttribute="top" secondItem="zPZ-FM-Ulk" secondAttribute="top" id="wK9-dA-N7w"/>
                         </constraints>
                         <variation key="default">
@@ -110,6 +123,7 @@
             </constraints>
             <size key="customSize" width="145" height="232"/>
             <connections>
+                <outlet property="btnProceed" destination="ssV-cw-wO1" id="skU-Nq-RQC"/>
                 <outlet property="lblPlanDesc" destination="Tuo-y8-nAT" id="wNR-1d-eaA"/>
                 <outlet property="lblPlanDuration" destination="SQk-rj-qKw" id="WlQ-nc-Edh"/>
                 <outlet property="lblPlanName" destination="cQq-ch-9M1" id="vTA-fP-nuF"/>

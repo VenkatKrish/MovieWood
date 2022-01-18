@@ -639,7 +639,7 @@ open class UserControllerAPI {
      - parameter userId: (path) userId 
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func uploadImageUsingPOST(file: Data, userId: Int64, completion: @escaping ((_ data: JSONValue?,_ error: Error?) -> Void)) {
+    open class func uploadImageUsingPOST(file: URL, userId: Int64, completion: @escaping ((_ data: String?,_ error: Error?) -> Void)) {
         uploadImageUsingPOSTWithRequestBuilder(file: file, userId: userId).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
@@ -656,7 +656,7 @@ open class UserControllerAPI {
 
      - returns: RequestBuilder<JSONValue> 
      */
-    open class func uploadImageUsingPOSTWithRequestBuilder(file: Data, userId: Int64) -> RequestBuilder<JSONValue> {
+    open class func uploadImageUsingPOSTWithRequestBuilder(file: URL, userId: Int64) -> RequestBuilder<String> {
         var path = "/api/v1/uploadprofileimage/{userId}"
         let userIdPreEscape = "\(userId)"
         let userIdPostEscape = userIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -671,7 +671,7 @@ open class UserControllerAPI {
         
         let url = URLComponents(string: URLString)
 
-        let requestBuilder: RequestBuilder<JSONValue>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+        let requestBuilder: RequestBuilder<String>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
 
         return requestBuilder.init(method: "POST", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
     }

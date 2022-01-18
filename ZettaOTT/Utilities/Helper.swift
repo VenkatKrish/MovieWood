@@ -44,6 +44,19 @@ class Helper: NSObject {
         }
     }
     
+    func getGenderText(value:String) -> String{
+        switch value.lowercased() {
+        case "M".lowercased():
+            return "Male"
+        case "F".lowercased():
+            return "Female"
+        case "O".lowercased():
+            return "Others"
+        default:
+            return "O"
+        }
+    }
+    
     func getRefreshToken(){
         if NetworkReachability.shared.isReachable{
             var loginModel = ZTAppSession.sharedInstance.getLoginInfo()
