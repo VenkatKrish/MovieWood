@@ -14,6 +14,10 @@ class ZTUploadMovieViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    @IBAction func btnSubmitMovie(_ sender: Any) {
+        Helper.shared.gotoMovieInfo1(viewController: self)
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
         self.view.takeScreenshot()
     }

@@ -521,8 +521,25 @@ extension Helper{
         let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTWriteAReviewViewController) as! ZTWriteAReviewViewController
         initial.modalPresentationStyle = .overCurrentContext
         initial.moviewDetails = movieInfo
-        initial.delegate = viewController as! WriteAReviewDelegate
+        initial.delegate = viewController as? WriteAReviewDelegate
         viewController.present(initial, animated: false, completion: nil)
+    }
+    func gotoMovieInfo1(viewController:UIViewController){
+        let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
+        let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTMovieInfo1ViewController) as! ZTMovieInfo1ViewController
+        viewController.navigationController?.pushViewController(initial, animated: true)
+    }
+    func gotoMovieInfo2(viewController:UIViewController, movieInfo:Movies? = nil){
+        let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
+        let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTMovieInfo2ViewController) as! ZTMovieInfo2ViewController
+        initial.movieInfo = movieInfo
+        viewController.navigationController?.pushViewController(initial, animated: true)
+    }
+    func gotoMovieInfo3(viewController:UIViewController, movieInfo:Movies? = nil){
+        let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
+        let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTMovieInfo3ViewController) as! ZTMovieInfo3ViewController
+        initial.movieInfo = movieInfo
+        viewController.navigationController?.pushViewController(initial, animated: true)
     }
 }
 extension Helper:dataMissingDelegate{

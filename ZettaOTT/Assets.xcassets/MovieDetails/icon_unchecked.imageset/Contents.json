@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "icon_unchecked.png",
+      "filename" : "rectangle_copy_17-2.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icon_unchecked-1.png",
+      "filename" : "rectangle_copy_17-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "icon_unchecked-2.png",
+      "filename" : "rectangle_copy_17.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

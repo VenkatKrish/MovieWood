@@ -32,6 +32,7 @@ enum StatusCodeObj : Int {
     }
 }
 enum MovieSearchTag : String {
+    case streamNowBanner = "featured:Y,showInIos:Y,releaseDate-,streamingStartDate-"
     case movieSearchAvg = "avgRating>3,active:Y,showInIos:Y"
     case zettaMovieOriginal = "movieType:Movie,active:Y,showInIos:Y"
     case shortFilms = "movieType:Shorts,active:Y,showInIos:Y"

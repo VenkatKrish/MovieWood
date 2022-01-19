@@ -282,16 +282,11 @@ extension ZTNowViewController{
 extension ZTNowViewController{
     func getStreamingNowMovies(){
         if NetworkReachability.shared.isReachable {
-            ZTCommonAPIWrapper.streamNow(pageNumber: self.pageNumber, pageSize: self.pageSize, sortSorted: true, contenttype: MovieSearchTag.streamNow.rawValue) { (response, error) in
-                DispatchQueue.main.async {
-                    if self.refreshControl.isRefreshing{
-                        self.refreshControl.endRefreshing()
-                    }
-                }
-                self.streamingNowMovies?.removeAll()
+            ZTCommonAPIWrapper.searchMoviesGET(search: MovieSearchTag.streamNowBanner.rawValue, page: self.pageNumber, size: self.pageSize) { (response, error) in
+                self.zettaMovieOriginals?.removeAll()
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
-                       
+                        
                     }, failureBlock: { (errorMsg) in
                        
                     })
@@ -305,6 +300,31 @@ extension ZTNowViewController{
                 }
             }
         }
+        
+//        if NetworkReachability.shared.isReachable {
+//            ZTCommonAPIWrapper.streamNow(pageNumber: self.pageNumber, pageSize: self.pageSize, sortSorted: true, contenttype: MovieSearchTag.streamNow.rawValue) { (response, error) in
+//                DispatchQueue.main.async {
+//                    if self.refreshControl.isRefreshing{
+//                        self.refreshControl.endRefreshing()
+//                    }
+//                }
+//                self.streamingNowMovies?.removeAll()
+//                if error != nil{
+//                    WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
+//                       
+//                    }, failureBlock: { (errorMsg) in
+//                       
+//                    })
+//                    return
+//                }
+//                if let responseVal = response{
+//                    self.streamingNowMovies?.append(contentsOf: responseVal.content ?? [])
+//                    DispatchQueue.main.async {
+//                        self.tblHome.reloadData()
+//                    }
+//                }
+//            }
+//        }
     }
     func getContinueWatching(){
         if NetworkReachability.shared.isReachable {

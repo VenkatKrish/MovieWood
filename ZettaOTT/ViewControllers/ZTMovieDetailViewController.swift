@@ -612,7 +612,7 @@ extension ZTMovieDetailViewController:WriteAReviewDelegate{
         self.getMovieDetails()
     }
     func updateVideoPlayTime(currentTime:TimeInterval){
-        if let paymentStatus = self.moviewDetails?.paymentStatus, paymentStatus == MoviePaymentStatusStruct.paid.rawValue{
+        if let paymentStatus = self.moviewDetails?.paymentStatus, paymentStatus == MoviePaymentStatusStruct.paid.rawValue, let playID = self.movieLinkModel?.moviePlayId, playID > 0{
         
             let watch:String = currentTime.asMinutesString()
             
@@ -622,7 +622,7 @@ extension ZTMovieDetailViewController:WriteAReviewDelegate{
         
         var seasonIdVal:Int64 = 0
         var episodeIdVal:Int64 = 0
-        var movieIdVal:Int64 = self.moviewDetails?.movieId ?? 0
+        let movieIdVal:Int64 = self.moviewDetails?.movieId ?? 0
 
         if self.moviewDetails?.movieType == MovieTypes.WebSeries.rawValue{
             seasonIdVal = self.movieSeasonId

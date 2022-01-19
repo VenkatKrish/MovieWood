@@ -8,13 +8,16 @@
 import UIKit
 
 class ZTMovieInfo3ViewController: UIViewController {
+    var movieInfo: Movies? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
+    @IBAction func btnBackTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
 
     /*
     // MARK: - Navigation

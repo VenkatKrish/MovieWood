@@ -840,7 +840,7 @@ verification code we’ve sent on given number</string>
         <!--Movie Info1 View Controller-->
         <scene sceneID="sMT-RE-ygZ">
             <objects>
-                <viewController storyboardIdentifier="ZTMovieInfo1ViewController" automaticallyAdjustsScrollViewInsets="NO" id="qmf-G6-1MA" customClass="ZTMovieInfo1ViewController" customModule="Moviewood" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ZTMovieInfo1ViewController" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="qmf-G6-1MA" customClass="ZTMovieInfo1ViewController" customModule="Moviewood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jWl-Cq-m0b" userLabel="BaseView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1154,6 +1154,9 @@ verification code we’ve sent on given number</string>
                                         <state key="normal" title="Continue to Next">
                                             <color key="titleColor" systemColor="systemBackgroundColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnNextTapped:" destination="qmf-G6-1MA" eventType="touchUpInside" id="owD-3B-wXy"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1185,6 +1188,9 @@ verification code we’ve sent on given number</string>
                                         <state key="normal" title="Back" image="icon_back">
                                             <color key="titleColor" name="ZTAppBlackColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnBackTapped:" destination="qmf-G6-1MA" eventType="touchUpInside" id="JKP-Pc-y0e"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cUs-xx-g18">
                                         <rect key="frame" x="138.33333333333334" y="9.6666666666666643" width="98.333333333333343" height="41"/>
@@ -1272,6 +1278,15 @@ verification code we’ve sent on given number</string>
                     <navigationItem key="navigationItem" id="Jdg-Xe-nix"/>
                     <connections>
                         <outlet property="genreCollection" destination="Svd-Vk-O0S" id="bqq-k8-fIY"/>
+                        <outlet property="txtFldCountryIES" destination="d9k-wD-560" id="nfl-Yk-jdf"/>
+                        <outlet property="txtFldEnglishTitle" destination="Grc-Tq-ymU" id="kwx-Tx-U7m"/>
+                        <outlet property="txtFldOriginalLanguage" destination="0O7-x4-cUy" id="4GA-Pj-vpT"/>
+                        <outlet property="txtFldOriginalTitle" destination="7n3-hD-Wis" id="pUI-7G-vbi"/>
+                        <outlet property="txtFldProvideLink" destination="Elz-Nh-aWc" id="ysE-zr-x9J"/>
+                        <outlet property="txtFldRunningTime" destination="I6p-8O-X2e" id="a4y-ca-E1n"/>
+                        <outlet property="txtFldSynopsis" destination="Cma-Gc-Ejj" id="AMl-zV-4ej"/>
+                        <outlet property="txtFldYearProduced" destination="yTa-oK-bFl" id="lZd-Ew-KCp"/>
+                        <outlet property="txtFldYearReleased" destination="mFp-Bx-O7w" id="Gwv-gr-2ad"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5uI-KZ-eOe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1520,7 +1535,7 @@ content will be watchable for next 24hrs only,not applicable to other contents</
         <!--Movie Info3 View Controller-->
         <scene sceneID="PDp-Qw-sGQ">
             <objects>
-                <viewController storyboardIdentifier="ZTMovieInfo3ViewController" automaticallyAdjustsScrollViewInsets="NO" id="a6U-Vt-XwE" customClass="ZTMovieInfo3ViewController" customModule="Moviewood" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ZTMovieInfo3ViewController" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="a6U-Vt-XwE" customClass="ZTMovieInfo3ViewController" customModule="Moviewood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Dr-9b-XZ9" userLabel="BaseView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1793,6 +1808,9 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                         <state key="normal" title="Back" image="icon_back">
                                             <color key="titleColor" name="ZTAppBlackColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnBackTapped:" destination="a6U-Vt-XwE" eventType="touchUpInside" id="cVw-hB-luH"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VqF-zN-xvk">
                                         <rect key="frame" x="127.66666666666669" y="9.6666666666666643" width="120" height="41"/>
@@ -1886,7 +1904,7 @@ content will be watchable for next 24hrs only,not applicable to other contents</
         <!--Movie Info2 View Controller-->
         <scene sceneID="Cyu-kT-lw6">
             <objects>
-                <viewController storyboardIdentifier="ZTMovieInfo2ViewController" automaticallyAdjustsScrollViewInsets="NO" id="6tr-9t-qn5" customClass="ZTMovieInfo2ViewController" customModule="Moviewood" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ZTMovieInfo2ViewController" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="6tr-9t-qn5" customClass="ZTMovieInfo2ViewController" customModule="Moviewood" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cIh-UM-Dze" userLabel="BaseView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1915,6 +1933,9 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                                                         <color key="textColor" name="ZTAppSeperatorColor"/>
                                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="15"/>
                                                                         <textInputTraits key="textInputTraits"/>
+                                                                        <connections>
+                                                                            <outlet property="delegate" destination="6tr-9t-qn5" id="13h-KR-O15"/>
+                                                                        </connections>
                                                                     </textField>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1937,6 +1958,9 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                                                         <color key="textColor" name="ZTAppSeperatorColor"/>
                                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="15"/>
                                                                         <textInputTraits key="textInputTraits"/>
+                                                                        <connections>
+                                                                            <outlet property="delegate" destination="6tr-9t-qn5" id="i0S-bw-45J"/>
+                                                                        </connections>
                                                                     </textField>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1950,7 +1974,7 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gf0-7H-Cgy">
                                                                 <rect key="frame" x="0.0" y="130" width="355" height="50"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hlq-Wy-3Mw" customClass="ZTPhoneCustomTextField" customModule="Moviewood" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hlq-Wy-3Mw" customClass="ZTCustomTextField" customModule="Moviewood" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="355" height="50"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="50" id="11Z-Nf-mEp"/>
@@ -1960,7 +1984,7 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="15"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                         <connections>
-                                                                            <outlet property="delegate" destination="IJZ-ag-0Ub" id="ZOs-Lk-afZ"/>
+                                                                            <outlet property="delegate" destination="6tr-9t-qn5" id="Pf4-fA-CYA"/>
                                                                         </connections>
                                                                     </textField>
                                                                 </subviews>
@@ -2016,6 +2040,9 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                         <state key="normal" title="Continue to Next">
                                             <color key="titleColor" systemColor="systemBackgroundColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnNextTapped:" destination="6tr-9t-qn5" eventType="touchUpInside" id="ifg-a7-RQ7"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2047,6 +2074,9 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                         <state key="normal" title="Back" image="icon_back">
                                             <color key="titleColor" name="ZTAppBlackColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnBackTapped:" destination="6tr-9t-qn5" eventType="touchUpInside" id="kMg-Tb-fWE"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qET-a8-2E2">
                                         <rect key="frame" x="129" y="9.6666666666666643" width="117.33333333333331" height="41"/>
@@ -2132,6 +2162,11 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7Ng-zD-eZp"/>
+                    <connections>
+                        <outlet property="txtFldEmail" destination="fs8-Tj-L4M" id="Pw7-nL-AbD"/>
+                        <outlet property="txtFldMobile" destination="hlq-Wy-3Mw" id="g8d-3m-jWJ"/>
+                        <outlet property="txtFldName" destination="jNv-tP-NNY" id="qcZ-SG-CKk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A0g-v0-Cnt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -4524,6 +4559,9 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                                                                 <state key="normal" title="Submit Your Movie">
                                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="btnSubmitMovie:" destination="U1u-K5-z57" eventType="touchUpInside" id="4Yp-ka-BYQ"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -7583,11 +7621,89 @@ Details of transaction are included below</string>
         </scene>
     </scenes>
     <designables>
+        <designable name="0O7-x4-cUy">
+            <size key="intrinsicContentSize" width="125.66666666666667" height="19.666666666666668"/>
+        </designable>
+        <designable name="3mV-Ks-slS">
+            <size key="intrinsicContentSize" width="70" height="19.666666666666668"/>
+        </designable>
+        <designable name="7n3-hD-Wis">
+            <size key="intrinsicContentSize" width="88.333333333333329" height="19.666666666666668"/>
+        </designable>
+        <designable name="C2q-yy-acN">
+            <size key="intrinsicContentSize" width="70" height="19.666666666666668"/>
+        </designable>
+        <designable name="Cld-4y-Cu1">
+            <size key="intrinsicContentSize" width="43" height="19.666666666666668"/>
+        </designable>
+        <designable name="Cma-Gc-Ejj">
+            <size key="intrinsicContentSize" width="146.33333333333334" height="19.666666666666668"/>
+        </designable>
+        <designable name="DpG-h4-Tt2">
+            <size key="intrinsicContentSize" width="26" height="19.666666666666668"/>
+        </designable>
+        <designable name="Elz-Nh-aWc">
+            <size key="intrinsicContentSize" width="175.66666666666666" height="19.666666666666668"/>
+        </designable>
+        <designable name="Grc-Tq-ymU">
+            <size key="intrinsicContentSize" width="78.333333333333329" height="19.666666666666668"/>
+        </designable>
+        <designable name="I6p-8O-X2e">
+            <size key="intrinsicContentSize" width="177" height="19.666666666666668"/>
+        </designable>
+        <designable name="PLU-2u-8Fj">
+            <size key="intrinsicContentSize" width="31" height="19.666666666666668"/>
+        </designable>
+        <designable name="UOC-Yk-1tB">
+            <size key="intrinsicContentSize" width="91.666666666666671" height="19.666666666666668"/>
+        </designable>
+        <designable name="Ucr-Kk-9wU">
+            <size key="intrinsicContentSize" width="99" height="19.666666666666668"/>
+        </designable>
         <designable name="Yyi-GV-lJS">
             <size key="intrinsicContentSize" width="170" height="30"/>
         </designable>
         <designable name="aHf-wu-Y66">
             <size key="intrinsicContentSize" width="99" height="33"/>
+        </designable>
+        <designable name="bqr-bR-V7o">
+            <size key="intrinsicContentSize" width="62" height="19.666666666666668"/>
+        </designable>
+        <designable name="cq4-Ed-QwR">
+            <size key="intrinsicContentSize" width="37.666666666666664" height="19.666666666666668"/>
+        </designable>
+        <designable name="d9k-wD-560">
+            <size key="intrinsicContentSize" width="172.66666666666666" height="19.666666666666668"/>
+        </designable>
+        <designable name="fs8-Tj-L4M">
+            <size key="intrinsicContentSize" width="99" height="19.666666666666668"/>
+        </designable>
+        <designable name="hlq-Wy-3Mw">
+            <size key="intrinsicContentSize" width="107" height="19.666666666666668"/>
+        </designable>
+        <designable name="ips-aU-Ut8">
+            <size key="intrinsicContentSize" width="77" height="19.666666666666668"/>
+        </designable>
+        <designable name="jNv-tP-NNY">
+            <size key="intrinsicContentSize" width="46" height="19.666666666666668"/>
+        </designable>
+        <designable name="mFp-Bx-O7w">
+            <size key="intrinsicContentSize" width="184" height="19.666666666666668"/>
+        </designable>
+        <designable name="nTP-GY-6dG">
+            <size key="intrinsicContentSize" width="111.33333333333333" height="19.666666666666668"/>
+        </designable>
+        <designable name="pSW-Ys-6My">
+            <size key="intrinsicContentSize" width="48.333333333333336" height="19.666666666666668"/>
+        </designable>
+        <designable name="vc0-kS-srn">
+            <size key="intrinsicContentSize" width="38.666666666666664" height="19.666666666666668"/>
+        </designable>
+        <designable name="xqv-Xk-kEl">
+            <size key="intrinsicContentSize" width="77.333333333333329" height="19.666666666666668"/>
+        </designable>
+        <designable name="yTa-oK-bFl">
+            <size key="intrinsicContentSize" width="94.666666666666671" height="19.666666666666668"/>
         </designable>
     </designables>
     <resources>
@@ -7624,7 +7740,7 @@ Details of transaction are included below</string>
         <image name="icon_terms" width="24.666666030883789" height="29.333333969116211"/>
         <image name="icon_ticket_success" width="168" height="168"/>
         <image name="icon_transaction" width="28" height="26.666666030883789"/>
-        <image name="icon_unchecked" width="25.333333969116211" height="24.666666030883789"/>
+        <image name="icon_unchecked" width="21.333333969116211" height="21.333333969116211"/>
         <image name="icon_youtube_play" width="28.666666030883789" height="20.666666030883789"/>
         <image name="login_bg" width="500" height="1082.6666259765625"/>
         <image name="logo_fb" width="9.6666669845581055" height="18"/>

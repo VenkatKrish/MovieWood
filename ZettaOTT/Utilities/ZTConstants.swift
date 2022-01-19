@@ -27,6 +27,9 @@ struct Validation {
     static let PHONENO_MAX = 15
     static let AGE_MAX = 3
     static let REVIEW_LENGTH = 500
+    static let Movie_title_length = 500
+    static let Movie_year_length = 4
+    static let Movie_running_time_length = 20
 
 }
 class SwaggerPathTypes {
@@ -84,6 +87,11 @@ class ZTValidationMessage{
     static let PROFILE_UPDATED = "Profile Updated"
     static let REVIEW_REQUIRED = "Review Required"
     static let RATING_REQUIRED = "Rating Required"
+    static let Original_Title_REQUIRED = "Original Title Required"
+    static let Running_Time_REQUIRED = "Running Time Required"
+    static let Original_Language_REQUIRED = "Original Language Required"
+    static let Film_link_REQUIRED = "Film link Required"
+    static let Synopsis_Film_REQUIRED = "Synopsis of film Required"
 
 }
 

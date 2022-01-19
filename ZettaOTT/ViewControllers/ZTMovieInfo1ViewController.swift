@@ -15,6 +15,18 @@ class ZTMovieInfo1ViewController: UIViewController {
     var allGenres : [LoadGenresType]? = []
     @IBOutlet weak var genreCollection: UICollectionView!
     @IBOutlet weak var collectionHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var txtFldOriginalTitle: ZTCustomTextField!
+    @IBOutlet weak var txtFldEnglishTitle: ZTCustomTextField!
+    @IBOutlet weak var txtFldCountryIES: ZTCustomTextField!
+    @IBOutlet weak var txtFldRunningTime: ZTCustomTextField!
+    @IBOutlet weak var txtFldYearProduced: ZTCustomTextField!
+    @IBOutlet weak var txtFldYearReleased: ZTCustomTextField!
+    @IBOutlet weak var txtFldOriginalLanguage: ZTCustomTextField!
+    var selectedGenres : [LoadGenresType]? = []
+    @IBOutlet weak var txtFldProvideLink: ZTCustomTextField!
+    @IBOutlet weak var txtFldSynopsis: ZTCustomTextField!
+    var uploadMovieInfo : Movies? = nil
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,20 +34,69 @@ class ZTMovieInfo1ViewController: UIViewController {
         self.getGenrieList()
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func btnBackTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
     }
-    */
+    @IBAction func btnNextTapped(_ sender: Any) {
+        if isValidationSuccess() == true{
+            Helper.shared.gotoMovieInfo2(viewController: self, movieInfo: self.uploadMovieInfo)
+        }
+    }
+    func isValidationSuccess() -> Bool {
+        self.view.endEditing(true)
+        var isValidationSuccess = true
+        var message = ""
+        
+        let originalTitle = self.removeWhiteSpace(text: self.txtFldOriginalTitle.text ?? "")
+        let englishTitle = self.removeWhiteSpace(text: self.txtFldEnglishTitle.text ?? "")
+        let countryIES = self.removeWhiteSpace(text: self.txtFldCountryIES.text ?? "")
+        let runningTime = self.removeWhiteSpace(text: self.txtFldRunningTime.text ?? "")
+        let yearProduced = self.removeWhiteSpace(text: self.txtFldYearProduced.text ?? "")
+        let yearReleased = self.removeWhiteSpace(text: self.txtFldYearReleased.text ?? "")
+        let originalLanguage = self.removeWhiteSpace(text: self.txtFldOriginalLanguage.text ?? "")
+        let provideLink = self.removeWhiteSpace(text: self.txtFldProvideLink.text ?? "")
+        let synopsis = self.removeWhiteSpace(text: self.txtFldSynopsis.text ?? "")
+        
+        self.selectedGenres = []
+        
+        
+        if originalTitle.count == 0{
+            message = ZTValidationMessage.Original_Title_REQUIRED
+            isValidationSuccess = false
+            self.txtFldOriginalTitle.showError()
+        }
+        
+        if runningTime.count == 0{
+            message = ZTValidationMessage.Running_Time_REQUIRED
+            isValidationSuccess = false
+            self.txtFldRunningTime.showError()
+        }
+        if originalLanguage.count == 0{
+            message = ZTValidationMessage.Original_Language_REQUIRED
+            isValidationSuccess = false
+            self.txtFldOriginalLanguage.showError()
+        }
+        
+        if provideLink.count == 0{
+            message = ZTValidationMessage.Film_link_REQUIRED
+            isValidationSuccess = false
+            self.txtFldProvideLink.showError()
+        }
+        
+        if synopsis.count == 0{
+            message = ZTValidationMessage.Synopsis_Film_REQUIRED
+            isValidationSuccess = false
+            self.txtFldSynopsis.showError()
+        }
+        if isValidationSuccess == true{
+            self.uploadMovieInfo = Movies(active: "N", adTagUri: nil, ageRating: nil, androidEnabled: nil, androidtvEnabled: nil, avgRating: nil, avodEnabled: nil, channelId: nil, contactEmail: nil, contactName: nil, contactPayment: nil, contactPaymentMethod: nil, contactPaymentPaid: nil, contactPaymentStatus: nil, contactPaymentTransno: nil, contactPhone: nil, contactPlace: nil, contactSignDate: nil, contactSignature: nil, contentRating: nil, countryOfProduction: countryIES, createdBy: nil, createdOn: nil, featured: "Y", firetvEnabled: nil, hits: nil, image: nil, iosTicketPrice: nil, lastUpdateLogin: nil, metaDesc: nil, metaKeywords: nil, metaTitle: nil, modifiedBy: nil, modifiedOn: nil, movieActors: nil, movieCrew: nil, movieDescription: synopsis, movieGenres: nil, movieId: nil, movieKey: nil, movieName: originalTitle, movieNameEn: englishTitle, moviePoster: nil, movieSongs: nil, movieType: nil, movieViews: nil, overallRank: nil, parentId: nil, ppvCommission: nil, primaryLanguage: originalLanguage, promoColor: nil, promoDuration: nil, promoLabel: nil, promoUrl: nil, promoViews: nil, releaseDate: nil, releaseMonth: nil, rokutvEnabled: nil, runningTime: Int64(runningTime), showInIos: nil, streamingEndDate: nil, streamingStartDate: nil, subsCommission: nil, svodEnabled: nil, teaserDuration: nil, teaserUrl: nil, teaserViews: nil, thumbnail: nil, ticketRate: nil, trailorDuration: nil, trailorUrl: nil, trailorViews: nil, tvodEnabled: nil, usdTicketRate: nil, versionNumber: nil, views: nil, webMovieDetail: nil, webMoviePoster: nil, webStreamingNow: nil, website: nil, websiteEnabled: nil, yearProduced: Int64(yearProduced), yearReleased: Int64(yearReleased), paymentStatus: nil, playStatus: nil)
+        }
+        return isValidationSuccess
+    }
 
 }
 extension ZTMovieInfo1ViewController{
+    
     func getGenrieList(){
         if NetworkReachability.shared.isReachable {
             ZTCommonAPIWrapper.genresUsingGET(offset: nil, pageNumber: 0, pageSize: 100, paged: nil, sortSorted: true, sortUnsorted: nil, unpaged: nil) { (response, error) in
@@ -102,6 +163,65 @@ extension ZTMovieInfo1ViewController : UICollectionViewDelegateFlowLayout {
         let yourWidth = collectionView.bounds.width / 2.0
         
     return CGSize(width: yourWidth - 5, height: 50)
+
+        
+    }
+}
+extension ZTMovieInfo1ViewController: UITextFieldDelegate{
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let stringVal = NSString(string: textField.text!)
+        let newText = stringVal.replacingCharacters(in: range, with: string)
+        if newText.count >= 1{
+            (textField as? ZTCustomTextField)?.removeError()
+        }
+        
+        if textField == self.txtFldOriginalTitle {
+            return !(newText.count > Validation.Movie_title_length)
+        }
+        if textField == self.txtFldRunningTime {
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_PHONENO).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            if (string == filtered){
+                return !(newText.count > Validation.Movie_running_time_length)
+            }else{
+                return false
+            }
+        }
+        if textField == self.txtFldOriginalLanguage {
+            return !(newText.count > Validation.Movie_title_length)
+        }
+        
+        if textField == self.txtFldYearProduced || textField == self.txtFldYearReleased{
+                   let cs = NSCharacterSet(charactersIn: ACCEPTABLE_PHONENO).inverted
+                   let filtered = string.components(separatedBy: cs).joined(separator: "")
+            if (string == filtered){
+                return !(newText.count > Validation.Movie_year_length)
+            }else{
+                return false
+            }
+        }
+        
+        if newText.containsEmoji{
+            return false
+        }
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+    }
+    
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField){
 
         
     }
