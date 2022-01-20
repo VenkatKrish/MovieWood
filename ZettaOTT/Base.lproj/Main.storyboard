@@ -943,7 +943,7 @@ verification code we’ve sent on given number</string>
                                                                         </constraints>
                                                                         <color key="textColor" name="ZTAppSeperatorColor"/>
                                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="15"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                         <connections>
                                                                             <outlet property="delegate" destination="qmf-G6-1MA" id="wg8-dg-Wt0"/>
                                                                         </connections>
@@ -968,7 +968,7 @@ verification code we’ve sent on given number</string>
                                                                         </constraints>
                                                                         <color key="textColor" name="ZTAppSeperatorColor"/>
                                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="15"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                         <connections>
                                                                             <outlet property="delegate" destination="qmf-G6-1MA" id="ukC-9g-TXj"/>
                                                                         </connections>
@@ -993,7 +993,7 @@ verification code we’ve sent on given number</string>
                                                                         </constraints>
                                                                         <color key="textColor" name="ZTAppSeperatorColor"/>
                                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="15"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                         <connections>
                                                                             <outlet property="delegate" destination="qmf-G6-1MA" id="Ne0-pu-zaU"/>
                                                                         </connections>
@@ -1547,10 +1547,10 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="394" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="wdM-G4-24Y">
-                                                <rect key="frame" x="10" y="20" width="355" height="555"/>
+                                                <rect key="frame" x="10" y="20" width="355" height="375"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="mdT-Wd-jo9">
-                                                        <rect key="frame" x="0.0" y="0.0" width="355" height="555"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="355" height="375"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mFz-Wo-vOC">
                                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="115"/>
@@ -1564,6 +1564,10 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                                                         </constraints>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                                         <state key="normal" backgroundImage="icon_unchecked"/>
+                                                                        <state key="selected" backgroundImage="icon_checked"/>
+                                                                        <connections>
+                                                                            <action selector="btnCheckBoxTapped:" destination="a6U-Vt-XwE" eventType="touchUpInside" id="YGP-ov-aCv"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTf-rM-33j">
                                                                         <rect key="frame" x="40" y="10" width="305" height="90"/>
@@ -1652,7 +1656,7 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sXa-Ib-LAq">
                                                                 <rect key="frame" x="0.0" y="325" width="355" height="50"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cq4-Ed-QwR" customClass="ZTCustomTextField" customModule="Moviewood" customModuleProvider="target">
+                                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cq4-Ed-QwR" customClass="ZTCustomTextField" customModule="Moviewood" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="355" height="50"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="EFF-A9-sk5"/>
@@ -1671,8 +1675,8 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                                                     <constraint firstAttribute="trailing" secondItem="cq4-Ed-QwR" secondAttribute="trailing" id="nNA-iC-VRw"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QLD-O1-zyR">
-                                                                <rect key="frame" x="0.0" y="390" width="355" height="50"/>
+                                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QLD-O1-zyR">
+                                                                <rect key="frame" x="0.0" y="375" width="355" height="50"/>
                                                                 <subviews>
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Pay*" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PLU-2u-8Fj" customClass="ZTCustomTextField" customModule="Moviewood" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="355" height="50"/>
@@ -1693,8 +1697,8 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                                                     <constraint firstItem="PLU-2u-8Fj" firstAttribute="leading" secondItem="QLD-O1-zyR" secondAttribute="leading" id="git-zD-sCp"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8RK-lh-zvM">
-                                                                <rect key="frame" x="0.0" y="455" width="355" height="100"/>
+                                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8RK-lh-zvM">
+                                                                <rect key="frame" x="0.0" y="375" width="355" height="100"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="esf-eg-2hi">
                                                                         <rect key="frame" x="0.0" y="0.0" width="355" height="100"/>
@@ -1779,6 +1783,9 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                         <state key="normal" title="Done" image="checkmark" catalog="system">
                                             <color key="titleColor" systemColor="systemBackgroundColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnDoneTapped:" destination="a6U-Vt-XwE" eventType="touchUpInside" id="9FN-Xg-Mwc"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1896,6 +1903,13 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="n4w-a3-Wmd"/>
+                    <connections>
+                        <outlet property="btnCheckBox" destination="1hM-Ab-lhu" id="Tps-aV-jt2"/>
+                        <outlet property="txtFldDate" destination="cq4-Ed-QwR" id="gc0-rp-gut"/>
+                        <outlet property="txtFldName" destination="vc0-kS-srn" id="PeT-8q-CLM"/>
+                        <outlet property="txtFldPlace" destination="Cld-4y-Cu1" id="oaq-zI-5n1"/>
+                        <outlet property="txtFldSignature" destination="bqr-bR-V7o" id="LeS-s7-heJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DNo-Bf-9zN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1957,7 +1971,7 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                                                         </constraints>
                                                                         <color key="textColor" name="ZTAppSeperatorColor"/>
                                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="15"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                                         <connections>
                                                                             <outlet property="delegate" destination="6tr-9t-qn5" id="i0S-bw-45J"/>
                                                                         </connections>
@@ -1982,7 +1996,7 @@ content will be watchable for next 24hrs only,not applicable to other contents</
                                                                         </constraints>
                                                                         <color key="textColor" name="ZTAppSeperatorColor"/>
                                                                         <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="15"/>
-                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                                                         <connections>
                                                                             <outlet property="delegate" destination="6tr-9t-qn5" id="Pf4-fA-CYA"/>
                                                                         </connections>
@@ -7621,89 +7635,11 @@ Details of transaction are included below</string>
         </scene>
     </scenes>
     <designables>
-        <designable name="0O7-x4-cUy">
-            <size key="intrinsicContentSize" width="125.66666666666667" height="19.666666666666668"/>
-        </designable>
-        <designable name="3mV-Ks-slS">
-            <size key="intrinsicContentSize" width="70" height="19.666666666666668"/>
-        </designable>
-        <designable name="7n3-hD-Wis">
-            <size key="intrinsicContentSize" width="88.333333333333329" height="19.666666666666668"/>
-        </designable>
-        <designable name="C2q-yy-acN">
-            <size key="intrinsicContentSize" width="70" height="19.666666666666668"/>
-        </designable>
-        <designable name="Cld-4y-Cu1">
-            <size key="intrinsicContentSize" width="43" height="19.666666666666668"/>
-        </designable>
-        <designable name="Cma-Gc-Ejj">
-            <size key="intrinsicContentSize" width="146.33333333333334" height="19.666666666666668"/>
-        </designable>
-        <designable name="DpG-h4-Tt2">
-            <size key="intrinsicContentSize" width="26" height="19.666666666666668"/>
-        </designable>
-        <designable name="Elz-Nh-aWc">
-            <size key="intrinsicContentSize" width="175.66666666666666" height="19.666666666666668"/>
-        </designable>
-        <designable name="Grc-Tq-ymU">
-            <size key="intrinsicContentSize" width="78.333333333333329" height="19.666666666666668"/>
-        </designable>
-        <designable name="I6p-8O-X2e">
-            <size key="intrinsicContentSize" width="177" height="19.666666666666668"/>
-        </designable>
-        <designable name="PLU-2u-8Fj">
-            <size key="intrinsicContentSize" width="31" height="19.666666666666668"/>
-        </designable>
-        <designable name="UOC-Yk-1tB">
-            <size key="intrinsicContentSize" width="91.666666666666671" height="19.666666666666668"/>
-        </designable>
-        <designable name="Ucr-Kk-9wU">
-            <size key="intrinsicContentSize" width="99" height="19.666666666666668"/>
-        </designable>
         <designable name="Yyi-GV-lJS">
             <size key="intrinsicContentSize" width="170" height="30"/>
         </designable>
         <designable name="aHf-wu-Y66">
             <size key="intrinsicContentSize" width="99" height="33"/>
-        </designable>
-        <designable name="bqr-bR-V7o">
-            <size key="intrinsicContentSize" width="62" height="19.666666666666668"/>
-        </designable>
-        <designable name="cq4-Ed-QwR">
-            <size key="intrinsicContentSize" width="37.666666666666664" height="19.666666666666668"/>
-        </designable>
-        <designable name="d9k-wD-560">
-            <size key="intrinsicContentSize" width="172.66666666666666" height="19.666666666666668"/>
-        </designable>
-        <designable name="fs8-Tj-L4M">
-            <size key="intrinsicContentSize" width="99" height="19.666666666666668"/>
-        </designable>
-        <designable name="hlq-Wy-3Mw">
-            <size key="intrinsicContentSize" width="107" height="19.666666666666668"/>
-        </designable>
-        <designable name="ips-aU-Ut8">
-            <size key="intrinsicContentSize" width="77" height="19.666666666666668"/>
-        </designable>
-        <designable name="jNv-tP-NNY">
-            <size key="intrinsicContentSize" width="46" height="19.666666666666668"/>
-        </designable>
-        <designable name="mFp-Bx-O7w">
-            <size key="intrinsicContentSize" width="184" height="19.666666666666668"/>
-        </designable>
-        <designable name="nTP-GY-6dG">
-            <size key="intrinsicContentSize" width="111.33333333333333" height="19.666666666666668"/>
-        </designable>
-        <designable name="pSW-Ys-6My">
-            <size key="intrinsicContentSize" width="48.333333333333336" height="19.666666666666668"/>
-        </designable>
-        <designable name="vc0-kS-srn">
-            <size key="intrinsicContentSize" width="38.666666666666664" height="19.666666666666668"/>
-        </designable>
-        <designable name="xqv-Xk-kEl">
-            <size key="intrinsicContentSize" width="77.333333333333329" height="19.666666666666668"/>
-        </designable>
-        <designable name="yTa-oK-bFl">
-            <size key="intrinsicContentSize" width="94.666666666666671" height="19.666666666666668"/>
         </designable>
     </designables>
     <resources>
@@ -7718,6 +7654,7 @@ Details of transaction are included below</string>
         <image name="icon_back" width="14" height="22.666666030883789"/>
         <image name="icon_back_white" width="10.666666984558105" height="17"/>
         <image name="icon_black_search" width="16.666666030883789" height="16.666666030883789"/>
+        <image name="icon_checked" width="21.333333969116211" height="21.333333969116211"/>
         <image name="icon_filter" width="24.666666030883789" height="24.666666030883789"/>
         <image name="icon_help" width="28" height="31.333333969116211"/>
         <image name="icon_language" width="28" height="28"/>

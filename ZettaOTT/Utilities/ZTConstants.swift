@@ -192,6 +192,8 @@ class CustomDateFormatter{
     static let orderRequestDate = "dd-MM-yyyy HH:mm:ss"
     static let ticketConfirmationDate = "dd-MM-yyyy"
     static let transactionDateWithTime = "dd MMM yyyy | hh:mm a"
+    static let movieSubmitDate = "dd MMM yyyy"
+
 
 }
 class AlertTitle{

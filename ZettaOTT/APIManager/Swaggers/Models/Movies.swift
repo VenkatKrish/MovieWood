@@ -19,7 +19,7 @@ public struct Movies: Codable {
     public var contactPaymentTransno: String?
     public var contactPhone: String?
     public var contactPlace: String?
-    public var contactSignDate: Date?
+    public var contactSignDate: String?
     public var contactSignature: String?
     public var contentRating: String?
     public var countryOfProduction: String?
@@ -57,7 +57,7 @@ public struct Movies: Codable {
     public var promoLabel: String?
     public var promoUrl: String?
     public var promoViews: Int64?
-    public var releaseDate: Date?
+    public var releaseDate: String?
     public var releaseMonth: String?
     public var rokutvEnabled: String?
     public var runningTime: Int64?
@@ -88,7 +88,7 @@ public struct Movies: Codable {
     public var paymentStatus: String?
     public var playStatus: String?
 
-    public init(active: String?, adTagUri: String?, ageRating: Int64?, androidEnabled: String?, androidtvEnabled: String?, avgRating: Double?, avodEnabled: String?, channelId: Int64?, contactEmail: String?, contactName: String?, contactPayment: String?, contactPaymentMethod: String?, contactPaymentPaid: String?, contactPaymentStatus: String?, contactPaymentTransno: String?, contactPhone: String?, contactPlace: String?, contactSignDate: Date?, contactSignature: String?, contentRating: String?, countryOfProduction: String?, createdBy: String?, createdOn: Date?, featured: String?, firetvEnabled: String?, hits: Int64?, image: String?, iosTicketPrice: Double?, lastUpdateLogin: String?, metaDesc: String?, metaKeywords: String?, metaTitle: String?, modifiedBy: String?, modifiedOn: Date?, movieActors: [MovieActors]?, movieCrew: [MovieCrew]?, movieDescription: String?, movieGenres: [MovieGenres]?, movieId: Int64?, movieKey: String?, movieName: String?, movieNameEn: String?, moviePoster: String?, movieSongs: [MovieSongs]?, movieType: String?, movieViews: Int64?, overallRank: Int64?, parentId: Int64?, ppvCommission: Int64?, primaryLanguage: String?, promoColor: String?, promoDuration: Int64?, promoLabel: String?, promoUrl: String?, promoViews: Int64?, releaseDate: Date?, releaseMonth: String?, rokutvEnabled: String?, runningTime: Int64?, showInIos: String?, streamingEndDate: Date?, streamingStartDate: Date?, subsCommission: Int64?, svodEnabled: String?, teaserDuration: Int64?, teaserUrl: String?, teaserViews: Int64?, thumbnail: String?, ticketRate: Double?, trailorDuration: Int64?, trailorUrl: String?, trailorViews: Int64?, tvodEnabled: String?, usdTicketRate: Double?, versionNumber: Int64?, views: Int64?, webMovieDetail: String?, webMoviePoster: String?, webStreamingNow: String?, website: String?, websiteEnabled: String?, yearProduced: Int64?, yearReleased: Int64?, paymentStatus: String?, playStatus: String?) {
+    public init(active: String?, adTagUri: String?, ageRating: Int64?, androidEnabled: String?, androidtvEnabled: String?, avgRating: Double?, avodEnabled: String?, channelId: Int64?, contactEmail: String?, contactName: String?, contactPayment: String?, contactPaymentMethod: String?, contactPaymentPaid: String?, contactPaymentStatus: String?, contactPaymentTransno: String?, contactPhone: String?, contactPlace: String?, contactSignDate: String?, contactSignature: String?, contentRating: String?, countryOfProduction: String?, createdBy: String?, createdOn: Date?, featured: String?, firetvEnabled: String?, hits: Int64?, image: String?, iosTicketPrice: Double?, lastUpdateLogin: String?, metaDesc: String?, metaKeywords: String?, metaTitle: String?, modifiedBy: String?, modifiedOn: Date?, movieActors: [MovieActors]?, movieCrew: [MovieCrew]?, movieDescription: String?, movieGenres: [MovieGenres]?, movieId: Int64?, movieKey: String?, movieName: String?, movieNameEn: String?, moviePoster: String?, movieSongs: [MovieSongs]?, movieType: String?, movieViews: Int64?, overallRank: Int64?, parentId: Int64?, ppvCommission: Int64?, primaryLanguage: String?, promoColor: String?, promoDuration: Int64?, promoLabel: String?, promoUrl: String?, promoViews: Int64?, releaseDate: String?, releaseMonth: String?, rokutvEnabled: String?, runningTime: Int64?, showInIos: String?, streamingEndDate: Date?, streamingStartDate: Date?, subsCommission: Int64?, svodEnabled: String?, teaserDuration: Int64?, teaserUrl: String?, teaserViews: Int64?, thumbnail: String?, ticketRate: Double?, trailorDuration: Int64?, trailorUrl: String?, trailorViews: Int64?, tvodEnabled: String?, usdTicketRate: Double?, versionNumber: Int64?, views: Int64?, webMovieDetail: String?, webMoviePoster: String?, webStreamingNow: String?, website: String?, websiteEnabled: String?, yearProduced: Int64?, yearReleased: Int64?, paymentStatus: String?, playStatus: String?) {
         self.active = active
         self.adTagUri = adTagUri
         self.ageRating = ageRating

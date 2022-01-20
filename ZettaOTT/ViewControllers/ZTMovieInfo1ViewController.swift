@@ -39,7 +39,7 @@ class ZTMovieInfo1ViewController: UIViewController {
     }
     @IBAction func btnNextTapped(_ sender: Any) {
         if isValidationSuccess() == true{
-            Helper.shared.gotoMovieInfo2(viewController: self, movieInfo: self.uploadMovieInfo)
+//            Helper.shared.gotoMovieInfo2(viewController: self, movieInfo: self.uploadMovieInfo)
         }
     }
     func isValidationSuccess() -> Bool {
@@ -89,11 +89,11 @@ class ZTMovieInfo1ViewController: UIViewController {
             self.txtFldSynopsis.showError()
         }
         if isValidationSuccess == true{
-            self.uploadMovieInfo = Movies(active: "N", adTagUri: nil, ageRating: nil, androidEnabled: nil, androidtvEnabled: nil, avgRating: nil, avodEnabled: nil, channelId: nil, contactEmail: nil, contactName: nil, contactPayment: nil, contactPaymentMethod: nil, contactPaymentPaid: nil, contactPaymentStatus: nil, contactPaymentTransno: nil, contactPhone: nil, contactPlace: nil, contactSignDate: nil, contactSignature: nil, contentRating: nil, countryOfProduction: countryIES, createdBy: nil, createdOn: nil, featured: "Y", firetvEnabled: nil, hits: nil, image: nil, iosTicketPrice: nil, lastUpdateLogin: nil, metaDesc: nil, metaKeywords: nil, metaTitle: nil, modifiedBy: nil, modifiedOn: nil, movieActors: nil, movieCrew: nil, movieDescription: synopsis, movieGenres: nil, movieId: nil, movieKey: nil, movieName: originalTitle, movieNameEn: englishTitle, moviePoster: nil, movieSongs: nil, movieType: nil, movieViews: nil, overallRank: nil, parentId: nil, ppvCommission: nil, primaryLanguage: originalLanguage, promoColor: nil, promoDuration: nil, promoLabel: nil, promoUrl: nil, promoViews: nil, releaseDate: nil, releaseMonth: nil, rokutvEnabled: nil, runningTime: Int64(runningTime), showInIos: nil, streamingEndDate: nil, streamingStartDate: nil, subsCommission: nil, svodEnabled: nil, teaserDuration: nil, teaserUrl: nil, teaserViews: nil, thumbnail: nil, ticketRate: nil, trailorDuration: nil, trailorUrl: nil, trailorViews: nil, tvodEnabled: nil, usdTicketRate: nil, versionNumber: nil, views: nil, webMovieDetail: nil, webMoviePoster: nil, webStreamingNow: nil, website: nil, websiteEnabled: nil, yearProduced: Int64(yearProduced), yearReleased: Int64(yearReleased), paymentStatus: nil, playStatus: nil)
+            let dateStr:String = Helper.shared.getFormatedDate(dateVal: Date(), dateFormat: CustomDateFormatter.orderRequestDate)
+            self.uploadMovieInfo = Movies(active: "N", adTagUri: nil, ageRating: 5, androidEnabled: nil, androidtvEnabled: nil, avgRating: nil, avodEnabled: nil, channelId: nil, contactEmail: "", contactName: "", contactPayment: nil, contactPaymentMethod: nil, contactPaymentPaid: nil, contactPaymentStatus: nil, contactPaymentTransno: nil, contactPhone: "", contactPlace: "", contactSignDate: dateStr, contactSignature: "", contentRating: nil, countryOfProduction: countryIES, createdBy: nil, createdOn: nil, featured: "", firetvEnabled: nil, hits: nil, image: "abc", iosTicketPrice: nil, lastUpdateLogin: nil, metaDesc: nil, metaKeywords: nil, metaTitle: nil, modifiedBy: nil, modifiedOn: nil, movieActors: nil, movieCrew: nil, movieDescription: synopsis, movieGenres: nil, movieId: nil, movieKey: nil, movieName: originalTitle, movieNameEn: englishTitle, moviePoster: "abc", movieSongs: nil, movieType: nil, movieViews: nil, overallRank: nil, parentId: nil, ppvCommission: nil, primaryLanguage: originalLanguage, promoColor: nil, promoDuration: nil, promoLabel: nil, promoUrl: nil, promoViews: nil, releaseDate: dateStr, releaseMonth: nil, rokutvEnabled: nil, runningTime: Int64(runningTime), showInIos: nil, streamingEndDate: nil, streamingStartDate: nil, subsCommission: nil, svodEnabled: nil, teaserDuration: nil, teaserUrl: nil, teaserViews: nil, thumbnail: nil, ticketRate: 500, trailorDuration: nil, trailorUrl: nil, trailorViews: nil, tvodEnabled: nil, usdTicketRate: nil, versionNumber: nil, views: nil, webMovieDetail: nil, webMoviePoster: nil, webStreamingNow: nil, website: "www", websiteEnabled: nil, yearProduced: Int64(yearProduced), yearReleased: Int64(yearReleased), paymentStatus: nil, playStatus: nil)
         }
         return isValidationSuccess
     }
-
 }
 extension ZTMovieInfo1ViewController{
     
