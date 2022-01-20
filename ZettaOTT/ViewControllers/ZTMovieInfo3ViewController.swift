@@ -132,6 +132,7 @@ extension ZTMovieInfo3ViewController{
         if NetworkReachability.shared.isReachable {
             self.showActivityIndicator(self.view)
             MovieControllerAPI.saveMovieUsingPOST(movie: movieValue) { response, error in
+                self.hideActivityIndicator(self.view)
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
                         self.showToastMessage(message: message)
