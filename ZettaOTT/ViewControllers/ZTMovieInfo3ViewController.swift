@@ -141,6 +141,10 @@ extension ZTMovieInfo3ViewController{
                     return
                 }
                 if let _ = response{
+                    
+                    DispatchQueue.main.async {
+                        Helper.shared.showSnackBarAlert(message: ZTConstants.Movie_submitted_success, type: .Success, superView: self)
+                    }
                     self.navigationController?.popToRootViewController(animated: true)
                 }
             }

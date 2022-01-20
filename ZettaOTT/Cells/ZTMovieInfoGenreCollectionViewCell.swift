@@ -7,7 +7,11 @@
 
 import UIKit
 
+protocol btnCheckBoxDelegate{
+    func btnCheckBoxTapped(btn:UIButton)
+}
 class ZTMovieInfoGenreCollectionViewCell: UICollectionViewCell {
+    var delegate : btnCheckBoxDelegate? = nil
     @IBOutlet weak var lblGenreName: UILabel!
     @IBOutlet weak var btnCheckBox: UIButton!
     @IBOutlet weak var imgVwCheckBox: UIImageView!
@@ -17,7 +21,8 @@ class ZTMovieInfoGenreCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func loadGenreDetails(data:LoadGenresType? = nil, indexPath:IndexPath){
+    func loadGenreDetails(data:LoadGenresType? = nil, indexPath:IndexPath, delegateVal:btnCheckBoxDelegate){
+        self.delegate = delegateVal
         if let dataVal = data{
 //            self.btnCheckBox.titleLabel?.text = ""
             self.lblGenreName.text = dataVal.genreVal?.genreName ?? ""
@@ -26,7 +31,11 @@ class ZTMovieInfoGenreCollectionViewCell: UICollectionViewCell {
             }else{
                 self.imgVwCheckBox.image = UIImage(named: "icon_checked")
             }
+            self.btnCheckBox.tag = indexPath.row
         }
+    }
+    @IBAction func btnCheckTapped(sender: UIButton) {
+        self.delegate?.btnCheckBoxTapped(btn: sender)
     }
 
 }

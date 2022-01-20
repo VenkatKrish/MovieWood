@@ -106,8 +106,10 @@ class ZTConstants: NSObject {
     static let ticket_payment_success = "Ticket Payment Successful"
     static let subscription_confirmation = "Subscription Confirmation"
     static let subscription_payment_success = "Subscription Payment Successful"
-    static let PLEASE_WAIT_LOADING = "Please wait loading";
+    static let PLEASE_WAIT_LOADING = "Please wait loading"
+    static let Movie_submitted_success = "Movie submitted successfully"
 
+    
 
 }
 
