@@ -13,6 +13,7 @@ struct LoadGenresType {
 }
 class ZTMovieInfo1ViewController: UIViewController {
     var allGenres : [LoadGenresType]? = []
+    var collectionCellHeight : Int = 50
     @IBOutlet weak var genreCollection: UICollectionView!
     @IBOutlet weak var collectionHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var txtFldOriginalTitle: ZTCustomTextField!
@@ -25,6 +26,8 @@ class ZTMovieInfo1ViewController: UIViewController {
     var selectedGenres : [LoadGenresType]? = []
     @IBOutlet weak var txtFldProvideLink: ZTCustomTextField!
     @IBOutlet weak var txtFldSynopsis: ZTCustomTextField!
+    @IBOutlet weak var vwCollection: UIView!
+
     var uploadMovieInfo : Movies? = nil
 
 
@@ -35,9 +38,7 @@ class ZTMovieInfo1ViewController: UIViewController {
         layout.minimumInteritemSpacing = zt_minimumInteritemSpacing
         layout.collectionView?.backgroundColor = UIColor.getColor(colorVal: ZTBackgroundColor)
         self.genreCollection.collectionViewLayout = layout
-        self.genreCollection.register(UINib(nibName: ZTCellNameOrIdentifier.ZTProfileFooter, bundle: nil),
-                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
-                                withReuseIdentifier: ZTCellNameOrIdentifier.ZTProfileFooter)
+        
         self.genreCollection.register(UINib(nibName: ZTCellNameOrIdentifier.ZTMovieInfoGenreCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: ZTCellNameOrIdentifier.ZTMovieInfoGenreCollectionViewCell)
         
         self.getGenrieList()
@@ -101,7 +102,7 @@ class ZTMovieInfo1ViewController: UIViewController {
             var genresArr : [MovieGenres] = []
             for i in self.allGenres ?? []{
                 if i.isSelected == true{
-                    var movieGenreModel = MovieGenres(active: "", createdBy: nil, createdOn: nil, genre: i.genreVal, genreId: i.genreVal?.genreId, lastUpdateLogin: nil, modifiedBy: nil, modifiedOn: nil, movieGenreId: nil, movieId: nil, ordering: nil, versionNumber: nil)
+                    let movieGenreModel = MovieGenres(active: "", createdBy: nil, createdOn: nil, genre: i.genreVal, genreId: i.genreVal?.genreId, lastUpdateLogin: nil, modifiedBy: nil, modifiedOn: nil, movieGenreId: nil, movieId: nil, ordering: nil, versionNumber: nil)
                     
                     genresArr.append(movieGenreModel)
                 }
@@ -132,7 +133,13 @@ extension ZTMovieInfo1ViewController{
                             self.allGenres?.append(LoadGenresType(isSelected: false, genreVal: i))
                         }
                         DispatchQueue.main.async {
+//                            let noRows = self.allGenres?.count ?? 0 / 2
+
+//                            let heightCal = noRows * self.collectionCellHeight
+//                            self.collectionHeightConstraint.constant = CGFloat(heightCal)
+//                            self.vwCollection.layoutIfNeeded()
                             self.genreCollection.reloadData()
+                            
                         }
                     }
                 }
@@ -170,21 +177,7 @@ extension ZTMovieInfo1ViewController:  UICollectionViewDataSource, UICollectionV
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-
-        if kind == UICollectionView.elementKindSectionFooter{
-            let reusableview = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: ZTCellNameOrIdentifier.ZTProfileFooter, for: indexPath) as! ZTProfileFooter
-                return reusableview
-        }
-        return UICollectionReusableView()
-        
-    }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-                            
-        return CGSize(width: collectionView.frame.size.width, height:50)
-
-    }
     
 }
 extension ZTMovieInfo1ViewController : UICollectionViewDelegateFlowLayout {
@@ -193,7 +186,7 @@ extension ZTMovieInfo1ViewController : UICollectionViewDelegateFlowLayout {
         let lay = collectionViewLayout as! UICollectionViewFlowLayout
         let width = collectionView.frame.width
         let widthPerItem = width / 2 - lay.minimumInteritemSpacing
-        return CGSize(width: widthPerItem, height: 50)
+        return CGSize(width: widthPerItem, height: CGFloat(self.collectionCellHeight))
         
     }
 }

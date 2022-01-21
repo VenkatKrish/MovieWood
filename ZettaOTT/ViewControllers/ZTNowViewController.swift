@@ -283,7 +283,12 @@ extension ZTNowViewController{
     func getStreamingNowMovies(){
         if NetworkReachability.shared.isReachable {
             ZTCommonAPIWrapper.searchMoviesGET(search: MovieSearchTag.streamNowBanner.rawValue, page: self.pageNumber, size: self.pageSize) { (response, error) in
-                self.zettaMovieOriginals?.removeAll()
+                                DispatchQueue.main.async {
+                                    if self.refreshControl.isRefreshing{
+                                        self.refreshControl.endRefreshing()
+                                    }
+                                }
+                self.streamingNowMovies?.removeAll()
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
                         
