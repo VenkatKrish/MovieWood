@@ -15,7 +15,9 @@ class ZTNowViewController: UIViewController {
     var continueWatching : [Movies]? = []
     var webSeriesMovies : [Movies]? = []
     var allGenres : [Genres]? = []
-    var allTitles = [moviesKeyUI.paging, moviesKeyUI.continue_watching, moviesKeyUI.genres, moviesKeyUI.zetta_movies_originals, moviesKeyUI.latest_web_series]
+    var allLanguages : [Languages]? = []
+
+    var allTitles = [moviesKeyUI.paging, moviesKeyUI.continue_watching, moviesKeyUI.genres, moviesKeyUI.languages, moviesKeyUI.zetta_movies_originals, moviesKeyUI.latest_web_series]
     @IBOutlet weak var vwNew: UIView!
     @IBOutlet weak var vwUpcoming: UIView!
     @IBOutlet weak var vwWebseries: UIView!
@@ -73,6 +75,7 @@ class ZTNowViewController: UIViewController {
             self.getZettMoviesOriginals()
             self.getWebSeriesVideos(isSpinnerNeeded: false)
             self.getGenrieList()
+            self.getLanguageList()
             self.movieColPageNumber = 0
             self.getAllCollections(isSpinnerNeeded: true)
         }
@@ -110,6 +113,10 @@ extension ZTNowViewController: UITableViewDelegate, UITableViewDataSource{
             if self.allGenres?.count ?? 0 > 0{
                 return 1
             }
+        }else if keyVal == moviesKeyUI.languages {
+            if self.allLanguages?.count ?? 0 > 0{
+                return 1
+            }
         }else if keyVal == moviesKeyUI.paging {
             if self.streamingNowMovies?.count ?? 0 > 0{
                 return 1
@@ -139,6 +146,10 @@ extension ZTNowViewController: UITableViewDelegate, UITableViewDataSource{
         if keyVal == moviesKeyUI.genres {
             let cell: ZTVideoTypeTableViewCell = tableView.dequeueReusableCell(withIdentifier: ZTCellNameOrIdentifier.ZTVideoTypeTableViewCell, for: indexPath) as! ZTVideoTypeTableViewCell
             cell.loadTopics(videosVal: self.allGenres, delegateVal: self)
+            return cell
+        }else if keyVal == moviesKeyUI.languages {
+            let cell: ZTVideoTypeTableViewCell = tableView.dequeueReusableCell(withIdentifier: ZTCellNameOrIdentifier.ZTVideoTypeTableViewCell, for: indexPath) as! ZTVideoTypeTableViewCell
+            cell.loadLanguages(videosVal: self.allLanguages, delegateVal: self)
             return cell
         }else if keyVal == moviesKeyUI.paging {
             let cell: ZTPagingTableViewCell = tableView.dequeueReusableCell(withIdentifier: ZTCellNameOrIdentifier.ZTPagingTableViewCell, for: indexPath) as! ZTPagingTableViewCell
@@ -172,10 +183,18 @@ extension ZTNowViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let keyVal = self.allTitles[section]
         let cellHeight:CGFloat = 45
-        if keyVal == moviesKeyUI.genres || keyVal == moviesKeyUI.paging {
+        if keyVal == moviesKeyUI.paging{
             return 0.1
         }else {
-            if keyVal == moviesKeyUI.continue_watching {
+            if keyVal == moviesKeyUI.genres {
+                if self.allGenres?.count ?? 0 > 0{
+                    return cellHeight
+                }
+            }else if keyVal == moviesKeyUI.languages {
+                if self.allLanguages?.count ?? 0 > 0{
+                    return cellHeight
+                }
+            }else if keyVal == moviesKeyUI.continue_watching {
                 if self.continueWatching?.count ?? 0 > 0{
                     return cellHeight
                 }
@@ -212,8 +231,12 @@ extension ZTNowViewController: UITableViewDelegate, UITableViewDataSource{
         headerView.btnMore.isHidden = true
         headerView.btnMore.tag = section
         headerView.btnMore.addTarget(self, action: #selector(moreBtnTapped(sender:)), for: .touchUpInside)
-        if keyVal == moviesKeyUI.paging || keyVal == moviesKeyUI.genres{
-            headerView.lblTitle.text = ""
+        if keyVal == moviesKeyUI.paging{
+            if keyVal == moviesKeyUI.genres || keyVal == moviesKeyUI.languages{
+                headerView.lblTitle.text = keyVal
+            }else{
+                headerView.lblTitle.text = ""
+            }
             headerView.btnMore.isHidden = true
         }else{
             if keyVal == moviesKeyUI.continue_watching {
@@ -264,7 +287,7 @@ extension ZTNowViewController{
     @objc func moreBtnTapped(sender: UIButton){
         let keyVal = self.allTitles[sender.tag]
         
-        if keyVal == moviesKeyUI.genres || keyVal == moviesKeyUI.paging || keyVal == moviesKeyUI.continue_watching || keyVal == moviesKeyUI.zetta_movies_originals || keyVal == moviesKeyUI.latest_web_series{
+        if keyVal == moviesKeyUI.genres || keyVal == moviesKeyUI.paging || keyVal == moviesKeyUI.languages || keyVal == moviesKeyUI.continue_watching || keyVal == moviesKeyUI.zetta_movies_originals || keyVal == moviesKeyUI.latest_web_series{
             Helper.shared.goToMoviesCategoryListScreen(viewController: self, movieKey: keyVal)
         }else{
             
@@ -477,8 +500,35 @@ extension ZTNowViewController{
             }
         }
     }
+    func getLanguageList(){
+        if NetworkReachability.shared.isReachable {
+            self.showActivityIndicator(self.view)
+            ZTCommonAPIWrapper.getLanguages(pageNumber: self.pageNumber, pageSize: 100) { response, error in
+                self.allLanguages?.removeAll()
+                self.hideActivityIndicator(self.view)
+                if error != nil{
+                    WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
+                      
+                    }, failureBlock: { (errorMsg) in
+                       
+                    })
+                    return
+                }
+                if let responseVal = response{
+                    self.allLanguages?.append(contentsOf: responseVal.content ?? [])
+                    DispatchQueue.main.async {
+                        self.refreshTable()
+                    }
+                }
+            }
+        }
+    }
 }
 extension ZTNowViewController : ZTPagingDelegate, ZTHomePageDelegate, ZTSelectedGenresDelegate, ZTContinueWatchingDelegate{
+    func selectedLanguageIndex(tagVal: Int) {
+        Helper.shared.goToMoviesCategoryListScreen(viewController: self, movieKey: self.allLanguages?[tagVal].languageName ?? "", langId: self.allLanguages?[tagVal].languageId ?? -1)
+    }
+    
     func selectedVideoModel(movieInfo: Movies, indexVal: Int) {
         Helper.shared.goToMovieDetails(viewController: self, movieInfo: movieInfo)
     }

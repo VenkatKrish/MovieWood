@@ -15,7 +15,9 @@ class ZTUpcomingViewController: UIViewController {
     var continueWatching : [Movies]? = []
     var popularMovies : [Movies]? = []
     var allGenres : [Genres]? = []
-    var allTitles = [moviesKeyUI.paging, moviesKeyUI.genres, moviesKeyUI.recommended, moviesKeyUI.latest_tamil_movies]
+    var allLanguages : [Languages]? = []
+
+    var allTitles = [moviesKeyUI.paging,  moviesKeyUI.recommended, moviesKeyUI.latest_tamil_movies] //moviesKeyUI.genres, moviesKeyUI.languages,
     var pageSize : Int = 5
     var pageNumber : Int = 0
     
@@ -72,7 +74,8 @@ class ZTUpcomingViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.getUpcomingVideos()
             self.getPopularMovies()
-            self.getGenrieList()
+//            self.getGenrieList()
+//            self.getLanguageList()
             self.movieColPageNumber = 0
             self.getAllCollections(isSpinnerNeeded: true)
         }
@@ -107,6 +110,10 @@ extension ZTUpcomingViewController: UITableViewDelegate, UITableViewDataSource{
             if self.allGenres?.count ?? 0 > 0{
                 return 1
             }
+        }else if keyVal == moviesKeyUI.languages {
+            if self.allLanguages?.count ?? 0 > 0{
+                return 1
+            }
         }else if keyVal == moviesKeyUI.paging {
             if self.upcomingMovies?.count ?? 0 > 0{
                 return 1
@@ -128,6 +135,10 @@ extension ZTUpcomingViewController: UITableViewDelegate, UITableViewDataSource{
         if keyVal == moviesKeyUI.genres {
             let cell: ZTVideoTypeTableViewCell = tableView.dequeueReusableCell(withIdentifier: ZTCellNameOrIdentifier.ZTVideoTypeTableViewCell, for: indexPath) as! ZTVideoTypeTableViewCell
             cell.loadTopics(videosVal: self.allGenres, delegateVal: self)
+            return cell
+        }else if keyVal == moviesKeyUI.languages {
+            let cell: ZTVideoTypeTableViewCell = tableView.dequeueReusableCell(withIdentifier: ZTCellNameOrIdentifier.ZTVideoTypeTableViewCell, for: indexPath) as! ZTVideoTypeTableViewCell
+            cell.loadLanguages(videosVal: self.allLanguages, delegateVal: self)
             return cell
         }else if keyVal == moviesKeyUI.paging {
             let cell: ZTPagingTableViewCell = tableView.dequeueReusableCell(withIdentifier: ZTCellNameOrIdentifier.ZTPagingTableViewCell, for: indexPath) as! ZTPagingTableViewCell
@@ -154,9 +165,18 @@ extension ZTUpcomingViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let keyVal = self.allTitles[section]
         let cellHeight:CGFloat = 45
-        if keyVal == moviesKeyUI.genres || keyVal == moviesKeyUI.paging {
+        if keyVal == moviesKeyUI.paging{
             return 0.1
         }else {
+            if keyVal == moviesKeyUI.genres {
+                if self.allGenres?.count ?? 0 > 0{
+                    return cellHeight
+                }
+            }else if keyVal == moviesKeyUI.languages {
+                if self.allLanguages?.count ?? 0 > 0{
+                    return cellHeight
+                }
+            }
             if keyVal == moviesKeyUI.recommended {
                 if self.popularMovies?.count ?? 0 > 0{
                     return cellHeight
@@ -185,8 +205,12 @@ extension ZTUpcomingViewController: UITableViewDelegate, UITableViewDataSource{
         headerView.btnMore.isHidden = true
         headerView.btnMore.tag = section
         headerView.btnMore.addTarget(self, action: #selector(moreBtnTapped(sender:)), for: .touchUpInside)
-        if keyVal == moviesKeyUI.paging || keyVal == moviesKeyUI.genres{
-            headerView.lblTitle.text = ""
+        if keyVal == moviesKeyUI.paging{
+            if keyVal == moviesKeyUI.genres || keyVal == moviesKeyUI.languages{
+                headerView.lblTitle.text = keyVal
+            }else{
+                headerView.lblTitle.text = ""
+            }
             headerView.btnMore.isHidden = true
         }else{
             headerView.lblTitle.text = keyVal
@@ -367,8 +391,35 @@ extension ZTUpcomingViewController{
             }
         }
     }
+    func getLanguageList(){
+        if NetworkReachability.shared.isReachable {
+            self.showActivityIndicator(self.view)
+            ZTCommonAPIWrapper.getLanguages(pageNumber: self.pageNumber, pageSize: 100) { response, error in
+                self.allLanguages?.removeAll()
+                self.hideActivityIndicator(self.view)
+                if error != nil{
+                    WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
+                      
+                    }, failureBlock: { (errorMsg) in
+                       
+                    })
+                    return
+                }
+                if let responseVal = response{
+                    self.allLanguages?.append(contentsOf: responseVal.content ?? [])
+                    DispatchQueue.main.async {
+                        self.refreshTable()
+                    }
+                }
+            }
+        }
+    }
 }
 extension ZTUpcomingViewController : ZTPagingDelegate, ZTHomePageDelegate, ZTSelectedGenresDelegate{
+    func selectedLanguageIndex(tagVal: Int) {
+        Helper.shared.goToMoviesCategoryListScreen(viewController: self, movieKey: self.allLanguages?[tagVal].languageName ?? "", langId: self.allLanguages?[tagVal].languageId ?? -1)
+    }
+    
     func selectedVideoModel(movieInfo: Movies, indexVal: Int) {
         Helper.shared.goToMovieDetails(viewController: self, movieInfo: movieInfo)
     }

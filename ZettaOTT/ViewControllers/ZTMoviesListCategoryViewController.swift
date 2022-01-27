@@ -23,6 +23,7 @@ class ZTMoviesListCategoryViewController: UIViewController {
     var pageSize : Int = 50
     var movieCollectionId : Int64 = -1
     var genreId : Int64 = -1
+    var langId : Int64 = -1
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +50,9 @@ class ZTMoviesListCategoryViewController: UIViewController {
         }else if movieCollectionId != -1{
             self.getCollectionList(isSpinnerNeeded: isSpinnerNeeded)
         }else if genreId != -1{
-            self.searchMoviesByGenreLang(ids: [genreId], langs: [], isSpinnerNeeded: isSpinnerNeeded)
+            self.searchMoviesByGenre(ids: [genreId], isSpinnerNeeded: isSpinnerNeeded)
+        }else if langId != -1{
+            self.searchMoviesByLang(ids: [self.movieKey], isSpinnerNeeded: isSpinnerNeeded)
         }
         
     }
@@ -208,12 +211,18 @@ extension ZTMoviesListCategoryViewController{
                     self.movieListCollection.reloadData()
                 }
             }
+        }else if langId != -1{
+            if self.videosList?.count ?? 0 > 0{
+                DispatchQueue.main.async {
+                    self.movieListCollection.reloadData()
+                }
+            }
         }
         if self.videosList?.count ?? 0 == 0 && self.collectionsList?.count ?? 0 == 0{
             Helper.shared.showNoView(title: "", description: "", fromView: self.movieListCollection, hideActionBtn: true, imageName: "",fromViewController: self )
         }
     }
-    func searchMoviesByGenreLang(ids:[Int64] = [], langs:[Int64] = [], isSpinnerNeeded:Bool){
+    func searchMoviesByGenre(ids:[Int64] = [], isSpinnerNeeded:Bool){
         var genreIds = ""
         if ids.count > 0{
             for (index, i) in ids.enumerated(){
@@ -238,6 +247,52 @@ extension ZTMoviesListCategoryViewController{
                 DispatchQueue.main.async {
                 self.hideActivityIndicator(self.view)
                 }
+                }
+                Helper.shared.removeNoView(fromView: self.movieListCollection)
+                if error != nil{
+                    WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
+                        
+                    }, failureBlock: { (errorMsg) in
+                       
+                    })
+                    return
+                }
+                if let responseVal = response{
+                    self.videosList?.append(contentsOf: responseVal.content ?? [])
+                    if responseVal.last == true{
+                        self.isPageEnable = false
+                    }else{
+                        self.isPageEnable = true
+                    }
+                    self.refreshUI()
+                }
+            }
+        }
+    }
+    func searchMoviesByLang(ids:[String] = [], isSpinnerNeeded:Bool){
+        var lanIds = ""
+        if ids.count > 0{
+            for (index, i) in ids.enumerated(){
+                if index > 0{
+                    lanIds = String(format: "%@;%@",lanIds,i)
+                }else{
+                    lanIds = String(format: "%@", i)
+                }
+            }
+           
+        }
+        lanIds = String(format: "%@%@", MovieSearchTag.langFilter.rawValue, lanIds)
+        debugPrint("lanIds\(lanIds)")
+        
+        if NetworkReachability.shared.isReachable {
+            if isSpinnerNeeded == true{
+            self.showActivityIndicator(self.view)
+            }
+            ZTCommonAPIWrapper.searchMoviesGET(search: lanIds, page: self.pageNumber, size: self.pageSize) { (response, error) in
+                if isSpinnerNeeded == true{
+                    DispatchQueue.main.async {
+                        self.hideActivityIndicator(self.view)
+                    }
                 }
                 Helper.shared.removeNoView(fromView: self.movieListCollection)
                 if error != nil{

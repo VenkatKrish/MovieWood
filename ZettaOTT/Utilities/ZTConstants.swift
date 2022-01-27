@@ -73,6 +73,9 @@ class ZTDefaultValues{
     static let imageBaseURL = "https://d12roikjmrtrj5.cloudfront.net" // client
 
     static let dummyPwd = "123456789abcd"
+    static let iOS_Subtitle = "application/x-subrip"
+
+    
 }
 class ZTValidationMessage{
     static let FIRST_NAME_REQUIRED = "First Name Required"
@@ -173,12 +176,13 @@ class ZTControllerName{
 class moviesKeyUI {
     static let paging = "Paging"
     static let continue_watching = "Continue Watching"
-    static let genres = "Genres"
+    static let genres = "Filter by Genre"
     static let zetta_movies_originals = "Moviewood Originals"
     static let popular_movies = "Popular Movies"
     static let recommended = "Recommended"
     static let latest_tamil_movies = "Tamil Movies"
     static let latest_web_series = "Latest Web Series"
+    static let languages = "Filter by Language"
 
 }
 class ZTStoryBoardName{

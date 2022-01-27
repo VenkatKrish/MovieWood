@@ -18,6 +18,7 @@ class ZTAboutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.lblTitle.text = titleVal
+        self.lblVersion.text = String(format: "Version %@",  app_version)
         self.getContentDetails(isSpinnerNeeded: true, seoUrl: self.typeKey)
     }
     

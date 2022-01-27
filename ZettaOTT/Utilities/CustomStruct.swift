@@ -7,6 +7,8 @@
 import Foundation
 import UIKit
 
+
+
 public enum GlobalMediaType : Int {
        case image = 0
        case video = 1
@@ -42,7 +44,7 @@ enum MovieSearchTag : String {
     case streamNow = "contenttype=Movie"
     case streamNowWebseries = "contenttype=Series"
     case streamNowShortFilms = "contenttype=Shorts"
-
+    case langFilter = "active:Y,showInIos:Y,primaryLanguageLISTSTR="
     func MovieSearchTag() -> String{
         return self.rawValue
     }
@@ -191,4 +193,14 @@ struct StopWatch {
     var hoursMinutesAndSeconds: (hours: Int, minutes: Int, seconds: Int) {
         return (hours, minutes, seconds)
     }
+}
+
+
+struct NextMovieSeasonEpisode {
+    var movieId:Int64?
+    var seasonId:Int64?
+    var episodeId:Int64?
+    var seasonModel : MovieSeasons?
+    var episodeModel : MovieEpisodes?
+    var orderVal: Int?
 }

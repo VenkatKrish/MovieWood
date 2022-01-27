@@ -21,8 +21,9 @@ public struct Genres: Codable {
     public var modifiedOn: Date?
     public var ordering: Int64?
     public var versionNumber: Int64?
-
-    public init(createdBy: String?, createdOn: Date?, genreDescription: String?, genreId: Int64?, genreName: String?, lastUpdateLogin: String?, modifiedBy: String?, modifiedOn: Date?, ordering: Int64?, versionNumber: Int64?) {
+    public var bgColor: String?
+    
+    public init(createdBy: String?, createdOn: Date?, genreDescription: String?, genreId: Int64?, genreName: String?, lastUpdateLogin: String?, modifiedBy: String?, modifiedOn: Date?, ordering: Int64?, versionNumber: Int64?, bgColor: String?) {
         self.createdBy = createdBy
         self.createdOn = createdOn
         self.genreDescription = genreDescription
@@ -33,8 +34,7 @@ public struct Genres: Codable {
         self.modifiedOn = modifiedOn
         self.ordering = ordering
         self.versionNumber = versionNumber
+        self.bgColor = bgColor
     }
-
-
 }
 

@@ -165,6 +165,7 @@
 		3966BBC227664EC500D41E9D /* FacebookCore in Frameworks */ = {isa = PBXBuildFile; productRef = 3966BBC127664EC500D41E9D /* FacebookCore */; };
 		3966BBC427664EC500D41E9D /* FacebookLogin in Frameworks */ = {isa = PBXBuildFile; productRef = 3966BBC327664EC500D41E9D /* FacebookLogin */; };
 		3966BBC627664EC500D41E9D /* FacebookShare in Frameworks */ = {isa = PBXBuildFile; productRef = 3966BBC527664EC500D41E9D /* FacebookShare */; };
+		3982233C27A0446500A278E1 /* MovieSubtitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3982233B27A0446500A278E1 /* MovieSubtitles.swift */; };
 		398A8833273E7E7C00C3EC90 /* UserImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398A8830273E7E7C00C3EC90 /* UserImage.swift */; };
 		398A8834273E7E7C00C3EC90 /* AppUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398A8831273E7E7C00C3EC90 /* AppUserModel.swift */; };
 		398EA7BC27709EA600D26712 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398EA7BA27709EA600D26712 /* IAPHelper.swift */; };
@@ -524,6 +525,7 @@
 		3964A5E02710832B00726487 /* ZTContinueWatchingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTContinueWatchingCell.xib; sourceTree = "<group>"; };
 		3964A5E42710834500726487 /* ZTContinueWatchingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTContinueWatchingCollectionCell.swift; sourceTree = "<group>"; };
 		3964A5E52710834500726487 /* ZTContinueWatchingCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTContinueWatchingCollectionCell.xib; sourceTree = "<group>"; };
+		3982233B27A0446500A278E1 /* MovieSubtitles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieSubtitles.swift; sourceTree = "<group>"; };
 		398A8830273E7E7C00C3EC90 /* UserImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserImage.swift; sourceTree = "<group>"; };
 		398A8831273E7E7C00C3EC90 /* AppUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUserModel.swift; sourceTree = "<group>"; };
 		398EA7BA27709EA600D26712 /* IAPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
@@ -1161,6 +1163,7 @@
 		39EBD2DB273C003800BEE73A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3982233B27A0446500A278E1 /* MovieSubtitles.swift */,
 				392D9159278A0DD000ACC258 /* MovieEpisodes.swift */,
 				39A0DBB2277E22D00095EEE2 /* PageFaqGroups.swift */,
 				39A0DBB3277E22D00095EEE2 /* PageFaqs.swift */,
@@ -1581,6 +1584,7 @@
 				39F64000273D51A600549A25 /* CommonRequest.swift in Sources */,
 				3957BC3127512069002AC22D /* ZTUserReviewTableViewCell.swift in Sources */,
 				39EBD2D5273BFDA100BEE73A /* Extensions.swift in Sources */,
+				3982233C27A0446500A278E1 /* MovieSubtitles.swift in Sources */,
 				39EBD34E273C003800BEE73A /* ToggleActiveMovieRequest.swift in Sources */,
 				39EBD341273C003800BEE73A /* PageMCollections.swift in Sources */,
 				39EBD351273C003800BEE73A /* QuickDashboard.swift in Sources */,

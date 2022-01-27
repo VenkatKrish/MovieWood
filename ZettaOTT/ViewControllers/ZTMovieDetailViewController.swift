@@ -28,8 +28,11 @@ struct MyConstraint {
     }
 }
 class ZTMovieDetailViewController: UIViewController {
+    var nextMovieSeasonEpisode:[NextMovieSeasonEpisode] = []
     var movieLinkModel:MovieLinkModel? = nil
+    var isLastSeasonVideo : Bool = false
     var movieSeasonId : Int64 = 0
+    var readMoreTextLimit:Int64 = 120
     var seasonEpisodeId : Int64 = 0
     var currentDuration : TimeInterval = -1
     var overAllDuration : Double = 0
@@ -151,7 +154,7 @@ class ZTMovieDetailViewController: UIViewController {
         self.refreshReadmoreUI()
         if let movieInfo = self.moviewDetails{
             self.lblMovieDescription.text = movieInfo.movieDescription ?? ""
-            if (movieInfo.movieDescription ?? "").count > 0{
+            if (movieInfo.movieDescription ?? "").count > self.readMoreTextLimit{
                 self.stackReadmore.isHidden = false
             }else{
                 self.stackReadmore.isHidden = true
@@ -232,7 +235,8 @@ class ZTMovieDetailViewController: UIViewController {
     @IBAction func btnTeaserPlay(_ sender: Any) {
         self.loadVideo(strUrl: self.moviewDetails?.teaserUrl ?? "")
     }
-    func loadVideo(strUrl:String, seekTime:Int64? = 0){
+    func loadVideo(strUrl:String, seekTime:Int64? = 0, subsURl:String? = ""){
+        
         if let url = URL.init(string: strUrl) {
         let timeInterval = Double((seekTime ?? 0) * 60)
         self.videoPlayerView.isHidden = false
@@ -244,8 +248,14 @@ class ZTMovieDetailViewController: UIViewController {
                 self.btnBack.isHidden = false
                 self.videoPlayerView.isHidden = true
             }
+            var subtitle:BMSubtitles? = nil
+            if subsURl?.count ?? 0 > 0{
+                let subTitleUrlVal = URL.init(string: subsURl ?? "")
+                subtitle = BMSubtitles(url: subTitleUrlVal!)
+            }
             
-            let asset = BMPlayerResource(url: url)
+            let asset = BMPlayerResource(name: "", definitions: [BMPlayerResourceDefinition(url: url, definition: "")], cover: nil, subtitles: subtitle)
+//            let asset = BMPlayerResource(url: url)
             self.playerView.delegate = self
             self.playerView.setVideo(resource: asset)
             self.playerView.seek(timeInterval, completion: nil)
@@ -461,6 +471,19 @@ extension ZTMovieDetailViewController{
                     
                     DispatchQueue.main.async {
                         self.movieSeasons?.append(contentsOf: responseVal.content ?? [])
+                        var orderVal : Int = 0
+                        
+                        self.movieSeasons =  self.movieSeasons?.sorted { $0.ordering ?? 0 < $1.ordering ?? 0 }
+                      
+
+                        for var i in self.movieSeasons ?? []{
+                            i.movieEpisodes =  i.movieEpisodes?.sorted { $0.ordering ?? 0 < $1.ordering ?? 0 }
+                            for j in i.movieEpisodes ?? []{
+                                let nxtMovEpi = NextMovieSeasonEpisode(movieId: self.moviewDetails?.movieId, seasonId: i.seasonId, episodeId: j._id, seasonModel: i, episodeModel: j, orderVal: orderVal)
+                                orderVal += 1
+                                self.nextMovieSeasonEpisode.append(nxtMovEpi)
+                            }
+                        }
                         
                         if self.movieSeasons?.count ?? 0 > 0{
                             self.stackSeason.isHidden = false
@@ -603,7 +626,11 @@ extension ZTMovieDetailViewController{
                             self.loadVideo(strUrl: linkVal)
                         }
                     }else {
-                        self.loadVideo(strUrl: self.movieLinkModel?.movieUrl ?? "", seekTime: self.movieLinkModel?.initialSeekTime ?? 0)
+                        var subsURL:String = ""
+                        if let filteredVal = self.moviewDetails?.movieSubtitles?.filter({ $0.subType?.lowercased() == ZTDefaultValues.iOS_Subtitle.lowercased()}), filteredVal.count > 0{
+                            subsURL = filteredVal[0].subUrl ?? ""
+                        }
+                        self.loadVideo(strUrl: self.movieLinkModel?.movieUrl ?? "", seekTime: self.movieLinkModel?.initialSeekTime ?? 0, subsURl: subsURL)
                     }
     }
 }
@@ -651,10 +678,35 @@ extension ZTMovieDetailViewController:WriteAReviewDelegate{
     }
 }
 extension ZTMovieDetailViewController:BMPlayerDelegate{
+    func getNextSeasonEpisode(){
+        if let paymentStatus = self.moviewDetails?.paymentStatus, paymentStatus == MoviePaymentStatusStruct.paid.rawValue{
+            if self.nextMovieSeasonEpisode.count > 0{
+                if let index = self.nextMovieSeasonEpisode.firstIndex(where: { $0.seasonId ?? 0 == self.movieSeasonId && $0.episodeId ?? 0 == self.seasonEpisodeId}){
+                    let modelVal = self.nextMovieSeasonEpisode[index]
+                    let lastModel = self.nextMovieSeasonEpisode[self.nextMovieSeasonEpisode.count - 1]
+                    if modelVal.orderVal == lastModel.orderVal{
+                        self.isLastSeasonVideo = true
+                    }else{
+                        self.isLastSeasonVideo = false
+                        let nxtVal = self.nextMovieSeasonEpisode[index + 1]
+                        self.seasonEpisodeId = nxtVal.episodeId ?? 0
+                        self.movieSeasonId = nxtVal.seasonId ?? 0
+                        self.loadVideo(strUrl: nxtVal.episodeModel?.sourceUrl ?? "")
+                    }
+                }
+            }
+        }
+        
+    }
     func bmPlayer(player: BMPlayer, playerStateDidChange state: BMPlayerState) {
         switch state {
         case .readyToPlay:
             self.playerView.play()
+            break
+        case .playedToTheEnd:
+            if self.moviewDetails?.movieType == MovieTypes.WebSeries.rawValue{
+                self.getNextSeasonEpisode()
+            }
             break
         default: break
             

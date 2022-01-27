@@ -23,8 +23,10 @@ public struct Languages: Codable {
     public var modifiedBy: String?
     public var modifiedOn: Date?
     public var versionNumber: Int64?
+    public var bgColor: String?
 
-    public init(active: String?, createdBy: String?, createdOn: Date?, isoLanguage: String?, languageCode: String?, languageDescription: String?, languageId: Int64?, languageName: String?, lastUpdateLogin: String?, modifiedBy: String?, modifiedOn: Date?, versionNumber: Int64?) {
+    
+    public init(active: String?, createdBy: String?, createdOn: Date?, isoLanguage: String?, languageCode: String?, languageDescription: String?, languageId: Int64?, languageName: String?, lastUpdateLogin: String?, modifiedBy: String?, modifiedOn: Date?, versionNumber: Int64?, bgColor: String?) {
         self.active = active
         self.createdBy = createdBy
         self.createdOn = createdOn
@@ -37,6 +39,7 @@ public struct Languages: Codable {
         self.modifiedBy = modifiedBy
         self.modifiedOn = modifiedOn
         self.versionNumber = versionNumber
+        self.bgColor = bgColor
     }
 
 

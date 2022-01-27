@@ -449,8 +449,11 @@ open class BMPlayerControlView: UIView {
     fileprivate func showSubtile(from subtitle: BMSubtitles, at time: TimeInterval) {
         if let group = subtitle.search(for: time) {
             subtitleBackView.isHidden = false
-            subtitleLabel.attributedText = NSAttributedString(string: group.text,
-                                                              attributes: subtileAttribute)
+//            subtitleLabel.attributedText = NSAttributedString(string: group.text,
+//                                                              attributes: subtileAttribute)
+//
+            subtitleLabel.text = group.text
+
         } else {
             subtitleBackView.isHidden = true
         }
@@ -502,12 +505,12 @@ open class BMPlayerControlView: UIView {
         subtitleLabel.numberOfLines = 0
         subtitleLabel.textAlignment = .center
         subtitleLabel.textColor = UIColor.white
-        subtitleLabel.adjustsFontSizeToFitWidth = true
-        subtitleLabel.minimumScaleFactor = 0.5
+//        subtitleLabel.adjustsFontSizeToFitWidth = true
+//        subtitleLabel.minimumScaleFactor = 0.5
         subtitleLabel.font = UIFont.systemFont(ofSize: 13)
         
         subtitleBackView.layer.cornerRadius = 2
-        subtitleBackView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        subtitleBackView.backgroundColor = UIColor.black.withAlphaComponent(0.8)
         subtitleBackView.addSubview(subtitleLabel)
         subtitleBackView.isHidden = true
         
@@ -748,9 +751,9 @@ open class BMPlayerControlView: UIView {
         }
 
         subtitleBackView.snp.makeConstraints { [unowned self](make) in
-            make.bottom.equalTo(self.snp.bottom).offset(-5)
+            make.bottom.equalTo(self.snp.bottom).offset(-20)
             make.centerX.equalTo(self.snp.centerX)
-            make.width.lessThanOrEqualTo(self.snp.width).offset(-10).priority(750)
+            make.width.lessThanOrEqualTo(self.snp.width).offset(-20).priority(750)
         }
         
         subtitleLabel.snp.makeConstraints { [unowned self](make) in

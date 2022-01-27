@@ -13,7 +13,9 @@ class ZTDiscoveryViewController: UIViewController {
     var recommendedMovies : [Movies]? = []
     var latestTamilMovies : [Movies]? = []
     var allGenres : [Genres]? = []
-    var allTitles = [moviesKeyUI.genres, moviesKeyUI.recommended,
+    var allLanguages : [Languages]? = []
+
+    var allTitles = [moviesKeyUI.genres, moviesKeyUI.languages, moviesKeyUI.recommended,
         moviesKeyUI.paging,
         moviesKeyUI.latest_tamil_movies]
     var pageSize : Int = 10
@@ -63,7 +65,9 @@ class ZTDiscoveryViewController: UIViewController {
         self.getLatestTamilMovies()
         self.getRecommendedMovies()
         self.getGenrieList()
+        self.getLanguageList()
         self.getAllCollections(isSpinnerNeeded: true)
+        
     }
     
     func registerCells(){
@@ -107,6 +111,10 @@ extension ZTDiscoveryViewController: UITableViewDelegate, UITableViewDataSource{
             if self.allGenres?.count ?? 0 > 0{
                 return 1
             }
+        }else if keyVal == moviesKeyUI.languages {
+            if self.allLanguages?.count ?? 0 > 0{
+                return 1
+            }
         }else if keyVal == moviesKeyUI.paging {
             if self.streamingNowMovies?.count ?? 0 > 0{
                 return 1
@@ -132,6 +140,10 @@ extension ZTDiscoveryViewController: UITableViewDelegate, UITableViewDataSource{
         if keyVal == moviesKeyUI.genres {
             let cell: ZTVideoTypeTableViewCell = tableView.dequeueReusableCell(withIdentifier: ZTCellNameOrIdentifier.ZTVideoTypeTableViewCell, for: indexPath) as! ZTVideoTypeTableViewCell
             cell.loadTopics(videosVal: self.allGenres, delegateVal: self)
+            return cell
+        }else if keyVal == moviesKeyUI.languages {
+            let cell: ZTVideoTypeTableViewCell = tableView.dequeueReusableCell(withIdentifier: ZTCellNameOrIdentifier.ZTVideoTypeTableViewCell, for: indexPath) as! ZTVideoTypeTableViewCell
+            cell.loadLanguages(videosVal: self.allLanguages, delegateVal: self)
             return cell
         }else if keyVal == moviesKeyUI.paging {
             let cell: ZTPagingTableViewCell = tableView.dequeueReusableCell(withIdentifier: ZTCellNameOrIdentifier.ZTPagingTableViewCell, for: indexPath) as! ZTPagingTableViewCell
@@ -161,10 +173,19 @@ extension ZTDiscoveryViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let keyVal = self.allTitles[section]
         let cellHeight:CGFloat = 45
-        if keyVal == moviesKeyUI.genres || keyVal == moviesKeyUI.paging {
+        if keyVal == moviesKeyUI.paging{
             return 0.1
         }else {
-            if keyVal == moviesKeyUI.recommended {
+            if keyVal == moviesKeyUI.genres {
+                if self.allGenres?.count ?? 0 > 0{
+                    return cellHeight
+                }
+            }else if keyVal == moviesKeyUI.languages {
+                if self.allLanguages?.count ?? 0 > 0{
+                    return cellHeight
+                }
+            }
+            else if keyVal == moviesKeyUI.recommended {
                 if self.recommendedMovies?.count ?? 0 > 0{
                     return cellHeight
                 }
@@ -194,8 +215,12 @@ extension ZTDiscoveryViewController: UITableViewDelegate, UITableViewDataSource{
         headerView.btnMore.isHidden = true
         headerView.btnMore.tag = section
         headerView.btnMore.addTarget(self, action: #selector(moreBtnTapped(sender:)), for: .touchUpInside)
-        if keyVal == moviesKeyUI.paging || keyVal == moviesKeyUI.genres{
-            headerView.lblTitle.text = ""
+        if keyVal == moviesKeyUI.paging{
+            if keyVal == moviesKeyUI.genres || keyVal == moviesKeyUI.languages{
+                headerView.lblTitle.text = keyVal
+            }else{
+                headerView.lblTitle.text = ""
+            }
             headerView.btnMore.isHidden = true
         }else{
                 headerView.lblTitle.text = keyVal
@@ -236,7 +261,7 @@ extension ZTDiscoveryViewController{
     @objc func moreBtnTapped(sender: UIButton){
         let keyVal = self.allTitles[sender.tag]
         
-        if keyVal == moviesKeyUI.genres || keyVal == moviesKeyUI.paging || keyVal == moviesKeyUI.recommended || keyVal == moviesKeyUI.latest_tamil_movies{
+        if keyVal == moviesKeyUI.genres || keyVal == moviesKeyUI.languages || keyVal == moviesKeyUI.paging || keyVal == moviesKeyUI.recommended || keyVal == moviesKeyUI.latest_tamil_movies{
             Helper.shared.goToMoviesCategoryListScreen(viewController: self, movieKey: keyVal)
         }else{
             
@@ -402,8 +427,36 @@ extension ZTDiscoveryViewController{
             }
         }
     }
+    
+    func getLanguageList(){
+        if NetworkReachability.shared.isReachable {
+            self.showActivityIndicator(self.view)
+            ZTCommonAPIWrapper.getLanguages(pageNumber: self.pageNumber, pageSize: 100) { response, error in
+                self.allLanguages?.removeAll()
+                self.hideActivityIndicator(self.view)
+                if error != nil{
+                    WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
+                      
+                    }, failureBlock: { (errorMsg) in
+                       
+                    })
+                    return
+                }
+                if let responseVal = response{
+                    self.allLanguages?.append(contentsOf: responseVal.content ?? [])
+                    DispatchQueue.main.async {
+                        self.refreshTable()
+                    }
+                }
+            }
+        }
+    }
 }
 extension ZTDiscoveryViewController : ZTPagingDelegate, ZTHomePageDelegate, ZTSelectedGenresDelegate{
+    func selectedLanguageIndex(tagVal: Int) {
+        Helper.shared.goToMoviesCategoryListScreen(viewController: self, movieKey: self.allLanguages?[tagVal].languageName ?? "", langId: self.allLanguages?[tagVal].languageId ?? -1)
+    }
+    
     func selectedVideoModel(movieInfo: Movies, indexVal: Int) {
         Helper.shared.goToMovieDetails(viewController: self, movieInfo: movieInfo)
     }

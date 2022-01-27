@@ -9,20 +9,33 @@ import UIKit
 
 protocol ZTSelectedGenresDelegate{
     func selectedGenreIndex(tagVal:Int)
+    func selectedLanguageIndex(tagVal:Int)
 }
 class ZTVideoTypeTableViewCell: UITableViewCell {
     var delegate : ZTSelectedGenresDelegate?
     @IBOutlet weak var typesCollectionView: UICollectionView!
     var typesVideos : [Genres] = []
+    var languageList : [Languages] = []
 
+    var isLanguage:Bool = false
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     func loadTopics(videosVal:[Genres]? = [], delegateVal:ZTSelectedGenresDelegate){
+        self.isLanguage = false
         self.delegate = delegateVal
         self.typesCollectionView.register(UINib(nibName: ZTCellNameOrIdentifier.ZTTypesOfVideosCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: ZTCellNameOrIdentifier.ZTTypesOfVideosCollectionViewCell)
         self.typesVideos = videosVal ?? []
+        self.typesCollectionView.dataSource = self
+        self.typesCollectionView.delegate = self
+        self.typesCollectionView.reloadData()
+    }
+    func loadLanguages(videosVal:[Languages]? = [], delegateVal:ZTSelectedGenresDelegate){
+        self.delegate = delegateVal
+        self.isLanguage = true
+        self.typesCollectionView.register(UINib(nibName: ZTCellNameOrIdentifier.ZTTypesOfVideosCollectionViewCell, bundle: nil), forCellWithReuseIdentifier: ZTCellNameOrIdentifier.ZTTypesOfVideosCollectionViewCell)
+        self.languageList = videosVal ?? []
         self.typesCollectionView.dataSource = self
         self.typesCollectionView.delegate = self
         self.typesCollectionView.reloadData()
@@ -41,18 +54,35 @@ extension ZTVideoTypeTableViewCell:  UICollectionViewDataSource, UICollectionVie
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.typesVideos.count
+        if self.isLanguage == true{
+            return self.languageList.count
+        }else{
+            return self.typesVideos.count
+        }
 
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.selectedGenreIndex(tagVal: indexPath.row)
+        if self.isLanguage == true{
+            delegate?.selectedLanguageIndex(tagVal: indexPath.row)
+        }else{
+            delegate?.selectedGenreIndex(tagVal: indexPath.row)
+
+        }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZTCellNameOrIdentifier.ZTTypesOfVideosCollectionViewCell, for: indexPath) as! ZTTypesOfVideosCollectionViewCell
-        cell.loadData(data: self.typesVideos[indexPath.row], indexPath: indexPath)
+        if self.isLanguage == true{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZTCellNameOrIdentifier.ZTTypesOfVideosCollectionViewCell, for: indexPath) as! ZTTypesOfVideosCollectionViewCell
+            cell.loadLanguageData(data: self.languageList[indexPath.row], indexPath: indexPath)
+            
+            return cell
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ZTCellNameOrIdentifier.ZTTypesOfVideosCollectionViewCell, for: indexPath) as! ZTTypesOfVideosCollectionViewCell
+            cell.loadData(data: self.typesVideos[indexPath.row], indexPath: indexPath)
+            
+            return cell
+        }
         
-        return cell
     }
     // minimum line margin
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -74,7 +104,13 @@ extension ZTVideoTypeTableViewCell:  UICollectionViewDataSource, UICollectionVie
 extension ZTVideoTypeTableViewCell : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let item = self.typesVideos[indexPath.row].genreName ?? ""
+        var item : String = ""
+        if self.isLanguage == true{
+            item = self.languageList[indexPath.row].languageName ?? ""
+        }else{
+            item = self.typesVideos[indexPath.row].genreName ?? ""
+        }
+         
         
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
         let size = CGSize(width: 120, height: collectionView.frame.size.height)

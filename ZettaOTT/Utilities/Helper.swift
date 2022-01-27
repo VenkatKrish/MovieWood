@@ -432,13 +432,14 @@ extension Helper{
         initial.isMobileFlow = isMobileFlow
         viewController.navigationController?.pushViewController(initial, animated: true)
     }
-    func goToMoviesCategoryListScreen(viewController:UIViewController, movieKey:String, collectionId:Int64? = -1, genreId:Int64? = -1, title:String? = ""){
+    func goToMoviesCategoryListScreen(viewController:UIViewController, movieKey:String, collectionId:Int64? = -1, genreId:Int64? = -1, langId:Int64? = -1, title:String? = ""){
         
         let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
         let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTMoviesListCategoryViewController) as! ZTMoviesListCategoryViewController
         initial.movieKey = movieKey
         initial.movieCollectionId = collectionId ?? -1
         initial.genreId = genreId ?? -1
+        initial.langId = langId ?? -1
         viewController.navigationController?.pushViewController(initial, animated: true)
     }
     func goToMovieSearch(viewController:UIViewController){

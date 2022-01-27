@@ -18,9 +18,23 @@ class ZTTypesOfVideosCollectionViewCell: UICollectionViewCell {
     }
     func loadData(data:Genres? = nil, indexPath:IndexPath){
         if let dataVal = data{
-            
-            self.lblTitle.backgroundColor = Helper.shared.getRandomColor(indexVal: indexPath.row % colorRandom.count)
+            var colorVal = Helper.shared.getRandomColor(indexVal: indexPath.row % colorRandom.count)
+            if let bgColor = data?.bgColor, bgColor.count > 0{
+                colorVal = UIColor.init(hexString: data?.bgColor ?? "")
+            }
+            self.lblTitle.backgroundColor = colorVal
             self.lblTitle.text = dataVal.genreName ?? ""
+            self.lblTitle.font = UIFont.setAppFontRegular(13.0)
+        }
+    }
+    func loadLanguageData(data:Languages? = nil, indexPath:IndexPath){
+        if let dataVal = data{
+            var colorVal = Helper.shared.getRandomColor(indexVal: indexPath.row % colorRandom.count)
+            if let bgColor = data?.bgColor, bgColor.count > 0{
+                colorVal = UIColor.init(hexString: data?.bgColor ?? "")
+            }
+            self.lblTitle.backgroundColor = colorVal
+            self.lblTitle.text = dataVal.languageName ?? ""
             self.lblTitle.font = UIFont.setAppFontRegular(13.0)
         }
     }
