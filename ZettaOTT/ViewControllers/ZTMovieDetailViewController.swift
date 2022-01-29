@@ -235,7 +235,7 @@ class ZTMovieDetailViewController: UIViewController {
     @IBAction func btnTeaserPlay(_ sender: Any) {
         self.loadVideo(strUrl: self.moviewDetails?.teaserUrl ?? "")
     }
-    func loadVideo(strUrl:String, seekTime:Int64? = 0, subsURl:String? = ""){
+    func loadVideo(strUrl:String, seekTime:Int64? = 0, subsURl:String? = "", nameStr:String? = ""){
         
         if let url = URL.init(string: strUrl) {
         let timeInterval = Double((seekTime ?? 0) * 60)
@@ -248,13 +248,15 @@ class ZTMovieDetailViewController: UIViewController {
                 self.btnBack.isHidden = false
                 self.videoPlayerView.isHidden = true
             }
+            self.playerView.playerLayer?.resetPlayer()
+
             var subtitle:BMSubtitles? = nil
             if subsURl?.count ?? 0 > 0{
                 let subTitleUrlVal = URL.init(string: subsURl ?? "")
                 subtitle = BMSubtitles(url: subTitleUrlVal!)
             }
             
-            let asset = BMPlayerResource(name: "", definitions: [BMPlayerResourceDefinition(url: url, definition: "")], cover: nil, subtitles: subtitle)
+            let asset = BMPlayerResource(name: nameStr ?? "", definitions: [BMPlayerResourceDefinition(url: url, definition: "")], cover: nil, subtitles: subtitle)
 //            let asset = BMPlayerResource(url: url)
             self.playerView.delegate = self
             self.playerView.setVideo(resource: asset)
@@ -691,7 +693,7 @@ extension ZTMovieDetailViewController:BMPlayerDelegate{
                         let nxtVal = self.nextMovieSeasonEpisode[index + 1]
                         self.seasonEpisodeId = nxtVal.episodeId ?? 0
                         self.movieSeasonId = nxtVal.seasonId ?? 0
-                        self.loadVideo(strUrl: nxtVal.episodeModel?.sourceUrl ?? "")
+                        self.loadVideo(strUrl: nxtVal.episodeModel?.sourceUrl ?? "", nameStr: nxtVal.episodeModel?.name ?? "")
                     }
                 }
             }
@@ -811,7 +813,7 @@ extension ZTMovieDetailViewController: CarbonTabSwipeNavigationDelegate {
                 self.movieSeasonId = args.movieSeason?.seasonId ?? 0
                 self.seasonEpisodeId = args.movieEpisodes?._id ?? 0
     //            self.getMovieLink()
-                self.loadVideo(strUrl: args.movieEpisodes?.sourceUrl ?? "")
+                self.loadVideo(strUrl: args.movieEpisodes?.sourceUrl ?? "", nameStr: args.movieEpisodes?.name ?? "")
             }
         }
     }
