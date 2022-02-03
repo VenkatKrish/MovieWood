@@ -139,6 +139,7 @@ class ZTCellNameOrIdentifier{
     static let ZTMyTransactionsTableViewCell = "ZTMyTransactionsTableViewCell"
     static let ZTFAQsTableViewCell = "ZTFAQsTableViewCell"
     static let ZTSeasonEpisodeCollectionViewCell = "ZTSeasonEpisodeCollectionViewCell"
+    static let ZTFilterHeaderCollectionReusableView = "ZTFilterHeaderCollectionReusableView"
 
 }
 class ZTControllerName{
@@ -171,6 +172,7 @@ class ZTControllerName{
     static let ZTTickerConfirmationViewController = "ZTTickerConfirmationViewController"
     static let ZTCustomAlertViewController = "ZTCustomAlertViewController"
     static let ZTSeasonVideoListViewController = "ZTSeasonVideoListViewController"
+    static let ZTFilterViewController = "ZTFilterViewController"
     
 }
 class moviesKeyUI {
@@ -183,6 +185,9 @@ class moviesKeyUI {
     static let latest_tamil_movies = "Tamil Movies"
     static let latest_web_series = "Latest Web Series"
     static let languages = "Filter by Language"
+    static let col_title_languages = "Language"
+    static let col_title_genre = "Genre"
+
 
 }
 class ZTStoryBoardName{

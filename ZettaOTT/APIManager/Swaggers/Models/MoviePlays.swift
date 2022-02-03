@@ -30,8 +30,10 @@ public struct MoviePlays: Codable {
     public var timezone: String?
     public var userId: Int64?
     public var versionNumber: Int64?
+    public var playDuration: Int64?
 
-    public init(country: String?, createdBy: String?, createdOn: Date?, deviceInfo: String?, ipAddress: String?, lastUpdateLogin: String?, modifiedBy: String?, modifiedOn: Date?, movieId: Int64?, moviePlayId: Int64?, operatingSystem: String?, playEndTime: String?, playSeekTime: Int64?, seasonId: Int64?, episodeId: Int64?, playStartTime: Date?, timezone: String?, userId: Int64?, versionNumber: Int64?) {
+
+    public init(country: String?, createdBy: String?, createdOn: Date?, deviceInfo: String?, ipAddress: String?, lastUpdateLogin: String?, modifiedBy: String?, modifiedOn: Date?, movieId: Int64?, moviePlayId: Int64?, operatingSystem: String?, playEndTime: String?, playSeekTime: Int64?, seasonId: Int64?, episodeId: Int64?, playStartTime: Date?, timezone: String?, userId: Int64?, versionNumber: Int64?, playDuration: Int64?) {
         self.country = country
         self.createdBy = createdBy
         self.createdOn = createdOn
@@ -51,6 +53,7 @@ public struct MoviePlays: Codable {
         self.timezone = timezone
         self.userId = userId
         self.versionNumber = versionNumber
+        self.playDuration = playDuration
     }
 
 

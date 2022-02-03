@@ -28,6 +28,13 @@ struct MyConstraint {
     }
 }
 class ZTMovieDetailViewController: UIViewController {
+    
+    private weak var displayLink: CADisplayLink?
+    private var startTime: TimeInterval?
+    private var elapsed: TimeInterval = 0
+    private var priorElapsed: TimeInterval = 0
+    private var totalElapsed: TimeInterval = 0
+
     var nextMovieSeasonEpisode:[NextMovieSeasonEpisode] = []
     var movieLinkModel:MovieLinkModel? = nil
     var isLastSeasonVideo : Bool = false
@@ -116,15 +123,7 @@ class ZTMovieDetailViewController: UIViewController {
         AppUtility.lockOrientation(.portrait)
         self.playerView.pause(allowAutoPlay: false)
         if currentDuration != -1{
-            
-            // later will remove this condition
-//            if self.moviewDetails?.movieType == MovieTypes.WebSeries.rawValue{
-//
-//            }else{
-//                self.updateVideoPlayTime(currentTime: self.currentDuration)
-//            }
-            self.updateVideoPlayTime(currentTime: self.currentDuration)
-
+            self.updateVideoPlayTime(currentTime: self.currentDuration, elapsedTime: self.totalElapsed)
         }
         
         NotificationCenter.default.removeObserver(self, name: Notification.Name(SEASON_VIDEO_SELECTION), object: nil)
@@ -238,7 +237,7 @@ class ZTMovieDetailViewController: UIViewController {
     func loadVideo(strUrl:String, seekTime:Int64? = 0, subsURl:String? = "", nameStr:String? = ""){
         
         if let url = URL.init(string: strUrl) {
-        let timeInterval = Double((seekTime ?? 0) * 60)
+            let timeInterval = Double(seekTime ?? 0)//68// Double((seekTime ?? 0) * 60)
         self.videoPlayerView.isHidden = false
         self.playerView.backBlock = { [unowned self] (isFullScreen) in
                 if isFullScreen == true {
@@ -640,13 +639,19 @@ extension ZTMovieDetailViewController:WriteAReviewDelegate{
     func updateUI() {
         self.getMovieDetails()
     }
-    func updateVideoPlayTime(currentTime:TimeInterval){
+    func updateVideoPlayTime(currentTime:TimeInterval, elapsedTime:TimeInterval){
         if let paymentStatus = self.moviewDetails?.paymentStatus, paymentStatus == MoviePaymentStatusStruct.paid.rawValue, let playID = self.movieLinkModel?.moviePlayId, playID > 0{
         
-            let watch:String = currentTime.asMinutesString()
-            
+            let watch  = Int64( currentTime.asSecondsString())
+        var playDuration:String = "0"
+            debugPrint("elapsedTime\(elapsedTime)")
+            if elapsedTime != 0{
+                playDuration = elapsedTime.asMinutesString()
+                debugPrint("playDuration\(playDuration)")
+            }
             //StopWatch(totalSeconds: Int(currentTime))
         print(watch)
+            
         let dateStr = Helper.shared.getFormatedDate(dateVal: Date(), dateFormat: CustomDateFormatter.orderRequestDate)
         
         var seasonIdVal:Int64 = 0
@@ -658,7 +663,7 @@ extension ZTMovieDetailViewController:WriteAReviewDelegate{
             episodeIdVal = self.seasonEpisodeId
 //            movieIdVal = 0
         }
-        let moviePlays = MoviePlays(country: nil, createdBy: nil, createdOn: nil, deviceInfo: nil, ipAddress: device_uuid, lastUpdateLogin: nil, modifiedBy: nil, modifiedOn: nil, movieId: movieIdVal, moviePlayId: self.movieLinkModel?.moviePlayId ?? -1, operatingSystem: "iOS", playEndTime: dateStr, playSeekTime: Int64(watch),seasonId: seasonIdVal, episodeId: episodeIdVal, playStartTime: nil, timezone: nil, userId: ZTAppSession.sharedInstance.getUserInfo()?.userId, versionNumber: nil)
+            let moviePlays = MoviePlays(country: nil, createdBy: nil, createdOn: nil, deviceInfo: nil, ipAddress: device_uuid, lastUpdateLogin: nil, modifiedBy: nil, modifiedOn: nil, movieId: movieIdVal, moviePlayId: self.movieLinkModel?.moviePlayId ?? -1, operatingSystem: "iOS", playEndTime: dateStr, playSeekTime: watch,seasonId: seasonIdVal, episodeId: episodeIdVal, playStartTime: nil, timezone: nil, userId: ZTAppSession.sharedInstance.getUserInfo()?.userId, versionNumber: nil, playDuration:Int64(playDuration))
        
         if NetworkReachability.shared.isReachable {
             
@@ -672,7 +677,9 @@ extension ZTMovieDetailViewController:WriteAReviewDelegate{
                     return
                 }
                 if let responseVal = response{
+                    self.totalElapsed = 0
                     debugPrint("video seek time \(responseVal)")
+                    self.resetTimer()
                 }
             }
         }
@@ -704,10 +711,21 @@ extension ZTMovieDetailViewController:BMPlayerDelegate{
         switch state {
         case .readyToPlay:
             self.playerView.play()
+            self.startTimer()
+            break
+        case .buffering:
+            self.pauseTimer()
+            break
+        case .bufferFinished:
+            self.startTimer()
             break
         case .playedToTheEnd:
             if self.moviewDetails?.movieType == MovieTypes.WebSeries.rawValue{
                 self.getNextSeasonEpisode()
+            }else{
+                
+                self.updateVideoPlayTime(currentTime: self.currentDuration, elapsedTime: self.totalElapsed)
+                self.resetTimer()
             }
             break
         default: break
@@ -733,8 +751,10 @@ extension ZTMovieDetailViewController:BMPlayerDelegate{
 //            }else{
 //                self.updateVideoPlayTime(currentTime: self.currentDuration)
 //            }
-            self.updateVideoPlayTime(currentTime: self.currentDuration)
+            self.updateVideoPlayTime(currentTime: self.currentDuration, elapsedTime: self.totalElapsed)
 
+        }else{
+            self.startTimer()
         }
     }
     
@@ -805,7 +825,7 @@ extension ZTMovieDetailViewController: CarbonTabSwipeNavigationDelegate {
     }
     @objc func videoRefresh(_ notification:NSNotification){
         
-            self.updateVideoPlayTime(currentTime: self.currentDuration)
+            self.updateVideoPlayTime(currentTime: self.currentDuration, elapsedTime: self.totalElapsed)
         
         if let args = notification.object as? SeasonVideoStruct{
             
@@ -817,4 +837,52 @@ extension ZTMovieDetailViewController: CarbonTabSwipeNavigationDelegate {
             }
         }
     }
+}
+extension ZTMovieDetailViewController{
+    
+    func startTimer(){
+        if displayLink == nil {
+                    startDisplayLink()
+        }
+    }
+    func pauseTimer(){
+        priorElapsed += elapsed
+                elapsed = 0
+                displayLink?.invalidate()
+    }
+    func resetTimer(){
+        stopDisplayLink()
+        priorElapsed = 0
+                elapsed = 0
+        self.updateUITimer()
+    }
+    func startDisplayLink() {
+            startTime = CACurrentMediaTime()
+            let displayLink = CADisplayLink(target: self, selector: #selector(handleDisplayLink(_:)))
+            displayLink.add(to: .main, forMode: .common)
+            self.displayLink = displayLink
+        }
+
+        func stopDisplayLink() {
+            displayLink?.invalidate()
+        }
+
+        @objc func handleDisplayLink(_ displayLink: CADisplayLink) {
+            guard let startTime = startTime else { return }
+            elapsed = CACurrentMediaTime() - startTime
+            updateUITimer()
+        }
+
+        func updateUITimer() {
+            self.totalElapsed = elapsed + priorElapsed
+
+//            let hundredths = Int((totalElapsed * 100).rounded())
+//            let (minutes, hundredthsOfSeconds) = hundredths.quotientAndRemainder(dividingBy: 60 * 100)
+//            let (seconds, milliseconds) = hundredthsOfSeconds.quotientAndRemainder(dividingBy: 100)
+//
+//            minutesLabel.text = String(minutes)
+//            secondsLabel.text = String(format: "%02d", seconds)
+//            milliSecondsLabel.text = String(format: "%02d", milliseconds)
+        }
+
 }

@@ -234,7 +234,7 @@ extension ZTMoviesListCategoryViewController{
             }
            
         }
-        genreIds = String(format: "%@%@", MovieSearchTag.genresFilter.rawValue, genreIds)
+        genreIds = String(format: "%@%@%@",MovieSearchTag.commonSearchKey.rawValue, MovieSearchTag.genresFilter.rawValue, genreIds)
         
         
         if NetworkReachability.shared.isReachable {
@@ -281,7 +281,7 @@ extension ZTMoviesListCategoryViewController{
             }
            
         }
-        lanIds = String(format: "%@%@", MovieSearchTag.langFilter.rawValue, lanIds)
+        lanIds = String(format: "%@%@%@", MovieSearchTag.commonSearchKey.rawValue, MovieSearchTag.langFilter.rawValue, lanIds)
         debugPrint("lanIds\(lanIds)")
         
         if NetworkReachability.shared.isReachable {

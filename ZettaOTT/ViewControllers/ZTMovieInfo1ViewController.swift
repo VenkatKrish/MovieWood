@@ -7,9 +7,22 @@
 
 import UIKit
 
-struct LoadGenresType {
+public struct LoadGenresType {
     var isSelected:Bool = false
     var genreVal:Genres? = nil
+   
+    public init(isSelected: Bool?, genreVal: Genres?) {
+        self.isSelected = isSelected ?? false
+        self.genreVal = genreVal
+    }
+}
+public struct LoadLanguageType {
+    var isSelected:Bool = false
+    var langVal:Languages? = nil
+    public init(isSelected: Bool?, langVal: Languages?) {
+        self.isSelected = isSelected ?? false
+        self.langVal = langVal
+    }
 }
 class ZTMovieInfo1ViewController: UIViewController {
     var allGenres : [LoadGenresType]? = []
@@ -191,6 +204,10 @@ extension ZTMovieInfo1ViewController : UICollectionViewDelegateFlowLayout {
     }
 }
 extension ZTMovieInfo1ViewController:btnCheckBoxDelegate{
+    func btnCheckBoxFilterTapped(btn: UIButton, filterType: String) {
+        
+    }
+    
     func btnCheckBoxTapped(btn: UIButton) {
         if self.allGenres?[btn.tag].isSelected == true{
             self.allGenres?[btn.tag].isSelected = false

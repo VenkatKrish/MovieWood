@@ -85,7 +85,7 @@ class ZTShortFilmsViewController: UIViewController {
 extension ZTShortFilmsViewController{
     func getStreamingNowMovies(){
         if NetworkReachability.shared.isReachable {
-            ZTCommonAPIWrapper.streamNow(pageNumber: self.pageNumber, pageSize: self.pageSize, sortSorted: true, contenttype: MovieSearchTag.streamNowShortFilms.rawValue) { (response, error) in
+            ZTCommonAPIWrapper.streamNow(pageNumber: self.pageNumber, pageSize: self.pageSize, sortSorted: true, contenttype: MovieSearchTag.streamNowShortFilms.rawValue, sort:SortingStruct.sort_streamDateOn_desc.rawValue) { (response, error) in
                 DispatchQueue.main.async {
                     if self.refreshControl.isRefreshing{
                         self.refreshControl.endRefreshing()

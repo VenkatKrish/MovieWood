@@ -14,11 +14,11 @@ class ZTAboutViewController: UIViewController {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var txtVwContent: UITextView!
     @IBOutlet weak var lblVersion: UILabel!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.lblTitle.text = titleVal
-        self.lblVersion.text = String(format: "Version %@",  app_version)
+        self.lblVersion.text = String(format: "Version : %@\nRelease Date : %@",  app_version, Helper.shared.getFormatedDate(dateVal: Date(), dateFormat: CustomDateFormatter.movieSubmitDate))
         self.getContentDetails(isSpinnerNeeded: true, seoUrl: self.typeKey)
     }
     

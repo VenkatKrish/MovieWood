@@ -34,17 +34,21 @@ enum StatusCodeObj : Int {
     }
 }
 enum MovieSearchTag : String {
+    case sortByRating = ",avgRating-"
+    case sortByDate = ",releaseDate-"
+    case commonSearchKey = "active:Y,showInIos:Y"
     case streamNowBanner = "featured:Y,showInIos:Y,releaseDate-,streamingStartDate-"
     case movieSearchAvg = "avgRating>3,active:Y,showInIos:Y"
     case zettaMovieOriginal = "movieType:Movie,active:Y,showInIos:Y"
     case shortFilms = "movieType:Shorts,active:Y,showInIos:Y"
     case webSeries = "movieType:Series,active:Y,showInIos:Y"
-    case genresFilter = "active:Y,showInIos:Y,movieGenresDSgenreIdLIST="
+    case genresFilter = ",movieGenresDSgenreIdLIST="
     case latestTamilMovies = "active:Y,showInIos:Y,primaryLanguage:Tamil"
     case streamNow = "contenttype=Movie"
-    case streamNowWebseries = "contenttype=Series"
-    case streamNowShortFilms = "contenttype=Shorts"
-    case langFilter = "active:Y,showInIos:Y,primaryLanguageLISTSTR="
+    case streamNowWebseries = "Series"
+    case streamNowShortFilms = "Shorts"
+    case langFilter = ",primaryLanguageLISTSTR="
+    
     func MovieSearchTag() -> String{
         return self.rawValue
     }
@@ -52,6 +56,9 @@ enum MovieSearchTag : String {
 enum SortingStruct : String {
     case sort_createdOn_desc = "createdOn,desc"
     case sort_createdOn_asc = "createdOn,asc"
+    case sort_streamDateOn_desc = "streamingStartDate,desc"
+    case sort_streamDateOn_asc = "streamingStartDate,asc"
+
     func SortingStruct() -> String{
         return self.rawValue
     }

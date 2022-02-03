@@ -364,6 +364,9 @@
 		39F64006273D7D6200549A25 /* OTPFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F64004273D7D6200549A25 /* OTPFieldView.swift */; };
 		39F64007273D7D6200549A25 /* OTPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F64005273D7D6200549A25 /* OTPTextField.swift */; };
 		39F6400B273D8E5200549A25 /* LKPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F6400A273D8E5200549A25 /* LKPageControl.swift */; };
+		39F6A4DC27AAF8CE00E90C39 /* ZTFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F6A4DB27AAF8CE00E90C39 /* ZTFilterViewController.swift */; };
+		39F6A4DF27AAFB7900E90C39 /* ZTFilterHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F6A4DD27AAFB7900E90C39 /* ZTFilterHeaderCollectionReusableView.swift */; };
+		39F6A4E027AAFB7900E90C39 /* ZTFilterHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F6A4DE27AAFB7900E90C39 /* ZTFilterHeaderCollectionReusableView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -724,6 +727,9 @@
 		39F64004273D7D6200549A25 /* OTPFieldView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPFieldView.swift; sourceTree = "<group>"; };
 		39F64005273D7D6200549A25 /* OTPTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTPTextField.swift; sourceTree = "<group>"; };
 		39F6400A273D8E5200549A25 /* LKPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LKPageControl.swift; sourceTree = "<group>"; };
+		39F6A4DB27AAF8CE00E90C39 /* ZTFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTFilterViewController.swift; sourceTree = "<group>"; };
+		39F6A4DD27AAFB7900E90C39 /* ZTFilterHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTFilterHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		39F6A4DE27AAFB7900E90C39 /* ZTFilterHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTFilterHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
 		A4A3A5FD2C49DD04C24E76FD /* Pods-ZettaOTT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZettaOTT.release.xcconfig"; path = "Target Support Files/Pods-ZettaOTT/Pods-ZettaOTT.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -854,6 +860,8 @@
 				39A0DBB7277E25330095EEE2 /* ZTFAQsTableViewCell.xib */,
 				392D915D278A0EC500ACC258 /* ZTSeasonEpisodeCollectionViewCell.swift */,
 				392D915E278A0EC500ACC258 /* ZTSeasonEpisodeCollectionViewCell.xib */,
+				39F6A4DD27AAFB7900E90C39 /* ZTFilterHeaderCollectionReusableView.swift */,
+				39F6A4DE27AAFB7900E90C39 /* ZTFilterHeaderCollectionReusableView.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -894,6 +902,7 @@
 				398FBA1C275DF766005E78E3 /* ZTShortFilmsViewController.swift */,
 				398FBA1E275DFB2F005E78E3 /* ZTNowViewController.swift */,
 				392D9157278A0AE900ACC258 /* ZTSeasonVideoListViewController.swift */,
+				39F6A4DB27AAF8CE00E90C39 /* ZTFilterViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1418,6 +1427,7 @@
 				39B86D20275BDDE10000D2CF /* ZTLanguageTableViewCell.xib in Resources */,
 				3995EA442707244300E3FB19 /* SFUIDisplay-Ultralight.otf in Resources */,
 				390D14C427062B3F00C51259 /* LaunchScreen.storyboard in Resources */,
+				39F6A4E027AAFB7900E90C39 /* ZTFilterHeaderCollectionReusableView.xib in Resources */,
 				3957BC3227512069002AC22D /* ZTUserReviewTableViewCell.xib in Resources */,
 				39A0DBB9277E25330095EEE2 /* ZTFAQsTableViewCell.xib in Resources */,
 				393F17CE2711F989005713E1 /* ZTProfileHeader.xib in Resources */,
@@ -1511,6 +1521,7 @@
 				3915789F27637D0A004F51FF /* ConstraintMaker.swift in Sources */,
 				39EBD389273C003800BEE73A /* ToggleFeaturedMovieRequest.swift in Sources */,
 				39EBD356273C003800BEE73A /* PageRegions.swift in Sources */,
+				39F6A4DC27AAF8CE00E90C39 /* ZTFilterViewController.swift in Sources */,
 				39EBD3BB273C007C00BEE73A /* NotificationControllerAPI.swift in Sources */,
 				3915788B27637D0A004F51FF /* ConstraintMakerPriortizable.swift in Sources */,
 				3915783427637BCB004F51FF /* NVActivityIndicatorShape.swift in Sources */,
@@ -1747,6 +1758,7 @@
 				3915789527637D0A004F51FF /* ConstraintDirectionalInsetTarget.swift in Sources */,
 				39EBD345273C003800BEE73A /* DailyRates.swift in Sources */,
 				392D915A278A0DD000ACC258 /* MovieEpisodes.swift in Sources */,
+				39F6A4DF27AAFB7900E90C39 /* ZTFilterHeaderCollectionReusableView.swift in Sources */,
 				39A0DBB4277E22D00095EEE2 /* PageFaqGroups.swift in Sources */,
 				39EBD34B273C003800BEE73A /* UsernameRequest.swift in Sources */,
 				39EBD3CD273C007C00BEE73A /* ActorControllerAPI.swift in Sources */,
@@ -1943,7 +1955,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = PK5XQ274B4;
 				INFOPLIST_FILE = ZettaOTT/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1968,7 +1980,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = PK5XQ274B4;
 				INFOPLIST_FILE = ZettaOTT/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

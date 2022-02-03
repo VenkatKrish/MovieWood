@@ -8,12 +8,24 @@
 import UIKit
 
 class ZTDiscoveryViewController: UIViewController {
+    
+    var filterApplied : Bool = false
+    var filterSortedDate:Bool = false
+    var filterSortedRating:Bool = false
+    var filterGenreArray:[LoadGenresType] = []
+    var filterLangArray:[LoadLanguageType] = []
+    var filterSearchKey : String = ""
+    var filterSearchKeyTamil : String = ""
+    
     @IBOutlet weak var tblHome: UITableView!
     var streamingNowMovies : [Movies]? = []
     var recommendedMovies : [Movies]? = []
     var latestTamilMovies : [Movies]? = []
     var allGenres : [Genres]? = []
     var allLanguages : [Languages]? = []
+    
+    var recommendedSearchKey : String = MovieSearchTag.movieSearchAvg.rawValue
+    var latestTamilSearchKey : String = MovieSearchTag.latestTamilMovies.rawValue
 
     var allTitles = [moviesKeyUI.genres, moviesKeyUI.languages, moviesKeyUI.recommended,
         moviesKeyUI.paging,
@@ -277,6 +289,7 @@ extension ZTDiscoveryViewController{
         let tag = sender.tag
         switch tag {
         case 0:
+            Helper.shared.gotoFilterPage(viewController: self, sortedDate: self.filterSortedDate, sortedRating: self.filterSortedRating, filterGenre: self.filterGenreArray, filterLang: self.filterLangArray)
             break
         case 1:
             Helper.shared.goToMovieSearch(viewController: self)
@@ -319,8 +332,14 @@ extension ZTDiscoveryViewController{
         }
     }
     func getLatestTamilMovies(){
+        var searchKeyVal = ""
+        if self.filterApplied == true && self.filterSearchKeyTamil.count > 0{
+            searchKeyVal = self.filterSearchKeyTamil
+        }else{
+            searchKeyVal = self.latestTamilSearchKey
+        }
         if NetworkReachability.shared.isReachable {
-            ZTCommonAPIWrapper.searchMoviesGET(search: MovieSearchTag.latestTamilMovies.rawValue, page: self.pageNumber, size: self.pageSize) { (response, error) in
+            ZTCommonAPIWrapper.searchMoviesGET(search: searchKeyVal, page: self.pageNumber, size: self.pageSize) { (response, error) in
                 self.latestTamilMovies?.removeAll()
                 if error != nil{
                     WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
@@ -338,8 +357,14 @@ extension ZTDiscoveryViewController{
         }
     }
     func getRecommendedMovies(){
+        var searchKeyVal = ""
+        if self.filterApplied == true && filterSearchKey.count > 0{
+            searchKeyVal = filterSearchKey
+        }else{
+            searchKeyVal = recommendedSearchKey
+        }
         if NetworkReachability.shared.isReachable {
-            ZTCommonAPIWrapper.searchMoviesGET(search: MovieSearchTag.movieSearchAvg.rawValue, page: self.pageNumber, size: self.pageSize) { (response, error) in
+            ZTCommonAPIWrapper.searchMoviesGET(search: searchKeyVal, page: self.pageNumber, size: self.pageSize) { (response, error) in
                 self.recommendedMovies?.removeAll()
                 self.hideActivityIndicator(self.view)
                 if error != nil{
@@ -452,7 +477,27 @@ extension ZTDiscoveryViewController{
         }
     }
 }
-extension ZTDiscoveryViewController : ZTPagingDelegate, ZTHomePageDelegate, ZTSelectedGenresDelegate{
+extension ZTDiscoveryViewController : ZTPagingDelegate, ZTHomePageDelegate, ZTSelectedGenresDelegate, FilterDelegate{
+    func filterSearchKeys(searchKey: String, searchKey2: String, sortedDate: Bool, sortedRating: Bool, genreArray: [LoadGenresType], langArray: [LoadLanguageType]) {
+        self.filterLangArray.removeAll()
+        self.filterGenreArray.removeAll()
+        
+        self.filterApplied = true
+        self.filterSearchKey = searchKey
+        self.filterSearchKeyTamil = searchKey2
+        self.filterSortedDate = sortedDate
+        self.filterSortedRating = sortedRating
+        self.filterLangArray.append(contentsOf: langArray)
+        self.filterGenreArray.append(contentsOf: genreArray)
+        self.getRecommendedMovies()
+        self.getLatestTamilMovies()
+    }
+    
+    func filterSearchKeys(searchKey: String, searchKey2: String) {
+        
+    }
+    
+    
     func selectedLanguageIndex(tagVal: Int) {
         Helper.shared.goToMoviesCategoryListScreen(viewController: self, movieKey: self.allLanguages?[tagVal].languageName ?? "", langId: self.allLanguages?[tagVal].languageId ?? -1)
     }

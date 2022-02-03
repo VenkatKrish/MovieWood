@@ -525,6 +525,16 @@ extension Helper{
         initial.delegate = viewController as? WriteAReviewDelegate
         viewController.present(initial, animated: false, completion: nil)
     }
+    func gotoFilterPage(viewController:UIViewController, sortedDate:Bool, sortedRating:Bool, filterGenre:[LoadGenresType], filterLang:[LoadLanguageType]){
+        let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
+        let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTFilterViewController) as! ZTFilterViewController
+        initial.delegate = viewController as? FilterDelegate
+        initial.isDateFilter = sortedDate
+        initial.isRatingFilter = sortedRating
+        initial.filterGenreVal = filterGenre
+        initial.filterLangVal = filterLang
+        viewController.present(initial, animated: false, completion: nil)
+    }
     func gotoMovieInfo1(viewController:UIViewController){
         let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
         let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTMovieInfo1ViewController) as! ZTMovieInfo1ViewController
@@ -611,7 +621,13 @@ extension Double {
       let formatter = DateComponentsFormatter()
       formatter.allowedUnits = [.minute]
         formatter.unitsStyle = .positional
-      return formatter.string(from: self) ?? ""
+      return String(format: "%@", formatter.string(from: self) ?? "")
+    }
+    func asSecondsString() -> String {
+      let formatter = DateComponentsFormatter()
+      formatter.allowedUnits = [.second]
+        formatter.unitsStyle = .positional
+      return String(format: "%@", formatter.string(from: self) ?? "")
     }
 }
 extension UIView {
