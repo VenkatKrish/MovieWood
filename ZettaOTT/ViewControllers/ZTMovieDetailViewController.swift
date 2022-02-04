@@ -99,6 +99,8 @@ class ZTMovieDetailViewController: UIViewController {
     var readMoreClicked : Bool = false
     var currentMovieId : Int64 = -1
     var transMovieId : Int64? = -1
+    var isDirectEpisodeWatchNow : Bool = true
+    var isDirect_Epi_Seek : Bool = false
 
 
     override func viewDidLoad() {
@@ -235,9 +237,17 @@ class ZTMovieDetailViewController: UIViewController {
         self.loadVideo(strUrl: self.moviewDetails?.teaserUrl ?? "")
     }
     func loadVideo(strUrl:String, seekTime:Int64? = 0, subsURl:String? = "", nameStr:String? = ""){
-        
+        debugPrint("nameStr\(nameStr)")
         if let url = URL.init(string: strUrl) {
-            let timeInterval = Double(seekTime ?? 0)//68// Double((seekTime ?? 0) * 60)
+        
+            var timeInterval = Double(seekTime ?? 0)//68// Double((seekTime ?? 0) * 60)
+            if self.isDirectEpisodeWatchNow == false{
+                if self.isDirect_Epi_Seek == false{
+                    timeInterval = 0
+                }
+            }
+            self.isDirectEpisodeWatchNow = true
+            self.isDirect_Epi_Seek = false
         self.videoPlayerView.isHidden = false
         self.playerView.backBlock = { [unowned self] (isFullScreen) in
                 if isFullScreen == true {
@@ -275,14 +285,6 @@ class ZTMovieDetailViewController: UIViewController {
     }
     func checkMoviePaymentStatus(){
         if let paymentStatus = self.moviewDetails?.paymentStatus, paymentStatus == MoviePaymentStatusStruct.paid.rawValue{
-//            if self.moviewDetails?.movieType == MovieTypes.WebSeries.rawValue{
-//                self.movieSeasonId = self.movieSeasons?[0].seasonId ?? 0
-//                self.seasonEpisodeId = self.movieSeasons?[0].movieEpisodes?[0]._id ?? 0
-//                let linkVal = self.movieSeasons?[0].movieEpisodes?[0].sourceUrl ?? ""
-//                self.loadVideo(strUrl: linkVal)
-//            }else{
-//                self.getMovieLink()
-//            }
             self.getMovieLink()
 
         }else{
@@ -601,6 +603,16 @@ extension ZTMovieDetailViewController{
                 if let responseVal = response{
                     DispatchQueue.main.async {
                         self.movieLinkModel = responseVal
+
+                        if self.moviewDetails?.movieType == MovieTypes.WebSeries.rawValue{
+                            if self.isDirectEpisodeWatchNow == false{
+                                if self.movieLinkModel?.episodeId == self.seasonEpisodeId{
+                                    self.isDirect_Epi_Seek = true
+                                }
+                                self.movieLinkModel?.episodeId = self.seasonEpisodeId
+                                self.movieLinkModel?.seasonId = self.movieSeasonId
+                            }
+                        }
                         self.getMovieLinkDetails()
                     }
                 }
@@ -616,7 +628,8 @@ extension ZTMovieDetailViewController{
                                 if let episodesVal = movieSeasonsVal.movieEpisodes?.first(where: { $0._id == self.movieLinkModel?.episodeId ?? 0 }){
                                     self.seasonEpisodeId = episodesVal._id ?? 0
                                     self.movieSeasonId = movieSeasonsVal.seasonId ?? 0
-                                    self.loadVideo(strUrl: episodesVal.sourceUrl ?? "", seekTime: self.movieLinkModel?.initialSeekTime ?? 0)
+                                    debugPrint("after movie link details self.seasonEpisodeId \(self.seasonEpisodeId) self.movieSeasonId\(self.movieSeasonId)")
+                                    self.loadVideo(strUrl: episodesVal.sourceUrl ?? "", seekTime: self.movieLinkModel?.initialSeekTime ?? 0, nameStr: episodesVal.name ?? "")
                                 }
                             }
                         }else{
@@ -624,7 +637,7 @@ extension ZTMovieDetailViewController{
                             self.seasonEpisodeId = self.movieSeasons?[0].movieEpisodes?[0]._id ?? 0
                             
                             let linkVal = self.movieSeasons?[0].movieEpisodes?[0].sourceUrl ?? ""
-                            self.loadVideo(strUrl: linkVal)
+                            self.loadVideo(strUrl: linkVal, nameStr: self.movieSeasons?[0].movieEpisodes?[0].name ?? "")
                         }
                     }else {
                         var subsURL:String = ""
@@ -642,16 +655,12 @@ extension ZTMovieDetailViewController:WriteAReviewDelegate{
     func updateVideoPlayTime(currentTime:TimeInterval, elapsedTime:TimeInterval){
         if let paymentStatus = self.moviewDetails?.paymentStatus, paymentStatus == MoviePaymentStatusStruct.paid.rawValue, let playID = self.movieLinkModel?.moviePlayId, playID > 0{
         
-            let watch  = Int64( currentTime.asSecondsString())
+            let watch  = currentTime// Double( currentTime.asSecondsString())
+            debugPrint("watch \(watch)")
         var playDuration:String = "0"
-            debugPrint("elapsedTime\(elapsedTime)")
             if elapsedTime != 0{
                 playDuration = elapsedTime.asMinutesString()
-                debugPrint("playDuration\(playDuration)")
             }
-            //StopWatch(totalSeconds: Int(currentTime))
-        print(watch)
-            
         let dateStr = Helper.shared.getFormatedDate(dateVal: Date(), dateFormat: CustomDateFormatter.orderRequestDate)
         
         var seasonIdVal:Int64 = 0
@@ -663,7 +672,7 @@ extension ZTMovieDetailViewController:WriteAReviewDelegate{
             episodeIdVal = self.seasonEpisodeId
 //            movieIdVal = 0
         }
-            let moviePlays = MoviePlays(country: nil, createdBy: nil, createdOn: nil, deviceInfo: nil, ipAddress: device_uuid, lastUpdateLogin: nil, modifiedBy: nil, modifiedOn: nil, movieId: movieIdVal, moviePlayId: self.movieLinkModel?.moviePlayId ?? -1, operatingSystem: "iOS", playEndTime: dateStr, playSeekTime: watch,seasonId: seasonIdVal, episodeId: episodeIdVal, playStartTime: nil, timezone: nil, userId: ZTAppSession.sharedInstance.getUserInfo()?.userId, versionNumber: nil, playDuration:Int64(playDuration))
+            let moviePlays = MoviePlays(country: nil, createdBy: nil, createdOn: nil, deviceInfo: nil, ipAddress: device_uuid, lastUpdateLogin: nil, modifiedBy: nil, modifiedOn: nil, movieId: movieIdVal, moviePlayId: self.movieLinkModel?.moviePlayId ?? -1, operatingSystem: "iOS", playEndTime: dateStr, playSeekTime: Int64(watch ?? 0),seasonId: seasonIdVal, episodeId: episodeIdVal, playStartTime: nil, timezone: nil, userId: ZTAppSession.sharedInstance.getUserInfo()?.userId, versionNumber: nil, playDuration:Int64(playDuration))
        
         if NetworkReachability.shared.isReachable {
             
@@ -678,7 +687,6 @@ extension ZTMovieDetailViewController:WriteAReviewDelegate{
                 }
                 if let responseVal = response{
                     self.totalElapsed = 0
-                    debugPrint("video seek time \(responseVal)")
                     self.resetTimer()
                 }
             }
@@ -688,6 +696,7 @@ extension ZTMovieDetailViewController:WriteAReviewDelegate{
 }
 extension ZTMovieDetailViewController:BMPlayerDelegate{
     func getNextSeasonEpisode(){
+        
         if let paymentStatus = self.moviewDetails?.paymentStatus, paymentStatus == MoviePaymentStatusStruct.paid.rawValue{
             if self.nextMovieSeasonEpisode.count > 0{
                 if let index = self.nextMovieSeasonEpisode.firstIndex(where: { $0.seasonId ?? 0 == self.movieSeasonId && $0.episodeId ?? 0 == self.seasonEpisodeId}){
@@ -700,7 +709,12 @@ extension ZTMovieDetailViewController:BMPlayerDelegate{
                         let nxtVal = self.nextMovieSeasonEpisode[index + 1]
                         self.seasonEpisodeId = nxtVal.episodeId ?? 0
                         self.movieSeasonId = nxtVal.seasonId ?? 0
-                        self.loadVideo(strUrl: nxtVal.episodeModel?.sourceUrl ?? "", nameStr: nxtVal.episodeModel?.name ?? "")
+                        
+                        debugPrint("before movie link details self.seasonEpisodeId \(self.seasonEpisodeId) self.movieSeasonId\(self.movieSeasonId)")
+                        
+                        
+                        self.getMovieLink()
+//                        self.loadVideo(strUrl: nxtVal.episodeModel?.sourceUrl ?? "", nameStr: nxtVal.episodeModel?.name ?? "")
                     }
                 }
             }
@@ -721,6 +735,7 @@ extension ZTMovieDetailViewController:BMPlayerDelegate{
             break
         case .playedToTheEnd:
             if self.moviewDetails?.movieType == MovieTypes.WebSeries.rawValue{
+                self.updateVideoPlayTime(currentTime: self.currentDuration, elapsedTime: self.totalElapsed)
                 self.getNextSeasonEpisode()
             }else{
                 
@@ -826,14 +841,15 @@ extension ZTMovieDetailViewController: CarbonTabSwipeNavigationDelegate {
     @objc func videoRefresh(_ notification:NSNotification){
         
             self.updateVideoPlayTime(currentTime: self.currentDuration, elapsedTime: self.totalElapsed)
+        debugPrint("before movie link details self.seasonEpisodeId \(self.seasonEpisodeId) self.movieSeasonId\(self.movieSeasonId)")
         
         if let args = notification.object as? SeasonVideoStruct{
-            
             if let paymentStatus = self.moviewDetails?.paymentStatus, paymentStatus == MoviePaymentStatusStruct.paid.rawValue{
                 self.movieSeasonId = args.movieSeason?.seasonId ?? 0
                 self.seasonEpisodeId = args.movieEpisodes?._id ?? 0
-    //            self.getMovieLink()
-                self.loadVideo(strUrl: args.movieEpisodes?.sourceUrl ?? "", nameStr: args.movieEpisodes?.name ?? "")
+                self.isDirectEpisodeWatchNow = false
+                self.getMovieLink()
+//                self.loadVideo(strUrl: args.movieEpisodes?.sourceUrl ?? "", nameStr: args.movieEpisodes?.name ?? "")
             }
         }
     }

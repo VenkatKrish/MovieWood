@@ -6,8 +6,8 @@ public struct MovieLinkModel : Codable {
 	let contentType : String?
     let initialSeekTime : Int64?
     let moviePlayId : Int64?
-    let seasonId : Int64?
-    let episodeId : Int64?
+    var seasonId : Int64?
+    var episodeId : Int64?
     let stoken : String?
 
     public enum CodingKeys: String, CodingKey {
