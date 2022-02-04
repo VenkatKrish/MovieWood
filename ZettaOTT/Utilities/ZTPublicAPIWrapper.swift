@@ -73,11 +73,10 @@ open class ZTPublicAPIWrapper {
      - parameter unpaged: (query)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func upcomingMoviesPublicUsingGET(language: String? = nil, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, showinios: String? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, completion: @escaping ((_ data: PageMoviePaymentStatus?,_ error: Error?) -> Void)) {
-        
-        MovieControllerAPI.upcomingMoviesPublicUsingGET( pageNumber: pageNumber, pageSize: pageSize, completion: { (response, error) in
+    open class func upcomingMoviesPublicUsingGET(language: String? = nil, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, showinios: String? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, sort:String? = nil, completion: @escaping ((_ data: PageMoviePaymentStatus?,_ error: Error?) -> Void)) {
+        MovieControllerAPI.upcomingMoviesPublicUsingGET(language: language, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, showinios: showinios, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged, sort: sort) { response, error in
             completion(response, error)
-        })
+        }
     }
     /**
      getbyMovieNamePublic

@@ -1082,8 +1082,8 @@ open class MovieControllerAPI {
      - parameter unpaged: (query)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func upcomingMoviesPublicUsingGET(language: String? = nil, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, showinios: String? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, completion: @escaping ((_ data: PageMoviePaymentStatus?,_ error: Error?) -> Void)) {
-        upcomingMoviesPublicUsingGETWithRequestBuilder(language: language, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, showinios: showinios, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged).execute { (response, error) -> Void in
+    open class func upcomingMoviesPublicUsingGET(language: String? = nil, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, showinios: String? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, sort:String? = nil, completion: @escaping ((_ data: PageMoviePaymentStatus?,_ error: Error?) -> Void)) {
+        upcomingMoviesPublicUsingGETWithRequestBuilder(language: language, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, showinios: showinios, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged, sort:sort).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
@@ -1106,7 +1106,7 @@ open class MovieControllerAPI {
 
      - returns: RequestBuilder<PageMoviePaymentStatus> 
      */
-    open class func upcomingMoviesPublicUsingGETWithRequestBuilder(language: String? = nil, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, showinios: String? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil) -> RequestBuilder<PageMoviePaymentStatus> {
+    open class func upcomingMoviesPublicUsingGETWithRequestBuilder(language: String? = nil, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, showinios: String? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, sort:String? = nil) -> RequestBuilder<PageMoviePaymentStatus> {
         let path = "/api/v1/public/upcomingmovies"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -1121,7 +1121,8 @@ open class MovieControllerAPI {
             "showinios": showinios, 
             "sort.sorted": sortSorted, 
             "sort.unsorted": sortUnsorted, 
-            "unpaged": unpaged
+            "unpaged": unpaged,
+            "sort": sort
         ])
 
         let requestBuilder: RequestBuilder<PageMoviePaymentStatus>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
@@ -1143,8 +1144,8 @@ open class MovieControllerAPI {
      - parameter unpaged: (query)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func upcomingMoviesUsingGET(language: String? = nil, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, showinios: String? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, completion: @escaping ((_ data: PageMoviePaymentStatus?,_ error: Error?) -> Void)) {
-        upcomingMoviesUsingGETWithRequestBuilder(language: language, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, showinios: showinios, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged).execute { (response, error) -> Void in
+    open class func upcomingMoviesUsingGET(language: String? = nil, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, showinios: String? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, sort:String? = nil, completion: @escaping ((_ data: PageMoviePaymentStatus?,_ error: Error?) -> Void)) {
+        upcomingMoviesUsingGETWithRequestBuilder(language: language, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, showinios: showinios, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged, sort:sort).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
@@ -1167,7 +1168,7 @@ open class MovieControllerAPI {
 
      - returns: RequestBuilder<PageMoviePaymentStatus> 
      */
-    open class func upcomingMoviesUsingGETWithRequestBuilder(language: String? = nil, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, showinios: String? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil) -> RequestBuilder<PageMoviePaymentStatus> {
+    open class func upcomingMoviesUsingGETWithRequestBuilder(language: String? = nil, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, showinios: String? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, sort:String? = nil) -> RequestBuilder<PageMoviePaymentStatus> {
         let path = "/api/v1/upcomingmovies"
         let URLString = SwaggerClientAPI.basePath + path
         let parameters: [String:Any]? = nil
@@ -1182,7 +1183,8 @@ open class MovieControllerAPI {
             "showinios": showinios, 
             "sort.sorted": sortSorted, 
             "sort.unsorted": sortUnsorted, 
-            "unpaged": unpaged
+            "unpaged": unpaged,
+            "sort": sort
         ])
 
         let requestBuilder: RequestBuilder<PageMoviePaymentStatus>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()

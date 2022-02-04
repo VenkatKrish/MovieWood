@@ -275,7 +275,7 @@ extension ZTUpcomingViewController{
     
     func getUpcomingVideos(){
         if NetworkReachability.shared.isReachable {
-            ZTCommonAPIWrapper.upcomingMovies( pageNumber: self.movieColPageNumber, pageSize: self.movieColPageSize, completion: { (response, error) in
+            ZTCommonAPIWrapper.upcomingMovies( pageNumber: self.movieColPageNumber, pageSize: self.movieColPageSize, sort: SortingStruct.sort_streamDateOn_asc.rawValue, completion: { (response, error) in
                 DispatchQueue.main.async {
                     if self.refreshControl.isRefreshing{
                         self.refreshControl.endRefreshing()

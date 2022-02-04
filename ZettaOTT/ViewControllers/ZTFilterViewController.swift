@@ -28,6 +28,17 @@ class ZTFilterViewController: UIViewController {
         super.viewDidLoad()
         self.lblDivider.layer.cornerRadius = 2.0
         self.lblDivider.clipsToBounds = true
+        if self.isRatingFilter == true{
+            self.selectedBtn(btn: self.btnRating)
+        }else{
+            self.unselectedBtn(btn: self.btnRating)
+
+        }
+        if self.isDateFilter == true{
+            self.selectedBtn(btn: self.btnDate)
+        }else{
+            self.unselectedBtn(btn: self.btnDate)
+        }
         self.initialLoad()
         // Do any additional setup after loading the view.
     }
@@ -59,8 +70,7 @@ class ZTFilterViewController: UIViewController {
         self.collectionGenre.register(UINib(nibName: ZTCellNameOrIdentifier.ZTProfileFooter, bundle: nil),
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
                                 withReuseIdentifier: ZTCellNameOrIdentifier.ZTProfileFooter)
-        self.updateRating()
-        self.updateDateFilter()
+        
         self.getGenrieList()
         self.getLanguageList()
         
@@ -161,11 +171,23 @@ extension ZTFilterViewController{
                     return
                 }
                 if let responseVal = response{
+                    
                     for i in responseVal.content ?? []{
-                        if !self.filterGenreVal.contains(where: { $0.genreVal?.genreId == i.genreId }) {
-                            self.allGenres?.append(LoadGenresType(isSelected: false, genreVal: i))
+                        self.allGenres?.append(LoadGenresType(isSelected: false, genreVal: i))
+                    }
+                    
+                    for (index, i) in (self.allGenres ?? []).enumerated(){
+                        if self.filterGenreVal.contains(where: { $0.genreVal?.genreId == i.genreVal?.genreId }) {
+                            self.allGenres?[index].isSelected = true
                         }
                     }
+//                    if self.filterGenreVal.count > 0{
+//                        if self.filterGenreVal.contains(where: { $0.genreVal?.genreId == i.genreId }) {
+//                            self.allGenres?.append(LoadGenresType(isSelected: true, genreVal: i))
+//                        }else{
+//                            self.allGenres?.append(LoadGenresType(isSelected: false, genreVal: i))
+//                        }
+//                    }
                     
                 }
                 self.refreshTable()
@@ -193,11 +215,15 @@ extension ZTFilterViewController{
                 }
                 if let responseVal = response{
                     for i in responseVal.content ?? []{
-                        
-                        if !self.filterLangVal.contains(where: { $0.langVal?.languageId == i.languageId }) {
-                            self.allLanguages?.append(LoadLanguageType(isSelected: false, langVal: i))
+                        self.allLanguages?.append(LoadLanguageType(isSelected: false, langVal: i))
+                    }
+                    
+                    for (index, i) in (self.allLanguages ?? []).enumerated(){
+                        if self.filterLangVal.contains(where: { $0.langVal?.languageId == i.langVal?.languageId }) {
+                            self.allLanguages?[index].isSelected = true
                         }
                     }
+                    
                     DispatchQueue.main.async {
                         self.refreshTable()
                     }
