@@ -24,6 +24,7 @@ class ZTMoviesListCategoryViewController: UIViewController {
     var movieCollectionId : Int64 = -1
     var genreId : Int64 = -1
     var langId : Int64 = -1
+    var filterSearchKey : String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +47,7 @@ class ZTMoviesListCategoryViewController: UIViewController {
             self.videosList?.removeAll()
         }
         if self.searchKey != ""{
-            self.getMoviesList(isSpinnerNeeded:isSpinnerNeeded)
+            self.getMoviesList(isSpinnerNeeded:isSpinnerNeeded, isFilterSearchKey:self.filterSearchKey)
         }else if movieCollectionId != -1{
             self.getCollectionList(isSpinnerNeeded: isSpinnerNeeded)
         }else if genreId != -1{
@@ -160,12 +161,18 @@ extension ZTMoviesListCategoryViewController:UICollectionViewDelegate, UICollect
 }
 
 extension ZTMoviesListCategoryViewController{
-    func getMoviesList(isSpinnerNeeded:Bool){
+    func getMoviesList(isSpinnerNeeded:Bool, isFilterSearchKey:String){
+        var searchKeyVal = ""
+        if self.filterSearchKey.count > 0{
+            searchKeyVal = self.filterSearchKey
+        }else{
+            searchKeyVal = self.searchKey
+        }
         if NetworkReachability.shared.isReachable {
             if isSpinnerNeeded == true{
                 self.showActivityIndicator(self.view)
             }
-            ZTCommonAPIWrapper.searchMoviesGET(search: self.searchKey, page: self.pageNumber, size: self.pageSize) { (response, error) in
+            ZTCommonAPIWrapper.searchMoviesGET(search: searchKeyVal, page: self.pageNumber, size: self.pageSize) { (response, error) in
                 if isSpinnerNeeded == true{
                 DispatchQueue.main.async {
                 self.hideActivityIndicator(self.view)

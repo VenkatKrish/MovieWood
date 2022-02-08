@@ -1956,7 +1956,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_TEAM = PK5XQ274B4;
+				DEVELOPMENT_TEAM = P6M455AALG;
 				INFOPLIST_FILE = ZettaOTT/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1964,9 +1964,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.crosshurdle.moviewood;
+				PRODUCT_BUNDLE_IDENTIFIER = co.humun.moviewood;
 				PRODUCT_NAME = Moviewood;
-				PROVISIONING_PROFILE_SPECIFIER = SelvaMoviewoodDev;
+				PROVISIONING_PROFILE_SPECIFIER = HumanMovieWoodDev;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1981,7 +1981,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 10;
-				DEVELOPMENT_TEAM = PK5XQ274B4;
+				DEVELOPMENT_TEAM = P6M455AALG;
 				INFOPLIST_FILE = ZettaOTT/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1989,9 +1989,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.crosshurdle.moviewood;
+				PRODUCT_BUNDLE_IDENTIFIER = co.humun.moviewood;
 				PRODUCT_NAME = Moviewood;
-				PROVISIONING_PROFILE_SPECIFIER = SelvaMoviewoodAppStore;
+				PROVISIONING_PROFILE_SPECIFIER = HumanMovieWoodAppStore;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -23,13 +23,14 @@ class ZTDiscoveryViewController: UIViewController {
     var latestTamilMovies : [Movies]? = []
     var allGenres : [Genres]? = []
     var allLanguages : [Languages]? = []
-    
+    var allContent : [Movies]? = []
+
     var recommendedSearchKey : String = MovieSearchTag.movieSearchAvg.rawValue
     var latestTamilSearchKey : String = MovieSearchTag.latestTamilMovies.rawValue
 
     var allTitles = [moviesKeyUI.genres, moviesKeyUI.languages, moviesKeyUI.recommended,
         moviesKeyUI.paging,
-        moviesKeyUI.latest_tamil_movies]
+        moviesKeyUI.latest_tamil_movies, moviesKeyUI.All_content]
     var pageSize : Int = 10
     var pageNumber : Int = 0
     var movieColPageSize : Int = 5
@@ -47,6 +48,7 @@ class ZTDiscoveryViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         if let userModel = ZTAppSession.sharedInstance.getUserInfo(){
         }
+       
         NotificationCenter.default.addObserver(self, selector: #selector(pageRefresh(_:)), name: NSNotification.Name(rawValue: TOKEN_EXPIRED), object: nil)
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -73,6 +75,7 @@ class ZTDiscoveryViewController: UIViewController {
         self.initialLoad()
     }
     func initialLoad(){
+        self.allContent?.removeAll()
         self.getStreamingNowMovies()
         self.getLatestTamilMovies()
         self.getRecommendedMovies()
@@ -139,6 +142,10 @@ extension ZTDiscoveryViewController: UITableViewDelegate, UITableViewDataSource{
             if self.latestTamilMovies?.count ?? 0 > 0{
                 return 1
             }
+        }else if keyVal == moviesKeyUI.All_content {
+            if self.allContent?.count ?? 0 > 0{
+                return 1
+            }
         }else{
             if self.movieCollectionsValues?.count ?? 0 > 0{
                 return 1
@@ -169,6 +176,9 @@ extension ZTDiscoveryViewController: UITableViewDelegate, UITableViewDataSource{
             }
             else if keyVal == moviesKeyUI.latest_tamil_movies {
                 cell.loadPortraintVideos(videosVal: self.latestTamilMovies, delegateObj: self, isExclusiveHide: false)
+                return cell
+            }else if keyVal == moviesKeyUI.All_content {
+                cell.loadPortraintVideos(videosVal: self.allContent, delegateObj: self, isExclusiveHide: false)
                 return cell
             }else{
                 if self.movieCollectionsValues?.count ?? 0 > 0{
@@ -203,6 +213,10 @@ extension ZTDiscoveryViewController: UITableViewDelegate, UITableViewDataSource{
                 }
             }else if keyVal == moviesKeyUI.latest_tamil_movies{
                 if self.latestTamilMovies?.count ?? 0 > 0{
+                    return cellHeight
+                }
+            }else if keyVal == moviesKeyUI.All_content{
+                if self.allContent?.count ?? 0 > 0{
                     return cellHeight
                 }
             }else{
@@ -244,6 +258,10 @@ extension ZTDiscoveryViewController: UITableViewDelegate, UITableViewDataSource{
                     if self.latestTamilMovies?.count ?? 0 >= self.pageSize{
                         headerView.btnMore.isHidden = false
                     }
+                }else if keyVal == moviesKeyUI.All_content{
+                    if self.allContent?.count ?? 0 >= self.pageSize{
+                        headerView.btnMore.isHidden = false
+                    }
                 }else{
                     if self.movieCollectionsValues?.count ?? 0 > 0{
                         if let filterMovies = self.movieCollectionsValues?
@@ -273,8 +291,8 @@ extension ZTDiscoveryViewController{
     @objc func moreBtnTapped(sender: UIButton){
         let keyVal = self.allTitles[sender.tag]
         
-        if keyVal == moviesKeyUI.genres || keyVal == moviesKeyUI.languages || keyVal == moviesKeyUI.paging || keyVal == moviesKeyUI.recommended || keyVal == moviesKeyUI.latest_tamil_movies{
-            Helper.shared.goToMoviesCategoryListScreen(viewController: self, movieKey: keyVal)
+        if keyVal == moviesKeyUI.genres || keyVal == moviesKeyUI.languages || keyVal == moviesKeyUI.paging || keyVal == moviesKeyUI.recommended || keyVal == moviesKeyUI.latest_tamil_movies || keyVal == moviesKeyUI.All_content{
+            Helper.shared.goToMoviesCategoryListScreen(viewController: self, movieKey: keyVal, filterSearchKey: self.filterSearchKey)
         }else{
             
             if self.movieCollectionsValues?.count ?? 0 > 0{
@@ -351,6 +369,25 @@ extension ZTDiscoveryViewController{
                 }
                 if let responseVal = response{
                     self.latestTamilMovies?.append(contentsOf: responseVal.content ?? [])
+                }
+                self.refreshTable()
+            }
+        }
+    }
+    func getFilterMovies(searchKey:String){
+        if NetworkReachability.shared.isReachable {
+            ZTCommonAPIWrapper.searchMoviesGET(search: searchKey, page: self.pageNumber, size: self.pageSize) { (response, error) in
+                self.allContent?.removeAll()
+                if error != nil{
+                    WebServicesHelper().getErrorDetails(error: error!, successBlock: { (status, message, code) in
+                        
+                    }, failureBlock: { (errorMsg) in
+                        Helper().showSnackBarAlert(message: errorMsg, type: .Failure, superView: self)
+                    })
+                    return
+                }
+                if let responseVal = response{
+                    self.allContent?.append(contentsOf: responseVal.content ?? [])
                 }
                 self.refreshTable()
             }
@@ -491,6 +528,8 @@ extension ZTDiscoveryViewController : ZTPagingDelegate, ZTHomePageDelegate, ZTSe
         self.filterGenreArray.append(contentsOf: genreArray)
         self.getRecommendedMovies()
         self.getLatestTamilMovies()
+        self.getFilterMovies(searchKey: filterSearchKey)
+
     }
     
     func filterSearchKeys(searchKey: String, searchKey2: String) {

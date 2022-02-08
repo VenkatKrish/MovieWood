@@ -187,6 +187,7 @@ class moviesKeyUI {
     static let languages = "Filter by Language"
     static let col_title_languages = "Language"
     static let col_title_genre = "Genre"
+    static let All_content = "All Content"
 
 
 }

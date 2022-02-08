@@ -314,6 +314,8 @@ extension Helper{
             searchKey =  MovieSearchTag.movieSearchAvg.rawValue
         }else if movieTag == moviesKeyUI.popular_movies{
             searchKey =  MovieSearchTag.movieSearchAvg.rawValue
+        }else if movieTag == moviesKeyUI.All_content{
+            searchKey = movieTag
         }else if movieTag == moviesKeyUI.latest_web_series{
             searchKey =  MovieSearchTag.webSeries.rawValue
         }
@@ -432,7 +434,7 @@ extension Helper{
         initial.isMobileFlow = isMobileFlow
         viewController.navigationController?.pushViewController(initial, animated: true)
     }
-    func goToMoviesCategoryListScreen(viewController:UIViewController, movieKey:String, collectionId:Int64? = -1, genreId:Int64? = -1, langId:Int64? = -1, title:String? = ""){
+    func goToMoviesCategoryListScreen(viewController:UIViewController, movieKey:String, collectionId:Int64? = -1, genreId:Int64? = -1, langId:Int64? = -1, title:String? = "", filterSearchKey:String? = ""){
         
         let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
         let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTMoviesListCategoryViewController) as! ZTMoviesListCategoryViewController
@@ -440,6 +442,7 @@ extension Helper{
         initial.movieCollectionId = collectionId ?? -1
         initial.genreId = genreId ?? -1
         initial.langId = langId ?? -1
+        initial.filterSearchKey = filterSearchKey ?? ""
         viewController.navigationController?.pushViewController(initial, animated: true)
     }
     func goToMovieSearch(viewController:UIViewController){
