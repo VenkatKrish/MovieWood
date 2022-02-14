@@ -171,8 +171,8 @@ extension ZTNowViewController: UITableViewDelegate, UITableViewDataSource{
             }else{
                 if self.movieCollectionsValues?.count ?? 0 > 0{
                     if let filterMovies = self.movieCollectionsValues?
-                        .first(where: { $0.name == keyVal }), filterMovies.movieCollections?.count ?? 0 > 0{
-                        cell.loadPortraintVideos(videosVal: filterMovies.movieCollections ?? [], delegateObj: self, isExclusiveHide: false) // will change the model and array
+                        .first(where: { $0.name == keyVal }), filterMovies.movie?.count ?? 0 > 0{
+                        cell.loadPortraintVideos(videosVal: filterMovies.movie ?? [], delegateObj: self, isExclusiveHide: false) // will change the model and array
                     }
                 }
                 return cell
@@ -210,8 +210,8 @@ extension ZTNowViewController: UITableViewDelegate, UITableViewDataSource{
                 }else{
                     if self.movieCollectionsValues?.count ?? 0 > 0{
                         if let filterMovies = self.movieCollectionsValues?
-                            .first(where: { $0.name == keyVal }), filterMovies.movieCollections?.count ?? 0 > 0{
-                            if filterMovies.movieCollections?.count ?? 0 >= 0{
+                            .first(where: { $0.name == keyVal }), filterMovies.movie?.count ?? 0 > 0{
+                            if filterMovies.movie?.count ?? 0 >= 0{
                                 return cellHeight
                             }
                         }
@@ -259,8 +259,8 @@ extension ZTNowViewController: UITableViewDelegate, UITableViewDataSource{
                 }else{
                     if self.movieCollectionsValues?.count ?? 0 > 0{
                         if let filterMovies = self.movieCollectionsValues?
-                            .first(where: { $0.name == keyVal }), filterMovies.movieCollections?.count ?? 0 > 0{
-                            if filterMovies.movieCollections?.count ?? 0 >= self.pageSize{
+                            .first(where: { $0.name == keyVal }), filterMovies.movie?.count ?? 0 > 0{
+                            if filterMovies.movie?.count ?? 0 >= self.pageSize{
                                 headerView.btnMore.isHidden = false
                             }
                         }
@@ -293,7 +293,7 @@ extension ZTNowViewController{
             
             if self.movieCollectionsValues?.count ?? 0 > 0{
                 if let filterMovies = self.movieCollectionsValues?
-                    .first(where: { $0.name == keyVal }), filterMovies.movieCollections?.count ?? 0 > 0{
+                    .first(where: { $0.name == keyVal }), filterMovies.movie?.count ?? 0 > 0{
                     Helper.shared.goToMoviesCategoryListScreen(viewController: self, movieKey: keyVal, collectionId: filterMovies._id )
                 }
             }
@@ -305,7 +305,7 @@ extension ZTNowViewController{
 extension ZTNowViewController{
     func getStreamingNowMovies(){
         if NetworkReachability.shared.isReachable {
-            ZTCommonAPIWrapper.searchMoviesGET(search: MovieSearchTag.streamNowBanner.rawValue, page: self.pageNumber, size: self.pageSize) { (response, error) in
+            ZTCommonAPIWrapper.searchMoviesGET(search: MovieSearchTag.streamNowBanner.rawValue, page: pageScrollMoviesPageNum, size: pageScrollMoviesPageSize) { (response, error) in
                                 DispatchQueue.main.async {
                                     if self.refreshControl.isRefreshing{
                                         self.refreshControl.endRefreshing()
@@ -435,7 +435,7 @@ extension ZTNowViewController{
             }else{
                 for i in dataVal.content ?? []{
                     let value = i
-                    if value.movieCollections?.count ?? 0 > 0{
+                    if value.movie?.count ?? 0 > 0{
                         let dataObj = value.name ?? ""
                         if !self.allTitles.contains(dataObj) {
                             self.allTitles.append(dataObj)

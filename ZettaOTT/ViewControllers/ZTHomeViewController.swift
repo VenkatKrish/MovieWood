@@ -21,7 +21,10 @@ class ZTHomeViewController: UIViewController {
     var zTUpcomingViewController: ZTUpcomingViewController?
     var zTWebseriesViewController: ZTWebseriesViewController?
     var zTShortFilmsViewController: ZTShortFilmsViewController?
-    
+    var zTStagePlaysViewController: ZTStagePlaysViewController?
+    var zTDocumentoryViewController: ZTDocumentoryViewController?
+    var zTMusicVideoViewController: ZTMusicVideoViewController?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initialLoad()
@@ -41,6 +44,9 @@ class ZTHomeViewController: UIViewController {
         self.zTUpcomingViewController = self.storyboard!.instantiateViewController(withIdentifier: "ZTUpcomingViewController") as? ZTUpcomingViewController
         self.zTWebseriesViewController = self.storyboard!.instantiateViewController(withIdentifier: "ZTWebseriesViewController") as? ZTWebseriesViewController
         self.zTShortFilmsViewController = self.storyboard!.instantiateViewController(withIdentifier: "ZTShortFilmsViewController") as? ZTShortFilmsViewController
+        self.zTDocumentoryViewController = self.storyboard!.instantiateViewController(withIdentifier: "ZTDocumentoryViewController") as? ZTDocumentoryViewController
+        self.zTMusicVideoViewController = self.storyboard!.instantiateViewController(withIdentifier: "ZTMusicVideoViewController") as? ZTMusicVideoViewController
+        self.zTStagePlaysViewController = self.storyboard!.instantiateViewController(withIdentifier: "ZTStagePlaysViewController") as? ZTStagePlaysViewController
         
         self.carbonInitialize()
     }
@@ -54,7 +60,7 @@ extension ZTHomeViewController {
     }
 
     func carbonInitialize() {
-        carbonKitTabs = ["Now", "Upcoming", "Web Series",  "Short Films"]
+        carbonKitTabs = ["Now", "Upcoming", "Web Series",  "Short Films", "Documentory" , "Stage Plays", "Music Video"]
         
         carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: carbonKitTabs as [AnyObject], delegate: self)
         carbonTabSwipeNavigation.insert(intoRootViewController: self, andTargetView: self.segmentView)
@@ -74,17 +80,22 @@ extension ZTHomeViewController {
         
         let frame  = (self.view.bounds.width  / CGFloat(self.carbonKitTabs.count)) - 30
         let frameCat = (self.view.bounds.width / CGFloat(self.carbonKitTabs.count)) + 10
-        carbonTabSwipeNavigation.carbonSegmentedControl!.setWidth(frame, forSegmentAt: 0)
-        carbonTabSwipeNavigation.carbonSegmentedControl!.setWidth(frameCat, forSegmentAt: 1)
-        carbonTabSwipeNavigation.carbonSegmentedControl!.setWidth(frameCat, forSegmentAt: 2)
-        carbonTabSwipeNavigation.carbonSegmentedControl!.setWidth(frameCat, forSegmentAt: 3)
+        
+//        carbonTabSwipeNavigation.carbonSegmentedControl!.setWidth(frame, forSegmentAt: 0)
+//        carbonTabSwipeNavigation.carbonSegmentedControl!.setWidth(frameCat, forSegmentAt: 1)
+//        carbonTabSwipeNavigation.carbonSegmentedControl!.setWidth(frameCat, forSegmentAt: 2)
+//        carbonTabSwipeNavigation.carbonSegmentedControl!.setWidth(frameCat, forSegmentAt: 3)
+//        carbonTabSwipeNavigation.carbonSegmentedControl!.setWidth(frameCat, forSegmentAt: 4)
+//        carbonTabSwipeNavigation.carbonSegmentedControl!.setWidth(frameCat, forSegmentAt: 5)
+//        carbonTabSwipeNavigation.carbonSegmentedControl!.setWidth(frameCat, forSegmentAt: 6)
 
+        
         let font = UIFont.setAppFontMedium(16)
 
         carbonTabSwipeNavigation.setNormalColor(UIColor.getColor(colorVal: ZTAppBlackColor), font: font )
         carbonTabSwipeNavigation.currentTabIndex = homeCarbonSelectedSegment
         carbonTabSwipeNavigation.setSelectedColor(UIColor.getColor(colorVal: ZTGradientColor1), font: font)
-        carbonTabSwipeNavigation.pagesScrollView?.isScrollEnabled = false
+//        carbonTabSwipeNavigation.pagesScrollView?.isScrollEnabled = true
     }
     
 }
@@ -103,6 +114,12 @@ extension ZTHomeViewController: CarbonTabSwipeNavigationDelegate {
             return zTWebseriesViewController!
         case 3:
             return zTShortFilmsViewController!
+        case 4:
+            return zTDocumentoryViewController!
+        case 5:
+            return zTStagePlaysViewController!
+        case 6:
+            return zTMusicVideoViewController!
         default:
             return zTNowViewController!
         }

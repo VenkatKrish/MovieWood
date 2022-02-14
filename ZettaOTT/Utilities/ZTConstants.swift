@@ -56,10 +56,10 @@ class SocialAccountInfo {
     
 }
 class LoginSource{
-    static let mobileFlow = "mobile"
+    static let mobileFlow = "Mobile"
     static let emailFlow = "Email"
-    static let gmailFlow = "gmail"
-    static let fbFlow = "facebook"
+    static let gmailFlow = "Gmail"
+    static let fbFlow = "Facebook"
 
     
 }
@@ -140,7 +140,9 @@ class ZTCellNameOrIdentifier{
     static let ZTFAQsTableViewCell = "ZTFAQsTableViewCell"
     static let ZTSeasonEpisodeCollectionViewCell = "ZTSeasonEpisodeCollectionViewCell"
     static let ZTFilterHeaderCollectionReusableView = "ZTFilterHeaderCollectionReusableView"
+    static let ZTChannelListCollectionViewCell = "ZTChannelListCollectionViewCell"
 
+    
 }
 class ZTControllerName{
     static let ZT_TabbarController = "ZTTabbarViewController"
@@ -173,18 +175,20 @@ class ZTControllerName{
     static let ZTCustomAlertViewController = "ZTCustomAlertViewController"
     static let ZTSeasonVideoListViewController = "ZTSeasonVideoListViewController"
     static let ZTFilterViewController = "ZTFilterViewController"
-    
+    static let ZTTransactionDetailsViewController = "ZTTransactionDetailsViewController"
+    static let ZTDashboardChannelViewController = "ZTDashboardChannelViewController"
+    static let ZTChannelMoviesListViewController = "ZTChannelMoviesListViewController"
 }
 class moviesKeyUI {
     static let paging = "Paging"
     static let continue_watching = "Continue Watching"
-    static let genres = "Filter by Genre"
-    static let zetta_movies_originals = "Moviewood Originals"
+    static let genres = "By Genre"
+    static let zetta_movies_originals = "Latest Movies"//"Moviewood Originals"
     static let popular_movies = "Popular Movies"
     static let recommended = "Recommended"
     static let latest_tamil_movies = "Tamil Movies"
     static let latest_web_series = "Latest Web Series"
-    static let languages = "Filter by Language"
+    static let languages = "By Language"
     static let col_title_languages = "Language"
     static let col_title_genre = "Genre"
     static let All_content = "All Content"
@@ -205,7 +209,6 @@ class CustomDateFormatter{
     static let ticketConfirmationDate = "dd-MM-yyyy"
     static let transactionDateWithTime = "dd MMM yyyy | hh:mm a"
     static let movieSubmitDate = "dd MMM yyyy"
-
 
 }
 class AlertTitle{

@@ -13,6 +13,7 @@ class ZTMainMenuViewController: UIViewController {
     @IBOutlet weak var lblFirstName: UILabel!
     @IBOutlet weak var lblEmail: UILabel!
     @IBOutlet weak var imgVwProfile: UIImageView!
+    @IBOutlet weak var vwDashboard: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,6 +74,9 @@ class ZTMainMenuViewController: UIViewController {
             break
         case 8:
             Helper.shared.showAlertDialog(title: AlertTitle.logoutTitle, subtitle: AlertDescrition.logoutDesc, type: .Logout, okButtonTitle: AlertButtons.YES, cancelButtonTitle: AlertButtons.CANCEL)
+            break
+        case 9:// Dashboard
+            Helper.shared.goToDashboard(viewController: self)
             break
         default:
             break

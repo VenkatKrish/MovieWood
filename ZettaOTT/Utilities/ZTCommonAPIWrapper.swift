@@ -446,4 +446,40 @@ open class ZTCommonAPIWrapper {
             completion(response, error)
         }
     }
+    
+    /**
+     getMyChannels
+     
+     - parameter offset: (query)  (optional)
+     - parameter pageNumber: (query)  (optional)
+     - parameter pageSize: (query)  (optional)
+     - parameter paged: (query)  (optional)
+     - parameter sortSorted: (query)  (optional)
+     - parameter sortUnsorted: (query)  (optional)
+     - parameter unpaged: (query)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getMyChannelsUsingGET(offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, completion: @escaping ((_ data: PageChannels?,_ error: Error?) -> Void)) {
+        ChannelControllerAPI.getMyChannelsUsingGET(offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged) { response, error in
+            completion(response,error)
+        }
+    }
+    /**
+     getMovieByChannel
+     
+     - parameter channelId: (path) channelId
+     - parameter offset: (query)  (optional)
+     - parameter pageNumber: (query)  (optional)
+     - parameter pageSize: (query)  (optional)
+     - parameter paged: (query)  (optional)
+     - parameter sortSorted: (query)  (optional)
+     - parameter sortUnsorted: (query)  (optional)
+     - parameter unpaged: (query)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func getMovieByChannelUsingGET(channelId: Int64, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, completion: @escaping ((_ data: PageMoviePaymentStatus?,_ error: Error?) -> Void)) {
+        MovieControllerAPI.getMovieByChannelUsingGET(channelId: channelId, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged) { response, error in
+            completion(response, error)
+        }
+    }
 }

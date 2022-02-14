@@ -48,12 +48,15 @@ class ZTVerificationViewController: UIViewController {
     }
     @IBAction func btnSubmitTapped(_ sender: Any) {
         if self.isValidateSuccess == true{
-//            if self.isMobileFlow == true{
-//                self.validateOTP(otp: self.otpText, phoneNumber: self.enteredPhone)
-//            }else{
-//                self.authenticateUserPhoneFlow(loginSource: LoginSource.emailFlow, password: self.otpText, username: self.enteredEmail)
-//            }
-            self.authenticateUserEmailPhoneFlow(loginSource: LoginSource.emailFlow, password: self.otpText, username: self.enteredEmail)
+            var loginSource = LoginSource.emailFlow
+            var userNameStr = self.enteredEmail
+
+            if self.isMobileFlow == true{
+                loginSource = LoginSource.mobileFlow
+                userNameStr = self.enteredPhone
+            }
+            self.authenticateUserEmailPhoneFlow(loginSource: loginSource, password: self.otpText, username: userNameStr)
+            
         }else{
             Helper.shared.showSnackBarAlert(message: ZTValidationMessage.INVALID_OTP, type: .Failure)
         }
@@ -65,8 +68,6 @@ class ZTVerificationViewController: UIViewController {
         }else{
             self.loginWithEmail(dialCode: enteredDialCode, phoneNum: enteredPhone, email: enteredEmail)
         }
-        
-
     }
     /*
     // MARK: - Navigation

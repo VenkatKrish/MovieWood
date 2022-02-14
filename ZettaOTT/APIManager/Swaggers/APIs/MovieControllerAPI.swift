@@ -58,8 +58,8 @@ open class MovieControllerAPI {
         url?.queryItems = APIHelper.mapValuesToQueryItems([
             "language": language, 
             "offset": offset?.encodeToJSON(), 
-            "pageNumber": pageNumber?.encodeToJSON(), 
-            "pageSize": pageSize?.encodeToJSON(), 
+            "page": pageNumber?.encodeToJSON(),
+            "size": pageSize?.encodeToJSON(),
             "paged": paged, 
             "showinios": showinios, 
             "sort.sorted": sortSorted, 
@@ -119,8 +119,8 @@ open class MovieControllerAPI {
         url?.queryItems = APIHelper.mapValuesToQueryItems([
             "language": language, 
             "offset": offset?.encodeToJSON(), 
-            "pageNumber": pageNumber?.encodeToJSON(), 
-            "pageSize": pageSize?.encodeToJSON(), 
+            "page": pageNumber?.encodeToJSON(),
+            "size": pageSize?.encodeToJSON(),
             "paged": paged, 
             "showinios": showinios, 
             "sort.sorted": sortSorted, 
@@ -217,8 +217,8 @@ open class MovieControllerAPI {
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems([
             "offset": offset?.encodeToJSON(), 
-            "pageNumber": pageNumber?.encodeToJSON(), 
-            "pageSize": pageSize?.encodeToJSON(), 
+            "page": pageNumber?.encodeToJSON(),
+            "size": pageSize?.encodeToJSON(),
             "paged": paged, 
             "sort.sorted": sortSorted, 
             "sort.unsorted": sortUnsorted, 
@@ -488,8 +488,8 @@ open class MovieControllerAPI {
         var url = URLComponents(string: URLString)
         url?.queryItems = APIHelper.mapValuesToQueryItems([
             "offset": offset?.encodeToJSON(), 
-            "pageNumber": pageNumber?.encodeToJSON(), 
-            "pageSize": pageSize?.encodeToJSON(), 
+            "page": pageNumber?.encodeToJSON(),
+            "size": pageSize?.encodeToJSON(),
             "paged": paged, 
             "sort.sorted": sortSorted, 
             "sort.unsorted": sortUnsorted, 
@@ -548,8 +548,8 @@ open class MovieControllerAPI {
         url?.queryItems = APIHelper.mapValuesToQueryItems([
             "movieName": movieName, 
             "offset": offset?.encodeToJSON(), 
-            "pageNumber": pageNumber?.encodeToJSON(), 
-            "pageSize": pageSize?.encodeToJSON(), 
+            "page": pageNumber?.encodeToJSON(),
+            "size": pageSize?.encodeToJSON(),
             "paged": paged, 
             "showinios": showinios, 
             "sort.sorted": sortSorted, 
@@ -609,8 +609,8 @@ open class MovieControllerAPI {
         url?.queryItems = APIHelper.mapValuesToQueryItems([
             "movieName": movieName, 
             "offset": offset?.encodeToJSON(), 
-            "pageNumber": pageNumber?.encodeToJSON(), 
-            "pageSize": pageSize?.encodeToJSON(), 
+            "page": pageNumber?.encodeToJSON(),
+            "size": pageSize?.encodeToJSON(),
             "paged": paged, 
             "showinios": showinios, 
             "sort.sorted": sortSorted, 
@@ -670,8 +670,8 @@ open class MovieControllerAPI {
         url?.queryItems = APIHelper.mapValuesToQueryItems([
             "language": language, 
             "offset": offset?.encodeToJSON(), 
-            "pageNumber": pageNumber?.encodeToJSON(), 
-            "pageSize": pageSize?.encodeToJSON(), 
+            "page": pageNumber?.encodeToJSON(),
+            "size": pageSize?.encodeToJSON(),
             "paged": paged, 
             "showinios": showinios, 
             "sort.sorted": sortSorted, 
@@ -731,8 +731,8 @@ open class MovieControllerAPI {
         url?.queryItems = APIHelper.mapValuesToQueryItems([
             "language": language, 
             "offset": offset?.encodeToJSON(), 
-            "pageNumber": pageNumber?.encodeToJSON(), 
-            "pageSize": pageSize?.encodeToJSON(), 
+            "page": pageNumber?.encodeToJSON(),
+            "size": pageSize?.encodeToJSON(),
             "paged": paged, 
             "showinios": showinios, 
             "sort.sorted": sortSorted, 
@@ -911,8 +911,8 @@ open class MovieControllerAPI {
         url?.queryItems = APIHelper.mapValuesToQueryItems([
             "language": language, 
             "offset": offset?.encodeToJSON(), 
-            "pageNumber": pageNumber?.encodeToJSON(), 
-            "pageSize": pageSize?.encodeToJSON(), 
+            "page": pageNumber?.encodeToJSON(), 
+            "size": pageSize?.encodeToJSON(),
             "paged": paged, 
             "showinios": showinios, 
             "sort.sorted": sortSorted, 
@@ -974,8 +974,8 @@ open class MovieControllerAPI {
         url?.queryItems = APIHelper.mapValuesToQueryItems([
             "language": language, 
             "offset": offset?.encodeToJSON(), 
-            "pageNumber": pageNumber?.encodeToJSON(), 
-            "pageSize": pageSize?.encodeToJSON(), 
+            "page": pageNumber?.encodeToJSON(),
+            "size": pageSize?.encodeToJSON(),
             "paged": paged, 
             "showinios": showinios, 
             "sort.sorted": sortSorted, 
@@ -1115,8 +1115,8 @@ open class MovieControllerAPI {
         url?.queryItems = APIHelper.mapValuesToQueryItems([
             "language": language, 
             "offset": offset?.encodeToJSON(), 
-            "pageNumber": pageNumber?.encodeToJSON(), 
-            "pageSize": pageSize?.encodeToJSON(), 
+            "page": pageNumber?.encodeToJSON(),
+            "size": pageSize?.encodeToJSON(),
             "paged": paged, 
             "showinios": showinios, 
             "sort.sorted": sortSorted, 
@@ -1177,8 +1177,8 @@ open class MovieControllerAPI {
         url?.queryItems = APIHelper.mapValuesToQueryItems([
             "language": language, 
             "offset": offset?.encodeToJSON(), 
-            "pageNumber": pageNumber?.encodeToJSON(), 
-            "pageSize": pageSize?.encodeToJSON(), 
+            "page": pageNumber?.encodeToJSON(),
+            "size": pageSize?.encodeToJSON(),
             "paged": paged, 
             "showinios": showinios, 
             "sort.sorted": sortSorted, 

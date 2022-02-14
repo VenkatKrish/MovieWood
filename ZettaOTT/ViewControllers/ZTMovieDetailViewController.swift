@@ -502,7 +502,7 @@ extension ZTMovieDetailViewController{
     func getMovieDetails(){
         var movieIdVal: Int64 = -1
         if let moviewDe = self.moviewDetails{
-            movieIdVal = self.moviewDetails?.movieId ?? -1
+            movieIdVal = moviewDe.movieId ?? -1
         }else{
             movieIdVal = self.transMovieId ?? -1
         }
@@ -644,7 +644,7 @@ extension ZTMovieDetailViewController{
                         if let filteredVal = self.moviewDetails?.movieSubtitles?.filter({ $0.subType?.lowercased() == ZTDefaultValues.iOS_Subtitle.lowercased()}), filteredVal.count > 0{
                             subsURL = filteredVal[0].subUrl ?? ""
                         }
-                        self.loadVideo(strUrl: self.movieLinkModel?.movieUrl ?? "", seekTime: self.movieLinkModel?.initialSeekTime ?? 0, subsURl: subsURL)
+                        self.loadVideo(strUrl: self.movieLinkModel?.movieUrl ?? "", seekTime: self.movieLinkModel?.initialSeekTime ?? 0, subsURl: subsURL, nameStr: self.movieLinkModel?.movieName ?? "")
                     }
     }
 }

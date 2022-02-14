@@ -54,6 +54,8 @@ open class BMPlayerControlView: UIView {
     
     open var selectedIndex = 0
     open var isFullscreen  = false
+    open var isSubTitleEnable  = true
+
     open var isMaskShowing = true
     
     open var totalDuration: TimeInterval = 0
@@ -98,7 +100,8 @@ open class BMPlayerControlView: UIView {
      fullScreenButton.isSelected = player.isFullscreen
      */
     open var fullscreenButton = UIButton(type: UIButton.ButtonType.custom)
-    
+    open var subTitleToggleButton = UIButton(type: UIButton.ButtonType.custom)
+
     open var subtitleLabel    = UILabel()
     open var subtitleBackView = UIView()
     open var subtileAttribute: [NSAttributedString.Key : Any]?
@@ -292,6 +295,20 @@ open class BMPlayerControlView: UIView {
         }
     }
     
+    open func updateUISubtitle(_ isSubtitle: Bool) {
+        isSubTitleEnable = isSubtitle
+        subTitleToggleButton.isSelected = isSubtitle
+
+        if self.isSubTitleEnable == true{
+            self.subtitleBackView.isHidden = false
+            self.subtitleLabel.isHidden = false
+
+        }else{
+            self.subtitleBackView.isHidden = true
+            self.subtitleLabel.isHidden = true
+
+        }
+    }
     /**
      Call when video play's to the end, override if you need custom UI or animation when played to the end
      */
@@ -403,6 +420,26 @@ open class BMPlayerControlView: UIView {
       delegate?.controlView(controlView: self, didPressButton: button)
     }
     
+    // MARK: - Action Response
+    /**
+     Call when some action button Pressed
+     
+     - parameter button: action Button
+     */
+    @objc open func onSubtitleToggleButtonPressed(_ button: UIButton) {
+      autoFadeOutControlViewWithAnimation()
+      if let type = ButtonType(rawValue: button.tag) {
+        switch type {
+        case .play, .replay:
+          if playerLastState == .playedToTheEnd {
+            hidePlayToTheEndView()
+          }
+        default:
+          break
+        }
+      }
+      delegate?.controlView(controlView: self, didPressButton: button)
+    }
     /**
      Call when the tap gesture tapped
      
@@ -548,7 +585,8 @@ open class BMPlayerControlView: UIView {
         bottomWrapperView.addSubview(progressView)
         bottomWrapperView.addSubview(timeSlider)
         bottomWrapperView.addSubview(fullscreenButton)
-        
+        bottomWrapperView.addSubview(subTitleToggleButton)
+
         playButton.tag = BMPlayerControlView.ButtonType.play.rawValue
         playButton.setImage(BMImageResourcePath("Pod_Asset_BMPlayer_play"),  for: .normal)
         playButton.setImage(BMImageResourcePath("Pod_Asset_BMPlayer_pause"), for: .selected)
@@ -588,7 +626,14 @@ open class BMPlayerControlView: UIView {
         fullscreenButton.tag = BMPlayerControlView.ButtonType.fullscreen.rawValue
         fullscreenButton.setImage(BMImageResourcePath("Pod_Asset_BMPlayer_fullscreen"),    for: .normal)
         fullscreenButton.setImage(BMImageResourcePath("Pod_Asset_BMPlayer_portialscreen"), for: .selected)
+        
         fullscreenButton.addTarget(self, action: #selector(onButtonPressed(_:)), for: .touchUpInside)
+        
+        subTitleToggleButton.tag = BMPlayerControlView.ButtonType.subtitleToggle.rawValue
+        subTitleToggleButton.setImage(BMImageResourcePath("icon_subtitle_default"),    for: .normal)
+        subTitleToggleButton.setImage(BMImageResourcePath("icon_subtitle_default"), for: .selected)
+        subTitleToggleButton.addTarget(self, action: #selector(onSubtitleToggleButtonPressed(_:)), for: .touchUpInside)
+
         
         mainMaskView.addSubview(loadingIndicator)
         
@@ -713,12 +758,19 @@ open class BMPlayerControlView: UIView {
             make.left.equalTo(self.timeSlider.snp.right).offset(5)
             make.width.equalTo(40)
         }
-    
+        
+        subTitleToggleButton.snp.makeConstraints { [unowned self](make) in
+            make.width.equalTo(30)
+            make.height.equalTo(30)
+            make.centerY.equalTo(self.currentTimeLabel)
+            make.left.equalTo(self.totalTimeLabel.snp.right)
+        }
+        
         fullscreenButton.snp.makeConstraints { [unowned self](make) in
             make.width.equalTo(50)
             make.height.equalTo(50)
             make.centerY.equalTo(self.currentTimeLabel)
-            make.left.equalTo(self.totalTimeLabel.snp.right)
+            make.left.equalTo(self.subTitleToggleButton.snp.right)
             make.right.equalToSuperview()
         }
         

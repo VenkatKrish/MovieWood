@@ -15,6 +15,8 @@ extension BMPlayerControlView {
         case back       = 103
         case fullscreen = 105
         case replay     = 106
+        case subtitleToggle = 107
+
     }
 }
 

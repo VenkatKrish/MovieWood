@@ -153,8 +153,8 @@ extension ZTUpcomingViewController: UITableViewDelegate, UITableViewDataSource{
             else{
                 if self.movieCollectionsValues?.count ?? 0 > 0{
                     if let filterMovies = self.movieCollectionsValues?
-                        .first(where: { $0.name == keyVal }), filterMovies.movieCollections?.count ?? 0 > 0{
-                        cell.loadPortraintVideos(videosVal: filterMovies.movieCollections ?? [], delegateObj: self, isExclusiveHide: false) // will change the model and array
+                        .first(where: { $0.name == keyVal }), filterMovies.movie?.count ?? 0 > 0{
+                        cell.loadPortraintVideos(videosVal: filterMovies.movie ?? [], delegateObj: self, isExclusiveHide: false) // will change the model and array
                     }
                 }
                 return cell
@@ -177,7 +177,11 @@ extension ZTUpcomingViewController: UITableViewDelegate, UITableViewDataSource{
                     return cellHeight
                 }
             }
-            if keyVal == moviesKeyUI.recommended {
+            else if keyVal == moviesKeyUI.recommended {
+                if self.popularMovies?.count ?? 0 > 0{
+                    return cellHeight
+                }
+            }else if keyVal == moviesKeyUI.latest_tamil_movies {
                 if self.popularMovies?.count ?? 0 > 0{
                     return cellHeight
                 }
@@ -185,8 +189,8 @@ extension ZTUpcomingViewController: UITableViewDelegate, UITableViewDataSource{
             else{
                 if self.movieCollectionsValues?.count ?? 0 > 0{
                     if let filterMovies = self.movieCollectionsValues?
-                        .first(where: { $0.name == keyVal }), filterMovies.movieCollections?.count ?? 0 > 0{
-                        if filterMovies.movieCollections?.count ?? 0 > 0{
+                        .first(where: { $0.name == keyVal }), filterMovies.movie?.count ?? 0 > 0{
+                        if filterMovies.movie?.count ?? 0 > 0{
                             return cellHeight
                         }
                     }
@@ -222,8 +226,8 @@ extension ZTUpcomingViewController: UITableViewDelegate, UITableViewDataSource{
             }else{
                 if self.movieCollectionsValues?.count ?? 0 > 0{
                     if let filterMovies = self.movieCollectionsValues?
-                        .first(where: { $0.name == keyVal }), filterMovies.movieCollections?.count ?? 0 > 0{
-                        if filterMovies.movieCollections?.count ?? 0 >= self.pageSize{
+                        .first(where: { $0.name == keyVal }), filterMovies.movie?.count ?? 0 > 0{
+                        if filterMovies.movie?.count ?? 0 >= self.pageSize{
                             headerView.btnMore.isHidden = false
                         }
                     }
@@ -256,7 +260,7 @@ extension ZTUpcomingViewController{
             
             if self.movieCollectionsValues?.count ?? 0 > 0{
                 if let filterMovies = self.movieCollectionsValues?
-                    .first(where: { $0.name == keyVal }), filterMovies.movieCollections?.count ?? 0 > 0{
+                    .first(where: { $0.name == keyVal }), filterMovies.movie?.count ?? 0 > 0{
                     Helper.shared.goToMoviesCategoryListScreen(viewController: self, movieKey: keyVal, collectionId: filterMovies._id )
                 }
             }
@@ -335,7 +339,7 @@ extension ZTUpcomingViewController{
             }else{
                 for i in dataVal.content ?? []{
                     let value = i
-                    if value.movieCollections?.count ?? 0 > 0{
+                    if value.movie?.count ?? 0 > 0{
                         let dataObj = value.name ?? ""
                         if !self.allTitles.contains(dataObj) {
                             self.allTitles.append(dataObj)

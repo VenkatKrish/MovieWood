@@ -22,14 +22,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ZTMyTransactionsTableViewCell" rowHeight="99" id="KGk-i7-Jjw" customClass="ZTMyTransactionsTableViewCell" customModule="ZettaOTT" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ZTMyTransactionsTableViewCell" rowHeight="99" id="KGk-i7-Jjw" customClass="ZTMyTransactionsTableViewCell" customModule="Moviewood" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9D-v0-2yy" customClass="ZTCornerRadiusView" customModule="ZettaOTT" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9D-v0-2yy" customClass="ZTCornerRadiusView" customModule="Moviewood" customModuleProvider="target">
                         <rect key="frame" x="8" y="8" width="359" height="83"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFr-10-ars">
@@ -39,6 +39,13 @@
                                         <rect key="frame" x="0.0" y="0.0" width="65" height="83"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="65" id="fFU-uF-4FQ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_youtube_play" translatesAutoresizingMaskIntoConstraints="NO" id="Dce-3I-cSa">
+                                        <rect key="frame" x="17.5" y="31.5" width="30" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="JAn-81-ILn"/>
+                                            <constraint firstAttribute="height" constant="20" id="RjK-Bp-FdJ"/>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1uJ-5U-EJv">
@@ -170,16 +177,38 @@
                                             </view>
                                         </subviews>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="imQ-6p-lWl">
+                                        <rect key="frame" x="79" y="8" width="272" height="67"/>
+                                        <connections>
+                                            <action selector="btnOrderTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nWA-ot-PHO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eFd-yp-I2o">
+                                        <rect key="frame" x="0.0" y="0.0" width="65" height="83"/>
+                                        <connections>
+                                            <action selector="btnMovieTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Cwt-DR-oyH"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="ZTFormBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="Dce-3I-cSa" firstAttribute="centerX" secondItem="xVO-mF-Cr6" secondAttribute="centerX" id="0JB-lJ-YjM"/>
                                     <constraint firstItem="xVO-mF-Cr6" firstAttribute="top" secondItem="dFr-10-ars" secondAttribute="top" id="6bd-vx-QGH"/>
+                                    <constraint firstItem="eFd-yp-I2o" firstAttribute="top" secondItem="xVO-mF-Cr6" secondAttribute="top" id="8aP-Xb-hCR"/>
+                                    <constraint firstItem="imQ-6p-lWl" firstAttribute="leading" secondItem="1uJ-5U-EJv" secondAttribute="leading" id="Aks-kX-gb5"/>
                                     <constraint firstAttribute="trailing" secondItem="1uJ-5U-EJv" secondAttribute="trailing" constant="8" id="BAd-Qb-CxZ"/>
                                     <constraint firstItem="xVO-mF-Cr6" firstAttribute="leading" secondItem="dFr-10-ars" secondAttribute="leading" id="Ehd-nF-WeY"/>
+                                    <constraint firstItem="imQ-6p-lWl" firstAttribute="top" secondItem="1uJ-5U-EJv" secondAttribute="top" id="GRb-XD-JMF"/>
                                     <constraint firstAttribute="bottom" secondItem="1uJ-5U-EJv" secondAttribute="bottom" constant="8" id="JYA-6e-AmL"/>
                                     <constraint firstItem="1uJ-5U-EJv" firstAttribute="top" secondItem="dFr-10-ars" secondAttribute="top" constant="8" id="Or5-dV-XDd"/>
+                                    <constraint firstItem="eFd-yp-I2o" firstAttribute="leading" secondItem="xVO-mF-Cr6" secondAttribute="leading" id="TlC-CD-qEo"/>
+                                    <constraint firstItem="imQ-6p-lWl" firstAttribute="bottom" secondItem="1uJ-5U-EJv" secondAttribute="bottom" id="Vx1-aQ-zi3"/>
+                                    <constraint firstItem="eFd-yp-I2o" firstAttribute="bottom" secondItem="xVO-mF-Cr6" secondAttribute="bottom" id="bka-o0-Djk"/>
                                     <constraint firstAttribute="bottom" secondItem="xVO-mF-Cr6" secondAttribute="bottom" id="gjW-ZF-AOm"/>
                                     <constraint firstItem="1uJ-5U-EJv" firstAttribute="leading" secondItem="xVO-mF-Cr6" secondAttribute="trailing" constant="14" id="guU-Lw-gOh"/>
+                                    <constraint firstItem="Dce-3I-cSa" firstAttribute="centerY" secondItem="xVO-mF-Cr6" secondAttribute="centerY" id="hC5-4a-tS1"/>
+                                    <constraint firstItem="eFd-yp-I2o" firstAttribute="trailing" secondItem="xVO-mF-Cr6" secondAttribute="trailing" id="kEl-wn-TXm"/>
+                                    <constraint firstItem="imQ-6p-lWl" firstAttribute="trailing" secondItem="1uJ-5U-EJv" secondAttribute="trailing" id="usW-vY-oMf"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -203,6 +232,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="btnMovieDetails" destination="eFd-yp-I2o" id="R77-7Q-rX6"/>
+                <outlet property="btnOrderDetails" destination="imQ-6p-lWl" id="4og-yN-YG2"/>
                 <outlet property="imgVwThumbnail" destination="xVO-mF-Cr6" id="Pvj-mg-012"/>
                 <outlet property="lblMovieDuration" destination="r1p-1D-pGq" id="U27-4l-Had"/>
                 <outlet property="lblMovieLanguage" destination="mxd-Kq-AJz" id="7CP-cT-gR1"/>
@@ -216,6 +247,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="icon_youtube_play" width="28.5" height="20.5"/>
         <namedColor name="ZTFormBackgroundColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

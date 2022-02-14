@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol btnOrderMovieDelegate{
+    func btnOrderTapped(btn:UIButton)
+    func btnMovieTapped(btn:UIButton)
+}
 class ZTMyTransactionsTableViewCell: UITableViewCell {
     @IBOutlet weak var lblMovieName: UILabel!
     @IBOutlet weak var lblMovieLanguage: UILabel!
@@ -16,6 +20,9 @@ class ZTMyTransactionsTableViewCell: UITableViewCell {
     @IBOutlet weak var lblMoviePrice: UILabel!
     @IBOutlet weak var lblPaymentStatus: UILabel!
     @IBOutlet weak var lblTransactionDate: UILabel!
+    @IBOutlet weak var btnMovieDetails: UIButton!
+    @IBOutlet weak var btnOrderDetails: UIButton!
+    var delegate: btnOrderMovieDelegate!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,7 +34,15 @@ class ZTMyTransactionsTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func loadOrderDetails(data:Orders? = nil, indexPath:IndexPath){
+    @IBAction func btnMovieTapped(_ sender: UIButton) {
+        delegate.btnMovieTapped(btn: sender)
+    }
+    
+    @IBAction func btnOrderTapped(_ sender: UIButton) {
+        delegate.btnOrderTapped(btn: sender)
+    }
+    func loadOrderDetails(data:Orders? = nil, indexPath:IndexPath, delegateVal:btnOrderMovieDelegate){
+            self.delegate = delegateVal
             self.lblMovieName.text = data?.orderMovie?.movieName
             self.lblMovieLanguage.text = data?.orderMovie?.primaryLanguage
             if let movieTime = data?.orderMovie?.runningTime{
@@ -35,6 +50,8 @@ class ZTMyTransactionsTableViewCell: UITableViewCell {
                 let stringVal = convertToSec.asString(style: .short)
                 self.lblMovieDuration.text = stringVal.replacingOccurrences(of: ",", with: "")
             }
+        self.btnMovieDetails.tag = indexPath.row
+        self.btnOrderDetails.tag = indexPath.row
         self.lblMovieYear.text = String(format: "%d", Int(data?.orderMovie?.yearReleased ?? 0))
             self.lblMoviePrice.text = String(format: "%@", (data?.paidAmount ?? 0).getPriceValue())
             

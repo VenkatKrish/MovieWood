@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SFUIDisplay-Bold.ttf">
+            <string>SFUIDisplay-Bold</string>
+        </array>
+        <array key="SFUIDisplay-Regular.otf">
+            <string>SFUIDisplay-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ZTChannelMovieOrderTableViewCell" rowHeight="111" id="KGk-i7-Jjw" customClass="ZTChannelMovieOrderTableViewCell" customModule="Moviewood" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ACX-LP-LfI" customClass="ZTCornerRadiusView" customModule="Moviewood" customModuleProvider="target">
+                        <rect key="frame" x="5" y="5" width="365" height="73.5"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VvF-5J-q1x">
+                                <rect key="frame" x="0.0" y="0.0" width="365" height="73.5"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eHo-JR-491" customClass="ZTCornerRadiusView" customModule="Moviewood" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="-5" width="50" height="50"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="04" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pE-uJ-A4F">
+                                                <rect key="frame" x="13.5" y="10" width="23.5" height="21.5"/>
+                                                <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="18"/>
+                                                <color key="textColor" name="ZTAppWhiteColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOV" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71f-8g-aPc">
+                                                <rect key="frame" x="0.0" y="31.5" width="50" height="12"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="bIw-ze-hIS"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="10"/>
+                                                <color key="textColor" name="ZTAppWhiteColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" name="ZTGradientColor1"/>
+                                        <constraints>
+                                            <constraint firstItem="71f-8g-aPc" firstAttribute="centerX" secondItem="eHo-JR-491" secondAttribute="centerX" id="8C7-WC-4c9"/>
+                                            <constraint firstAttribute="width" constant="50" id="ENQ-RU-5Yt"/>
+                                            <constraint firstItem="4pE-uJ-A4F" firstAttribute="top" secondItem="eHo-JR-491" secondAttribute="top" constant="10" id="ZBz-bL-2Wl"/>
+                                            <constraint firstAttribute="height" constant="50" id="n38-RJ-Gkd"/>
+                                            <constraint firstItem="4pE-uJ-A4F" firstAttribute="centerX" secondItem="eHo-JR-491" secondAttribute="centerX" id="vcw-6P-gIe"/>
+                                            <constraint firstItem="71f-8g-aPc" firstAttribute="top" secondItem="4pE-uJ-A4F" secondAttribute="bottom" id="yLA-CY-ifu"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="aQR-uL-efs">
+                                        <rect key="frame" x="76" y="8" width="279" height="57.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JND-Dp-SvC">
+                                                <rect key="frame" x="0.0" y="0.0" width="279" height="19.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thalaivii" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXh-n8-Dvn">
+                                                        <rect key="frame" x="0.0" y="0.0" width="224" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="16"/>
+                                                        <color key="textColor" name="ZTTabbarUnSelectedColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEW" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPs-b9-1VS">
+                                                        <rect key="frame" x="229" y="0.0" width="50" height="19.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="0Zu-U3-7bo"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="10"/>
+                                                        <color key="textColor" name="ZTMovieDetailSubTitle"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="QPs-b9-1VS" secondAttribute="trailing" id="0BC-NZ-C72"/>
+                                                    <constraint firstAttribute="height" constant="19.5" id="14c-W5-NBu"/>
+                                                    <constraint firstAttribute="bottom" secondItem="qXh-n8-Dvn" secondAttribute="bottom" id="Ajw-Vp-1yh"/>
+                                                    <constraint firstItem="qXh-n8-Dvn" firstAttribute="leading" secondItem="JND-Dp-SvC" secondAttribute="leading" id="CjM-2g-Ezc"/>
+                                                    <constraint firstItem="QPs-b9-1VS" firstAttribute="leading" secondItem="qXh-n8-Dvn" secondAttribute="trailing" constant="5" id="KhA-U9-7pk"/>
+                                                    <constraint firstItem="qXh-n8-Dvn" firstAttribute="top" secondItem="JND-Dp-SvC" secondAttribute="top" id="OwK-Yf-OFI"/>
+                                                    <constraint firstAttribute="bottom" secondItem="QPs-b9-1VS" secondAttribute="bottom" id="coo-nd-Dct"/>
+                                                    <constraint firstItem="QPs-b9-1VS" firstAttribute="top" secondItem="JND-Dp-SvC" secondAttribute="top" id="kTt-f8-UwM"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6VJ-Wb-AEo">
+                                                <rect key="frame" x="0.0" y="24.5" width="279" height="33"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Start : " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5zf-7K-w6h">
+                                                        <rect key="frame" x="0.0" y="0.0" width="31" height="13.5"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="13.5" id="8Ne-mj-LKr"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="11"/>
+                                                        <color key="textColor" name="ZTMovieDetailSubTitle"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="04-11-2021, 9:00PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iJb-85-zr9">
+                                                        <rect key="frame" x="31" y="0.0" width="100" height="13.5"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="13.5" id="tVb-r0-qWs"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="11"/>
+                                                        <color key="textColor" name="ZTMovieDetailSubTitle"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text=" End : " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gyK-8Q-l4J">
+                                                        <rect key="frame" x="0.0" y="14.5" width="29.5" height="13.5"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="13.5" id="ZXj-Si-jHJ"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="11"/>
+                                                        <color key="textColor" name="ZTMovieDetailSubTitle"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="04-11-2021, 9:00PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yj6-TL-USJ">
+                                                        <rect key="frame" x="29.5" y="14.5" width="100" height="13.5"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="13.5" id="Y8L-VF-cWZ"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Regular" family="SF UI Display" pointSize="11"/>
+                                                        <color key="textColor" name="ZTMovieDetailSubTitle"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="₹ 94.60" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hV7-Ot-g5S">
+                                                        <rect key="frame" x="219.5" y="8.5" width="59.5" height="19.5"/>
+                                                        <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="16"/>
+                                                        <color key="textColor" name="ZTTabbarUnSelectedColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="5zf-7K-w6h" firstAttribute="top" secondItem="6VJ-Wb-AEo" secondAttribute="top" id="1d3-hr-A5Z"/>
+                                                    <constraint firstItem="Yj6-TL-USJ" firstAttribute="top" secondItem="gyK-8Q-l4J" secondAttribute="top" id="2Yt-kn-VGL"/>
+                                                    <constraint firstItem="Yj6-TL-USJ" firstAttribute="bottom" secondItem="gyK-8Q-l4J" secondAttribute="bottom" id="938-ZT-kOk"/>
+                                                    <constraint firstItem="iJb-85-zr9" firstAttribute="bottom" secondItem="5zf-7K-w6h" secondAttribute="bottom" id="Csf-fg-smH"/>
+                                                    <constraint firstAttribute="trailing" secondItem="hV7-Ot-g5S" secondAttribute="trailing" id="PbY-SC-OxV"/>
+                                                    <constraint firstItem="5zf-7K-w6h" firstAttribute="leading" secondItem="6VJ-Wb-AEo" secondAttribute="leading" id="Sip-CB-Y4S"/>
+                                                    <constraint firstItem="hV7-Ot-g5S" firstAttribute="bottom" secondItem="Yj6-TL-USJ" secondAttribute="bottom" id="X1y-zO-EE5"/>
+                                                    <constraint firstItem="gyK-8Q-l4J" firstAttribute="top" secondItem="5zf-7K-w6h" secondAttribute="bottom" constant="1" id="YNr-m0-LUx"/>
+                                                    <constraint firstItem="iJb-85-zr9" firstAttribute="leading" secondItem="5zf-7K-w6h" secondAttribute="trailing" id="cKh-In-oFA"/>
+                                                    <constraint firstItem="iJb-85-zr9" firstAttribute="top" secondItem="5zf-7K-w6h" secondAttribute="top" id="fdg-4E-GMf"/>
+                                                    <constraint firstItem="Yj6-TL-USJ" firstAttribute="leading" secondItem="gyK-8Q-l4J" secondAttribute="trailing" id="osI-3D-hwg"/>
+                                                    <constraint firstItem="gyK-8Q-l4J" firstAttribute="leading" secondItem="5zf-7K-w6h" secondAttribute="leading" id="vX7-C1-Tkj"/>
+                                                    <constraint firstAttribute="bottom" secondItem="gyK-8Q-l4J" secondAttribute="bottom" constant="5" id="yyp-Md-yd9"/>
+                                                    <constraint firstAttribute="height" constant="33" id="zKT-kh-pth"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" name="ZTFormBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="aQR-uL-efs" firstAttribute="leading" secondItem="eHo-JR-491" secondAttribute="trailing" constant="16" id="aoh-lB-Q77"/>
+                                    <constraint firstItem="eHo-JR-491" firstAttribute="top" secondItem="VvF-5J-q1x" secondAttribute="top" constant="-5" id="elD-EQ-8lj"/>
+                                    <constraint firstAttribute="trailing" secondItem="aQR-uL-efs" secondAttribute="trailing" constant="10" id="iBa-4y-02V"/>
+                                    <constraint firstAttribute="bottom" secondItem="aQR-uL-efs" secondAttribute="bottom" constant="8" id="qHV-P9-SW3"/>
+                                    <constraint firstItem="aQR-uL-efs" firstAttribute="top" secondItem="VvF-5J-q1x" secondAttribute="top" constant="8" id="ulz-D6-bcV"/>
+                                    <constraint firstItem="eHo-JR-491" firstAttribute="leading" secondItem="VvF-5J-q1x" secondAttribute="leading" constant="10" id="xJd-De-qxH"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="VvF-5J-q1x" secondAttribute="trailing" id="7LY-Xl-O6r"/>
+                            <constraint firstItem="VvF-5J-q1x" firstAttribute="top" secondItem="ACX-LP-LfI" secondAttribute="top" id="8QV-fe-pas"/>
+                            <constraint firstAttribute="bottom" secondItem="VvF-5J-q1x" secondAttribute="bottom" id="C6j-OO-T0B"/>
+                            <constraint firstItem="VvF-5J-q1x" firstAttribute="leading" secondItem="ACX-LP-LfI" secondAttribute="leading" id="uqv-ak-EkT"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="ZTBackgroundColor"/>
+                <constraints>
+                    <constraint firstItem="ACX-LP-LfI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="4Ra-et-4Pr"/>
+                    <constraint firstAttribute="trailing" secondItem="ACX-LP-LfI" secondAttribute="trailing" constant="5" id="9zh-VW-yxT"/>
+                    <constraint firstAttribute="bottom" secondItem="ACX-LP-LfI" secondAttribute="bottom" constant="5" id="Aw5-At-GQN"/>
+                    <constraint firstItem="ACX-LP-LfI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="iFL-KD-Q9a"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="lblDateDay" destination="4pE-uJ-A4F" id="QTm-b2-xMP"/>
+                <outlet property="lblDateMonth" destination="71f-8g-aPc" id="twi-Of-eRE"/>
+                <outlet property="lblMovieEnd" destination="Yj6-TL-USJ" id="nH2-OY-3d6"/>
+                <outlet property="lblMoviePrice" destination="hV7-Ot-g5S" id="Vt8-6p-Z2n"/>
+                <outlet property="lblMovieStart" destination="iJb-85-zr9" id="F13-gh-K8H"/>
+                <outlet property="lblMovieTitle" destination="qXh-n8-Dvn" id="P9W-eZ-TjF"/>
+                <outlet property="lblPaymentStatus" destination="QPs-b9-1VS" id="bnz-lo-1oP"/>
+            </connections>
+            <point key="canvasLocation" x="132.60869565217394" y="8.3705357142857135"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="ZTAppWhiteColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ZTBackgroundColor">
+            <color red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="ZTFormBackgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ZTGradientColor1">
+            <color red="0.82352941176470584" green="0.21568627450980393" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ZTMovieDetailSubTitle">
+            <color red="0.59200000762939453" green="0.59200000762939453" blue="0.59200000762939453" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="ZTTabbarUnSelectedColor">
+            <color red="0.074509803921568626" green="0.078431372549019607" blue="0.14509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,5 +1,5 @@
 //
-//  ZTWebseriesViewController.swift
+//  ZTMusicVideoViewController.swift
 //  ZettaOTT
 //
 //  Created by augusta-imac6 on 06/12/21.
@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 import SwiftUI
-class ZTWebseriesViewController: UIViewController {
+class ZTDocumentoryViewController: UIViewController {
     @IBOutlet weak var profileCollection: UICollectionView!
     var streamingNowMovies : [Movies]? = []
     var webSeriesMovies : [Movies]? = []
@@ -88,10 +88,10 @@ class ZTWebseriesViewController: UIViewController {
     }
 }
 // API Methods
-extension ZTWebseriesViewController{
+extension ZTDocumentoryViewController{
     func getStreamingNowMovies(){
         if NetworkReachability.shared.isReachable {
-            ZTCommonAPIWrapper.streamNow(pageNumber: pageScrollMoviesPageNum, pageSize: pageScrollMoviesPageSize, sortSorted: true, contenttype: MovieSearchTag.streamNowWebseries.rawValue, sort:SortingStruct.sort_streamDateOn_desc.rawValue) { (response, error) in
+            ZTCommonAPIWrapper.streamNow(pageNumber: pageScrollMoviesPageNum, pageSize: pageScrollMoviesPageSize, sortSorted: true, contenttype: MovieSearchTag.streamNowDocumentary.rawValue, sort:SortingStruct.sort_streamDateOn_desc.rawValue) { (response, error) in
                 DispatchQueue.main.async {
                     if self.refreshControl.isRefreshing{
                         self.refreshControl.endRefreshing()
@@ -124,7 +124,7 @@ extension ZTWebseriesViewController{
                 if isSpinnerNeeded == true{
                     self.showActivityIndicator(self.view)
                 }
-                ZTCommonAPIWrapper.searchMoviesGET(search: MovieSearchTag.webSeries.rawValue, page: self.pageNumber, size: self.pageSize) { (response, error) in
+                ZTCommonAPIWrapper.searchMoviesGET(search: MovieSearchTag.documentary.rawValue, page: self.pageNumber, size: self.pageSize) { (response, error) in
                     if isSpinnerNeeded == true{
                         self.hideActivityIndicator(self.view)
                     }
@@ -152,7 +152,7 @@ extension ZTWebseriesViewController{
 }
 //MARK: Collection View Methods
 
-extension ZTWebseriesViewController:UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension ZTDocumentoryViewController:UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if self.webSeriesMovies?.count ?? 0 > 0{
@@ -232,7 +232,7 @@ extension ZTWebseriesViewController:UICollectionViewDelegate, UICollectionViewDa
        }
 
 }
-extension ZTWebseriesViewController : ZTCollectionPagingDelegate{
+extension ZTDocumentoryViewController : ZTCollectionPagingDelegate{
     func selectedVideoModel(movieInfo: Movies, indexVal: Int) {
         Helper.shared.goToMovieDetails(viewController: self, movieInfo: movieInfo)
     }

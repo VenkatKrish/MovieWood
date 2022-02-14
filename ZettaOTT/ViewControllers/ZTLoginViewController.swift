@@ -23,7 +23,7 @@ class ZTLoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.vwEmail.isHidden = false
+//        self.vwEmail.isHidden = false
         self.vwPhone.layer.borderColor = UIColor.getColor(colorVal: ZTAppSeperatorColor).cgColor
         self.vwPhone.layer.borderWidth = 1.0
         self.vwEmail.layer.borderColor = UIColor.getColor(colorVal: ZTAppSeperatorColor).cgColor
@@ -94,10 +94,10 @@ class ZTLoginViewController: UIViewController {
                 let dialCode = self.removeSpecialCharsFromPhoneString(text: self.txtFieldFlag.selectedCountry?.phoneCode ?? "91")
             let email = self.removeWhiteSpace(text: self.txtFieldEmail.text ?? "")
 //            if self.isOtherCountry == true{
-//                self.forgotPasswordByEmail(dialCode: dialCode, phoneNum: phoneNum, email: email)
+////                self.forgotPasswordByEmail(dialCode: dialCode, phoneNum: phoneNum, email: email)
+//                self.loginOrRegister(dialCode: dialCode, phoneNum: phoneNum, email: email)
 //            }else{
 //                self.forgotPasswordByPhone(dialCode: dialCode, phoneNum: phoneNum)
-//
 //            }
             self.loginOrRegister(dialCode: dialCode, phoneNum: phoneNum, email: email)
             
@@ -219,15 +219,15 @@ extension ZTLoginViewController : FPNTextFieldDelegate{
        /// Lets you know when a country is selected
        func fpnDidSelectCountry(name: String, dialCode: String, code: String) {
           print(name, dialCode, code) // Output "France", "+33", "FR"
-//           if code != FPNCountryCode.IN.rawValue{
-//               self.isOtherCountry = true
-//               self.vwEmail.isHidden = false
-//           }else{
-//               self.isOtherCountry = false
-//               self.vwEmail.isHidden = true
-//           }
-           self.isOtherCountry = true
-           self.vwEmail.isHidden = false
+           if code != FPNCountryCode.IN.rawValue{
+               self.isOtherCountry = true
+               self.vwEmail.isHidden = false
+           }else{
+               self.isOtherCountry = false
+               self.vwEmail.isHidden = true
+           }
+//           self.isOtherCountry = true
+//           self.vwEmail.isHidden = false
        }
 
        /// Lets you know when the phone number is valid or not. Once a phone number is valid, you can get it in severals formats (E164, International, National, RFC3966)
@@ -291,7 +291,16 @@ extension ZTLoginViewController{
     func loginOrRegister(dialCode:String, phoneNum:String, email:String){
         if NetworkReachability.shared.isReachable{
             self.showActivityIndicator(self.view)
-            let requestVal = LoginOrRegisterRequest(username: email, password: "1", mobileNo: phoneNum, loginSource: LoginSource.emailFlow, countryCode: dialCode)
+            var loginSource = LoginSource.mobileFlow
+            var userNameStr = phoneNum
+
+            var isMobileFlow = true
+            if isOtherCountry == true{
+                loginSource = LoginSource.emailFlow
+                isMobileFlow = false
+                userNameStr = email
+            }
+            let requestVal = LoginOrRegisterRequest(username: userNameStr, password: "1", mobileNo: phoneNum, loginSource: loginSource, countryCode: dialCode)
         
             UserControllerAPI.loginOrRegisterUserUsingPOST(loginRequest: requestVal) { response, error in
                 self.hideActivityIndicator(self.view)
@@ -303,7 +312,7 @@ extension ZTLoginViewController{
                     
                 }else{
                     if let _ = response{
-                        Helper.shared.goToVerificationScreen(viewController: self, enteredPhone: phoneNum, enteredDialCode: dialCode, enteredEmail: email, isMobileFlow: false)
+                        Helper.shared.goToVerificationScreen(viewController: self, enteredPhone: phoneNum, enteredDialCode: dialCode, enteredEmail: email, isMobileFlow: isMobileFlow)
                     }
                 }
             }

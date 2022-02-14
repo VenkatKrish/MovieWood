@@ -63,16 +63,13 @@ extension ZTMyTransactionsViewController: UITableViewDelegate, UITableViewDataSo
         let cell: ZTMyTransactionsTableViewCell = tableView.dequeueReusableCell(withIdentifier: ZTCellNameOrIdentifier.ZTMyTransactionsTableViewCell, for: indexPath) as! ZTMyTransactionsTableViewCell
         
         cell.selectionStyle = .none
-        cell.loadOrderDetails(data: self.transactionsList?[indexPath.row], indexPath: indexPath)
+        cell.loadOrderDetails(data: self.transactionsList?[indexPath.row], indexPath: indexPath, delegateVal: self)
         
         return cell
         
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let modelVal = self.transactionsList?[indexPath.row]{
-            Helper.shared.goToMovieDetails(viewController: self, movieInfo: nil, isFromTransaction: true, movieId: modelVal.movieId ?? -1)
-
-        }
+        
     }
 //    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 //        return 0.1
@@ -125,6 +122,18 @@ extension ZTMyTransactionsViewController{
                 }
             }
            
+        }
+    }
+}
+extension ZTMyTransactionsViewController:btnOrderMovieDelegate{
+    func btnOrderTapped(btn: UIButton) {
+        if let modelVal = self.transactionsList?[btn.tag]{
+            Helper.shared.goToTransactionDetails(viewController: self, orderInfo: modelVal)
+        }
+    }
+    func btnMovieTapped(btn: UIButton) {
+        if let modelVal = self.transactionsList?[btn.tag].orderMovie?.movieId{
+            Helper.shared.goToMovieDetails(viewController: self, movieInfo: nil, isFromTransaction: true, movieId: modelVal )
         }
     }
 }

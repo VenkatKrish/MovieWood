@@ -33,6 +33,7 @@ open class BMPlayer: UIView {
     fileprivate weak var parentView : UIView?
     fileprivate var viewFrame = CGRect()
     open fileprivate(set) var isFullScreenVal : Bool = false
+    open fileprivate(set) var isSubTitleVal : Bool = false
 
     open weak var delegate: BMPlayerDelegate?
     
@@ -633,6 +634,10 @@ extension BMPlayer: BMPlayerControlViewDelegate {
 //                viewFrame = self.frame
 //                fullScreenButtonPressed()
                 
+            case .subtitleToggle:
+                button.isSelected = !button.isSelected
+                isSubTitleVal = button.isSelected
+                self.controlView.updateUISubtitle(isSubTitleVal)
             default:
                 print("[Error] unhandled Action")
             }

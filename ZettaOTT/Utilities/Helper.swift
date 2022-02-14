@@ -458,9 +458,27 @@ extension Helper{
         initial.transMovieId = movieId
         viewController.navigationController?.pushViewController(initial, animated: true)
     }
+    func goToChannelsMovieList(viewController:UIViewController, channelInfo:Channels? = nil){
+        
+        let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
+        let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTChannelMoviesListViewController) as! ZTChannelMoviesListViewController
+        initial.channelInfo = channelInfo
+        viewController.navigationController?.pushViewController(initial, animated: true)
+    }
+    func goToTransactionDetails(viewController:UIViewController, orderInfo:Orders? = nil){
+        let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
+        let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTTransactionDetailsViewController) as! ZTTransactionDetailsViewController
+        initial.orderDetails = orderInfo
+        viewController.navigationController?.pushViewController(initial, animated: true)
+    }
     func goToEditProfile(viewController:UIViewController){
         let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
         let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTProfileEditViewController) as! ZTProfileEditViewController
+        viewController.navigationController?.pushViewController(initial, animated: true)
+    }
+    func goToDashboard(viewController:UIViewController){
+        let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
+        let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTDashboardChannelViewController) as! ZTDashboardChannelViewController
         viewController.navigationController?.pushViewController(initial, animated: true)
     }
     func goToLanguage(viewController:UIViewController){

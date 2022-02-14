@@ -10,6 +10,9 @@ import IQKeyboardManagerSwift
 import GoogleSignIn
 import FacebookCore
 
+var pageScrollMoviesPageSize : Int = 5
+var pageScrollMoviesPageNum : Int = 0
+
 var zt_minimumLineSpacing : CGFloat = 8
 var zt_minimumInteritemSpacing : CGFloat = 8
 var screenShotImage:UIImage? = nil

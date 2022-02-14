@@ -367,6 +367,20 @@
 		39F6A4DC27AAF8CE00E90C39 /* ZTFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F6A4DB27AAF8CE00E90C39 /* ZTFilterViewController.swift */; };
 		39F6A4DF27AAFB7900E90C39 /* ZTFilterHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39F6A4DD27AAFB7900E90C39 /* ZTFilterHeaderCollectionReusableView.swift */; };
 		39F6A4E027AAFB7900E90C39 /* ZTFilterHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39F6A4DE27AAFB7900E90C39 /* ZTFilterHeaderCollectionReusableView.xib */; };
+		39FA893327BA827800E77E44 /* ZTStagePlaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FA893227BA827800E77E44 /* ZTStagePlaysViewController.swift */; };
+		39FA893527BA828500E77E44 /* ZTMusicVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FA893427BA828500E77E44 /* ZTMusicVideoViewController.swift */; };
+		39FA893727BA829500E77E44 /* ZTDocumentoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FA893627BA829500E77E44 /* ZTDocumentoryViewController.swift */; };
+		39FA893927BA885700E77E44 /* ZTTransactionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FA893827BA885700E77E44 /* ZTTransactionDetailsViewController.swift */; };
+		39FA893B27BA94B000E77E44 /* ZTDashboardChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FA893A27BA94B000E77E44 /* ZTDashboardChannelViewController.swift */; };
+		39FA893D27BA94D200E77E44 /* ZTChannelMoviesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FA893C27BA94D200E77E44 /* ZTChannelMoviesListViewController.swift */; };
+		39FA893F27BA94E400E77E44 /* ZTChannelMovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FA893E27BA94E400E77E44 /* ZTChannelMovieDetailsViewController.swift */; };
+		39FA894227BACFCB00E77E44 /* ZTChannelListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FA894027BACFCB00E77E44 /* ZTChannelListCollectionViewCell.swift */; };
+		39FA894327BACFCB00E77E44 /* ZTChannelListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39FA894127BACFCB00E77E44 /* ZTChannelListCollectionViewCell.xib */; };
+		39FA894527BAD7F400E77E44 /* ZTChannelPayPerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FA894427BAD7F400E77E44 /* ZTChannelPayPerViewController.swift */; };
+		39FA894727BAD80600E77E44 /* ZTChannelMoviePlaysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FA894627BAD80600E77E44 /* ZTChannelMoviePlaysViewController.swift */; };
+		39FA894A27BADB7E00E77E44 /* ZTChannelMovieOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FA894827BADB7E00E77E44 /* ZTChannelMovieOrderTableViewCell.swift */; };
+		39FA894B27BADB7E00E77E44 /* ZTChannelMovieOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39FA894927BADB7E00E77E44 /* ZTChannelMovieOrderTableViewCell.xib */; };
+		39FA894D27BAE43C00E77E44 /* ZTChannelPopupPayPerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FA894C27BAE43C00E77E44 /* ZTChannelPopupPayPerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -730,6 +744,20 @@
 		39F6A4DB27AAF8CE00E90C39 /* ZTFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTFilterViewController.swift; sourceTree = "<group>"; };
 		39F6A4DD27AAFB7900E90C39 /* ZTFilterHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTFilterHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		39F6A4DE27AAFB7900E90C39 /* ZTFilterHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTFilterHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
+		39FA893227BA827800E77E44 /* ZTStagePlaysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTStagePlaysViewController.swift; sourceTree = "<group>"; };
+		39FA893427BA828500E77E44 /* ZTMusicVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTMusicVideoViewController.swift; sourceTree = "<group>"; };
+		39FA893627BA829500E77E44 /* ZTDocumentoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTDocumentoryViewController.swift; sourceTree = "<group>"; };
+		39FA893827BA885700E77E44 /* ZTTransactionDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTTransactionDetailsViewController.swift; sourceTree = "<group>"; };
+		39FA893A27BA94B000E77E44 /* ZTDashboardChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTDashboardChannelViewController.swift; sourceTree = "<group>"; };
+		39FA893C27BA94D200E77E44 /* ZTChannelMoviesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTChannelMoviesListViewController.swift; sourceTree = "<group>"; };
+		39FA893E27BA94E400E77E44 /* ZTChannelMovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTChannelMovieDetailsViewController.swift; sourceTree = "<group>"; };
+		39FA894027BACFCB00E77E44 /* ZTChannelListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTChannelListCollectionViewCell.swift; sourceTree = "<group>"; };
+		39FA894127BACFCB00E77E44 /* ZTChannelListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTChannelListCollectionViewCell.xib; sourceTree = "<group>"; };
+		39FA894427BAD7F400E77E44 /* ZTChannelPayPerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTChannelPayPerViewController.swift; sourceTree = "<group>"; };
+		39FA894627BAD80600E77E44 /* ZTChannelMoviePlaysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTChannelMoviePlaysViewController.swift; sourceTree = "<group>"; };
+		39FA894827BADB7E00E77E44 /* ZTChannelMovieOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTChannelMovieOrderTableViewCell.swift; sourceTree = "<group>"; };
+		39FA894927BADB7E00E77E44 /* ZTChannelMovieOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZTChannelMovieOrderTableViewCell.xib; sourceTree = "<group>"; };
+		39FA894C27BAE43C00E77E44 /* ZTChannelPopupPayPerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZTChannelPopupPayPerViewController.swift; sourceTree = "<group>"; };
 		A4A3A5FD2C49DD04C24E76FD /* Pods-ZettaOTT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZettaOTT.release.xcconfig"; path = "Target Support Files/Pods-ZettaOTT/Pods-ZettaOTT.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -862,6 +890,10 @@
 				392D915E278A0EC500ACC258 /* ZTSeasonEpisodeCollectionViewCell.xib */,
 				39F6A4DD27AAFB7900E90C39 /* ZTFilterHeaderCollectionReusableView.swift */,
 				39F6A4DE27AAFB7900E90C39 /* ZTFilterHeaderCollectionReusableView.xib */,
+				39FA894027BACFCB00E77E44 /* ZTChannelListCollectionViewCell.swift */,
+				39FA894127BACFCB00E77E44 /* ZTChannelListCollectionViewCell.xib */,
+				39FA894827BADB7E00E77E44 /* ZTChannelMovieOrderTableViewCell.swift */,
+				39FA894927BADB7E00E77E44 /* ZTChannelMovieOrderTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -903,6 +935,16 @@
 				398FBA1E275DFB2F005E78E3 /* ZTNowViewController.swift */,
 				392D9157278A0AE900ACC258 /* ZTSeasonVideoListViewController.swift */,
 				39F6A4DB27AAF8CE00E90C39 /* ZTFilterViewController.swift */,
+				39FA893227BA827800E77E44 /* ZTStagePlaysViewController.swift */,
+				39FA893427BA828500E77E44 /* ZTMusicVideoViewController.swift */,
+				39FA893627BA829500E77E44 /* ZTDocumentoryViewController.swift */,
+				39FA893827BA885700E77E44 /* ZTTransactionDetailsViewController.swift */,
+				39FA893A27BA94B000E77E44 /* ZTDashboardChannelViewController.swift */,
+				39FA893C27BA94D200E77E44 /* ZTChannelMoviesListViewController.swift */,
+				39FA893E27BA94E400E77E44 /* ZTChannelMovieDetailsViewController.swift */,
+				39FA894427BAD7F400E77E44 /* ZTChannelPayPerViewController.swift */,
+				39FA894627BAD80600E77E44 /* ZTChannelMoviePlaysViewController.swift */,
+				39FA894C27BAE43C00E77E44 /* ZTChannelPopupPayPerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1414,10 +1456,12 @@
 				3995EA402707244300E3FB19 /* SFUIDisplay-Medium.otf in Resources */,
 				39A42BA1270EE7F6002C100D /* ZTHomeTableViewCell.xib in Resources */,
 				3931BD5A2742D1C200540E8C /* ZTCrewCollectionViewCell.xib in Resources */,
+				39FA894B27BADB7E00E77E44 /* ZTChannelMovieOrderTableViewCell.xib in Resources */,
 				3930C343274D2E4D009D8F7A /* ZTMovieInfoGenreCollectionViewCell.xib in Resources */,
 				3995EA412707244300E3FB19 /* SFUIDisplay-Regular.otf in Resources */,
 				393F17BF2711E4E2005713E1 /* ZTProfileTopTableViewCell.xib in Resources */,
 				3995EA422707244300E3FB19 /* SFUIDisplay-Semibold.otf in Resources */,
+				39FA894327BACFCB00E77E44 /* ZTChannelListCollectionViewCell.xib in Resources */,
 				393F17D32712008A005713E1 /* ZTProfileFooter.xib in Resources */,
 				392D9160278A0EC500ACC258 /* ZTSeasonEpisodeCollectionViewCell.xib in Resources */,
 				39A42B92270EDF70002C100D /* ZTPortraitVideoCollectionViewCell.xib in Resources */,
@@ -1497,6 +1541,7 @@
 				3915784D27637BCB004F51FF /* NVActivityIndicatorAnimationBallScaleMultiple.swift in Sources */,
 				393A5CF5270D748E00F7695D /* ZTVerificationViewController.swift in Sources */,
 				39E7B5BD2757BEB700A76BC5 /* ZTMoviePlayerViewController.swift in Sources */,
+				39FA893327BA827800E77E44 /* ZTStagePlaysViewController.swift in Sources */,
 				3915784327637BCB004F51FF /* NVActivityIndicatorAnimationBallScaleRipple.swift in Sources */,
 				3915784B27637BCB004F51FF /* NVActivityIndicatorAnimationTriangleSkewSpin.swift in Sources */,
 				39EBD3B5273C007C00BEE73A /* ChartsControllerAPI.swift in Sources */,
@@ -1508,6 +1553,7 @@
 				398FBA19275DF746005E78E3 /* ZTUpcomingViewController.swift in Sources */,
 				3915788D27637D0A004F51FF /* ConstraintViewDSL.swift in Sources */,
 				3957BC2627510800002AC22D /* ZTPaymentsViewController.swift in Sources */,
+				39FA893927BA885700E77E44 /* ZTTransactionDetailsViewController.swift in Sources */,
 				39EBD37E273C003800BEE73A /* PageAds.swift in Sources */,
 				39EBD3B9273C007C00BEE73A /* MovieSeasonControllerAPI.swift in Sources */,
 				39EBD3E8273C584D00BEE73A /* ZTCommonAPIWrapper.swift in Sources */,
@@ -1522,8 +1568,10 @@
 				39EBD389273C003800BEE73A /* ToggleFeaturedMovieRequest.swift in Sources */,
 				39EBD356273C003800BEE73A /* PageRegions.swift in Sources */,
 				39F6A4DC27AAF8CE00E90C39 /* ZTFilterViewController.swift in Sources */,
+				39FA894527BAD7F400E77E44 /* ZTChannelPayPerViewController.swift in Sources */,
 				39EBD3BB273C007C00BEE73A /* NotificationControllerAPI.swift in Sources */,
 				3915788B27637D0A004F51FF /* ConstraintMakerPriortizable.swift in Sources */,
+				39FA893D27BA94D200E77E44 /* ZTChannelMoviesListViewController.swift in Sources */,
 				3915783427637BCB004F51FF /* NVActivityIndicatorShape.swift in Sources */,
 				39EBD3B6273C007C00BEE73A /* PageControllerAPI.swift in Sources */,
 				3915783C27637BCB004F51FF /* NVActivityIndicatorAnimationLineScalePulseOut.swift in Sources */,
@@ -1564,6 +1612,7 @@
 				39EBD373273C003800BEE73A /* Settings.swift in Sources */,
 				39EBD3CB273C007C00BEE73A /* LanguageControllerAPI.swift in Sources */,
 				391578A227637D0A004F51FF /* ConstraintView+Extensions.swift in Sources */,
+				39FA894A27BADB7E00E77E44 /* ZTChannelMovieOrderTableViewCell.swift in Sources */,
 				3964A5CF2710823F00726487 /* ZTReachability.swift in Sources */,
 				39EBD337273C003800BEE73A /* PageMovieRegions.swift in Sources */,
 				3915784427637BCB004F51FF /* NVActivityIndicatorAnimationBallClipRotatePulse.swift in Sources */,
@@ -1631,6 +1680,7 @@
 				391578A127637D0A004F51FF /* ConstraintLayoutGuideDSL.swift in Sources */,
 				39EBD36E273C003800BEE73A /* MovieCouponValidateRequest.swift in Sources */,
 				39A0DBAC277E22670095EEE2 /* FaqControllerAPI.swift in Sources */,
+				39FA893527BA828500E77E44 /* ZTMusicVideoViewController.swift in Sources */,
 				390D14B827062B3C00C51259 /* AppDelegate.swift in Sources */,
 				39EBD3D0273C007C00BEE73A /* MovieSongControllerAPI.swift in Sources */,
 				39EBD361273C003800BEE73A /* NotificationTemplate.swift in Sources */,
@@ -1663,10 +1713,12 @@
 				39EBD3D2273C007C00BEE73A /* MovieCollectionControllerAPI.swift in Sources */,
 				3930C346274D3456009D8F7A /* DynamicHeightCollectionView.swift in Sources */,
 				3957BC3C27514E77002AC22D /* ZTSettingsViewController.swift in Sources */,
+				39FA894727BAD80600E77E44 /* ZTChannelMoviePlaysViewController.swift in Sources */,
 				39EBD348273C003800BEE73A /* PageLanguages.swift in Sources */,
 				39E7B5BA2757B33700A76BC5 /* NoRecordsView.swift in Sources */,
 				393F17CD2711F989005713E1 /* ZTProfileHeader.swift in Sources */,
 				39B474A727568580006AE63B /* ZTLanguageViewController.swift in Sources */,
+				39FA894227BACFCB00E77E44 /* ZTChannelListCollectionViewCell.swift in Sources */,
 				39EBD385273C003800BEE73A /* UserRoles.swift in Sources */,
 				39EBD268273BFDA000BEE73A /* JSONValue.swift in Sources */,
 				39A42BBE270F4951002C100D /* ZTVideoHeaderTableViewCell.swift in Sources */,
@@ -1709,8 +1761,10 @@
 				39EBD365273C003800BEE73A /* PageMoviePaymentStatus.swift in Sources */,
 				39EBD37C273C003800BEE73A /* PlayMovieRequest.swift in Sources */,
 				39EBD37D273C003800BEE73A /* Movies.swift in Sources */,
+				39FA893F27BA94E400E77E44 /* ZTChannelMovieDetailsViewController.swift in Sources */,
 				3951B780277788EB00212697 /* AUAlertController.swift in Sources */,
 				39EBD267273BFDA000BEE73A /* AlamofireImplementations.swift in Sources */,
+				39FA893B27BA94B000E77E44 /* ZTDashboardChannelViewController.swift in Sources */,
 				39EBD3D6273C007C00BEE73A /* DashboardControllerAPI.swift in Sources */,
 				3915784927637BCB004F51FF /* NVActivityIndicatorAnimationCircleStrokeSpin.swift in Sources */,
 				39EBD346273C003800BEE73A /* Channels.swift in Sources */,
@@ -1723,6 +1777,7 @@
 				3957BC3E275153A3002AC22D /* ZTHelpAndSupportViewController.swift in Sources */,
 				39EBD380273C003800BEE73A /* Languages.swift in Sources */,
 				3944E9182771141500B1706A /* OrderConfirmation.swift in Sources */,
+				39FA893727BA829500E77E44 /* ZTDocumentoryViewController.swift in Sources */,
 				398EA7BC27709EA600D26712 /* IAPHelper.swift in Sources */,
 				39A0DBB1277E22990095EEE2 /* Faqs.swift in Sources */,
 				3915783B27637BCB004F51FF /* NVActivityIndicatorAnimationBallDoubleBounce.swift in Sources */,
@@ -1745,6 +1800,7 @@
 				3915784C27637BCB004F51FF /* NVActivityIndicatorAnimationBallGridBeat.swift in Sources */,
 				3957BC4227515CE5002AC22D /* ZTTickerConfirmationViewController.swift in Sources */,
 				39EBD344273C003800BEE73A /* PageRoles.swift in Sources */,
+				39FA894D27BAE43C00E77E44 /* ZTChannelPopupPayPerViewController.swift in Sources */,
 				39EBD349273C003800BEE73A /* MovieLanguages.swift in Sources */,
 				3915785827637BCB004F51FF /* BMPlayerItem.swift in Sources */,
 				392D915C278A0E1A00ACC258 /* MovieCrew.swift in Sources */,
@@ -1955,7 +2011,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = P6M455AALG;
 				INFOPLIST_FILE = ZettaOTT/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1963,7 +2019,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.humun.moviewood;
 				PRODUCT_NAME = Moviewood;
 				PROVISIONING_PROFILE_SPECIFIER = HumanMovieWoodDev;
@@ -1980,7 +2036,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 10;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = P6M455AALG;
 				INFOPLIST_FILE = ZettaOTT/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1988,7 +2044,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.humun.moviewood;
 				PRODUCT_NAME = Moviewood;
 				PROVISIONING_PROFILE_SPECIFIER = HumanMovieWoodAppStore;

@@ -19,12 +19,12 @@ public struct MCollections: Codable {
     public var lastUpdateLogin: String?
     public var modifiedBy: String?
     public var modifiedOn: Date?
-    public var movieCollections: [MovieCollections]?
+    public var movie: [Movies]?
     public var name: String?
     public var ordering: Int64?
     public var versionNumber: Int64?
 
-    public init(active: String?, createdBy: String?, createdOn: Date?, _description: String?, _id: Int64?, lastUpdateLogin: String?, modifiedBy: String?, modifiedOn: Date?, movieCollections: [MovieCollections]?, name: String?, ordering: Int64?, versionNumber: Int64?) {
+    public init(active: String?, createdBy: String?, createdOn: Date?, _description: String?, _id: Int64?, lastUpdateLogin: String?, modifiedBy: String?, modifiedOn: Date?, movie: [Movies]?, name: String?, ordering: Int64?, versionNumber: Int64?) {
         self.active = active
         self.createdBy = createdBy
         self.createdOn = createdOn
@@ -33,7 +33,7 @@ public struct MCollections: Codable {
         self.lastUpdateLogin = lastUpdateLogin
         self.modifiedBy = modifiedBy
         self.modifiedOn = modifiedOn
-        self.movieCollections = movieCollections
+        self.movie = movie
         self.name = name
         self.ordering = ordering
         self.versionNumber = versionNumber
@@ -48,7 +48,7 @@ public struct MCollections: Codable {
         case lastUpdateLogin
         case modifiedBy
         case modifiedOn
-        case movieCollections
+        case movie
         case name
         case ordering
         case versionNumber
