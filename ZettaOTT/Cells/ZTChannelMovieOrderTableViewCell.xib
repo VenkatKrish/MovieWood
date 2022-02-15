@@ -176,12 +176,22 @@
                                     <constraint firstItem="eHo-JR-491" firstAttribute="leading" secondItem="VvF-5J-q1x" secondAttribute="leading" constant="10" id="xJd-De-qxH"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTA-5I-wAg">
+                                <rect key="frame" x="0.0" y="0.0" width="365" height="73.5"/>
+                                <connections>
+                                    <action selector="btnDetailsTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Nlh-IL-b11"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="wTA-5I-wAg" secondAttribute="trailing" id="1pI-bW-aHX"/>
                             <constraint firstAttribute="trailing" secondItem="VvF-5J-q1x" secondAttribute="trailing" id="7LY-Xl-O6r"/>
                             <constraint firstItem="VvF-5J-q1x" firstAttribute="top" secondItem="ACX-LP-LfI" secondAttribute="top" id="8QV-fe-pas"/>
                             <constraint firstAttribute="bottom" secondItem="VvF-5J-q1x" secondAttribute="bottom" id="C6j-OO-T0B"/>
+                            <constraint firstAttribute="bottom" secondItem="wTA-5I-wAg" secondAttribute="bottom" id="K51-Gd-kpV"/>
+                            <constraint firstItem="wTA-5I-wAg" firstAttribute="leading" secondItem="ACX-LP-LfI" secondAttribute="leading" id="mLz-ny-94h"/>
+                            <constraint firstItem="wTA-5I-wAg" firstAttribute="top" secondItem="ACX-LP-LfI" secondAttribute="top" id="sJZ-wN-Y0A"/>
                             <constraint firstItem="VvF-5J-q1x" firstAttribute="leading" secondItem="ACX-LP-LfI" secondAttribute="leading" id="uqv-ak-EkT"/>
                         </constraints>
                     </view>
@@ -197,6 +207,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="btnDetails" destination="wTA-5I-wAg" id="spR-e2-Ban"/>
                 <outlet property="lblDateDay" destination="4pE-uJ-A4F" id="QTm-b2-xMP"/>
                 <outlet property="lblDateMonth" destination="71f-8g-aPc" id="twi-Of-eRE"/>
                 <outlet property="lblMovieEnd" destination="Yj6-TL-USJ" id="nH2-OY-3d6"/>

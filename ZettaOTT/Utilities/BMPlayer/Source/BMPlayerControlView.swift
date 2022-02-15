@@ -298,16 +298,9 @@ open class BMPlayerControlView: UIView {
     open func updateUISubtitle(_ isSubtitle: Bool) {
         isSubTitleEnable = isSubtitle
         subTitleToggleButton.isSelected = isSubtitle
-
-        if self.isSubTitleEnable == true{
-            self.subtitleBackView.isHidden = false
-            self.subtitleLabel.isHidden = false
-
-        }else{
-            self.subtitleBackView.isHidden = true
-            self.subtitleLabel.isHidden = true
-
-        }
+        self.subtitleBackView.isHidden = isSubtitle
+        self.subtitleLabel.isHidden = isSubtitle
+        
     }
     /**
      Call when video play's to the end, override if you need custom UI or animation when played to the end
@@ -427,17 +420,17 @@ open class BMPlayerControlView: UIView {
      - parameter button: action Button
      */
     @objc open func onSubtitleToggleButtonPressed(_ button: UIButton) {
-      autoFadeOutControlViewWithAnimation()
-      if let type = ButtonType(rawValue: button.tag) {
-        switch type {
-        case .play, .replay:
-          if playerLastState == .playedToTheEnd {
-            hidePlayToTheEndView()
-          }
-        default:
-          break
-        }
-      }
+//      autoFadeOutControlViewWithAnimation()
+//      if let type = ButtonType(rawValue: button.tag) {
+//        switch type {
+//        case .play, .replay:
+//          if playerLastState == .playedToTheEnd {
+//            hidePlayToTheEndView()
+//          }
+//        default:
+//          break
+//        }
+//      }
       delegate?.controlView(controlView: self, didPressButton: button)
     }
     /**
@@ -485,15 +478,20 @@ open class BMPlayerControlView: UIView {
     // MARK: - private functions
     fileprivate func showSubtile(from subtitle: BMSubtitles, at time: TimeInterval) {
         if let group = subtitle.search(for: time) {
-            subtitleBackView.isHidden = false
-//            subtitleLabel.attributedText = NSAttributedString(string: group.text,
-//                                                              attributes: subtileAttribute)
-//
-            subtitleLabel.text = group.text
+            if self.isSubTitleEnable == true{
+                self.subtitleBackView.isHidden = false
+                self.subtitleLabel.isHidden = false
+            }else{
+                self.subtitleBackView.isHidden = true
+                self.subtitleLabel.isHidden = true
 
+            }
+            subtitleLabel.text = group.text
         } else {
-            subtitleBackView.isHidden = true
+            self.subtitleBackView.isHidden = true
+            self.subtitleLabel.isHidden = true
         }
+        
     }
     
     @objc fileprivate func onDefinitionSelected(_ button:UIButton) {

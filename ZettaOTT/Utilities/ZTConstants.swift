@@ -32,6 +32,7 @@ struct Validation {
     static let Movie_running_time_length = 20
 
 }
+
 class SwaggerPathTypes {
 //    static let Swagger_AuthService = "https://cholaott.cinebazzar.com/authentication"
 //    static let Swagger_OtherService = "https://cholaott.cinebazzar.com/cholaottservice"
@@ -141,7 +142,7 @@ class ZTCellNameOrIdentifier{
     static let ZTSeasonEpisodeCollectionViewCell = "ZTSeasonEpisodeCollectionViewCell"
     static let ZTFilterHeaderCollectionReusableView = "ZTFilterHeaderCollectionReusableView"
     static let ZTChannelListCollectionViewCell = "ZTChannelListCollectionViewCell"
-
+    static let ZTChannelMovieOrderTableViewCell = "ZTChannelMovieOrderTableViewCell"    
     
 }
 class ZTControllerName{
@@ -178,6 +179,9 @@ class ZTControllerName{
     static let ZTTransactionDetailsViewController = "ZTTransactionDetailsViewController"
     static let ZTDashboardChannelViewController = "ZTDashboardChannelViewController"
     static let ZTChannelMoviesListViewController = "ZTChannelMoviesListViewController"
+    static let ZTChannelMovieDetailsViewController = "ZTChannelMovieDetailsViewController"
+    static let ZTChannelPopupPayPerViewController = "ZTChannelPopupPayPerViewController"
+
 }
 class moviesKeyUI {
     static let paging = "Paging"
@@ -209,6 +213,8 @@ class CustomDateFormatter{
     static let ticketConfirmationDate = "dd-MM-yyyy"
     static let transactionDateWithTime = "dd MMM yyyy | hh:mm a"
     static let movieSubmitDate = "dd MMM yyyy"
+    static let transactionDay = "dd"
+    static let transactionMonth = "MMM"
 
 }
 class AlertTitle{

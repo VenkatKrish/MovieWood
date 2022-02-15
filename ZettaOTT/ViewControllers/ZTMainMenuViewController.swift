@@ -23,6 +23,8 @@ class ZTMainMenuViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         self.imgVw.image = nil
+        self.vwDashboard.isHidden = true
+        self.checkUserRoles()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             if let screenImgVal = screenShotImage{
                 self.imgVw.image = screenImgVal
@@ -40,8 +42,17 @@ class ZTMainMenuViewController: UIViewController {
                     if let email = userModel.emailId{
                         self.lblEmail.text = String(format: "%@",email)
                     }
+                    
+                    self.checkUserRoles()
                     Helper.shared.loadImage(url: userModel.userImagePath ?? "", imageView: self.imgVwProfile, placeHolder: ZTDefaultValues.placeholder_profile)
                 }
+            }
+        }
+    }
+    func checkUserRoles(){
+        if let userModel = ZTAppSession.sharedInstance.getUserInfo(){
+            if ((userModel.roles?.contains(where: { $0.roleName == UserRolesStruct.producer.rawValue })) == true) {
+                self.vwDashboard.isHidden = false
             }
         }
     }

@@ -12,20 +12,31 @@ class ZTChannelMovieDetailsViewController: UIViewController {
     
     var zTChannelPayPerViewController: ZTChannelPayPerViewController?
     var zTChannelMoviePlaysViewController: ZTChannelMoviePlaysViewController?
+    var movieInfo:Movies? = nil
 
     var carbonKitTabs:[String] = []
     var carbonTabSwipeNavigation: CarbonTabSwipeNavigation = CarbonTabSwipeNavigation()
+    
     @IBOutlet weak var carbonKitView: UIView!
+    @IBOutlet weak var lblMovieTitle: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.initialLoad()
         // Do any additional setup after loading the view.
     }
+    @IBAction func btnBackTapped(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
     func initialLoad(){
         self.zTChannelMoviePlaysViewController = self.storyboard!.instantiateViewController(withIdentifier: "ZTChannelMoviePlaysViewController") as? ZTChannelMoviePlaysViewController
-        
+        self.zTChannelMoviePlaysViewController?.movieInfo = self.movieInfo
+
+        self.lblMovieTitle.text = self.movieInfo?.movieName ?? ""
         self.zTChannelPayPerViewController = self.storyboard!.instantiateViewController(withIdentifier: "ZTChannelPayPerViewController") as? ZTChannelPayPerViewController
+        self.zTChannelPayPerViewController?.movieInfo = self.movieInfo
+
+        
         self.carbonInitialize()
     }
     func carbonInitialize() {
@@ -49,13 +60,15 @@ class ZTChannelMovieDetailsViewController: UIViewController {
         
         let frame  = (self.view.bounds.width  / CGFloat(self.carbonKitTabs.count))
  
-        let font = UIFont.setAppFontMedium(16)
+        let fontSelected = UIFont.setAppFontBold(16)
+        let font = UIFont.setAppFontRegular(16)
+
         carbonTabSwipeNavigation.carbonSegmentedControl!.setWidth(frame, forSegmentAt: 0)
         carbonTabSwipeNavigation.carbonSegmentedControl!.setWidth(frame, forSegmentAt: 1)
 
-        carbonTabSwipeNavigation.setNormalColor(UIColor.getColor(colorVal: ZTGradientColor1), font: font )
+        carbonTabSwipeNavigation.setNormalColor(UIColor.getColor(colorVal: ZTAppWhiteColor), font: font )
         carbonTabSwipeNavigation.currentTabIndex = 0
-        carbonTabSwipeNavigation.setSelectedColor(UIColor.getColor(colorVal: ZTAppWhiteColor), font: font)
+        carbonTabSwipeNavigation.setSelectedColor(UIColor.getColor(colorVal: ZTAppWhiteColor), font: fontSelected)
         carbonTabSwipeNavigation.pagesScrollView?.isScrollEnabled = false
     }
     /*

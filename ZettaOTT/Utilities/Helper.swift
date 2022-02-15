@@ -465,6 +465,23 @@ extension Helper{
         initial.channelInfo = channelInfo
         viewController.navigationController?.pushViewController(initial, animated: true)
     }
+    func goToChannelsMovieDetails(viewController:UIViewController, movieInfo:Movies? = nil){
+        
+        let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
+        let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTChannelMovieDetailsViewController) as! ZTChannelMovieDetailsViewController
+        initial.movieInfo = movieInfo
+        viewController.navigationController?.pushViewController(initial, animated: true)
+    }
+    func goToPayPerView(viewController:UIViewController, orderInfo:Orders? = nil, playsInfo:MoviePlays? = nil, movieInfo:Movies? = nil){
+        
+        let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
+        let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTChannelPopupPayPerViewController) as! ZTChannelPopupPayPerViewController
+        initial.orderInfo = orderInfo
+        initial.playInfo = playsInfo
+        initial.movieInfo = movieInfo
+        initial.modalPresentationStyle = .overCurrentContext
+        viewController.present(initial, animated: false, completion: nil)
+    }
     func goToTransactionDetails(viewController:UIViewController, orderInfo:Orders? = nil){
         let storyboard = UIStoryboard(name: ZTStoryBoardName.MAIN, bundle: nil)
         let initial = storyboard.instantiateViewController(withIdentifier: ZTControllerName.ZTTransactionDetailsViewController) as! ZTTransactionDetailsViewController

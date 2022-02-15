@@ -276,5 +276,63 @@ open class MoviePlayControllerAPI {
 
         return requestBuilder.init(method: "PUT", URLString: (url?.string ?? URLString), parameters: parameters, isBody: true)
     }
+    /**
+     playsByMovieId
+     
+     - parameter movieId: (path) movieId
+     - parameter offset: (query)  (optional)
+     - parameter pageNumber: (query)  (optional)
+     - parameter pageSize: (query)  (optional)
+     - parameter paged: (query)  (optional)
+     - parameter sortSorted: (query)  (optional)
+     - parameter sortUnsorted: (query)  (optional)
+     - parameter unpaged: (query)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func playsByMovieIdUsingGET(movieId: Int64, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, sort: String? = nil, completion: @escaping ((_ data: PageMoviePlays?,_ error: Error?) -> Void)) {
+        playsByMovieIdUsingGETWithRequestBuilder(movieId: movieId, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged, sort:sort).execute { (response, error) -> Void in
+            completion(response?.body, error)
+        }
+    }
 
+    /**
+     playsByMovieId
+     - GET /api/v1/plays/{movieId}
+     - examples: [{output=none}]
+     
+     - parameter movieId: (path) movieId
+     - parameter offset: (query)  (optional)
+     - parameter pageNumber: (query)  (optional)
+     - parameter pageSize: (query)  (optional)
+     - parameter paged: (query)  (optional)
+     - parameter sortSorted: (query)  (optional)
+     - parameter sortUnsorted: (query)  (optional)
+     - parameter unpaged: (query)  (optional)
+
+     - returns: RequestBuilder<PageMoviePlays>
+     */
+    open class func playsByMovieIdUsingGETWithRequestBuilder(movieId: Int64, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, sort: String? = nil) -> RequestBuilder<PageMoviePlays> {
+        var path = "/api/v1/plays/{movieId}"
+        let movieIdPreEscape = "\(movieId)"
+        let movieIdPostEscape = movieIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
+        path = path.replacingOccurrences(of: "{movieId}", with: movieIdPostEscape, options: .literal, range: nil)
+        let URLString = SwaggerClientAPI.basePath + path
+        let parameters: [String:Any]? = nil
+        
+        var url = URLComponents(string: URLString)
+        url?.queryItems = APIHelper.mapValuesToQueryItems([
+            "offset": offset?.encodeToJSON(),
+            "pageNumber": pageNumber?.encodeToJSON(),
+            "pageSize": pageSize?.encodeToJSON(),
+            "paged": paged,
+            "sort.sorted": sortSorted,
+            "sort.unsorted": sortUnsorted,
+            "unpaged": unpaged,
+            "sort" : sort
+        ])
+
+        let requestBuilder: RequestBuilder<PageMoviePlays>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()
+
+        return requestBuilder.init(method: "GET", URLString: (url?.string ?? URLString), parameters: parameters, isBody: false)
+    }
 }

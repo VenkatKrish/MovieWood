@@ -64,7 +64,8 @@ enum SortingStruct : String {
     case sort_createdOn_asc = "createdOn,asc"
     case sort_streamDateOn_desc = "streamingStartDate,desc"
     case sort_streamDateOn_asc = "streamingStartDate,asc"
-
+    case sort_orderDateOn_desc = "orderDate,desc"
+    case sort_playTimeOn_desc = "playStartTime,desc"
     func SortingStruct() -> String{
         return self.rawValue
     }
@@ -102,6 +103,14 @@ enum SubscriptionUom : String {
     case year = "Year"
     case month = "Month"
     func SubscriptionUom() -> String{
+        return self.rawValue
+    }
+}
+enum UserRolesStruct : String {
+    case producer = "Producer"
+    case admin = "Admin"
+    case cutomer = "Customer"
+    func UserRolesStruct() -> String{
         return self.rawValue
     }
 }

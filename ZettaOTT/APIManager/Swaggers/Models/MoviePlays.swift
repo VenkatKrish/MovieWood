@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 public struct MoviePlays: Codable {
 
     public var country: String?
@@ -26,14 +24,13 @@ public struct MoviePlays: Codable {
     public var playSeekTime: Int64?
     public var seasonId : Int64?
     public var episodeId : Int64?
-    public var playStartTime: Date?
+    public var playStartTime: String?
     public var timezone: String?
     public var userId: Int64?
     public var versionNumber: Int64?
     public var playDuration: Int64?
-
-
-    public init(country: String?, createdBy: String?, createdOn: Date?, deviceInfo: String?, ipAddress: String?, lastUpdateLogin: String?, modifiedBy: String?, modifiedOn: Date?, movieId: Int64?, moviePlayId: Int64?, operatingSystem: String?, playEndTime: String?, playSeekTime: Int64?, seasonId: Int64?, episodeId: Int64?, playStartTime: Date?, timezone: String?, userId: Int64?, versionNumber: Int64?, playDuration: Int64?) {
+    
+    public init(country: String?, createdBy: String?, createdOn: Date?, deviceInfo: String?, ipAddress: String?, lastUpdateLogin: String?, modifiedBy: String?, modifiedOn: Date?, movieId: Int64?, moviePlayId: Int64?, operatingSystem: String?, playEndTime: String?, playSeekTime: Int64?, seasonId: Int64?, episodeId: Int64?, playStartTime: String?, timezone: String?, userId: Int64?, versionNumber: Int64?, playDuration: Int64?) {
         self.country = country
         self.createdBy = createdBy
         self.createdOn = createdOn

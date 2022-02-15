@@ -60,7 +60,7 @@ extension ZTHomeViewController {
     }
 
     func carbonInitialize() {
-        carbonKitTabs = ["Now", "Upcoming", "Web Series",  "Short Films", "Documentory" , "Stage Plays", "Music Video"]
+        carbonKitTabs = ["Now", "Upcoming", "Web Series",  "Short Films", "Documentary" , "Stage Plays", "Music Video"]
         
         carbonTabSwipeNavigation = CarbonTabSwipeNavigation(items: carbonKitTabs as [AnyObject], delegate: self)
         carbonTabSwipeNavigation.insert(intoRootViewController: self, andTargetView: self.segmentView)

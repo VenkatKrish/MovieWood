@@ -86,7 +86,7 @@ extension ZTChannelMoviesListViewController:UICollectionViewDelegate, UICollecti
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let movieModel = self.videosList?[indexPath.row]{
-            Helper.shared.goToMovieDetails(viewController: self, movieInfo: movieModel)
+            Helper.shared.goToChannelsMovieDetails(viewController: self, movieInfo: movieModel)
         }
     }
     

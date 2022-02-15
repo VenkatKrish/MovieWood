@@ -237,8 +237,8 @@ open class OrderControllerAPI {
      - parameter unpaged: (query)  (optional)
      - parameter completion: completion handler to receive the data and the error objects
      */
-    open class func movieOrdersUsingGET(movieId: Int64, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, completion: @escaping ((_ data: PageOrders?,_ error: Error?) -> Void)) {
-        movieOrdersUsingGETWithRequestBuilder(movieId: movieId, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged).execute { (response, error) -> Void in
+    open class func movieOrdersUsingGET(movieId: Int64, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, sort: String? = nil, completion: @escaping ((_ data: PageOrders?,_ error: Error?) -> Void)) {
+        movieOrdersUsingGETWithRequestBuilder(movieId: movieId, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged, sort: sort).execute { (response, error) -> Void in
             completion(response?.body, error)
         }
     }
@@ -260,7 +260,7 @@ open class OrderControllerAPI {
 
      - returns: RequestBuilder<PageOrders> 
      */
-    open class func movieOrdersUsingGETWithRequestBuilder(movieId: Int64, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil) -> RequestBuilder<PageOrders> {
+    open class func movieOrdersUsingGETWithRequestBuilder(movieId: Int64, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, sort: String? = nil) -> RequestBuilder<PageOrders> {
         var path = "/api/v1/movieorders/{movieId}"
         let movieIdPreEscape = "\(movieId)"
         let movieIdPostEscape = movieIdPreEscape.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
@@ -276,7 +276,8 @@ open class OrderControllerAPI {
             "paged": paged, 
             "sort.sorted": sortSorted, 
             "sort.unsorted": sortUnsorted, 
-            "unpaged": unpaged
+            "unpaged": unpaged,
+            "sort": sort
         ])
 
         let requestBuilder: RequestBuilder<PageOrders>.Type = SwaggerClientAPI.requestBuilderFactory.getBuilder()

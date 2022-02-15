@@ -23,7 +23,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="410" height="201"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDk-8J-uJO">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDk-8J-uJO" customClass="ZTCornerRadiusView" customModule="Moviewood" customModuleProvider="target">
                         <rect key="frame" x="8" y="8" width="394" height="185"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_channel" translatesAutoresizingMaskIntoConstraints="NO" id="xxG-eU-c0h">
@@ -39,11 +39,21 @@
                                 <color key="textColor" name="ZTAppWhiteColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9F-c6-zBD">
+                                <rect key="frame" x="0.0" y="0.0" width="394" height="185"/>
+                                <connections>
+                                    <action selector="btnChannelTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="B34-xv-7Kb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="ZTGradientColor1"/>
                         <constraints>
                             <constraint firstItem="Yzw-9D-n13" firstAttribute="centerY" secondItem="RDk-8J-uJO" secondAttribute="centerY" constant="20" id="1nE-mU-fex"/>
+                            <constraint firstItem="d9F-c6-zBD" firstAttribute="top" secondItem="RDk-8J-uJO" secondAttribute="top" id="56x-c6-5ZX"/>
                             <constraint firstItem="Yzw-9D-n13" firstAttribute="top" secondItem="xxG-eU-c0h" secondAttribute="bottom" constant="5" id="7pg-rX-rj5"/>
+                            <constraint firstItem="d9F-c6-zBD" firstAttribute="leading" secondItem="RDk-8J-uJO" secondAttribute="leading" id="Fg2-Vg-YJc"/>
+                            <constraint firstAttribute="trailing" secondItem="d9F-c6-zBD" secondAttribute="trailing" id="LMz-ho-Ydp"/>
+                            <constraint firstAttribute="bottom" secondItem="d9F-c6-zBD" secondAttribute="bottom" id="R9I-6K-TG5"/>
                             <constraint firstAttribute="height" constant="185" id="sKf-Tq-Kg2"/>
                             <constraint firstItem="Yzw-9D-n13" firstAttribute="centerX" secondItem="RDk-8J-uJO" secondAttribute="centerX" id="tuC-Vr-qba"/>
                             <constraint firstItem="xxG-eU-c0h" firstAttribute="centerX" secondItem="RDk-8J-uJO" secondAttribute="centerX" id="xtc-Gy-B8B"/>
@@ -60,6 +70,7 @@
             </constraints>
             <size key="customSize" width="410" height="228"/>
             <connections>
+                <outlet property="btnChannel" destination="d9F-c6-zBD" id="tUd-QY-3ZF"/>
                 <outlet property="imgVwChannel" destination="xxG-eU-c0h" id="41C-S5-MDo"/>
                 <outlet property="lblChannelName" destination="Yzw-9D-n13" id="0wD-et-fSx"/>
             </connections>

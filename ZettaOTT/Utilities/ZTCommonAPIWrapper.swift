@@ -482,4 +482,40 @@ open class ZTCommonAPIWrapper {
             completion(response, error)
         }
     }
+    /**
+     movieOrders
+     
+     - parameter movieId: (path) movieId
+     - parameter offset: (query)  (optional)
+     - parameter pageNumber: (query)  (optional)
+     - parameter pageSize: (query)  (optional)
+     - parameter paged: (query)  (optional)
+     - parameter sortSorted: (query)  (optional)
+     - parameter sortUnsorted: (query)  (optional)
+     - parameter unpaged: (query)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func movieOrdersUsingGET(movieId: Int64, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, sort: String? = nil, completion: @escaping ((_ data: PageOrders?,_ error: Error?) -> Void)) {
+        OrderControllerAPI.movieOrdersUsingGET(movieId: movieId, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged, sort:sort) { response, error in
+            completion(response,error)
+        }
+    }
+    /**
+     playsByMovieId
+     
+     - parameter movieId: (path) movieId
+     - parameter offset: (query)  (optional)
+     - parameter pageNumber: (query)  (optional)
+     - parameter pageSize: (query)  (optional)
+     - parameter paged: (query)  (optional)
+     - parameter sortSorted: (query)  (optional)
+     - parameter sortUnsorted: (query)  (optional)
+     - parameter unpaged: (query)  (optional)
+     - parameter completion: completion handler to receive the data and the error objects
+     */
+    open class func playsByMovieIdUsingGET(movieId: Int64, offset: Int64? = nil, pageNumber: Int? = nil, pageSize: Int? = nil, paged: Bool? = nil, sortSorted: Bool? = nil, sortUnsorted: Bool? = nil, unpaged: Bool? = nil, sort: String? = nil, completion: @escaping ((_ data: PageMoviePlays?,_ error: Error?) -> Void)) {
+        MoviePlayControllerAPI.playsByMovieIdUsingGET(movieId: movieId, offset: offset, pageNumber: pageNumber, pageSize: pageSize, paged: paged, sortSorted: sortSorted, sortUnsorted: sortUnsorted, unpaged: unpaged, sort:sort) { response, error in
+            completion(response,error)
+        }
+    }
 }
