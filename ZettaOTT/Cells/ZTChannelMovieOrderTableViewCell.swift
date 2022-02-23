@@ -72,8 +72,10 @@ class ZTChannelMovieOrderTableViewCell: UITableViewCell {
             let duration = data.playDuration ?? 0
 
             if duration > 0{
-                let val = (duration / 60) * (movieInfo?.subsCommission ?? 0)
+                let division = Double(duration) / Double(60.0)
+                let val = division * Double(movieInfo?.subsCommission ?? 0)
                 commission = Double(val)
+                
             }
             self.lblMoviePrice.text = String(format: "%@", commission.getPriceValue())
             

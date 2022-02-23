@@ -67,6 +67,7 @@ class ZTChannelPopupPayPerViewController: UIViewController {
             if dataVal.playDuration ?? 0 == 1{
                 minVal = "min"
             }
+            self.lblOperatingSystem.text = dataVal.operatingSystem ?? ""
             self.lblPlayDuration.text = String(format: "%d %@", dataVal.playDuration ?? 0, minVal)
             
             // commision
@@ -74,7 +75,8 @@ class ZTChannelPopupPayPerViewController: UIViewController {
             let duration = dataVal.playDuration ?? 0
 
             if duration > 0{
-                let val = (duration / 60) * (movieInfo?.subsCommission ?? 0)
+                let division = Double(duration) / Double(60.0)
+                let val = division * Double(movieInfo?.subsCommission ?? 0)
                 commission = Double(val)
             }
             self.lblShare.text = String(format: "%@", commission.getPriceValue())
