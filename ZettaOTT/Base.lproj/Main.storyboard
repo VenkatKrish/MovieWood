@@ -5700,6 +5700,7 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="VsB-MQ-EgM" secondAttribute="bottom" id="2jV-W6-hVG"/>
                                             <constraint firstAttribute="trailing" secondItem="MX3-bs-JHH" secondAttribute="trailing" id="HP8-FB-fHb"/>
+                                            <constraint firstItem="MX3-bs-JHH" firstAttribute="width" secondItem="Zf8-In-hlC" secondAttribute="width" id="IEE-pS-oPt"/>
                                             <constraint firstItem="MX3-bs-JHH" firstAttribute="top" secondItem="Zf8-In-hlC" secondAttribute="top" id="JHY-28-dxR"/>
                                             <constraint firstItem="5Ud-B1-6mF" firstAttribute="centerX" secondItem="Zf8-In-hlC" secondAttribute="centerX" id="QeL-CW-UNV"/>
                                             <constraint firstAttribute="bottom" secondItem="5Ud-B1-6mF" secondAttribute="bottom" constant="16" id="X3W-wd-ftR"/>
@@ -6420,6 +6421,7 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                                 </subviews>
                                 <color key="backgroundColor" name="ZTBackgroundColor"/>
                                 <constraints>
+                                    <constraint firstItem="Zf8-In-hlC" firstAttribute="width" secondItem="Htt-7o-YDL" secondAttribute="width" id="0dW-oD-gVR"/>
                                     <constraint firstItem="M1q-Gs-8A9" firstAttribute="width" secondItem="Htt-7o-YDL" secondAttribute="width" id="1GB-Cj-Dyy"/>
                                     <constraint firstItem="Zf8-In-hlC" firstAttribute="leading" secondItem="Htt-7o-YDL" secondAttribute="leading" id="ASp-hl-efo"/>
                                     <constraint firstAttribute="trailing" secondItem="Zf8-In-hlC" secondAttribute="trailing" id="NdD-kL-WhC"/>
@@ -6490,6 +6492,7 @@ Share it with the world on Sorted and let it receive the recognition it deserves
                         <color key="backgroundColor" name="ZTBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="9TO-NZ-Kc7" firstAttribute="top" secondItem="Htt-7o-YDL" secondAttribute="bottom" id="7uQ-dm-2Ms"/>
+                            <constraint firstItem="Htt-7o-YDL" firstAttribute="width" secondItem="gVz-8h-FV4" secondAttribute="width" id="PeH-Ib-4QI"/>
                             <constraint firstItem="0SU-uj-4Yn" firstAttribute="trailing" secondItem="9TO-NZ-Kc7" secondAttribute="trailing" id="aDW-V2-6Wv"/>
                             <constraint firstItem="9TO-NZ-Kc7" firstAttribute="leading" secondItem="0SU-uj-4Yn" secondAttribute="leading" id="gn4-L2-BV2"/>
                             <constraint firstItem="0SU-uj-4Yn" firstAttribute="bottom" secondItem="9TO-NZ-Kc7" secondAttribute="bottom" constant="10" id="o8m-JI-ZDD"/>
