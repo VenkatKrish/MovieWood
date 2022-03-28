@@ -47,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NetworkReachability.shared.checkForReachability()
         return true
     }
+    
     func initialSetup(){
         os_version = UIDevice.current.systemVersion
         if let text = Bundle.main.infoDictionary?["CFBundleShortVersionString"]  as? String {
